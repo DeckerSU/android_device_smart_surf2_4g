@@ -1,0 +1,1651 @@
+--------- beginning of main
+01-01 11:52:47.610   251   251 I auditd  : type=1403 audit(0.0:2): policy loaded auid=4294967295 ses=4294967295
+01-01 11:52:48.140     1     1 I init    : type=1400 audit(0.0:3): avc: denied { create } for name="sdcard" scontext=u:r:init:s0 tcontext=u:object_r:tmpfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:48.150     1     1 I init    : type=1400 audit(0.0:4): avc: denied { mounton } for path="/mnt/media_rw" dev="tmpfs" ino=395 scontext=u:r:init:s0 tcontext=u:object_r:mnt_media_rw_file:s0 tclass=dir permissive=1
+01-01 11:52:49.050     1     1 I init    : type=1400 audit(0.0:5): avc: denied { setattr } for name="nvram" dev="tmpfs" ino=304 scontext=u:r:init:s0 tcontext=u:object_r:block_device:s0 tclass=lnk_file permissive=1
+01-01 11:52:49.220   211   211 I chmod   : type=1400 audit(0.0:6): avc: denied { setattr } for name="mmcblk0p7" dev="tmpfs" ino=323 scontext=u:r:toolbox:s0 tcontext=u:object_r:boot_block_device:s0 tclass=blk_file permissive=1
+01-01 11:52:49.220   211   211 I chmod   : type=1400 audit(0.0:7): avc: denied { fsetid } for capability=4 scontext=u:r:toolbox:s0 tcontext=u:r:toolbox:s0 tclass=capability permissive=1
+01-01 11:52:49.430   213   213 I chmod   : type=1400 audit(0.0:8): avc: denied { setattr } for name="mmcblk0p8" dev="tmpfs" ino=327 scontext=u:r:toolbox:s0 tcontext=u:object_r:recovery_block_device:s0 tclass=blk_file permissive=1
+01-01 11:52:49.640   215   215 I chmod   : type=1400 audit(0.0:9): avc: denied { setattr } for name="mmcblk0p13" dev="tmpfs" ino=353 scontext=u:r:toolbox:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+01-01 11:52:50.050   219   219 I chmod   : type=1400 audit(0.0:10): avc: denied { setattr } for name="mmcblk0p1" dev="tmpfs" ino=297 scontext=u:r:toolbox:s0 tcontext=u:object_r:proinfo_device:s0 tclass=blk_file permissive=1
+01-01 11:52:51.100   229   229 I chown   : type=1400 audit(0.0:12): avc: denied { setattr } for name="mmcblk0p17" dev="tmpfs" ino=369 scontext=u:r:toolbox:s0 tcontext=u:object_r:frp_block_device:s0 tclass=blk_file permissive=1
+--------- beginning of system
+01-01 11:52:53.591   254   254 I vold    : Vold 3.0 (the awakening) firing up
+01-01 11:52:53.591   254   254 V vold    : Detected support for: exfat ext4 ntfs vfat
+01-01 11:52:53.596   254   254 W Vold    : Tearing down stale mount /storage/usbotg
+01-01 11:52:53.597   254   254 W Vold    : Tearing down stale mount /mnt/media_rw
+01-01 11:52:53.898   254   264 V vold    : /system/bin/sgdisk
+01-01 11:52:53.898   254   264 V vold    :     --android-dump
+01-01 11:52:53.898   254   264 V vold    :     /dev/block/vold/disk:179_128
+01-01 11:52:53.906   254   266 D vold    : e4crypt_init_user0
+01-01 11:52:53.906   254   266 D vold    : e4crypt_prepare_user_storage for volume null, user 0, serial 0, flags 1
+01-01 11:52:53.907   254   266 D vold    : Preparing: /data/system/users/0
+01-01 11:52:53.907   254   266 D vold    : Preparing: /data/misc/profiles/cur/0
+01-01 11:52:53.908   254   266 D vold    : Preparing: /data/misc/profiles/cur/0/foreign-dex
+01-01 11:52:53.909   254   266 D vold    : Preparing: /data/system_de/0
+01-01 11:52:53.909   254   266 D vold    : Preparing: /data/misc_de/0
+01-01 11:52:53.910   254   266 D vold    : Preparing: /data/user_de/0
+01-01 11:52:53.911   254   266 D vold    : e4crypt_unlock_user_key 0 serial=0 token_present=0
+01-01 11:52:53.911   254   266 E vold    : Failed to chmod /data/system_ce/0: No such file or directory
+01-01 11:52:53.912   254   266 E vold    : Failed to chmod /data/misc_ce/0: No such file or directory
+01-01 11:52:53.914     1     1 I vdc     : 200 260 Command succeeded
+01-01 11:52:54.144   268   268 I /system/bin/tzdatacheck: tzdata file /data/misc/zoneinfo/current/tzdata does not exist. No action required.
+01-01 11:52:54.160   254   264 V vold    : DISK gpt CBC83FD9-4235-4453-8D69-6B98D2518C8B
+01-01 11:52:54.160   254   264 V vold    : 
+01-01 11:52:54.160   254   264 V vold    : PART 1 EBD0A0A2-B9E5-4433-87C0-68B6B72699C7 6364D990-56C9-45B7-991C-554740580B3D Microsoft basic data
+01-01 11:52:54.160   254   264 V vold    : 
+01-01 11:52:54.310   270   270 I rm      : type=1400 audit(0.0:13): avc: denied { dac_override } for capability=1 scontext=u:r:toolbox:s0 tcontext=u:r:toolbox:s0 tclass=capability permissive=1
+01-01 11:52:54.330   271   271 I sysinit : type=1400 audit(0.0:14): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:sysinit:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.380   275   275 I 6620_launcher: type=1400 audit(0.0:15): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:conn_launcher:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.380   276   276 I ccci_fsd: type=1400 audit(0.0:16): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:ccci_fsd:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.390   277   277 I ccci_mdinit: type=1400 audit(0.0:17): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:ccci_mdinit:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.390   274   274 I wmt_loader: type=1400 audit(0.0:18): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:wmt_loader:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.400   278   278 I terservice: type=1400 audit(0.0:19): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:terservice:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+--------- beginning of crash
+01-01 11:52:54.415   278   278 F libc    : CANNOT LINK EXECUTABLE "/system/bin/terservice": library "libterservice.so" not found
+01-01 11:52:54.416   278   278 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 278 (terservice)
+01-01 11:52:54.416   253   253 W         : debuggerd: handling request: pid=278 uid=1001 gid=1001 tid=278
+01-01 11:52:54.424   276   276 F libc    : CANNOT LINK EXECUTABLE "/system/bin/ccci_fsd": library "libfs_mgr.so" not found
+01-01 11:52:54.424   276   276 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 276 (ccci_fsd)
+01-01 11:52:54.429   277   277 F libc    : CANNOT LINK EXECUTABLE "/system/bin/ccci_mdinit": library "libfs_mgr.so" not found
+01-01 11:52:54.429   277   277 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 277 (ccci_mdinit)
+01-01 11:52:54.439   282   282 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:52:54.490   282   282 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:52:54.490   282   282 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:52:54.490   282   282 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:52:54.490   282   282 F DEBUG   : Revision: '0'
+01-01 11:52:54.490   282   282 F DEBUG   : ABI: 'arm'
+01-01 11:52:54.491   282   282 F DEBUG   : pid: 278, tid: 278, name: terservice  >>> /system/bin/terservice <<<
+01-01 11:52:54.491   282   282 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:52:54.491   282   282 F DEBUG   :     r0 00000000  r1 00000116  r2 00000006  r3 00000008
+01-01 11:52:54.491   282   282 F DEBUG   :     r4 b6f2558c  r5 00000006  r6 b6f25534  r7 0000010c
+01-01 11:52:54.491   282   282 F DEBUG   :     r8 be88b730  r9 00000003  sl be88b760  fp b6eb2010
+01-01 11:52:54.491   282   282 F DEBUG   :     ip 00000002  sp be88b6c8  lr b6f0511f  pc b6f05b38  cpsr 200f0010
+01-01 11:52:54.503   284   284 F libc    : CANNOT LINK EXECUTABLE "/system/bin/nvram_daemon": library "libfs_mgr.so" not found
+01-01 11:52:54.503   284   284 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 284 (nvram_daemon)
+01-01 11:52:54.548   282   282 F DEBUG   : 
+01-01 11:52:54.548   282   282 F DEBUG   : backtrace:
+01-01 11:52:54.548   282   282 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:52:54.548   282   282 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:52:54.548   282   282 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:52:54.549   282   282 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:52:54.549   282   282 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:52:54.549   282   282 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:52:54.549   282   282 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:52:54.549   282   282 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:52:54.549   282   282 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:52:54.575   287   287 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:52:54.575   287   287 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 287 (mnld)
+01-01 11:52:54.901   275   275 I 6620_launcher: get property(service.wcn.driver.ready) failed i_ret:0
+01-01 11:52:54.902   274   274 I wmt_loader: is_chipId_vaild: 11 :0x335!
+01-01 11:52:54.902   274   274 I wmt_loader: key:(persist.mtk.wcn.combo.chipid)-value:(0x0335),chipId:0x0335,iRet(6)
+01-01 11:52:54.903   274   274 I wmt_loader: remove wmtWifi returns:-1, errno:2
+01-01 11:52:54.923   281   281 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:52:54.923   281   281 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:52:54.939   286   286 D wifi2agps: add no timeout event, sock=4
+01-01 11:52:54.966   281   281 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:52:54.972   289   289 I thermal_manager: thermal_manager Service started!, argc 1
+01-01 11:52:54.972   289   289 I thermal_manager: thermal_manager Service started!, argv[0] /system/bin/thermal_manager
+01-01 11:52:54.981   289   289 I thermal_manager: thermal_manager dlopen
+01-01 11:52:54.981   289   289 I thermal_manager: loadmtc  etc .tp thermal.conf 
+01-01 11:52:54.981   289   289 I libMtcLoader: mtcloader started!
+01-01 11:52:54.983   289   289 E libMtcLoader: mtcloader fails to open .tp.settings and exits!
+01-01 11:52:54.983   289   289 I thermal_manager: [backward-compatiable] default thermal policy
+01-01 11:52:54.990   281   281 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:52:54.990   281   281 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:52:54.991   281   281 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 281 (surfaceflinger)
+01-01 11:52:55.077   288   288 D MsensorDaemon: Msensor deamon statr!!!!!!!!!!!!
+01-01 11:52:55.077   288   288 D MsensorDaemon: Msensor deamon statr : /sys/bus/platform/drivers/msensor/daemon don't exist
+01-01 11:52:55.092   279   279 I lowmemorykiller: Using in-kernel low memory killer interface
+01-01 11:52:55.099   274   274 I wmt_loader: do kernel module init succeed: 0
+01-01 11:52:55.099   274   274 I wmt_loader: chown wmt_tm fail:No such file or directory
+01-01 11:52:55.099   274   274 I wmt_loader: get property(service.wcn.driver.ready) failed iRet:0 or property is 
+01-01 11:52:55.102   274   274 I wmt_loader: set property(service.wcn.driver.ready) to yes succeed
+01-01 11:52:55.144   294   294 I         : installd firing up
+01-01 11:52:55.168   285   285 E agps    : [agps] ERR: [MAIN] mtk_agpsd is running ver=4.55.0
+01-01 11:52:55.168   285   285 E agps    : [agps] ERR: [MAIN] mtk_agpsd is for Android
+01-01 11:52:55.168   285   285 D agps    : [agps] WARNING: [MAIN] mkdir failure for [/data/agps_supl/log] reason=[File exists]
+01-01 11:52:55.172   285   285 D MtkAgpsNative: SuplRawLog.bEnable:0
+01-01 11:52:55.172   285   285 D MtkAgpsNative: SuplRawLog.szPath:/sdcard
+01-01 11:52:55.172   285   285 D MtkAgpsNative: SuplRawLog.szFile:agps_raw.log
+01-01 11:52:55.172   285   285 D MtkAgpsNative: SuplSslLog.bEnable:0
+01-01 11:52:55.172   285   285 D MtkAgpsNative: SuplSslLog.szPath:/sdcard
+01-01 11:52:55.172   285   285 D MtkAgpsNative: SuplSslLog.szFile:agps_ssl.log
+01-01 11:52:55.172   285   285 I MtkAgpsNative: [CDMA mgr] cdma_mgr_dlopen_firmware 
+01-01 11:52:55.172   285   285 E MtkAgpsNative: [CDMA mgr] VIAMTKDBG Could not open /system/lib/libviagpsrpc.so, error: dlopen failed: library "/system/lib/libviagpsrpc.so" not found
+01-01 11:52:55.172   285   285 D agps    : [agps] WARNING: [MAIN] cdma_mgr_dlopen_firmware failed
+01-01 11:52:55.173   285   318 I MtkAgpsNative: Enter mtk_agps_up_init
+01-01 11:52:55.173   285   318 D MtkAgpsNative: FS_CreateDir: /data/agps_supl
+01-01 11:52:55.173   285   318 W MtkAgpsNative:   -> errno(EEXIST) => dir already exists
+01-01 11:52:55.173   285   318 D MtkAgpsNative: mtk_agps_debug_init()
+01-01 11:52:55.173   285   318 D MtkAgpsNative: Enter supl_os_timer_init
+01-01 11:52:55.174   285   318 D MtkAgpsNative: rrlp_mod_init(): Init rrlp_ptr_g
+01-01 11:52:55.174   295   295 I keystore: Found keymaster0 module Keymaster OpenSSL HAL, version 2
+01-01 11:52:55.174   285   318 I MtkAgpsNative: [????] kal_create_mutex: name(tls_global) 
+01-01 11:52:55.174   285   318 D MtkAgpsNative: [????] -> idx(0) tbl_mtx_name()  name(tls_global) 
+01-01 11:52:55.174   285   318 D MtkAgpsNative: [????]   -> empty slot found (0)
+01-01 11:52:55.174   285   318 D MtkAgpsNative: [????]   -> kal_create_mutex: idx(0) name(tls_global) 
+01-01 11:52:55.175   295   295 I SoftKeymaster: system/keymaster/soft_keymaster_device.cpp, Line 131: Creating device
+01-01 11:52:55.175   295   295 D SoftKeymaster: system/keymaster/soft_keymaster_device.cpp, Line 132: Device address: 0xb6532000
+01-01 11:52:55.175   295   295 I keystore: Keymaster0 module is software-only.  Using SoftKeymasterDevice instead.
+01-01 11:52:55.175   295   295 I SoftKeymaster: system/keymaster/soft_keymaster_device.cpp, Line 131: Creating device
+01-01 11:52:55.175   295   295 D SoftKeymaster: system/keymaster/soft_keymaster_device.cpp, Line 132: Device address: 0xb6532200
+01-01 11:52:55.180   285   334 D agps    : [agps][n][task] lpp  is running
+01-01 11:52:55.181   285   334 D agps    : [agps][n][task] lpp  before poll...
+01-01 11:52:55.201   275   275 I 6620_launcher: get property(service.wcn.driver.ready) is yes
+01-01 11:52:55.201   275   275 E 6620_launcher: open device node succeed.(Node:/dev/stpwmt, fd:4) 
+01-01 11:52:55.201   275   275 I 6620_launcher: key:(persist.mtk.wcn.combo.chipid)-value:(0x0335),chipId:0x0335
+01-01 11:52:55.202   275   275 I 6620_launcher: chip id is 0x335
+01-01 11:52:55.202   275   275 I 6620_launcher: chiId:0x335, setting to property(persist.mtk.wcn.combo.chipid)
+01-01 11:52:55.207   285   333 D agps    : [agps][n][task] rrlp  is running
+01-01 11:52:54.460   284   284 I nvram_daemon: type=1400 audit(0.0:20): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:nvram_daemon:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.470   286   286 I wifi2agps: type=1400 audit(0.0:21): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:wifi2agps:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.480   288   288 I msensord: type=1400 audit(0.0:22): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:msensord:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.500   289   289 I thermal_manager: type=1400 audit(0.0:23): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:thermal_manager:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.500   285   285 I mtk_agpsd: type=1400 audit(0.0:24): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:agpsd:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.500   291   291 I audioserver: type=1400 audit(0.0:25): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:audioserver:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.500   287   287 I mnld    : type=1400 audit(0.0:26): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:mnld:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.530   292   292 I cameraserver: type=1400 audit(0.0:27): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:cameraserver:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.550   297   297 I mediadrmserver: type=1400 audit(0.0:28): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:mediadrmserver:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.570   296   296 I mediacodec: type=1400 audit(0.0:29): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:mediacodec:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.890   275   275 I 6620_launcher: type=1400 audit(0.0:30): avc: denied { read } for name="u:object_r:wmt_prop:s0" dev="tmpfs" ino=44 scontext=u:r:conn_launcher:s0 tcontext=u:object_r:wmt_prop:s0 tclass=file permissive=1
+01-01 11:52:54.890   275   275 I 6620_launcher: type=1400 audit(0.0:31): avc: denied { open } for path="/dev/__properties__/u:object_r:wmt_prop:s0" dev="tmpfs" ino=44 scontext=u:r:conn_launcher:s0 tcontext=u:object_r:wmt_prop:s0 tclass=file permissive=1
+01-01 11:52:54.890   275   275 I 6620_launcher: type=1400 audit(0.0:32): avc: denied { getattr } for path="/dev/__properties__/u:object_r:wmt_prop:s0" dev="tmpfs" ino=44 scontext=u:r:conn_launcher:s0 tcontext=u:object_r:wmt_prop:s0 tclass=file permissive=1
+01-01 11:52:54.890   274   274 I wmt_loader: type=1400 audit(0.0:33): avc: denied { read } for name="u:object_r:wmt_prop:s0" dev="tmpfs" ino=44 scontext=u:r:wmt_loader:s0 tcontext=u:object_r:wmt_prop:s0 tclass=file permissive=1
+01-01 11:52:54.890   274   274 I wmt_loader: type=1400 audit(0.0:34): avc: denied { open } for path="/dev/__properties__/u:object_r:wmt_prop:s0" dev="tmpfs" ino=44 scontext=u:r:wmt_loader:s0 tcontext=u:object_r:wmt_prop:s0 tclass=file permissive=1
+01-01 11:52:54.890   274   274 I wmt_loader: type=1400 audit(0.0:35): avc: denied { getattr } for path="/dev/__properties__/u:object_r:wmt_prop:s0" dev="tmpfs" ino=44 scontext=u:r:wmt_loader:s0 tcontext=u:object_r:wmt_prop:s0 tclass=file permissive=1
+01-01 11:52:54.900   286   286 I wifi2agps: type=1400 audit(0.0:36): avc: denied { read } for name="psched" dev="proc" ino=4026533566 scontext=u:r:wifi2agps:s0 tcontext=u:object_r:proc_net:s0 tclass=file permissive=1
+01-01 11:52:54.900   286   286 I wifi2agps: type=1400 audit(0.0:37): avc: denied { open } for path="/proc/286/net/psched" dev="proc" ino=4026533566 scontext=u:r:wifi2agps:s0 tcontext=u:object_r:proc_net:s0 tclass=file permissive=1
+01-01 11:52:54.910   306   306 I log     : type=1400 audit(0.0:38): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:sysinit:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:54.910   286   286 I wifi2agps: type=1400 audit(0.0:39): avc: denied { getattr } for path="/proc/286/net/psched" dev="proc" ino=4026533566 scontext=u:r:wifi2agps:s0 tcontext=u:object_r:proc_net:s0 tclass=file permissive=1
+01-01 11:52:55.090   274   274 I wmt_loader: type=1400 audit(0.0:40): avc: denied { write } for name="property_service" dev="tmpfs" ino=86 scontext=u:r:wmt_loader:s0 tcontext=u:object_r:property_socket:s0 tclass=sock_file permissive=1
+01-01 11:52:55.090   274   274 I wmt_loader: type=1400 audit(0.0:41): avc: denied { connectto } for path="/dev/socket/property_service" scontext=u:r:wmt_loader:s0 tcontext=u:r:init:s0 tclass=unix_stream_socket permissive=1
+01-01 11:52:55.130   255   255 I logd.daemon: type=1400 audit(0.0:42): avc: denied { read write } for name="mmcblk0p6" dev="tmpfs" ino=319 scontext=u:r:logd:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+01-01 11:52:55.130   255   255 I logd.daemon: type=1400 audit(0.0:43): avc: denied { open } for path="/dev/block/mmcblk0p6" dev="tmpfs" ino=319 scontext=u:r:logd:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+01-01 11:52:55.190   275   275 I 6620_launcher: type=1400 audit(0.0:44): avc: denied { write } for name="property_service" dev="tmpfs" ino=86 scontext=u:r:conn_launcher:s0 tcontext=u:object_r:property_socket:s0 tclass=sock_file permissive=1
+01-01 11:52:55.190   275   275 I 6620_launcher: type=1400 audit(0.0:45): avc: denied { connectto } for path="/dev/socket/property_service" scontext=u:r:conn_launcher:s0 tcontext=u:r:init:s0 tclass=unix_stream_socket permissive=1
+01-01 11:52:55.207   285   333 D agps    : [agps][n][task] rrlp  before poll...
+01-01 11:52:55.208   285   318 D agps    : [agps] WARNING: [CP] get_ccci_uart  is not a tty
+01-01 11:52:55.208   285   318 D agps    : [agps] WARNING: [CP] get_ccci_uart  [/dev/ttyC2] success
+01-01 11:52:55.208   285   318 D agps    : [agps][n][CP] ccci_uart_1  open success
+01-01 11:52:55.208   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:52:55.208   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:52:55.209   285   318 E agps    : [agps] ERR: [CP] get_ccci_uart  open failed node=[/dev/ccci2_tty2] reason=[No such file or directory]
+01-01 11:52:55.209   285   318 E agps    : [agps] ERR: [CP] ccci_uart_2  open failed
+01-01 11:52:55.209   285   318 D agps    : [agps][n][AGPS] [MNL] write  agps_reboot
+01-01 11:52:55.209   285   318 E agps    : [agps] ERR: [MNL] sendto dest=[/data/agps_supl/agps_to_mnl] len=8 reason=[Connection refused]
+01-01 11:52:55.209   285   318 E agps    : [agps] ERR: [MNL] external_snd_cmd safe_sendto failed
+01-01 11:52:55.211   285   318 D agps    : [agps][n][AGPS] xml file load from [/etc/agps_profiles_conf2.xml]
+01-01 11:52:55.234   285   318 D agps    : [agps] WARNING: [Default]  =================== dump_agps_mgr_agps_config ===================
+01-01 11:52:55.234   285   318 D agps    : [agps][n][Default] cur_supl_profile  name=[GOOGLE] addr=[supl.google.com] port=[7275] tls=[1] mcc=[] mcc_mnc=[] is_auto_config=[0] supl_version=[1] tls_version=[0] sha_version=[0] app_id=[] provider_id=[] default_apn=[] option_apn=[] optional_apn_2=[] addr_type=[]
+01-01 11:52:55.234   285   318 D agps    : [agps][n][Default] cdma_profile  name=[CDMA1] mcp_enable=[1] mcp_addr=[10.199.22.165] mcp_port=[6066] pde_addr_valid=[0] pde_ip_type=[0] pde_addr=[11.11.11.11] pde_port=[1111] pde_url_valid=[0] pde_url_addr=[www.mediatek.com]
+01-01 11:52:55.234   285   318 D agps    : [agps][n][Default] agps_setting  agps_enable=[1] agps_protocol=[0] gpevt=[0]
+01-01 11:52:55.234   285   318 D agps    : [agps][n][Default] cp_setting  molr_pos_method=[0] external_addr=[0][0123456789*#+] mlc_number=[0][0123456789*#+] cp_auto_reset=[0] epc_molr_lpp_payload_enable=[0] lpp_payload=[50]
+01-01 11:52:55.235   285   318 D agps    : [agps][n][Utility] agps_dump_buf=lpp_payload  0xd2,0x00,0x00,0x10,0x23,0x7b,0x20,0x26,0x40,0x4f,0xb8,0x00,0x72,0x02,0xbf,0xff,0xff,0xff,0xf8,0x00,0x00,0x00,0x00,0x20,0xc0,0x00,0x01,0x00,0x94,0x0f,0xb9,0x00,
+01-01 11:52:55.235   285   318 D agps    : [agps][n][Utility] agps_dump_buf=lpp_payload  0x12,0x02,0xb7,0xff,0xff,0xf8,0x00,0x00,0x00,0x00,0x00,0x61,0x80,0x00,0x02,0x01,0x8a,0x00,
+01-01 11:52:55.235   285   318 D agps    : [agps][n][Default] up_setting  ca_enable=[0] ni_request=[1] roaming=[1] cdma_preferred=[0] pref_method=[1] supl_version=[1] tls_version=[0] sha_version=[0] supl_log=[0] msa=[1] msb=[1] ecid=[1] otdoa=[0] autonomous=[1] aflt=[0] hacc=[22] vacc=[0] loc_age=[0] delay=[0] udp_port_enable=[0] dedicated_apn_enable=[0] preferred_2g3g_cell_age=[300] lpp_enable=[1] cert_from_sdcard=[1] auto_profile_enable=[1] ut2=[11] ut3=[10] sync_to_slp=[0]
+01-01 11:52:55.235   285   318 D agps    : [agps][n][EVDO] epoll fail, recvfd <= 0
+01-01 11:52:55.235   285   318 D agps    : [agps][n][EVDO] epoll fail, hdrfd <= 0
+01-01 11:52:55.247   275   275 I 6620_launcher: set property(persist.mtk.wcn.combo.chipid) to 0x0335 succeed.
+01-01 11:52:55.247   275   275 I 6620_launcher: chipIdProp:key(persist.mtk.wcn.combo.chipid)value(0x0335)
+01-01 11:52:55.247   275   275 I 6620_launcher: chiId:0x0335
+01-01 11:52:55.247   275   275 I 6620_launcher: for denali chipid convert
+01-01 11:52:55.247   275   275 I 6620_launcher: run SOC chip flow
+01-01 11:52:55.247   275   275 I 6620_launcher: key:(ro.build.type)-value:(userdebug)
+01-01 11:52:55.247   275   275 I 6620_launcher: get coredump_mode property(service.wcn.coredump.mode) failed
+01-01 11:52:55.247   275   275 I 6620_launcher: Connectivity coredump is disabled!
+01-01 11:52:55.248   275   275 I 6620_launcher: create pwr on thread ok
+01-01 11:52:55.256   275   351 I 6620_launcher: enter power on connsys flow
+01-01 11:52:55.330   275   275 I 6620_launcher: type=1400 audit(0.0:46): avc: denied { read } for name="firmware" dev="mmcblk0p20" ino=24598 scontext=u:r:conn_launcher:s0 tcontext=u:object_r:system_file:s0 tclass=dir permissive=1
+01-01 11:52:55.330   275   275 I 6620_launcher: type=1400 audit(0.0:47): avc: denied { open } for path="/system/etc/firmware" dev="mmcblk0p20" ino=24598 scontext=u:r:conn_launcher:s0 tcontext=u:object_r:system_file:s0 tclass=dir permissive=1
+01-01 11:52:55.341   275   275 I 6620_launcher: for denali chipid convert
+01-01 11:52:55.341   275   275 I 6620_launcher: patch name pre-fix:ROMv2_lm_patch
+01-01 11:52:55.341   275   275 I 6620_launcher: fwVersion:0x8a00
+01-01 11:52:55.341   275   275 I 6620_launcher: /system/etc/firmware//ROMv2_lm_patch_1_0_hdr.bin
+01-01 11:52:55.344   275   275 I 6620_launcher: fw Ver in patch: 0x8a00
+01-01 11:52:55.344   275   275 I 6620_launcher: read patch info:0x22,0x00,0x06,0x00
+01-01 11:52:55.344   275   275 I 6620_launcher: gpatchnum = [2]
+01-01 11:52:55.344   275   275 I 6620_launcher: gdwonseq = [2]
+01-01 11:52:55.344   275   275 I 6620_launcher: /system/etc/firmware//ROMv2_lm_patch_1_1_hdr.bin
+01-01 11:52:55.345   275   275 I 6620_launcher: fw Ver in patch: 0x8a00
+01-01 11:52:55.345   275   275 I 6620_launcher: read patch info:0x21,0x00,0x0e,0xf0
+01-01 11:52:55.345   275   275 I 6620_launcher: gdwonseq = [1]
+01-01 11:52:55.345   275   275 I 6620_launcher: cmd(srh_patch) resp(ok)
+01-01 11:52:55.360   306   306 I sysinit : Running /system/etc/init.d/00banner 
+01-01 11:52:55.380   352   352 I 00banner: type=1400 audit(0.0:48): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:sysinit:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:55.414   302   302 I perfprofd: starting Android Wide Profiling daemon
+01-01 11:52:55.471   301   301 I gatekeeperd: Starting gatekeeperd...
+01-01 11:52:55.473   301   301 W gatekeeperd: falling back to software GateKeeper
+01-01 11:52:55.478   302   302 E perfprofd: unable to open configuration file /data/data/com.google.android.gms/files/perfprofd.conf
+01-01 11:52:55.479   302   302 I perfprofd: random seed set to 2613111469
+01-01 11:52:55.515   296   296 I mediacodec: @@@ mediacodecservice starting
+01-01 11:52:55.516   296   296 W         : No seccomp filter defined for this architecture.
+01-01 11:52:55.529   300   300 I Netd    : Netd 1.0 starting
+01-01 11:52:55.530   300   300 D TetherController: Setting IP forward enable = 0
+01-01 11:52:55.549   300   300 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:52:55.549   300   300 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:52:55.557   292   292 I cameraserver: ServiceManager: 0xb6299460
+01-01 11:52:55.557   292   292 I CameraService: CameraService started (pid=292)
+01-01 11:52:55.557   292   292 I CameraService: CameraService process starting
+01-01 11:52:55.566   292   292 W BatteryNotifier: batterystats service unavailable!
+01-01 11:52:55.567   292   292 W BatteryNotifier: batterystats service unavailable!
+01-01 11:52:55.571   292   292 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:52:55.571   292   292 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:52:55.571   292   292 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:52:55.675   298   298 V MediaUtils: physMem: 973897728
+01-01 11:52:55.675   298   298 V MediaUtils: requested limit: 194779540
+01-01 11:52:55.675   298   298 V MediaUtils: actual limit: 194779540
+01-01 11:52:55.675   298   298 V MediaUtils: original limits: 4294967295/4294967295
+01-01 11:52:55.675   298   298 V MediaUtils: new limits: 194779540/4294967295
+01-01 11:52:55.675   298   298 W         : No seccomp filter defined for this architecture.
+01-01 11:52:55.752   299   299 I mediaserver: ServiceManager: 0xb5d994c0
+01-01 11:52:55.753   299   299 W BatteryNotifier: batterystats service unavailable!
+01-01 11:52:55.777   297   297 I mediaserver: ServiceManager: 0xb5e994c0
+01-01 11:52:55.777   291   291 I         : sMaxFastTracks = 8
+01-01 11:52:55.779   291   291 I audioserver: ServiceManager: 0xb6119460
+01-01 11:52:55.779   291   291 W BatteryNotifier: batterystats service unavailable!
+01-01 11:52:55.779   291   291 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:52:55.780   291   291 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:52:55.785   291   291 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:52:55.813   357   357 I cm      : ____ _   _ ____ _  _ ____ ____ ____ _  _ _  _ ____ ___ 
+01-01 11:52:55.815   291   291 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:52:55.815   291   291 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:52:55.815   291   291 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:52:55.815   291   291 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:52:55.815   291   291 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:52:55.816   291   291 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:52:55.816   291   291 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:52:55.816   291   291 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:52:55.820   291   291 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:52:55.823   291   291 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:52:55.823   291   291 I r_submix: adev_init_check()
+01-01 11:52:55.824   291   291 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:52:55.824   291   291 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:52:55.824   291   291 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:52:55.824   291   291 D r_submix:   now using address 0 for route 9
+01-01 11:52:55.825   291   367 I AudioFlinger: AudioFlinger's thread 0xb5c9c640 ready to run
+01-01 11:52:55.825   291   291 D r_submix: adev_close_input_stream()
+01-01 11:52:55.825   291   291 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:52:55.825   291   291 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:52:55.825   291   291 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:52:55.825   291   291 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:52:55.825   291   291 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:52:55.825   291   291 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:52:55.825   291   291 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:52:55.825   291   291 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:52:55.825   291   291 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:52:55.827   291   291 I RadioService: RadioService
+01-01 11:52:55.827   291   291 I RadioService: onFirstRef
+01-01 11:52:55.827   291   291 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:52:55.829   291   291 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:52:55.929   366   366 I cm      : |     \_/  |__| |\ | |  | | __ |___ |\ | |\/| |  | |  \ 
+01-01 11:52:55.955   253   253 W         : debuggerd: resuming target 278
+01-01 11:52:55.955   253   253 W         : debuggerd: handling request: pid=276 uid=1001 gid=1001 tid=276
+01-01 11:52:55.978   375   375 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:52:56.029   375   375 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:52:56.029   375   375 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:52:56.029   375   375 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:52:56.029   375   375 F DEBUG   : Revision: '0'
+01-01 11:52:56.029   375   375 F DEBUG   : ABI: 'arm'
+01-01 11:52:56.029   375   375 F DEBUG   : pid: 276, tid: 276, name: ccci_fsd  >>> /system/bin/ccci_fsd <<<
+01-01 11:52:56.029   375   375 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:52:56.029   375   375 F DEBUG   :     r0 00000000  r1 00000114  r2 00000006  r3 00000008
+01-01 11:52:56.030   375   375 F DEBUG   :     r4 b6f3c58c  r5 00000006  r6 b6f3c534  r7 0000010c
+01-01 11:52:56.030   375   375 F DEBUG   :     r8 bea1c730  r9 00000003  sl bea1c760  fp b6ec9010
+01-01 11:52:56.030   375   375 F DEBUG   :     ip 00000002  sp bea1c6c8  lr b6f1c11f  pc b6f1cb38  cpsr 200f0010
+01-01 11:52:56.047   369   369 I cm      : |___   |   |  | | \| |__| |__] |___ | \| |  | |__| |__/ 
+01-01 11:52:56.053   375   375 F DEBUG   : 
+01-01 11:52:56.053   375   375 F DEBUG   : backtrace:
+01-01 11:52:56.053   375   375 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:52:56.053   375   375 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:52:56.053   375   375 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:52:56.053   375   375 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:52:56.053   375   375 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:52:56.053   375   375 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:52:56.053   375   375 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:52:56.053   375   375 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:52:56.053   375   375 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:52:56.092   253   253 W         : debuggerd: resuming target 276
+01-01 11:52:56.092   253   253 W         : debuggerd: handling request: pid=277 uid=0 gid=0 tid=277
+01-01 11:52:56.096   384   384 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:52:56.147   384   384 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:52:56.147   384   384 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:52:56.147   384   384 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:52:56.147   384   384 F DEBUG   : Revision: '0'
+01-01 11:52:56.147   384   384 F DEBUG   : ABI: 'arm'
+01-01 11:52:56.147   384   384 F DEBUG   : pid: 277, tid: 277, name: ccci_mdinit  >>> /system/bin/ccci_mdinit <<<
+01-01 11:52:56.147   384   384 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:52:56.147   384   384 F DEBUG   :     r0 00000000  r1 00000115  r2 00000006  r3 00000008
+01-01 11:52:56.147   384   384 F DEBUG   :     r4 b6f3458c  r5 00000006  r6 b6f34534  r7 0000010c
+01-01 11:52:56.148   384   384 F DEBUG   :     r8 befa9718  r9 00000003  sl befa9750  fp b6ec1010
+01-01 11:52:56.148   384   384 F DEBUG   :     ip 00000002  sp befa96b0  lr b6f1411f  pc b6f14b38  cpsr 200f0010
+01-01 11:52:56.165   384   384 F DEBUG   : 
+01-01 11:52:56.165   384   384 F DEBUG   : backtrace:
+01-01 11:52:56.166   384   384 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:52:56.166   384   384 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:52:56.166   384   384 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:52:56.166   384   384 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:52:56.166   384   384 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:52:56.166   384   384 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:52:56.166   384   384 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:52:56.166   384   384 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:52:56.166   384   384 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:52:56.250   253   253 W         : debuggerd: resuming target 277
+01-01 11:52:56.250   253   253 W         : debuggerd: handling request: pid=284 uid=0 gid=1000 tid=284
+01-01 11:52:56.255   392   392 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:52:56.305   392   392 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:52:56.306   392   392 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:52:56.306   392   392 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:52:56.306   392   392 F DEBUG   : Revision: '0'
+01-01 11:52:56.306   392   392 F DEBUG   : ABI: 'arm'
+01-01 11:52:56.306   392   392 F DEBUG   : pid: 284, tid: 284, name: nvram_daemon  >>> /system/bin/nvram_daemon <<<
+01-01 11:52:56.306   392   392 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:52:56.307   392   392 F DEBUG   :     r0 00000000  r1 0000011c  r2 00000006  r3 00000008
+01-01 11:52:56.307   392   392 F DEBUG   :     r4 b6f5b58c  r5 00000006  r6 b6f5b534  r7 0000010c
+01-01 11:52:56.307   392   392 F DEBUG   :     r8 bea68728  r9 00000003  sl bea68760  fp b6ee8010
+01-01 11:52:56.307   392   392 F DEBUG   :     ip 00000002  sp bea686c0  lr b6f3b11f  pc b6f3bb38  cpsr 200f0010
+01-01 11:52:56.321   392   392 F DEBUG   : 
+01-01 11:52:56.321   392   392 F DEBUG   : backtrace:
+01-01 11:52:56.321   392   392 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:52:56.321   392   392 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:52:56.321   392   392 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:52:56.321   392   392 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:52:56.321   392   392 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:52:56.321   392   392 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:52:56.322   392   392 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:52:56.322   392   392 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:52:56.322   392   392 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:52:56.346   253   253 W         : debuggerd: resuming target 284
+01-01 11:52:56.346   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:52:56.347   253   253 W         : debuggerd: handling request: pid=287 uid=1021 gid=1021 tid=287
+01-01 11:52:56.350   400   400 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:52:56.409   393   393 I cm      : Welcome to Android 7.1.1 / CyanogenMod-14.1-20161211-UNOFFICIAL-smart_surf2_4g 
+01-01 11:52:56.451   400   400 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:52:56.451   400   400 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:52:56.452   400   400 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:52:56.452   400   400 F DEBUG   : Revision: '0'
+01-01 11:52:56.452   400   400 F DEBUG   : ABI: 'arm'
+01-01 11:52:56.452   400   400 F DEBUG   : pid: 287, tid: 287, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:52:56.452   400   400 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:52:56.452   400   400 F DEBUG   :     r0 00000000  r1 0000011f  r2 00000006  r3 00000008
+01-01 11:52:56.452   400   400 F DEBUG   :     r4 b6fbe58c  r5 00000006  r6 b6fbe534  r7 0000010c
+01-01 11:52:56.452   400   400 F DEBUG   :     r8 beb09720  r9 00000003  sl beb09750  fp b6f4b010
+01-01 11:52:56.452   400   400 F DEBUG   :     ip 00000002  sp beb096b8  lr b6f9e11f  pc b6f9eb38  cpsr 200f0010
+01-01 11:52:56.464   400   400 F DEBUG   : 
+01-01 11:52:56.464   400   400 F DEBUG   : backtrace:
+01-01 11:52:56.464   400   400 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:52:56.464   400   400 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:52:56.464   400   400 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:52:56.464   400   400 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:52:56.464   400   400 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:52:56.464   400   400 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:52:56.464   400   400 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:52:56.464   400   400 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:52:56.464   400   400 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:52:56.489   253   253 W         : debuggerd: resuming target 287
+01-01 11:52:56.490   253   253 W         : debuggerd: handling request: pid=281 uid=1000 gid=1003 tid=281
+01-01 11:52:56.497   408   408 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:52:56.531   401   401 I sysinit : Running /system/etc/init.d/90userinit 
+01-01 11:52:56.548   408   408 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:52:56.548   408   408 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:52:56.549   408   408 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:52:56.549   408   408 F DEBUG   : Revision: '0'
+01-01 11:52:56.549   408   408 F DEBUG   : ABI: 'arm'
+01-01 11:52:56.549   408   408 F DEBUG   : pid: 281, tid: 281, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:52:56.549   408   408 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:52:56.553   408   408 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:52:56.553   408   408 F DEBUG   :     r0 00000000  r1 00000119  r2 00000006  r3 00000008
+01-01 11:52:56.553   408   408 F DEBUG   :     r4 b6f7958c  r5 00000006  r6 b6f79534  r7 0000010c
+01-01 11:52:56.553   408   408 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bee17a3c
+01-01 11:52:56.553   408   408 F DEBUG   :     ip 00000002  sp bee17450  lr b66c5c87  pc b66c84e4  cpsr 200f0010
+01-01 11:52:56.569   408   408 F DEBUG   : 
+01-01 11:52:56.569   408   408 F DEBUG   : backtrace:
+01-01 11:52:56.569   408   408 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:52:56.569   408   408 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:52:56.569   408   408 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:52:56.569   408   408 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:52:56.569   408   408 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:52:56.570   408   408 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:52:56.570   408   408 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:52:56.570   408   408 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:52:56.570   408   408 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:52:56.570   408   408 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:52:56.570   408   408 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:52:56.570   408   408 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:52:56.570   408   408 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:52:56.650   253   253 W         : debuggerd: resuming target 281
+01-01 11:52:56.660   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:52:56.662   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:52:56.662   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:52:56.662   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:52:56.662   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:52:56.666   280   280 I ServiceManager: service 'media.player' died
+01-01 11:52:56.667   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:52:57.209   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:52:57.210   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:52:57.210   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:52:59.210   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:52:59.211   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:52:59.211   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:52:59.690   418   418 I audioserver: type=1400 audit(0.0:49): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:audioserver:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:59.700   419   419 I cameraserver: type=1400 audit(0.0:50): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:cameraserver:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:59.710   416   416 I mnld    : type=1400 audit(0.0:51): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:mnld:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:52:59.724   416   416 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:52:59.724   416   416 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 416 (mnld)
+01-01 11:52:59.756   253   253 W         : debuggerd: handling request: pid=416 uid=1021 gid=1021 tid=416
+01-01 11:52:59.769   423   423 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:52:59.870   423   423 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:52:59.870   423   423 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:52:59.870   423   423 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:52:59.870   423   423 F DEBUG   : Revision: '0'
+01-01 11:52:59.870   423   423 F DEBUG   : ABI: 'arm'
+01-01 11:52:59.870   423   423 F DEBUG   : pid: 416, tid: 416, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:52:59.870   423   423 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:52:59.870   423   423 F DEBUG   :     r0 00000000  r1 000001a0  r2 00000006  r3 00000008
+01-01 11:52:59.870   423   423 F DEBUG   :     r4 b6f1058c  r5 00000006  r6 b6f10534  r7 0000010c
+01-01 11:52:59.871   423   423 F DEBUG   :     r8 be886720  r9 00000003  sl be886750  fp b6e9d010
+01-01 11:52:59.871   423   423 F DEBUG   :     ip 00000002  sp be8866b8  lr b6ef011f  pc b6ef0b38  cpsr 200f0010
+01-01 11:52:59.899   423   423 F DEBUG   : 
+01-01 11:52:59.899   423   423 F DEBUG   : backtrace:
+01-01 11:52:59.899   423   423 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:52:59.899   423   423 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:52:59.899   423   423 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:52:59.899   423   423 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:52:59.899   423   423 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:52:59.899   423   423 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:52:59.899   423   423 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:52:59.899   423   423 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:52:59.900   423   423 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:52:59.964   422   422 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:52:59.964   422   422 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:52:59.964   422   422 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:52:59.967   422   422 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:52:59.967   422   422 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:52:59.968   422   422 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 422 (surfaceflinger)
+01-01 11:52:59.989   421   421 I Netd    : Netd 1.0 starting
+01-01 11:52:59.989   421   421 D TetherController: Setting IP forward enable = 0
+01-01 11:52:59.995   421   421 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:52:59.995   421   421 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:00.117   419   419 I cameraserver: ServiceManager: 0xb6219460
+01-01 11:53:00.117   419   419 I CameraService: CameraService started (pid=419)
+01-01 11:53:00.117   419   419 I CameraService: CameraService process starting
+01-01 11:53:00.117   419   419 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:00.117   419   419 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:00.118   419   419 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:00.118   419   419 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:00.118   419   419 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:00.144   418   418 I         : sMaxFastTracks = 8
+01-01 11:53:00.145   418   418 I audioserver: ServiceManager: 0xb6199460
+01-01 11:53:00.145   418   418 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:00.145   418   418 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:00.146   418   418 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:00.148   418   418 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:00.153   418   418 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:00.153   418   418 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:00.153   418   418 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:00.153   418   418 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:00.153   418   418 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:00.153   418   418 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:00.153   418   418 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:00.153   418   418 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:00.156   418   418 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:00.157   420   420 I mediaserver: ServiceManager: 0xb5e194c0
+01-01 11:53:00.158   418   418 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:00.158   418   418 I r_submix: adev_init_check()
+01-01 11:53:00.158   418   418 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:00.158   418   418 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:00.158   418   418 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:00.158   418   418 D r_submix:   now using address 0 for route 9
+01-01 11:53:00.159   420   420 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:00.160   418   434 I AudioFlinger: AudioFlinger's thread 0xb5d1cb00 ready to run
+01-01 11:53:00.160   418   418 D r_submix: adev_close_input_stream()
+01-01 11:53:00.160   418   418 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:00.160   418   418 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:00.160   418   418 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:00.160   418   418 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:00.160   418   418 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:00.160   418   418 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:00.160   418   418 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:00.160   418   418 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:00.160   418   418 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:00.161   418   418 I RadioService: RadioService
+01-01 11:53:00.161   418   418 I RadioService: onFirstRef
+01-01 11:53:00.162   418   418 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:00.163   418   418 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:00.169   253   253 W         : debuggerd: resuming target 416
+01-01 11:53:00.169   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:00.169   253   253 W         : debuggerd: handling request: pid=422 uid=1000 gid=1003 tid=422
+01-01 11:53:00.176   440   440 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:00.226   440   440 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:00.230   440   440 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:00.230   440   440 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:00.230   440   440 F DEBUG   : Revision: '0'
+01-01 11:53:00.230   440   440 F DEBUG   : ABI: 'arm'
+01-01 11:53:00.230   440   440 F DEBUG   : pid: 422, tid: 422, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:00.230   440   440 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:00.234   440   440 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:00.234   440   440 F DEBUG   :     r0 00000000  r1 000001a6  r2 00000006  r3 00000008
+01-01 11:53:00.234   440   440 F DEBUG   :     r4 b6f9958c  r5 00000006  r6 b6f99534  r7 0000010c
+01-01 11:53:00.234   440   440 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp beef6a3c
+01-01 11:53:00.235   440   440 F DEBUG   :     ip 00000002  sp beef6450  lr b6d32c87  pc b6d354e4  cpsr 200f0010
+01-01 11:53:00.246   440   440 F DEBUG   : 
+01-01 11:53:00.246   440   440 F DEBUG   : backtrace:
+01-01 11:53:00.246   440   440 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:00.246   440   440 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:00.246   440   440 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:00.247   440   440 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:00.247   440   440 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:00.247   440   440 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:00.247   440   440 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:00.247   440   440 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:00.247   440   440 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:00.247   440   440 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:00.247   440   440 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:00.247   440   440 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:00.247   440   440 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:00.330   253   253 W         : debuggerd: resuming target 422
+01-01 11:53:00.341   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:53:00.346   280   280 I ServiceManager: service 'media.player' died
+01-01 11:53:00.347   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:53:00.347   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:53:00.347   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:53:00.347   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:53:00.347   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:53:01.212   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:01.213   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:01.213   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:03.213   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:03.214   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:03.214   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:04.360   448   448 I mnld    : type=1400 audit(0.0:52): avc: denied { getattr } for path="/vendor" dev="rootfs" ino=3091 scontext=u:r:mnld:s0 tcontext=u:object_r:rootfs:s0 tclass=lnk_file permissive=1
+01-01 11:53:04.424   448   448 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:04.424   448   448 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 448 (mnld)
+01-01 11:53:04.424   253   253 W         : debuggerd: handling request: pid=448 uid=1021 gid=1021 tid=448
+01-01 11:53:04.443   455   455 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:04.447   455   455 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:04.447   455   455 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:04.447   455   455 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:04.447   455   455 F DEBUG   : Revision: '0'
+01-01 11:53:04.447   455   455 F DEBUG   : ABI: 'arm'
+01-01 11:53:04.447   455   455 F DEBUG   : pid: 448, tid: 448, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:04.447   455   455 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:04.447   455   455 F DEBUG   :     r0 00000000  r1 000001c0  r2 00000006  r3 00000008
+01-01 11:53:04.447   455   455 F DEBUG   :     r4 b6f1758c  r5 00000006  r6 b6f17534  r7 0000010c
+01-01 11:53:04.448   455   455 F DEBUG   :     r8 beadb720  r9 00000003  sl beadb750  fp b6ea4010
+01-01 11:53:04.448   455   455 F DEBUG   :     ip 00000002  sp beadb6b8  lr b6ef711f  pc b6ef7b38  cpsr 200f0010
+01-01 11:53:04.497   455   455 F DEBUG   : 
+01-01 11:53:04.497   455   455 F DEBUG   : backtrace:
+01-01 11:53:04.497   455   455 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:04.497   455   455 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:04.497   455   455 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:04.498   455   455 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:04.498   455   455 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:04.498   455   455 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:04.498   455   455 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:04.498   455   455 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:04.498   455   455 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:04.522   253   253 W         : debuggerd: resuming target 448
+01-01 11:53:04.623   453   453 I Netd    : Netd 1.0 starting
+01-01 11:53:04.623   453   453 D TetherController: Setting IP forward enable = 0
+01-01 11:53:04.629   453   453 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:04.630   453   453 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:04.728   451   451 I cameraserver: ServiceManager: 0xb6219460
+01-01 11:53:04.728   451   451 I CameraService: CameraService started (pid=451)
+01-01 11:53:04.728   451   451 I CameraService: CameraService process starting
+01-01 11:53:04.729   451   451 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:04.729   451   451 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:04.730   451   451 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:04.730   451   451 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:04.730   451   451 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:04.772   454   454 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:04.773   454   454 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:04.773   454   454 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:04.776   454   454 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:04.776   454   454 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:04.777   454   454 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 454 (surfaceflinger)
+01-01 11:53:04.777   253   253 W         : debuggerd: handling request: pid=454 uid=1000 gid=1003 tid=454
+01-01 11:53:04.784   467   467 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:04.786   450   450 I         : sMaxFastTracks = 8
+01-01 11:53:04.787   450   450 I audioserver: ServiceManager: 0xb6199460
+01-01 11:53:04.787   450   450 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:04.787   450   450 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:04.788   450   450 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:04.789   450   450 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:04.794   450   450 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:04.794   450   450 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:04.794   450   450 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:04.794   450   450 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:04.794   450   450 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:04.795   450   450 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:04.795   450   450 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:04.795   450   450 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:04.797   450   450 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:04.799   450   450 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:04.799   450   450 I r_submix: adev_init_check()
+01-01 11:53:04.799   450   450 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:04.799   450   450 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:04.799   450   450 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:04.799   450   450 D r_submix:   now using address 0 for route 9
+01-01 11:53:04.800   450   471 I AudioFlinger: AudioFlinger's thread 0xb5d1cb00 ready to run
+01-01 11:53:04.800   450   450 D r_submix: adev_close_input_stream()
+01-01 11:53:04.800   450   450 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:04.800   450   450 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:04.800   450   450 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:04.800   450   450 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:04.800   450   450 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:04.801   450   450 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:04.801   450   450 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:04.801   450   450 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:04.801   450   450 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:04.802   450   450 I RadioService: RadioService
+01-01 11:53:04.802   450   450 I RadioService: onFirstRef
+01-01 11:53:04.802   450   450 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:04.803   450   450 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:04.863   452   452 I mediaserver: ServiceManager: 0xb5e194c0
+01-01 11:53:04.863   452   452 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:04.885   467   467 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:04.885   467   467 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:04.885   467   467 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:04.885   467   467 F DEBUG   : Revision: '0'
+01-01 11:53:04.885   467   467 F DEBUG   : ABI: 'arm'
+01-01 11:53:04.885   467   467 F DEBUG   : pid: 454, tid: 454, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:04.886   467   467 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:04.889   467   467 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:04.889   467   467 F DEBUG   :     r0 00000000  r1 000001c6  r2 00000006  r3 00000008
+01-01 11:53:04.889   467   467 F DEBUG   :     r4 b6fca58c  r5 00000006  r6 b6fca534  r7 0000010c
+01-01 11:53:04.889   467   467 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bef31a3c
+01-01 11:53:04.889   467   467 F DEBUG   :     ip 00000002  sp bef31450  lr b6c0ec87  pc b6c114e4  cpsr 200f0010
+01-01 11:53:04.901   467   467 F DEBUG   : 
+01-01 11:53:04.901   467   467 F DEBUG   : backtrace:
+01-01 11:53:04.901   467   467 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:04.901   467   467 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:04.902   467   467 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:04.902   467   467 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:04.902   467   467 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:04.902   467   467 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:04.902   467   467 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:04.902   467   467 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:04.902   467   467 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:04.902   467   467 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:04.902   467   467 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:04.902   467   467 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:04.902   467   467 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:04.982   253   253 W         : debuggerd: resuming target 454
+01-01 11:53:04.982   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:04.991   280   280 I ServiceManager: service 'media.player' died
+01-01 11:53:04.991   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:53:04.993   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:53:04.996   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:53:04.996   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:53:04.997   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:53:04.997   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:53:05.214   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:05.215   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:05.215   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:07.215   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:07.216   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:07.216   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:09.216   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:09.217   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:09.217   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:10.092   480   480 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:10.092   480   480 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 480 (mnld)
+01-01 11:53:10.116   253   253 W         : debuggerd: handling request: pid=480 uid=1021 gid=1021 tid=480
+01-01 11:53:10.121   487   487 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:10.222   487   487 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:10.223   487   487 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:10.223   487   487 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:10.223   487   487 F DEBUG   : Revision: '0'
+01-01 11:53:10.223   487   487 F DEBUG   : ABI: 'arm'
+01-01 11:53:10.223   487   487 F DEBUG   : pid: 480, tid: 480, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:10.223   487   487 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:10.223   487   487 F DEBUG   :     r0 00000000  r1 000001e0  r2 00000006  r3 00000008
+01-01 11:53:10.223   487   487 F DEBUG   :     r4 b6f8258c  r5 00000006  r6 b6f82534  r7 0000010c
+01-01 11:53:10.223   487   487 F DEBUG   :     r8 bec41720  r9 00000003  sl bec41750  fp b6f0f010
+01-01 11:53:10.223   487   487 F DEBUG   :     ip 00000002  sp bec416b8  lr b6f6211f  pc b6f62b38  cpsr 200f0010
+01-01 11:53:10.229   486   486 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:10.229   486   486 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:10.229   486   486 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:10.232   486   486 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:10.232   486   486 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:10.232   486   486 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 486 (surfaceflinger)
+01-01 11:53:10.244   487   487 F DEBUG   : 
+01-01 11:53:10.244   487   487 F DEBUG   : backtrace:
+01-01 11:53:10.247   487   487 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:10.247   487   487 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:10.247   487   487 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:10.247   487   487 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:10.247   487   487 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:10.247   487   487 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:10.247   487   487 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:10.247   487   487 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:10.247   487   487 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:10.277   485   485 I Netd    : Netd 1.0 starting
+01-01 11:53:10.278   485   485 D TetherController: Setting IP forward enable = 0
+01-01 11:53:10.283   485   485 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:10.283   485   485 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:10.357   483   483 I cameraserver: ServiceManager: 0xb6219460
+01-01 11:53:10.357   483   483 I CameraService: CameraService started (pid=483)
+01-01 11:53:10.357   483   483 I CameraService: CameraService process starting
+01-01 11:53:10.357   483   483 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:10.357   483   483 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:10.358   483   483 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:10.358   483   483 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:10.358   483   483 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:10.409   482   482 I         : sMaxFastTracks = 8
+01-01 11:53:10.410   482   482 I audioserver: ServiceManager: 0xb6099460
+01-01 11:53:10.410   482   482 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:10.411   482   482 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:10.411   482   482 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:10.413   482   482 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:10.417   482   482 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:10.417   482   482 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:10.418   482   482 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:10.418   482   482 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:10.418   482   482 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:10.418   482   482 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:10.418   482   482 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:10.418   482   482 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:10.420   482   482 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:10.422   482   482 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:10.422   482   482 I r_submix: adev_init_check()
+01-01 11:53:10.422   482   482 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:10.422   482   482 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:10.422   482   482 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:10.422   482   482 D r_submix:   now using address 0 for route 9
+01-01 11:53:10.426   482   499 I AudioFlinger: AudioFlinger's thread 0xb5c1c180 ready to run
+01-01 11:53:10.427   482   482 D r_submix: adev_close_input_stream()
+01-01 11:53:10.427   482   482 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:10.427   482   482 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:10.427   482   482 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:10.427   482   482 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:10.427   482   482 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:10.427   482   482 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:10.427   482   482 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:10.427   482   482 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:10.427   482   482 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:10.428   482   482 I RadioService: RadioService
+01-01 11:53:10.428   482   482 I RadioService: onFirstRef
+01-01 11:53:10.428   482   482 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:10.429   482   482 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:10.434   253   253 W         : debuggerd: resuming target 480
+01-01 11:53:10.434   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:10.435   253   253 W         : debuggerd: handling request: pid=486 uid=1000 gid=1003 tid=486
+01-01 11:53:10.441   504   504 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:10.542   504   504 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:10.542   504   504 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:10.543   504   504 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:10.543   504   504 F DEBUG   : Revision: '0'
+01-01 11:53:10.543   504   504 F DEBUG   : ABI: 'arm'
+01-01 11:53:10.543   504   504 F DEBUG   : pid: 486, tid: 486, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:10.543   504   504 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:10.547   504   504 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:10.547   504   504 F DEBUG   :     r0 00000000  r1 000001e6  r2 00000006  r3 00000008
+01-01 11:53:10.547   504   504 F DEBUG   :     r4 b6f8d58c  r5 00000006  r6 b6f8d534  r7 0000010c
+01-01 11:53:10.547   504   504 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bee68a3c
+01-01 11:53:10.547   504   504 F DEBUG   :     ip 00000002  sp bee68450  lr b6836c87  pc b68394e4  cpsr 200f0010
+01-01 11:53:10.552   484   484 I mediaserver: ServiceManager: 0xb5d994c0
+01-01 11:53:10.553   484   484 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:10.559   504   504 F DEBUG   : 
+01-01 11:53:10.559   504   504 F DEBUG   : backtrace:
+01-01 11:53:10.559   504   504 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:10.559   504   504 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:10.559   504   504 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:10.559   504   504 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:10.559   504   504 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:10.560   504   504 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:10.560   504   504 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:10.560   504   504 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:10.560   504   504 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:10.560   504   504 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:10.560   504   504 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:10.560   504   504 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:10.560   504   504 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:10.638   253   253 W         : debuggerd: resuming target 486
+01-01 11:53:10.647   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:53:10.647   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:53:10.647   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:53:10.647   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:53:10.647   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:53:10.647   280   280 I ServiceManager: service 'media.player' died
+01-01 11:53:10.647   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:53:11.218   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:11.218   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:11.219   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:13.219   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:13.220   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:13.220   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:14.685   513   513 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:14.685   513   513 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 513 (mnld)
+01-01 11:53:14.724   253   253 W         : debuggerd: handling request: pid=513 uid=1021 gid=1021 tid=513
+01-01 11:53:14.748   520   520 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:14.757   520   520 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:14.757   520   520 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:14.757   520   520 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:14.757   520   520 F DEBUG   : Revision: '0'
+01-01 11:53:14.757   520   520 F DEBUG   : ABI: 'arm'
+01-01 11:53:14.757   520   520 F DEBUG   : pid: 513, tid: 513, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:14.757   520   520 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:14.757   520   520 F DEBUG   :     r0 00000000  r1 00000201  r2 00000006  r3 00000008
+01-01 11:53:14.757   520   520 F DEBUG   :     r4 b6ee958c  r5 00000006  r6 b6ee9534  r7 0000010c
+01-01 11:53:14.757   520   520 F DEBUG   :     r8 befc7720  r9 00000003  sl befc7750  fp b6e76010
+01-01 11:53:14.757   520   520 F DEBUG   :     ip 00000002  sp befc76b8  lr b6ec911f  pc b6ec9b38  cpsr 200f0010
+01-01 11:53:14.805   520   520 F DEBUG   : 
+01-01 11:53:14.805   520   520 F DEBUG   : backtrace:
+01-01 11:53:14.805   520   520 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:14.805   520   520 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:14.805   520   520 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:14.805   520   520 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:14.805   520   520 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:14.805   520   520 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:14.805   520   520 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:14.805   520   520 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:14.805   520   520 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:14.981   519   519 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:14.981   519   519 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:14.986   519   519 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:15.009   519   519 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:15.009   519   519 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:15.009   519   519 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 519 (surfaceflinger)
+01-01 11:53:15.047   515   515 I         : sMaxFastTracks = 8
+01-01 11:53:15.048   515   515 I audioserver: ServiceManager: 0xb6119460
+01-01 11:53:15.048   515   515 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:15.048   515   515 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:15.054   518   518 I Netd    : Netd 1.0 starting
+01-01 11:53:15.054   518   518 D TetherController: Setting IP forward enable = 0
+01-01 11:53:15.060   518   518 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:15.061   518   518 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:15.061   516   516 I cameraserver: ServiceManager: 0xb6219460
+01-01 11:53:15.061   516   516 I CameraService: CameraService started (pid=516)
+01-01 11:53:15.061   516   516 I CameraService: CameraService process starting
+01-01 11:53:15.062   516   516 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:15.062   516   516 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:15.063   516   516 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:15.063   516   516 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:15.063   516   516 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:15.064   515   515 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:15.066   515   515 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:15.070   515   515 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:15.070   515   515 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:15.070   515   515 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:15.070   515   515 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:15.070   515   515 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:15.071   515   515 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:15.071   515   515 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:15.071   515   515 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:15.073   515   515 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:15.074   515   515 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:15.075   515   515 I r_submix: adev_init_check()
+01-01 11:53:15.075   515   515 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:15.075   515   515 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:15.075   515   515 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:15.075   515   515 D r_submix:   now using address 0 for route 9
+01-01 11:53:15.076   515   531 I AudioFlinger: AudioFlinger's thread 0xb5c9c640 ready to run
+01-01 11:53:15.076   515   515 D r_submix: adev_close_input_stream()
+01-01 11:53:15.076   515   515 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:15.076   515   515 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:15.077   515   515 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:15.077   515   515 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:15.077   515   515 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:15.077   515   515 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:15.077   515   515 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:15.077   515   515 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:15.077   515   515 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:15.078   515   515 I RadioService: RadioService
+01-01 11:53:15.078   515   515 I RadioService: onFirstRef
+01-01 11:53:15.078   515   515 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:15.079   515   515 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:15.087   253   253 W         : debuggerd: resuming target 513
+01-01 11:53:15.087   253   253 W         : debuggerd: handling request: pid=519 uid=1000 gid=1003 tid=519
+01-01 11:53:15.094   536   536 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:15.195   536   536 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:15.195   536   536 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:15.195   536   536 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:15.195   536   536 F DEBUG   : Revision: '0'
+01-01 11:53:15.195   536   536 F DEBUG   : ABI: 'arm'
+01-01 11:53:15.195   536   536 F DEBUG   : pid: 519, tid: 519, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:15.196   536   536 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:15.200   536   536 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:15.200   536   536 F DEBUG   :     r0 00000000  r1 00000207  r2 00000006  r3 00000008
+01-01 11:53:15.200   536   536 F DEBUG   :     r4 b6efb58c  r5 00000006  r6 b6efb534  r7 0000010c
+01-01 11:53:15.200   536   536 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bea91a3c
+01-01 11:53:15.200   536   536 F DEBUG   :     ip 00000002  sp bea91450  lr b6c4cc87  pc b6c4f4e4  cpsr 200f0010
+01-01 11:53:15.212   536   536 F DEBUG   : 
+01-01 11:53:15.212   536   536 F DEBUG   : backtrace:
+01-01 11:53:15.212   536   536 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:15.212   536   536 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:15.212   536   536 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:15.212   536   536 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:15.212   536   536 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:15.212   536   536 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:15.212   536   536 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:15.212   536   536 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:15.212   536   536 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:15.212   536   536 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:15.212   536   536 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:15.212   536   536 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:15.212   536   536 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:15.220   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:15.221   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:15.221   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:15.230   517   517 I mediaserver: ServiceManager: 0xb5d194c0
+01-01 11:53:15.230   517   517 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:15.297   253   253 W         : debuggerd: resuming target 519
+01-01 11:53:15.297   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:15.303   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:53:15.304   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:53:15.304   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:53:15.304   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:53:15.304   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:53:15.306   280   280 I ServiceManager: service 'media.player' died
+01-01 11:53:15.306   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:53:17.221   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:17.222   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:17.222   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:19.222   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:19.223   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:19.223   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:19.354   545   545 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:19.355   545   545 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 545 (mnld)
+01-01 11:53:19.401   253   253 W         : debuggerd: handling request: pid=545 uid=1021 gid=1021 tid=545
+01-01 11:53:19.409   552   552 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:19.417   552   552 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:19.417   552   552 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:19.417   552   552 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:19.417   552   552 F DEBUG   : Revision: '0'
+01-01 11:53:19.417   552   552 F DEBUG   : ABI: 'arm'
+01-01 11:53:19.417   552   552 F DEBUG   : pid: 545, tid: 545, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:19.417   552   552 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:19.417   552   552 F DEBUG   :     r0 00000000  r1 00000221  r2 00000006  r3 00000008
+01-01 11:53:19.417   552   552 F DEBUG   :     r4 b6faf58c  r5 00000006  r6 b6faf534  r7 0000010c
+01-01 11:53:19.417   552   552 F DEBUG   :     r8 bee8f720  r9 00000003  sl bee8f750  fp b6f3c010
+01-01 11:53:19.418   552   552 F DEBUG   :     ip 00000002  sp bee8f6b8  lr b6f8f11f  pc b6f8fb38  cpsr 200f0010
+01-01 11:53:19.476   552   552 F DEBUG   : 
+01-01 11:53:19.476   552   552 F DEBUG   : backtrace:
+01-01 11:53:19.476   552   552 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:19.476   552   552 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:19.477   552   552 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:19.477   552   552 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:19.477   552   552 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:19.477   552   552 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:19.477   552   552 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:19.477   552   552 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:19.477   552   552 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:19.568   551   551 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:19.568   551   551 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:19.569   551   551 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:19.571   551   551 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:19.572   551   551 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:19.572   551   551 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 551 (surfaceflinger)
+01-01 11:53:19.659   550   550 I Netd    : Netd 1.0 starting
+01-01 11:53:19.659   550   550 D TetherController: Setting IP forward enable = 0
+01-01 11:53:19.665   550   550 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:19.665   550   550 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:19.707   548   548 I cameraserver: ServiceManager: 0xb6299460
+01-01 11:53:19.707   548   548 I CameraService: CameraService started (pid=548)
+01-01 11:53:19.707   548   548 I CameraService: CameraService process starting
+01-01 11:53:19.707   548   548 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:19.707   548   548 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:19.708   548   548 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:19.708   548   548 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:19.708   548   548 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:19.773   547   547 I         : sMaxFastTracks = 8
+01-01 11:53:19.774   549   549 I mediaserver: ServiceManager: 0xb5d994c0
+01-01 11:53:19.774   547   547 I audioserver: ServiceManager: 0xb6119460
+01-01 11:53:19.775   549   549 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:19.775   547   547 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:19.775   547   547 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:19.776   547   547 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:19.778   547   547 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:19.782   253   253 W         : debuggerd: resuming target 545
+01-01 11:53:19.782   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:19.782   253   253 W         : debuggerd: handling request: pid=551 uid=1000 gid=1003 tid=551
+01-01 11:53:19.786   547   547 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:19.786   547   547 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:19.786   547   547 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:19.786   547   547 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:19.786   547   547 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:19.786   547   547 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:19.786   547   547 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:19.786   547   547 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:19.789   547   547 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:19.789   567   567 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:19.790   547   547 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:19.791   547   547 I r_submix: adev_init_check()
+01-01 11:53:19.791   547   547 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:19.791   547   547 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:19.791   547   547 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:19.791   547   547 D r_submix:   now using address 0 for route 9
+01-01 11:53:19.792   547   568 I AudioFlinger: AudioFlinger's thread 0xb5c9c640 ready to run
+01-01 11:53:19.792   547   547 D r_submix: adev_close_input_stream()
+01-01 11:53:19.792   547   547 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:19.792   547   547 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:19.792   547   547 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:19.792   547   547 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:19.792   547   547 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:19.792   547   547 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:19.792   547   547 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:19.792   547   547 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:19.792   547   547 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:19.793   547   547 I RadioService: RadioService
+01-01 11:53:19.793   547   547 I RadioService: onFirstRef
+01-01 11:53:19.794   547   547 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:19.795   547   547 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:19.840   567   567 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:19.840   567   567 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:19.840   567   567 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:19.840   567   567 F DEBUG   : Revision: '0'
+01-01 11:53:19.840   567   567 F DEBUG   : ABI: 'arm'
+01-01 11:53:19.840   567   567 F DEBUG   : pid: 551, tid: 551, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:19.841   567   567 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:19.843   567   567 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:19.844   567   567 F DEBUG   :     r0 00000000  r1 00000227  r2 00000006  r3 00000008
+01-01 11:53:19.844   567   567 F DEBUG   :     r4 b6f1658c  r5 00000006  r6 b6f16534  r7 0000010c
+01-01 11:53:19.844   567   567 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bec47a3c
+01-01 11:53:19.844   567   567 F DEBUG   :     ip 00000002  sp bec47450  lr b6a88c87  pc b6a8b4e4  cpsr 200f0010
+01-01 11:53:19.855   567   567 F DEBUG   : 
+01-01 11:53:19.855   567   567 F DEBUG   : backtrace:
+01-01 11:53:19.855   567   567 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:19.855   567   567 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:19.855   567   567 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:19.855   567   567 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:19.855   567   567 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:19.855   567   567 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:19.855   567   567 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:19.855   567   567 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:19.855   567   567 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:19.856   567   567 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:19.856   567   567 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:19.856   567   567 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:19.856   567   567 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:19.935   253   253 W         : debuggerd: resuming target 551
+01-01 11:53:19.935   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:19.942   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:53:19.946   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:53:19.947   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:53:19.947   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:53:19.947   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:53:19.947   280   280 I ServiceManager: service 'media.player' died
+01-01 11:53:19.947   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:53:21.224   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:21.225   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:21.225   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:23.225   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:23.226   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:23.227   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:25.016   576   576 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:25.017   576   576 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 576 (mnld)
+01-01 11:53:25.017   253   253 W         : debuggerd: handling request: pid=576 uid=1021 gid=1021 tid=576
+01-01 11:53:25.047   583   583 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:25.048   583   583 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:25.048   583   583 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:25.048   583   583 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:25.048   583   583 F DEBUG   : Revision: '0'
+01-01 11:53:25.048   583   583 F DEBUG   : ABI: 'arm'
+01-01 11:53:25.048   583   583 F DEBUG   : pid: 576, tid: 576, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:25.048   583   583 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:25.048   583   583 F DEBUG   :     r0 00000000  r1 00000240  r2 00000006  r3 00000008
+01-01 11:53:25.049   583   583 F DEBUG   :     r4 b6ef058c  r5 00000006  r6 b6ef0534  r7 0000010c
+01-01 11:53:25.049   583   583 F DEBUG   :     r8 bebf6720  r9 00000003  sl bebf6750  fp b6e7d010
+01-01 11:53:25.049   583   583 F DEBUG   :     ip 00000002  sp bebf66b8  lr b6ed011f  pc b6ed0b38  cpsr 200f0010
+01-01 11:53:25.103   583   583 F DEBUG   : 
+01-01 11:53:25.103   583   583 F DEBUG   : backtrace:
+01-01 11:53:25.103   583   583 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:25.104   583   583 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:25.104   583   583 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:25.104   583   583 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:25.104   583   583 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:25.104   583   583 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:25.104   583   583 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:25.104   583   583 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:25.104   583   583 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:25.126   253   253 W         : debuggerd: resuming target 576
+01-01 11:53:25.206   582   582 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:25.206   582   582 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:25.207   582   582 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:25.209   582   582 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:25.210   582   582 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:25.210   582   582 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 582 (surfaceflinger)
+01-01 11:53:25.210   253   253 W         : debuggerd: handling request: pid=582 uid=1000 gid=1003 tid=582
+01-01 11:53:25.222   592   592 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:25.223   592   592 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:25.223   592   592 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:25.223   592   592 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:25.223   592   592 F DEBUG   : Revision: '0'
+01-01 11:53:25.223   592   592 F DEBUG   : ABI: 'arm'
+01-01 11:53:25.224   592   592 F DEBUG   : pid: 582, tid: 582, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:25.224   592   592 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:25.227   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:25.227   592   592 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:25.227   592   592 F DEBUG   :     r0 00000000  r1 00000246  r2 00000006  r3 00000008
+01-01 11:53:25.227   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:25.227   592   592 F DEBUG   :     r4 b6f3b58c  r5 00000006  r6 b6f3b534  r7 0000010c
+01-01 11:53:25.227   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:25.227   592   592 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bed98a3c
+01-01 11:53:25.227   592   592 F DEBUG   :     ip 00000002  sp bed98450  lr b6947c87  pc b694a4e4  cpsr 200f0010
+01-01 11:53:25.228   581   581 I Netd    : Netd 1.0 starting
+01-01 11:53:25.228   581   581 D TetherController: Setting IP forward enable = 0
+01-01 11:53:25.235   581   581 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:25.235   581   581 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:25.239   592   592 F DEBUG   : 
+01-01 11:53:25.239   592   592 F DEBUG   : backtrace:
+01-01 11:53:25.239   592   592 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:25.239   592   592 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:25.239   592   592 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:25.239   592   592 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:25.239   592   592 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:25.239   592   592 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:25.239   592   592 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:25.239   592   592 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:25.239   592   592 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:25.239   592   592 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:25.239   592   592 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:25.240   592   592 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:25.240   592   592 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:25.320   253   253 W         : debuggerd: resuming target 582
+01-01 11:53:27.228   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:27.228   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:27.229   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:29.229   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:29.230   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:29.230   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:29.409   599   599 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:29.410   599   599 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 599 (mnld)
+01-01 11:53:29.416   253   253 W         : debuggerd: handling request: pid=599 uid=1021 gid=1021 tid=599
+01-01 11:53:29.447   606   606 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:29.448   606   606 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:29.448   606   606 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:29.448   606   606 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:29.448   606   606 F DEBUG   : Revision: '0'
+01-01 11:53:29.448   606   606 F DEBUG   : ABI: 'arm'
+01-01 11:53:29.448   606   606 F DEBUG   : pid: 599, tid: 599, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:29.448   606   606 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:29.448   606   606 F DEBUG   :     r0 00000000  r1 00000257  r2 00000006  r3 00000008
+01-01 11:53:29.449   606   606 F DEBUG   :     r4 b6f8e58c  r5 00000006  r6 b6f8e534  r7 0000010c
+01-01 11:53:29.449   606   606 F DEBUG   :     r8 befe7720  r9 00000003  sl befe7750  fp b6f1b010
+01-01 11:53:29.449   606   606 F DEBUG   :     ip 00000002  sp befe76b8  lr b6f6e11f  pc b6f6eb38  cpsr 200f0010
+01-01 11:53:29.528   606   606 F DEBUG   : 
+01-01 11:53:29.528   606   606 F DEBUG   : backtrace:
+01-01 11:53:29.528   606   606 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:29.528   606   606 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:29.528   606   606 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:29.528   606   606 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:29.528   606   606 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:29.528   606   606 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:29.528   606   606 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:29.528   606   606 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:29.528   606   606 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:29.568   253   253 W         : debuggerd: resuming target 599
+01-01 11:53:29.569   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:29.651   604   604 I Netd    : Netd 1.0 starting
+01-01 11:53:29.652   604   604 D TetherController: Setting IP forward enable = 0
+01-01 11:53:29.659   604   604 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:29.659   604   604 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:29.777   605   605 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:29.777   605   605 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:29.777   605   605 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:29.780   605   605 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:29.780   605   605 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:29.781   605   605 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 605 (surfaceflinger)
+01-01 11:53:29.781   253   253 W         : debuggerd: handling request: pid=605 uid=1000 gid=1003 tid=605
+01-01 11:53:29.792   615   615 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:29.807   615   615 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:29.807   615   615 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:29.807   615   615 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:29.807   615   615 F DEBUG   : Revision: '0'
+01-01 11:53:29.807   615   615 F DEBUG   : ABI: 'arm'
+01-01 11:53:29.807   615   615 F DEBUG   : pid: 605, tid: 605, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:29.807   615   615 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:29.811   615   615 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:29.812   615   615 F DEBUG   :     r0 00000000  r1 0000025d  r2 00000006  r3 00000008
+01-01 11:53:29.812   615   615 F DEBUG   :     r4 b6fa958c  r5 00000006  r6 b6fa9534  r7 0000010c
+01-01 11:53:29.812   615   615 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bea68a3c
+01-01 11:53:29.812   615   615 F DEBUG   :     ip 00000002  sp bea68450  lr b6b0ec87  pc b6b114e4  cpsr 200f0010
+01-01 11:53:29.823   615   615 F DEBUG   : 
+01-01 11:53:29.823   615   615 F DEBUG   : backtrace:
+01-01 11:53:29.823   615   615 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:29.823   615   615 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:29.823   615   615 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:29.823   615   615 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:29.824   615   615 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:29.824   615   615 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:29.824   615   615 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:29.824   615   615 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:29.824   615   615 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:29.824   615   615 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:29.824   615   615 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:29.824   615   615 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:29.824   615   615 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:29.834   601   601 I         : sMaxFastTracks = 8
+01-01 11:53:29.836   601   601 I audioserver: ServiceManager: 0xb6119460
+01-01 11:53:29.837   601   601 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:29.837   601   601 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:29.838   601   601 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:29.839   601   601 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:29.850   601   601 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:29.850   601   601 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:29.850   601   601 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:29.850   601   601 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:29.850   601   601 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:29.850   601   601 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:29.851   601   601 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:29.851   601   601 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:29.853   601   601 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:29.854   601   601 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:29.855   601   601 I r_submix: adev_init_check()
+01-01 11:53:29.855   601   601 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:29.855   601   601 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:29.855   601   601 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:29.855   601   601 D r_submix:   now using address 0 for route 9
+01-01 11:53:29.857   602   602 I cameraserver: ServiceManager: 0xb6219460
+01-01 11:53:29.857   602   602 I CameraService: CameraService started (pid=602)
+01-01 11:53:29.857   602   602 I CameraService: CameraService process starting
+01-01 11:53:29.859   602   602 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:29.859   602   602 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:29.860   602   602 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:29.860   602   602 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:29.860   602   602 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:29.884   601   621 I AudioFlinger: AudioFlinger's thread 0xb5c9c640 ready to run
+01-01 11:53:29.884   601   601 D r_submix: adev_close_input_stream()
+01-01 11:53:29.884   601   601 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:29.884   601   601 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:29.885   601   601 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:29.885   601   601 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:29.885   601   601 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:29.885   601   601 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:29.885   601   601 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:29.885   601   601 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:29.885   601   601 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:29.886   601   601 I RadioService: RadioService
+01-01 11:53:29.886   601   601 I RadioService: onFirstRef
+01-01 11:53:29.886   601   601 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:29.887   601   601 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:29.922   603   603 I mediaserver: ServiceManager: 0xb5d194c0
+01-01 11:53:29.923   603   603 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:29.938   253   253 W         : debuggerd: resuming target 605
+01-01 11:53:29.939   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:29.946   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:53:29.946   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:53:29.946   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:53:29.946   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:53:29.946   280   280 I ServiceManager: service 'media.player' died
+01-01 11:53:29.946   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:53:29.947   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:53:31.230   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:31.231   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:31.231   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:33.232   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:33.233   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:33.233   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:34.994   630   630 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:34.994   630   630 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 630 (mnld)
+01-01 11:53:35.023   253   253 W         : debuggerd: handling request: pid=630 uid=1021 gid=1021 tid=630
+01-01 11:53:35.044   637   637 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:35.047   637   637 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:35.047   637   637 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:35.047   637   637 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:35.047   637   637 F DEBUG   : Revision: '0'
+01-01 11:53:35.047   637   637 F DEBUG   : ABI: 'arm'
+01-01 11:53:35.047   637   637 F DEBUG   : pid: 630, tid: 630, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:35.047   637   637 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:35.047   637   637 F DEBUG   :     r0 00000000  r1 00000276  r2 00000006  r3 00000008
+01-01 11:53:35.047   637   637 F DEBUG   :     r4 b6f2a58c  r5 00000006  r6 b6f2a534  r7 0000010c
+01-01 11:53:35.047   637   637 F DEBUG   :     r8 bebf2720  r9 00000003  sl bebf2750  fp b6eb7010
+01-01 11:53:35.047   637   637 F DEBUG   :     ip 00000002  sp bebf26b8  lr b6f0a11f  pc b6f0ab38  cpsr 200f0010
+01-01 11:53:35.062   637   637 F DEBUG   : 
+01-01 11:53:35.062   637   637 F DEBUG   : backtrace:
+01-01 11:53:35.063   637   637 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:35.063   637   637 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:35.063   637   637 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:35.063   637   637 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:35.063   637   637 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:35.063   637   637 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:35.063   637   637 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:35.063   637   637 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:35.063   637   637 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:35.167   636   636 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:35.167   636   636 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:35.168   636   636 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:35.170   636   636 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:35.170   636   636 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:35.171   636   636 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 636 (surfaceflinger)
+01-01 11:53:35.233   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:35.233   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:35.233   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:35.285   632   632 I         : sMaxFastTracks = 8
+01-01 11:53:35.285   632   632 I audioserver: ServiceManager: 0xb6119460
+01-01 11:53:35.286   632   632 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:35.286   632   632 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:35.287   632   632 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:35.288   632   632 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:35.293   632   632 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:35.293   632   632 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:35.293   632   632 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:35.293   632   632 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:35.293   632   632 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:35.293   632   632 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:35.293   632   632 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:35.293   632   632 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:35.295   632   632 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:35.307   632   632 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:35.307   632   632 I r_submix: adev_init_check()
+01-01 11:53:35.307   632   632 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:35.308   632   632 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:35.308   632   632 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:35.308   632   632 D r_submix:   now using address 0 for route 9
+01-01 11:53:35.312   632   647 I AudioFlinger: AudioFlinger's thread 0xb5c9c640 ready to run
+01-01 11:53:35.313   632   632 D r_submix: adev_close_input_stream()
+01-01 11:53:35.313   632   632 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:35.313   632   632 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:35.313   632   632 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:35.313   632   632 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:35.313   632   632 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:35.313   632   632 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:35.313   253   253 W         : debuggerd: resuming target 630
+01-01 11:53:35.313   632   632 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:35.313   632   632 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:35.313   632   632 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:35.313   253   253 W         : debuggerd: handling request: pid=636 uid=1000 gid=1003 tid=636
+01-01 11:53:35.314   632   632 I RadioService: RadioService
+01-01 11:53:35.314   632   632 I RadioService: onFirstRef
+01-01 11:53:35.315   632   632 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:35.316   632   632 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:35.332   650   650 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:35.342   635   635 I Netd    : Netd 1.0 starting
+01-01 11:53:35.342   635   635 D TetherController: Setting IP forward enable = 0
+01-01 11:53:35.348   635   635 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:35.349   635   635 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:35.361   634   634 I mediaserver: ServiceManager: 0xb5d194c0
+01-01 11:53:35.362   634   634 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:35.380   633   633 I cameraserver: ServiceManager: 0xb6299460
+01-01 11:53:35.380   633   633 I CameraService: CameraService started (pid=633)
+01-01 11:53:35.380   633   633 I CameraService: CameraService process starting
+01-01 11:53:35.380   633   633 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:35.380   633   633 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:35.381   633   633 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:35.381   633   633 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:35.381   633   633 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:35.383   650   650 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:35.383   650   650 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:35.383   650   650 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:35.383   650   650 F DEBUG   : Revision: '0'
+01-01 11:53:35.383   650   650 F DEBUG   : ABI: 'arm'
+01-01 11:53:35.383   650   650 F DEBUG   : pid: 636, tid: 636, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:35.383   650   650 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:35.387   650   650 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:35.388   650   650 F DEBUG   :     r0 00000000  r1 0000027c  r2 00000006  r3 00000008
+01-01 11:53:35.388   650   650 F DEBUG   :     r4 b6f0158c  r5 00000006  r6 b6f01534  r7 0000010c
+01-01 11:53:35.388   650   650 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bea3da3c
+01-01 11:53:35.388   650   650 F DEBUG   :     ip 00000002  sp bea3d450  lr b6978c87  pc b697b4e4  cpsr 200f0010
+01-01 11:53:35.399   650   650 F DEBUG   : 
+01-01 11:53:35.399   650   650 F DEBUG   : backtrace:
+01-01 11:53:35.399   650   650 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:35.399   650   650 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:35.399   650   650 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:35.399   650   650 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:35.399   650   650 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:35.399   650   650 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:35.399   650   650 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:35.399   650   650 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:35.399   650   650 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:35.400   650   650 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:35.400   650   650 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:35.400   650   650 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:35.400   650   650 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:35.481   253   253 W         : debuggerd: resuming target 636
+01-01 11:53:35.481   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:35.488   280   280 I ServiceManager: service 'media.player' died
+01-01 11:53:35.488   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:53:35.488   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:53:35.488   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:53:35.488   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:53:35.488   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:53:35.488   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:53:37.234   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:37.234   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:37.235   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:39.235   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:39.236   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:39.236   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:39.552   661   661 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:39.552   661   661 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 661 (mnld)
+01-01 11:53:39.592   253   253 W         : debuggerd: handling request: pid=661 uid=1021 gid=1021 tid=661
+01-01 11:53:39.604   668   668 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:39.604   668   668 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:39.605   668   668 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:39.605   668   668 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:39.605   668   668 F DEBUG   : Revision: '0'
+01-01 11:53:39.605   668   668 F DEBUG   : ABI: 'arm'
+01-01 11:53:39.605   668   668 F DEBUG   : pid: 661, tid: 661, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:39.605   668   668 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:39.605   668   668 F DEBUG   :     r0 00000000  r1 00000295  r2 00000006  r3 00000008
+01-01 11:53:39.605   668   668 F DEBUG   :     r4 b6fc858c  r5 00000006  r6 b6fc8534  r7 0000010c
+01-01 11:53:39.605   668   668 F DEBUG   :     r8 be9f5720  r9 00000003  sl be9f5750  fp b6f55010
+01-01 11:53:39.605   668   668 F DEBUG   :     ip 00000002  sp be9f56b8  lr b6fa811f  pc b6fa8b38  cpsr 200f0010
+01-01 11:53:39.684   668   668 F DEBUG   : 
+01-01 11:53:39.684   668   668 F DEBUG   : backtrace:
+01-01 11:53:39.684   668   668 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:39.684   668   668 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:39.685   668   668 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:39.685   668   668 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:39.685   668   668 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:39.685   668   668 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:39.685   668   668 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:39.685   668   668 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:39.685   668   668 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:39.779   667   667 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:39.780   667   667 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:39.781   667   667 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:39.783   667   667 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:39.784   667   667 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:39.784   667   667 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 667 (surfaceflinger)
+01-01 11:53:39.803   666   666 I Netd    : Netd 1.0 starting
+01-01 11:53:39.803   666   666 D TetherController: Setting IP forward enable = 0
+01-01 11:53:39.810   666   666 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:39.811   666   666 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:39.923   664   664 I cameraserver: ServiceManager: 0xb6299460
+01-01 11:53:39.923   664   664 I CameraService: CameraService started (pid=664)
+01-01 11:53:39.923   664   664 I CameraService: CameraService process starting
+01-01 11:53:39.924   664   664 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:39.924   664   664 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:39.925   664   664 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:39.925   664   664 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:39.925   664   664 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:39.969   665   665 I mediaserver: ServiceManager: 0xb5d194c0
+01-01 11:53:39.970   665   665 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:39.977   253   253 W         : debuggerd: resuming target 661
+01-01 11:53:39.977   253   253 W         : debuggerd: handling request: pid=667 uid=1000 gid=1003 tid=667
+01-01 11:53:39.984   681   681 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:40.019   663   663 I         : sMaxFastTracks = 8
+01-01 11:53:40.020   663   663 I audioserver: ServiceManager: 0xb6119460
+01-01 11:53:40.020   663   663 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:40.020   663   663 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:40.021   663   663 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:40.022   663   663 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:40.027   663   663 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:40.027   663   663 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:40.027   663   663 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:40.027   663   663 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:40.027   663   663 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:40.027   663   663 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:40.027   663   663 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:40.027   663   663 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:40.030   663   663 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:40.031   663   663 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:40.031   663   663 I r_submix: adev_init_check()
+01-01 11:53:40.031   663   663 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:40.031   663   663 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:40.031   663   663 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:40.031   663   663 D r_submix:   now using address 0 for route 9
+01-01 11:53:40.032   663   685 I AudioFlinger: AudioFlinger's thread 0xb5c9c640 ready to run
+01-01 11:53:40.033   663   663 D r_submix: adev_close_input_stream()
+01-01 11:53:40.033   663   663 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:40.033   663   663 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:40.033   663   663 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:40.033   663   663 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:40.033   663   663 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:40.033   663   663 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:40.033   663   663 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:40.033   663   663 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:40.033   663   663 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:40.034   663   663 I RadioService: RadioService
+01-01 11:53:40.034   663   663 I RadioService: onFirstRef
+01-01 11:53:40.034   663   663 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:40.035   681   681 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:40.035   681   681 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:40.035   681   681 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:40.035   681   681 F DEBUG   : Revision: '0'
+01-01 11:53:40.035   681   681 F DEBUG   : ABI: 'arm'
+01-01 11:53:40.036   681   681 F DEBUG   : pid: 667, tid: 667, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:40.036   681   681 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:40.037   663   663 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:40.039   681   681 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:40.039   681   681 F DEBUG   :     r0 00000000  r1 0000029b  r2 00000006  r3 00000008
+01-01 11:53:40.039   681   681 F DEBUG   :     r4 b6f4b58c  r5 00000006  r6 b6f4b534  r7 0000010c
+01-01 11:53:40.039   681   681 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp be904a3c
+01-01 11:53:40.039   681   681 F DEBUG   :     ip 00000002  sp be904450  lr b6b7bc87  pc b6b7e4e4  cpsr 200f0010
+01-01 11:53:40.051   681   681 F DEBUG   : 
+01-01 11:53:40.051   681   681 F DEBUG   : backtrace:
+01-01 11:53:40.051   681   681 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:40.051   681   681 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:40.051   681   681 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:40.051   681   681 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:40.051   681   681 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:40.051   681   681 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:40.052   681   681 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:40.052   681   681 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:40.052   681   681 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:40.052   681   681 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:40.052   681   681 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:40.052   681   681 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:40.052   681   681 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
+01-01 11:53:40.133   253   253 W         : debuggerd: resuming target 667
+01-01 11:53:40.134   253   253 E         : debuggerd: failed to send signal 18 to target: No such process
+01-01 11:53:40.141   280   280 I ServiceManager: service 'media.camera' died
+01-01 11:53:40.142   280   280 I ServiceManager: service 'media.player' died
+01-01 11:53:40.142   280   280 I ServiceManager: service 'media.resource_manager' died
+01-01 11:53:40.146   280   280 I ServiceManager: service 'media.audio_flinger' died
+01-01 11:53:40.147   280   280 I ServiceManager: service 'media.audio_policy' died
+01-01 11:53:40.147   280   280 I ServiceManager: service 'media.sound_trigger_hw' died
+01-01 11:53:40.147   280   280 I ServiceManager: service 'media.radio' died
+01-01 11:53:41.236   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:41.237   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:41.237   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:43.238   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:43.239   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:43.239   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:45.220   696   696 F libc    : CANNOT LINK EXECUTABLE "/system/xbin/mnld": library "libfs_mgr.so" not found
+01-01 11:53:45.220   696   696 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 696 (mnld)
+01-01 11:53:45.227   253   253 W         : debuggerd: handling request: pid=696 uid=1021 gid=1021 tid=696
+01-01 11:53:45.239   285   340 D agps    : [agps] WARNING: [CP] cp2_fd_1_req_sim_num_timeout
+01-01 11:53:45.239   285   318 D agps    : [agps][n][CP] [MD_1] write  sim_info_req
+01-01 11:53:45.239   285   318 E agps    : [agps] ERR: [Utility] safe_write reason=[No such device]19
+01-01 11:53:45.242   703   703 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:45.343   703   703 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:45.343   703   703 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:45.343   703   703 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:45.343   703   703 F DEBUG   : Revision: '0'
+01-01 11:53:45.343   703   703 F DEBUG   : ABI: 'arm'
+01-01 11:53:45.343   703   703 F DEBUG   : pid: 696, tid: 696, name: mnld  >>> /system/xbin/mnld <<<
+01-01 11:53:45.344   703   703 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:45.344   703   703 F DEBUG   :     r0 00000000  r1 000002b8  r2 00000006  r3 00000008
+01-01 11:53:45.344   703   703 F DEBUG   :     r4 b6f2958c  r5 00000006  r6 b6f29534  r7 0000010c
+01-01 11:53:45.344   703   703 F DEBUG   :     r8 bee53720  r9 00000003  sl bee53750  fp b6eb6010
+01-01 11:53:45.344   703   703 F DEBUG   :     ip 00000002  sp bee536b8  lr b6f0911f  pc b6f09b38  cpsr 200f0010
+01-01 11:53:45.356   703   703 F DEBUG   : 
+01-01 11:53:45.356   703   703 F DEBUG   : backtrace:
+01-01 11:53:45.356   703   703 F DEBUG   :     #00 pc 00046b38  /system/bin/linker (__dl_tgkill+12)
+01-01 11:53:45.356   703   703 F DEBUG   :     #01 pc 0004611b  /system/bin/linker (__dl_pthread_kill+34)
+01-01 11:53:45.356   703   703 F DEBUG   :     #02 pc 0003e4bf  /system/bin/linker (__dl_raise+10)
+01-01 11:53:45.356   703   703 F DEBUG   :     #03 pc 0003cf7b  /system/bin/linker (__dl___libc_android_abort+34)
+01-01 11:53:45.379   703   703 F DEBUG   :     #04 pc 0003bee0  /system/bin/linker (__dl_abort+4)
+01-01 11:53:45.379   703   703 F DEBUG   :     #05 pc 0003dfbb  /system/bin/linker (__dl___libc_fatal+22)
+01-01 11:53:45.379   703   703 F DEBUG   :     #06 pc 00009c3f  /system/bin/linker (__dl__ZL29__linker_init_post_relocationR19KernelArgumentBlockj+3146)
+01-01 11:53:45.379   703   703 F DEBUG   :     #07 pc 00008f5f  /system/bin/linker (__dl___linker_init+358)
+01-01 11:53:45.379   703   703 F DEBUG   :     #08 pc 000027c0  /system/bin/linker (_start+4)
+01-01 11:53:45.469   702   702 E DispSync: Couldn't set SCHED_FIFO for DispSyncThread
+01-01 11:53:45.469   702   702 I SurfaceFlinger: SurfaceFlinger is starting
+01-01 11:53:45.470   702   702 I SurfaceFlinger: SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+01-01 11:53:45.472   702   702 E libEGL  : load_driver(/system/lib/egl/libGLES_mali.so): dlopen failed: library "libpqservice.so" not found
+01-01 11:53:45.473   702   702 F libEGL  : couldn't find an OpenGL ES implementation
+01-01 11:53:45.473   702   702 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 702 (surfaceflinger)
+01-01 11:53:45.529   699   699 I cameraserver: ServiceManager: 0xb6199460
+01-01 11:53:45.529   699   699 I CameraService: CameraService started (pid=699)
+01-01 11:53:45.530   699   699 I CameraService: CameraService process starting
+01-01 11:53:45.530   699   699 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:45.530   699   699 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:45.531   699   699 E HAL     : load: module=/system/lib/hw/camera.mt6737m.so
+01-01 11:53:45.531   699   699 E HAL     : dlopen failed: library "libmtkcamera_client.so" not found
+01-01 11:53:45.531   699   699 E CameraService: Could not load camera HAL module: -22 (Invalid argument)
+01-01 11:53:45.545   701   701 I Netd    : Netd 1.0 starting
+01-01 11:53:45.545   701   701 D TetherController: Setting IP forward enable = 0
+01-01 11:53:45.551   701   701 E         : Failed to open libdatactrl, some features may not be present.
+01-01 11:53:45.551   701   701 E         : Failed to open libcsm_data, some features may not be present.
+01-01 11:53:45.589   700   700 I mediaserver: ServiceManager: 0xb5d994c0
+01-01 11:53:45.590   700   700 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:45.597   253   253 W         : debuggerd: resuming target 696
+01-01 11:53:45.597   253   253 W         : debuggerd: handling request: pid=702 uid=1000 gid=1003 tid=702
+01-01 11:53:45.604   715   715 E         : debuggerd: Unable to connect to activity manager (connect failed: No such file or directory)
+01-01 11:53:45.621   698   698 I         : sMaxFastTracks = 8
+01-01 11:53:45.622   698   698 I audioserver: ServiceManager: 0xb6119460
+01-01 11:53:45.623   698   698 W BatteryNotifier: batterystats service unavailable!
+01-01 11:53:45.623   698   698 I AudioFlinger: Using default 3000 mSec as standby time.
+01-01 11:53:45.624   698   698 I AudioPolicyService: AudioPolicyService CSTOR in new mode
+01-01 11:53:45.627   698   698 I APM::ConfigParsingUtils: loadAudioPolicyConfig() loaded /system/etc/audio_policy.conf
+01-01 11:53:45.631   698   698 E HAL     : load: module=/system/lib/hw/audio.primary.mt6737m.so
+01-01 11:53:45.631   698   698 E HAL     : dlopen failed: library "libbluetooth_mtk_pure.so" not found
+01-01 11:53:45.631   698   698 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.primary (Invalid argument)
+01-01 11:53:45.631   698   698 E AudioFlinger: loadHwModule() error -22 loading module primary
+01-01 11:53:45.631   698   698 W APM_AudioPolicyManager: could not open HW module primary
+01-01 11:53:45.632   698   698 E AudioFlinger: int android::load_audio_interface(const char *, audio_hw_device_t **) couldn't load audio hw module audio.a2dp (No such file or directory)
+01-01 11:53:45.632   698   698 E AudioFlinger: loadHwModule() error -2 loading module a2dp
+01-01 11:53:45.632   698   698 W APM_AudioPolicyManager: could not open HW module a2dp
+01-01 11:53:45.635   698   698 I AudioFlinger: loadHwModule() Loaded usb audio interface from USB audio HW HAL (audio) handle 10
+01-01 11:53:45.637   698   698 I r_submix: adev_open(name=audio_hw_if)
+01-01 11:53:45.637   698   698 I r_submix: adev_init_check()
+01-01 11:53:45.637   698   698 I AudioFlinger: loadHwModule() Loaded r_submix audio interface from Wifi Display audio HAL (audio) handle 18
+01-01 11:53:45.637   698   698 D r_submix: adev_open_input_stream(addr=0)
+01-01 11:53:45.637   698   698 D r_submix: submix_audio_device_create_pipe_l(addr=0, idx=9)
+01-01 11:53:45.637   698   698 D r_submix:   now using address 0 for route 9
+01-01 11:53:45.639   698   719 I AudioFlinger: AudioFlinger's thread 0xb5c9c640 ready to run
+01-01 11:53:45.639   698   698 D r_submix: adev_close_input_stream()
+01-01 11:53:45.639   698   698 D r_submix: submix_audio_device_release_pipe_l(idx=9) addr=0
+01-01 11:53:45.639   698   698 D r_submix: submix_audio_device_destroy_pipe_l(): pipe destroyed
+01-01 11:53:45.639   698   698 W APM_AudioPolicyManager: Output device 00000002 unreachable
+01-01 11:53:45.639   698   698 W APM_AudioPolicyManager: Output device 00000001 unreachable
+01-01 11:53:45.639   698   698 W APM_AudioPolicyManager: Input device 80000004 unreachable
+01-01 11:53:45.640   698   698 W APM_AudioPolicyManager: Input device 80002000 unreachable
+01-01 11:53:45.640   698   698 W APM_AudioPolicyManager: Input device 80000040 unreachable
+01-01 11:53:45.640   698   698 E APM_AudioPolicyManager: Default device 00000002 is unreachable
+01-01 11:53:45.640   698   698 E APM_AudioPolicyManager: Failed to open primary output
+01-01 11:53:45.641   698   698 I RadioService: RadioService
+01-01 11:53:45.641   698   698 I RadioService: onFirstRef
+01-01 11:53:45.641   698   698 E RadioService: couldn't load radio module radio.primary (No such file or directory)
+01-01 11:53:45.642   698   698 E SoundTriggerHwService: couldn't load sound trigger module sound_trigger.primary (No such file or directory)
+01-01 11:53:45.655   715   715 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-01 11:53:45.655   715   715 F DEBUG   : CM Version: '14.1-20161211-UNOFFICIAL-smart_surf2_4g'
+01-01 11:53:45.655   715   715 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26O/b34249a87e:userdebug/test-keys'
+01-01 11:53:45.655   715   715 F DEBUG   : Revision: '0'
+01-01 11:53:45.655   715   715 F DEBUG   : ABI: 'arm'
+01-01 11:53:45.655   715   715 F DEBUG   : pid: 702, tid: 702, name: surfaceflinger  >>> /system/bin/surfaceflinger <<<
+01-01 11:53:45.656   715   715 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+01-01 11:53:45.659   715   715 F DEBUG   : Abort message: 'couldn't find an OpenGL ES implementation'
+01-01 11:53:45.659   715   715 F DEBUG   :     r0 00000000  r1 000002be  r2 00000006  r3 00000008
+01-01 11:53:45.659   715   715 F DEBUG   :     r4 b6fce58c  r5 00000006  r6 b6fce534  r7 0000010c
+01-01 11:53:45.659   715   715 F DEBUG   :     r8 00000000  r9 00000000  sl 00000000  fp bec77a3c
+01-01 11:53:45.659   715   715 F DEBUG   :     ip 00000002  sp bec77450  lr b6b23c87  pc b6b264e4  cpsr 200f0010
+01-01 11:53:45.672   715   715 F DEBUG   : 
+01-01 11:53:45.672   715   715 F DEBUG   : backtrace:
+01-01 11:53:45.672   715   715 F DEBUG   :     #00 pc 0004a4e4  /system/lib/libc.so (tgkill+12)
+01-01 11:53:45.672   715   715 F DEBUG   :     #01 pc 00047c83  /system/lib/libc.so (pthread_kill+34)
+01-01 11:53:45.672   715   715 F DEBUG   :     #02 pc 0001d565  /system/lib/libc.so (raise+10)
+01-01 11:53:45.672   715   715 F DEBUG   :     #03 pc 000190b1  /system/lib/libc.so (__libc_android_abort+34)
+01-01 11:53:45.673   715   715 F DEBUG   :     #04 pc 00017118  /system/lib/libc.so (abort+4)
+01-01 11:53:45.673   715   715 F DEBUG   :     #05 pc 0000c759  /system/lib/libcutils.so (__android_log_assert+112)
+01-01 11:53:45.673   715   715 F DEBUG   :     #06 pc 000100db  /system/lib/libEGL.so
+01-01 11:53:45.673   715   715 F DEBUG   :     #07 pc 0000c417  /system/lib/libEGL.so
+01-01 11:53:45.673   715   715 F DEBUG   :     #08 pc 0000c5fd  /system/lib/libEGL.so (eglGetDisplay+20)
+01-01 11:53:45.673   715   715 F DEBUG   :     #09 pc 00029b47  /system/lib/libsurfaceflinger.so (_ZN7android14SurfaceFlinger4initEv+50)
+01-01 11:53:45.673   715   715 F DEBUG   :     #10 pc 00001037  /system/bin/surfaceflinger
+01-01 11:53:45.673   715   715 F DEBUG   :     #11 pc 00016c8d  /system/lib/libc.so (__libc_init+48)
+01-01 11:53:45.673   715   715 F DEBUG   :     #12 pc 00000eec  /system/bin/surfaceflinger
