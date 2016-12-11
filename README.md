@@ -28,7 +28,7 @@ export ANDROID_JACK_VM_ARGS="-Xmx4g -Dfile.encoding=UTF-8 -XX:+TieredCompilation
 
 apt-get install ca-certificates (обычно уже есть в системе)
 install -m 0644 cyanogenmod.crt /usr/local/share/ca-certificates
-update-ca-certificates
+update-ca-certificates.
                      
 WBR, Decker [ http://www.decker.su ]
 
