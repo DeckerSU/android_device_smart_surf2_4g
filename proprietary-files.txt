@@ -285,3 +285,9 @@ etc/.tp/thermal.mid.conf
 etc/.tp/thermal.high.conf
 etc/.tp/thermal.off.conf
 etc/.tp/thermal.low.conf
+
+lib/libpqservice.so
+lib/libgas.so
+lib/libviagpsrpc.so
+lib/libmtkcamera_client.so
+lib/libbluetooth_mtk_pure.so
