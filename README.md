@@ -18,25 +18,17 @@ export ANDROID_JACK_VM_ARGS="-Xmx4g -Dfile.encoding=UTF-8 -XX:+TieredCompilation
 
 Плюс, я запустил сборку как make -j2 bacon, вместо make -j5 bacon.
 
-[2] Из файла proprietary-files.txt были удалены все ссылки на 64-х битные BLOB'ы, т.к. аппарат все равно 
-использует 32-х битную архитектуру. Для создания дерева vendor/mts/smart_surf2_4g подключите аппарат с запущенным
-TWRP через ADB и запустите последовательно: extract-files.sh - для копирования проприетарных модулей с 
-аппарата, а затем setup-makefiles.sh для построения сборочных скриптов в vendor/mts/smart_surf2_4g.
+[2] Заметки:
 
-[3] Q. Звук BT? audio.a2dp.default.so брать со стока или он собирается при сборке прошивки?
+- find . -type f -printf "%p\n" - получение списка файлов в директории
 
-[4] При запуске прошивки видимо (!) не монтируются разделы. Из за этого даже при запуске adb shell мы получаем
-сообщение о том, что sh не найден, скорее всего потому что раздел /system не был смонтирован при запуске системы.
+[3] Устранение ошибки с Gello:
 
-[5] Версия "синхронизирована" с деревом persimmon 1.0.6 от oleg.svs, т.к. в изначальном варианте были 
-существенные ошибки в init скриптах, например в init.rc не подключался генерируемый init.cm.rc и т.п.
-Также были внесены другие правки.
+Идём на https://maven.cyanogenmod.org/ и экспортируем сертификат.
 
-[6] В /dev/block/platform/mtk-msdc.0 у нас находятся 11230000.msdc0 и 11240000.msdc1, а в них уже by-name и 
-т.п., непосредственно в /dev/block/platform/mtk-msdc.0 никаких нет. Коммит с названием "fix paths" - 
-попытка исправить это.
-
-[7] find . -type f -printf "%p\n" - получение списка файлов в директории
+apt-get install ca-certificates (обычно уже есть в системе)
+install -m 0644 cyanogenmod.crt /usr/local/share/ca-certificates
+update-ca-certificates
                      
 WBR, Decker [ http://www.decker.su ]
 
