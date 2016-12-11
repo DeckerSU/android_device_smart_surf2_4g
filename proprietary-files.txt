@@ -291,3 +291,7 @@ lib/libgas.so
 lib/libviagpsrpc.so
 lib/libmtkcamera_client.so
 lib/libbluetooth_mtk_pure.so
+
+lib/libcamdrv_FrmB.so
+lib/libfs_mgr.so
+

@@ -64,6 +64,28 @@ index 84252c0..2888064 100644
  PATH_WHITELIST_EXTRA_H
  #endif
 
+https://github.com/SlimRoms/frameworks_base/commit/81760e4b9026c3b3153a8e6691494484c7b92897
+
+Либо вот так:
+
+diff --git a/core/jni/fd_utils-inl-extra.h b/core/jni/fd_utils-inl-extra.h
+index 993c320..3ef2b60 100644
+--- a/core/jni/fd_utils-inl-extra.h
++++ b/core/jni/fd_utils-inl-extra.h
+@@ -20,6 +20,9 @@
+     "/proc/aprf",
+ */
+ 
++#define PATH_WHITELIST_EXTRA_H \
++    "/proc/ged",
++
+ // Overload this file in your device specific config if you need
+ // to add extra whitelisted paths.
+ // WARNING: Only use this if necessary. Custom inits should be
+
+
+[6] 
+
 WBR, Decker [ http://www.decker.su ]
 
 Credits
@@ -78,3 +100,4 @@ oleg.svs
 - http://stackoverflow.com/questions/5057394/cyanogenmod-or-aosp-compile-a-single-project - Как собрать отдельное приложение из прошивки.
 - http://xda-university.com/as-a-developer/downloadcompile-specific-rom-parts - На ту же тему.
 - https://github.com/nE0sIghT/android_device_doogee_x5pro - дерево девайса на mt6735m.diff --git a/core/jni/fd_utils-inl.h b/core/jni/fd_utils-inl.h
+
