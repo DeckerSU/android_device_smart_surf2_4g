@@ -1,0 +1,40 @@
+From be86ed165bef4475dd901ae6f2fa862e10a82a0a Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Mon, 12 Dec 2016 22:25:52 +0200
+Subject: [PATCH] add mising MediaBufferGroup::acquire_buffer symbol
+
+Change-Id: Iacea6bc28c153c1a010f93e575b3b509496e742b
+---
+ media/libstagefright/foundation/MediaBufferGroup.cpp | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/media/libstagefright/foundation/MediaBufferGroup.cpp b/media/libstagefright/foundation/MediaBufferGroup.cpp
+index 54f768a..3dcb237 100644
+--- a/media/libstagefright/foundation/MediaBufferGroup.cpp
++++ b/media/libstagefright/foundation/MediaBufferGroup.cpp
+@@ -107,6 +107,13 @@ void MediaBufferGroup::add_buffer(MediaBuffer *buffer) {
+     // optionally: mGrowthLimit = max(mGrowthLimit, mBuffers.size());
+ }
+ 
++// stagefright: add mising MediaBufferGroup::acquire_buffer symbol - https://review.cyanogenmod.org/#/c/77502/
++extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferE(
++                    MediaBufferGroup* group, MediaBuffer **out) {
++    ALOGD("[Decker] _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferE");
++    return group->acquire_buffer(out, false, 0);
++}
++
+ bool MediaBufferGroup::has_buffers() {
+     if (mBuffers.size() < mGrowthLimit) {
+         return true; // We can add more buffers internally.
+@@ -122,7 +129,7 @@ bool MediaBufferGroup::has_buffers() {
+ status_t MediaBufferGroup::acquire_buffer(
+         MediaBuffer **out, bool nonBlocking, size_t requestedSize) {
+     Mutex::Autolock autoLock(mLock);
+-    for (;;) {
++    for (;;) {                                                         	
+         size_t smallest = requestedSize;
+         MediaBuffer *buffer = nullptr;
+         auto free = mBuffers.end();
+-- 
+2.7.4
+

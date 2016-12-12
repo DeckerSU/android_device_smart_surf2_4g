@@ -139,10 +139,21 @@ frameworks/av/media/libstagefright
 Еще audio.primary.mt6737m.so был нужен mrdump, вот откуда я его взял - https://github.com/nofearnohappy/vendor_AOSP/tree/master/mediatek/proprietary . Тоже интересная ссылка,
 есть исходники некоторых модулей Mediatek.
 
-[9] libwvm - _ZNK7android11MediaSource11ReadOptions9getSeekToEPxPNS1_8SeekModeE -> android::MediaSource::ReadOptions::getSeekTo(long long*android::MediaSource::ReadOptions::SeekMode*)
-             _Z8WV_SetupRP9WVSessionRKSsS3_R13WVCredentials14WVOutputFormatmPv -> WV_Setup(..
-Смотрим сюда - https://pastehistory.com/paste/EhWm4Z4eg!HV ...
+[9] **libwvm.so**
 
+- _ZNK7android11MediaSource11ReadOptions9getSeekToEPxPNS1_8SeekModeE -> android::MediaSource::ReadOptions::getSeekTo(long long*android::MediaSource::ReadOptions::SeekMode*)
+   Варианты решения: поправлено в патче patches_decker\0002-fix-access-wvm-to-ReadOptions.patch 
+- _Z8WV_SetupRP9WVSessionRKSsS3_R13WVCredentials14WVOutputFormatmPv -> WV_Setup(..
+- _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferE -> android::MediaBufferGroup::acquire_buffer(android::MediaBuffer**)
+   Варианты решения: для предыдущих версий CM: https://gist.github.com/ishantvivek/ba0ec07f0e8cdf8ca3f2
+                                               https://review.cyanogenmod.org/#/c/77502/ add mising MediaBufferGroup::acquire_buffer symbol 
+	     
+Вообщем все что касается импортируемых функций в libwvm в стоковой прошивке импортировалось из libstagefright, в исходниках CM14.1 все что касается MediaBuffer'а
+было убрано из экспорта, и насколько я понял разработчики придерживаются мнения, что эти функции в stagefright в CM не должны быть экспортируемыми, т.е. решение
+которое предлагается командой Cyanogen - правьте код, который использует MediaBuffer. В нашем случае пересобрать libwvm мы не можем, т.к. она была взята из стоковой
+прошивки, поэтому единственный остающийся доступный вариант - это правка исходников stagefright и добавление всего недостающего в экспорт. Правильно я это сделал
+или нет - вопрос пока открытый. Но направление что править и как - есть.
+	
 [10] Случайно увидел еще один красивый вариант фикса недостающих экспортов при запуске /system/lib/hw/audio.primary.mt6737m.so (см. п. 8), в решении из 8 и моем патче необходимые экспорты добавляются в libmedia ... а здесь - https://github.com/olegsvs/android_device_cyanogen_mt6735-common/commit/24f4cac2876e583b1e01e186733c15407b129c52 все отстутствующее собирается в libmtk_symbols, которая потом в init'е помешается в LD_PRELOAD. Решение красиво тем, что в подключаемой таким способом библиотеке можно собрать заглушки для любых экспортов.
 
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
