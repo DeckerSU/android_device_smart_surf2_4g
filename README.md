@@ -128,10 +128,11 @@ frameworks/av/media/libstagefright
 [8] HAL     : dlopen failed: cannot locate symbol "_ZN7android11AudioSystem24getVoiceUnlockDLInstanceEv" referenced by "/system/lib/hw/audio.primary.mt6737m.so"...
 
 - https://github.com/xen0n/android_device_meizu_arale/issues/2
-- https://github.com/xen0n/local_manifests_arale/commit/c0aaada
+- https://github.com/xen0n/local_manifests_arale/commit/c0aaada - как подключить android_frameworks_av для mtk в локальный манифест.
 - https://github.com/xen0n/android_frameworks_av_mtk/commit/a00acd6#diff-0b40c18c5446aae2e6abded76d87f3b9
 - http://pastebin.com/raw/sFdPewqW - здесь _ZN7android11AudioSystem24getVoiceUnlockDLInstanceEv() запихнули прямо в media/libmedia/AudioSystem.cpp, как экспортируемую
-- https://github.com/xen0n/android_frameworks_av_mtk/tree/cm-14.0 - *интересная* репа **xen0n**'а , перепиленные под MTK framework'и и многое другое
+- https://github.com/xen0n/android_frameworks_av_mtk/tree/cm-14.0 - *интересная* репа **xen0n** , перепиленные под MTK framework'и и многое другое
+- https://github.com/fire855 - еще один интересный репозитарий, в котором есть многое по MTK.
 
 Мой корявый патч для звука есть в 0001-mtk-audio-fix.patch0001-mtk-audio-fix.patch .
 
