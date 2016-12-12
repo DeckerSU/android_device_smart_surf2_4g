@@ -344,3 +344,7 @@ cm.updater.uri=https://raw.githubusercontent.com/divis1969/update-site/master/up
 #dalvik.vm.dexopt-flags=m=y \
 #net.bt.name=Android \
 #dalvik.vm.stack-trace-file=/data/anr/traces.txt \
+
+# Widevine DRM
+PRODUCT_PACKAGES += \
+    libshims_wvm

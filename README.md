@@ -99,6 +99,30 @@ index 993c320..3ef2b60 100644
 - http://source.android.com/source/add-device.html - Understand Build Layers (я пока это понимаю не до конца)
 - https://wiki.cyanogenmod.org/w/Doc:_adding_your_own_app - как добавить собственное приложение в сборку (PRODUCT_PACKAGES)
 
+[7] 12-12 03:21:11.029   834   921 E WVMExtractor: Failed to open libwvm.so: dlopen failed: 
+cannot locate symbol "_ZN7android16MediaBufferGroupC1Ev" referenced by "/system/vendor/lib/libwvm.so"...
+
+https://d.fuqu.jp/c++filtjs/ -> _ZN7android16MediaBufferGroupC1Ev -> android::MediaBufferGroup::MediaBufferGroup()
+
+frameworks/av/media/libstagefright 
+
+Вот тут http://forum.xda-developers.com/showpost.php?p=69901934&postcount=381 вроде пофиксили такую же ошибку.
+
+Еще можно поискать так:
+
+- https://github.com/search?utf8=%E2%9C%93&q=_ZN7android16MediaBufferGroupC1Ev&type=Code&ref=searchresults
+- https://github.com/CypherOS/device_oneplus_bacon/tree/bac8376f86be16145a2b2ffe7b8692674908f9ab/libshims и посмотреть вот сюда (libshim - заглушка)
+
+[8] HAL     : dlopen failed: cannot locate symbol "_ZN7android11AudioSystem24getVoiceUnlockDLInstanceEv" referenced by "/system/lib/hw/audio.primary.mt6737m.so"...
+
+- https://github.com/xen0n/android_device_meizu_arale/issues/2
+- https://github.com/xen0n/local_manifests_arale/commit/c0aaada
+- https://github.com/xen0n/android_frameworks_av_mtk/commit/a00acd6#diff-0b40c18c5446aae2e6abded76d87f3b9
+- http://pastebin.com/raw/sFdPewqW - здесь _ZN7android11AudioSystem24getVoiceUnlockDLInstanceEv() запихнули прямо в media/libmedia/AudioSystem.cpp, как экспортируемую
+- https://github.com/xen0n/android_frameworks_av_mtk/tree/cm-14.0 - *интересная* репа **xen0n**'а , перепиленные под MTK framework'и и многое другое
+
+Мой корявый патч для звука есть в 0001-mtk-audio-fix.patch0001-mtk-audio-fix.patch .
+
 WBR, Decker [ http://www.decker.su ]
 
 Credits

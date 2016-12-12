@@ -295,3 +295,24 @@ lib/libbluetooth_mtk_pure.so
 lib/libcamdrv_FrmB.so
 lib/libfs_mgr.so
 
+lib/libcam.iopipe.so
+lib/libcam.iopipe_FrmB.so
+bin/bin/ccci_rpcd
+lib/libterservice.so
+
+lib/libmrdump.so
+
+bin/update_verifier
+bin/mobile_log_d
+
+bin/update_verifier
+bin/mobile_log_d
+bin/met_log_d
+bin/netdiag
+bin/pq
+bin/aal
+bin/dm_agent_binder
+bin/ppl_agent
+
+lib/libimageio_plat_drv_FrmB.so
+lib/libmrdump.so
