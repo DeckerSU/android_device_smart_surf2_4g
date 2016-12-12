@@ -83,8 +83,21 @@ index 993c320..3ef2b60 100644
  // to add extra whitelisted paths.
  // WARNING: Only use this if necessary. Custom inits should be
 
+(!!!) По идее этот файл нужно положить в дерево устройства, но я не знаю как это сделать. Ни одного примера дерева с файлом fd_utils-inl-extra.h я не нашел.
 
-[6] 
+[6] Чтобы запустилась связь mtk-ril.so и mtk-rilmd2.so не должны быть со стока, т.к. стоковые используют две функции из libnetutils.so :
+
+- ifc_set_txq_state
+- ifc_ccmni_md_cfg
+
+Которых в исходниках CM14.1 просто нет. Решение найдено, mtk-ril.so и mtk-rilmd2.so должны быть взяты от другого аппарата на CM с рабочим радиомодулем. Либо же
+надо пересобрать ril из исходников (которых нет). Исходники RIL'а удалось найти только для 6752 здесь - http://4pda.ru/forum/index.php?showtopic=583114&view=findpost&p=50599174 ,
+но я пока не понял как их правильно подключить к дереву и попробовать собрать. Поэтому воспользуемся prebuilt версией.
+
+Что не повредит почитать, если все-таки найти исходники ril'а:
+
+- http://source.android.com/source/add-device.html - Understand Build Layers (я пока это понимаю не до конца)
+- https://wiki.cyanogenmod.org/w/Doc:_adding_your_own_app - как добавить собственное приложение в сборку (PRODUCT_PACKAGES)
 
 WBR, Decker [ http://www.decker.su ]
 
