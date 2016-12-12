@@ -5,12 +5,23 @@
 
 Внимание! Дерево в находится в *режиме разработки*, прошивка с ним на данный момент собирается, но, к сожалению, не запускается.
 
-Замечания
-----------
+Что работает на данный момент?
+------------------------------
 
-[1] 
+Предупреждаю, что пока дерево в таком виде с комментариями здесь собрать достаточно сложно, но можно, если понимать о чем идет речь. К сожалению, пока это не тот вариант, чтобы сделать make -j# bacon и сразу же получить результат. Нужны правки исходников CM, применение патчей из дерева плюс ручное редактирование. Т.к. я пока не дозрел как все это нормально оформить.
 
-Если при сборке у вас появляется ошибка out of memory в jack, то нужно сделать следующее:
+Итак, работает:
+
+- Дисплей и тач, т.е. прошивка запускается и можно видеть изображение (да, да, этого я тоже долго от нее добивался).
+- Звук ... после нескольких суток работы проблемы с audio.primary.mt6737m.so удалось победить.
+- Связь! Да, да, ril заработал, правда только после замены mtk-ril.so и mtk-rilmd2.so от другого аппарата на CM.
+- Не работает камера (просто еще не было времени ее доделать).
+- Не работают некоторые вещи, зависящие от vendor/lib/libwvm.so.
+
+Рабочие заметки
+---------------
+
+[1] Если при сборке у вас появляется ошибка out of memory в jack, то нужно сделать следующее:
 
 export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4096m"
 export ANDROID_JACK_VM_ARGS="-Xmx4g -Dfile.encoding=UTF-8 -XX:+TieredCompilation"
@@ -32,13 +43,13 @@ update-ca-certificates.
 
 [4] Сделать revert этого commit'а:
 
-Автор: Dimitry Ivanov <dimitry@google.com>  2016-01-22 00:25:32
-Коммитер: Dimitry Ivanov <dimitry@google.com>  2016-01-22 03:43:04
-Предок: 05c2f6b3d39ee92eae248e902a5a54fdcc6c696f (Merge "libc: hide __signalfd4 symbol")
-Потомок:  a42483baad9a37297e6bbbe02d433ecbde890386 (Merge "Revert "Temporary apply LIBC version to __pthread_gettid"")
-Ветка: remotes/github/cm-14.1, remotes/m/cm-14.1
-Следует за: android-sdk-adt_r12
-Предшествует: 
+    Автор: Dimitry Ivanov <dimitry@google.com>  2016-01-22 00:25:32
+    Коммитер: Dimitry Ivanov <dimitry@google.com>  2016-01-22 03:43:04
+    Предок: 05c2f6b3d39ee92eae248e902a5a54fdcc6c696f (Merge "libc: hide __signalfd4 symbol")
+    Потомок:  a42483baad9a37297e6bbbe02d433ecbde890386 (Merge "Revert "Temporary apply LIBC version to __pthread_gettid"")
+    Ветка: remotes/github/cm-14.1, remotes/m/cm-14.1
+    Следует за: android-sdk-adt_r12
+    Предшествует: 
 
     Revert "Temporary apply LIBC version to __pthread_gettid"
     
@@ -52,36 +63,37 @@ update-ca-certificates.
 
 [5] Добавить /proc/ged в FD whitelist в frameworks/base/core/jni/fd_utils-inl.h 
 
-index 84252c0..2888064 100644
---- a/core/jni/fd_utils-inl.h
-+++ b/core/jni/fd_utils-inl.h
-@@ -58,6 +58,7 @@ static const char* kPathWhitelist[] = {
-   "/dev/ion",
-   "/dev/dri/renderD129", // Fixes b/31172436
-   "/system/framework/org.cyanogenmod.platform-res.apk",
-+  "/proc/ged" // [+] Decker
- #ifdef PATH_WHITELIST_EXTRA_H
- PATH_WHITELIST_EXTRA_H
- #endif
+    index 84252c0..2888064 100644
+    --- a/core/jni/fd_utils-inl.h
+    +++ b/core/jni/fd_utils-inl.h
+    @@ -58,6 +58,7 @@ static const char* kPathWhitelist[] = {
+       "/dev/ion",
+       "/dev/dri/renderD129", // Fixes b/31172436
+       "/system/framework/org.cyanogenmod.platform-res.apk",
+    +  "/proc/ged" // [+] Decker
+     #ifdef PATH_WHITELIST_EXTRA_H
+     PATH_WHITELIST_EXTRA_H
+     #endif
 
 https://github.com/SlimRoms/frameworks_base/commit/81760e4b9026c3b3153a8e6691494484c7b92897
 
 Либо вот так:
 
-diff --git a/core/jni/fd_utils-inl-extra.h b/core/jni/fd_utils-inl-extra.h
-index 993c320..3ef2b60 100644
---- a/core/jni/fd_utils-inl-extra.h
-+++ b/core/jni/fd_utils-inl-extra.h
-@@ -20,6 +20,9 @@
-     "/proc/aprf",
- */
- 
-+#define PATH_WHITELIST_EXTRA_H \
-+    "/proc/ged",
-+
- // Overload this file in your device specific config if you need
- // to add extra whitelisted paths.
- // WARNING: Only use this if necessary. Custom inits should be
+    diff --git a/core/jni/fd_utils-inl-extra.h b/core/jni/fd_utils-inl-extra.h
+    index 993c320..3ef2b60 100644
+    --- a/core/jni/fd_utils-inl-extra.h
+    +++ b/core/jni/fd_utils-inl-extra.h
+    @@ -20,6 +20,9 @@
+         "/proc/aprf",
+     */
+     
+    +#define PATH_WHITELIST_EXTRA_H \
+    +    "/proc/ged",
+    +
+     // Overload this file in your device specific config if you need
+     // to add extra whitelisted paths.
+     // WARNING: Only use this if necessary. Custom inits should be
+
 
 (!!!) По идее этот файл нужно положить в дерево устройства, но я не знаю как это сделать. Ни одного примера дерева с файлом fd_utils-inl-extra.h я не нашел.
 
@@ -123,12 +135,20 @@ frameworks/av/media/libstagefright
 
 Мой корявый патч для звука есть в 0001-mtk-audio-fix.patch0001-mtk-audio-fix.patch .
 
-WBR, Decker [ http://www.decker.su ]
+Еще audio.primary.mt6737m.so был нужен mrdump, вот откуда я его взял - https://github.com/nofearnohappy/vendor_AOSP/tree/master/mediatek/proprietary . Тоже интересная ссылка,
+есть исходники некоторых модулей Mediatek.
+
+[9] libwvm - _ZNK7android11MediaSource11ReadOptions9getSeekToEPxPNS1_8SeekModeE -> android::MediaSource::ReadOptions::getSeekTo(long long*android::MediaSource::ReadOptions::SeekMode*)
+             _Z8WV_SetupRP9WVSessionRKSsS3_R13WVCredentials14WVOutputFormatmPv -> WV_Setup(..
+Смотрим сюда - https://pastehistory.com/paste/EhWm4Z4eg!HV ...
+
+WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 
 Credits
 -------
 
 oleg.svs
+
 
 Полезные ссылки
 ---------------

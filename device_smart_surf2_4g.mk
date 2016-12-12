@@ -348,3 +348,9 @@ cm.updater.uri=https://raw.githubusercontent.com/divis1969/update-site/master/up
 # Widevine DRM
 PRODUCT_PACKAGES += \
     libshims_wvm
+
+# mrdump related
+PRODUCT_PACKAGES += \
+    libmrdump \
+    mrdump_tool
+

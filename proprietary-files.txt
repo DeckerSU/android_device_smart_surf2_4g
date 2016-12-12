@@ -315,4 +315,3 @@ bin/dm_agent_binder
 bin/ppl_agent
 
 lib/libimageio_plat_drv_FrmB.so
-lib/libmrdump.so
