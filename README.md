@@ -154,6 +154,18 @@ frameworks/av/media/libstagefright
 которое предлагается командой Cyanogen - правьте код, который использует MediaBuffer. В нашем случае пересобрать libwvm мы не можем, т.к. она была взята из стоковой
 прошивки, поэтому единственный остающийся доступный вариант - это правка исходников stagefright и добавление всего недостающего в экспорт. Правильно я это сделал
 или нет - вопрос пока открытый. Но направление что править и как - есть.
+
+После того как удалось все это поправить выяснилось что:
+
+	WVMExtractor: Failed to open libwvm.so: dlopen failed: cannot locate symbol "EVP_PKEY_new_mac_key" referenced by "/system/lib/libdrmmtkutil.so"...
+
+Суть проблемы - EVP_PKEY_new_mac_key была в external/boringssl в CM13.0, однако в CM14.1 она просто отсутствует. Т.к. был вот такой вот коммит:
+
+https://boringssl-review.googlesource.com/#/c/5120/ с названием Remove EVP_PKEY_HMAC.
+
+Как решить это - я пока не придумал.
+
+https://boringssl-review.googlesource.com/#/c/5120/
 	
 [10] Случайно увидел еще один красивый вариант фикса недостающих экспортов при запуске /system/lib/hw/audio.primary.mt6737m.so (см. п. 8), в решении из 8 и моем патче необходимые экспорты добавляются в libmedia ... а здесь - https://github.com/olegsvs/android_device_cyanogen_mt6735-common/commit/24f4cac2876e583b1e01e186733c15407b129c52 все отстутствующее собирается в libmtk_symbols, которая потом в init'е помешается в LD_PRELOAD. Решение красиво тем, что в подключаемой таким способом библиотеке можно собрать заглушки для любых экспортов.
 
