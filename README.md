@@ -147,6 +147,7 @@ frameworks/av/media/libstagefright
 - _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferE -> android::MediaBufferGroup::acquire_buffer(android::MediaBuffer**)
    Варианты решения: для предыдущих версий CM: https://gist.github.com/ishantvivek/ba0ec07f0e8cdf8ca3f2
                                                https://review.cyanogenmod.org/#/c/77502/ add mising MediaBufferGroup::acquire_buffer symbol 
+- _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb - android::MediaBufferGroup::acquire_buffer(android::MediaBuffer**bool)
 	     
 Вообщем все что касается импортируемых функций в libwvm в стоковой прошивке импортировалось из libstagefright, в исходниках CM14.1 все что касается MediaBuffer'а
 было убрано из экспорта, и насколько я понял разработчики придерживаются мнения, что эти функции в stagefright в CM не должны быть экспортируемыми, т.е. решение

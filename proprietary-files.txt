@@ -318,8 +318,7 @@ lib/libimageio_plat_drv_FrmB.so
 lib/libcam.iopipe_FrmB.so
 lib/libfmcust.so
 
-
-??? - подсветка экрана и т.д. и т.п.
+# подсветка экрана и т.п.
 
 lib/hw/audio.a2dp.default.so
 lib/hw/audio_policy.stub.so
