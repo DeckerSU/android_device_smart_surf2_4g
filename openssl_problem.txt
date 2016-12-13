@@ -1,0 +1,122 @@
+Была такая функция:
+
+EVP_PKEY *EVP_PKEY_new_mac_key(int type, ENGINE *e, const uint8_t *mac_key,
+                               size_t mac_key_len) {
+  EVP_PKEY_CTX *mac_ctx = NULL;
+  EVP_PKEY *ret = NULL;
+
+  mac_ctx = EVP_PKEY_CTX_new_id(type, e);
+  if (!mac_ctx) {
+    return NULL;
+  }
+
+  if (!EVP_PKEY_keygen_init(mac_ctx) ||
+      !EVP_PKEY_CTX_ctrl(mac_ctx, -1, EVP_PKEY_OP_KEYGEN,
+                         EVP_PKEY_CTRL_SET_MAC_KEY, mac_key_len,
+                         (uint8_t *)mac_key) ||
+      !EVP_PKEY_keygen(mac_ctx, &ret)) {
+    ret = NULL;
+    goto merr;
+  }
+
+merr:
+  if (mac_ctx) {
+    EVP_PKEY_CTX_free(mac_ctx);
+  }
+  return ret;
+}
+
+Но в коммите https://boringssl-review.googlesource.com/#/c/5120/ (Remove EVP_PKEY_HMAC) ее удалили.
+
+Также сказано следующее:
+
+### HMAC `EVP_PKEY`s
+
+`EVP_PKEY_HMAC` is removed. Use the `HMAC_*` functions in `hmac.h` instead. This
+is compatible with OpenSSL.
+
+Т.е. нам нужно написать некий wrapper для EVP_PKEY_new_mac_key с использованием `HMAC_*` функций из hmac.h ...
+
+Также у нас есть функция EVP_PKEY *EVP_PKEY_new(void) для инициализации структуры EVP_PKEY.
+
+Пример вызова старой функции:
+
+
+#define NID_hmac		855
+
+/* Deprecated: Use |HMAC_CTX| directly instead. */
+#define EVP_PKEY_HMAC NID_hmac
+
+pkey = EVP_PKEY_new_mac_key(EVP_PKEY_HMAC, NULL, "password", strlen("password")) ...
+
+В новой, т.е. в нашем wrapper'е нам предстоит использовать HMAC_CTX_new, HMAC_Init_ex ... и на выходе мы должны получить EVP_PKEY. 
+
+---
+http://stackoverflow.com/questions/12545811/using-hmac-vs-evp-functions-in-openssl
+https://android.googlesource.com/platform/external/conscrypt/+/a00142199f81acd00671d07d288845b5a5f15381%5E!/ - а вот как переработали то же самое в Java.
+http://stackoverflow.com/questions/2048124/how-to-read-key-file-for-use-with-hmac-init-ex#2048124
+
+---
+
+Структуры:
+
+struct evp_pkey_st {
+  CRYPTO_refcount_t references;
+
+  /* type contains one of the EVP_PKEY_* values or NID_undef and determines
+   * which element (if any) of the |pkey| union is valid. */
+  int type;
+
+  union {
+    char *ptr;
+    RSA *rsa;
+    DSA *dsa;
+    DH *dh;
+    EC_KEY *ec;
+  } pkey;
+
+  /* ameth contains a pointer to a method table that contains many ASN.1
+   * methods for the key type. */
+  const EVP_PKEY_ASN1_METHOD *ameth;
+} /* EVP_PKEY */;
+
+struct hmac_ctx_st {
+  const EVP_MD *md;
+  EVP_MD_CTX md_ctx;
+  EVP_MD_CTX i_ctx;
+  EVP_MD_CTX o_ctx;
+} /* HMAC_CTX */;
+
+
+Отличный пример использования EVP_* и HMAC_* : http://stackoverflow.com/questions/12545811/using-hmac-vs-evp-functions-in-openssl
+
+Новая функция:
+--------------
+
+EVP_PKEY *EVP_PKEY_new_mac_key(int type, ENGINE *e, const uint8_t *mac_key, size_t mac_key_len) {
+
+   EVP_MD_CTX* mdctx = NULL;
+   const EVP_MD* md = NULL;
+   EVP_PKEY *pkey = NULL;
+
+  if (type == 855) {
+
+  }
+  return pkey;
+}
+---
+
+При использовании данных функций для выработки имитовставки, требуется сформировать структуру EVP_PKEY, содержащую ключ имитозащиты.
+Для этого используется функция:
+
+EVP_PKEY *EVP_PKEY_new_mac_key(int type, ENGINE *e, unsigned char *key, int keylen)
+
+- Параметр type этой функции содержит числовой идентификатор алгоритма имитозащиты (может быть EVP_PKEY_HMAC или NID_id_Gost28147_89_MAC).
+- Параметр e указывает энджин, содержащий предпочитаемую реализацию этого алгоритм (может быть NULL).
+- Параметр key содержит буфер с ключевым материалом,
+- Параметр keylen указывает длину этого буфера.
+
+Для алгоритма ГОСТ 28147-89 в режиме имитовставки буфер должен содержать ровно 32 байта ключевого материала.
+Для алгоритма HMAC ключ может быть любой длины. В этом случае, если ключ представляет собой строку символов C, оканчивающуюся нулевым байтом, допустимо не подсчитывать
+её длину, а передать -1 в качестве keylen.
+

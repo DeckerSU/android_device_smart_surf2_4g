@@ -165,6 +165,11 @@ https://boringssl-review.googlesource.com/#/c/5120/ с названием Remove
 
 Как решить это - я пока не придумал.
 
+https://github.com/CyanogenMod/android_external_boringssl - 1e4884f615b20946411a74e41eb9c6aa65e2d5f3 (вот тут все сломалось)
+
+git reset --hard b668df14e33797d154fa8c56c0cab5fa05b03b94 - откат
+		 20e10d33d55155a05c50ff9d0c2f332984a842fd - вернуть все на прежнее место
+
 https://boringssl-review.googlesource.com/#/c/5120/
 	
 [10] Случайно увидел еще один красивый вариант фикса недостающих экспортов при запуске /system/lib/hw/audio.primary.mt6737m.so (см. п. 8), в решении из 8 и моем патче необходимые экспорты добавляются в libmedia ... а здесь - https://github.com/olegsvs/android_device_cyanogen_mt6735-common/commit/24f4cac2876e583b1e01e186733c15407b129c52 все отстутствующее собирается в libmtk_symbols, которая потом в init'е помешается в LD_PRELOAD. Решение красиво тем, что в подключаемой таким способом библиотеке можно собрать заглушки для любых экспортов.
@@ -184,4 +189,4 @@ oleg.svs
 - http://stackoverflow.com/questions/5057394/cyanogenmod-or-aosp-compile-a-single-project - Как собрать отдельное приложение из прошивки.
 - http://xda-university.com/as-a-developer/downloadcompile-specific-rom-parts - На ту же тему.
 - https://github.com/nE0sIghT/android_device_doogee_x5pro - дерево девайса на mt6735m.diff --git a/core/jni/fd_utils-inl.h b/core/jni/fd_utils-inl.h
-
+- http://microsin.net/programming/android/what-is-android-mk.html
