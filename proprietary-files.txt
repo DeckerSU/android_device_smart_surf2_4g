@@ -317,3 +317,16 @@ bin/ppl_agent
 lib/libimageio_plat_drv_FrmB.so
 lib/libcam.iopipe_FrmB.so
 lib/libfmcust.so
+
+lib/hw/audio.a2dp.default.so
+lib/hw/audio_policy.stub.so
+lib/hw/lights.mt6737m.so
+lib/hw/radio.fm.mt6737m.so
+lib/hw/remoteir.default.so	
+
+lib/liba3m.so
+lib/libacdk.so
+lib/libcam.campipe.so
+lib/libhdrproc.so
+lib/libimageio_FrmB.so
+lib/libpq_cust.so

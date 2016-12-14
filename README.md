@@ -3,7 +3,7 @@
 
 Это дерево - попытка собрать CM14.1 под МТС Smart Surf2 4G. За основу взята разработка oleg.svs - https://github.com/olegsvs/android_device_archos_persimmon , за что ему огромное спасибо. Без этого дерева ничего бы не получилось.
 
-Внимание! Дерево в находится в *режиме разработки*, прошивка с ним на данный момент собирается, но, к сожалению, не запускается.
+Внимание! Дерево в находится в *режиме разработки*. Прошивка собирается, но перед ее сборкой необходимо применить соответствующие патчи из папки patches и patches_decker, причем часть из них возможно придется применить вручную, т.к. в .sh скрипт для патча я мог забыть что-то дописать. 
 
 Что работает на данный момент?
 ------------------------------
@@ -15,7 +15,7 @@
 - Дисплей и тач, т.е. прошивка запускается и можно видеть изображение (да, да, этого я тоже долго от нее добивался).
 - Звук ... после нескольких суток работы проблемы с audio.primary.mt6737m.so удалось победить.
 - Связь! Да, да, ril заработал, правда только после замены mtk-ril.so и mtk-rilmd2.so от другого аппарата на CM.
-- Не работает камера (просто еще не было времени ее доделать).
+- Заработали основная и фронтальная камеры, заработал фонарик (пока не работает съемка видео). Также приложение камера пока падает, съемка возможна из меню Галерея -> Камера. 
 - Не работают некоторые вещи, зависящие от vendor/lib/libwvm.so.
 
 Рабочие заметки
@@ -180,30 +180,37 @@ https://boringssl-review.googlesource.com/#/c/5120/
 - Выбор версии Java - sudo update-alternatives --config java
                       sudo update-alternatives --config javac
 
-                      http://ubuntuhandbook.org/index.php/2015/01/install-openjdk-8-ubuntu-14-04-12-04-lts/
+- http://ubuntuhandbook.org/index.php/2015/01/install-openjdk-8-ubuntu-14-04-12-04-lts/
+- http://stackoverflow.com/questions/27955851/android-5-0-build-errors-with-java-version-issue
 
 Есть 4 варианта для альтернативы java (предоставляет /usr/bin/java).
-
-  Выбор   Путь                                        Приор Состояние
-------------------------------------------------------------
-  0            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      автоматический режим
-  1            /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java   1071      ручной режим
-  2            /usr/lib/jvm/java-7-oracle/jre/bin/java          1         ручной режим
-  3            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      ручной режим
-* 4            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      ручной режим
+    
+      Выбор   ПутьПриор Состояние
+    ------------------------------------------------------------
+      0/usr/lib/jvm/java-8-oracle/jre/bin/java  1081  автоматический режим
+      1/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java   1071  ручной режим
+      2/usr/lib/jvm/java-7-oracle/jre/bin/java  1 ручной режим
+      3/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081  ручной режим
+    * 4/usr/lib/jvm/java-8-oracle/jre/bin/java  1081  ручной режим
 
 
 [12] Временно убрал из списка файлов:
 
-# подсветка экрана и т.п.
-
-lib/hw/audio.a2dp.default.so
-lib/hw/audio_policy.stub.so
-lib/hw/lights.mt6737m.so
-lib/hw/radio.fm.mt6737m.so
-lib/hw/remoteir.default.so	
+    # подсветка экрана и т.п.
+    
+    lib/hw/audio.a2dp.default.so
+    lib/hw/audio_policy.stub.so
+    lib/hw/lights.mt6737m.so
+    lib/hw/radio.fm.mt6737m.so
+    lib/hw/remoteir.default.so	
 
 Без этого подсветка экрана не гаснет, не работает авторегулировка яркости и т.п. Верну, когда разберусь с камерой.
+
+[http://4pda.ru/forum/index.php?s=&showtopic=715583&view=findpost&p=56099172](http://4pda.ru/forum/index.php?s=&showtopic=715583&view=findpost&p=56099172) - камера заработала, описание как я это сделал тут.
+
+[13] ...
+
+[14] Работа продолжается ... 
 
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 
