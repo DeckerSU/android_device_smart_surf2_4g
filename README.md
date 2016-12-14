@@ -225,6 +225,8 @@ https://boringssl-review.googlesource.com/#/c/5120/
 
 - https://review.cyanogenmod.org/#/c/160285/ ( libstagefright: add ffmpeg components )
 
+Лог:
+
     12-14 10:16:54.737   303   303 I FFMPEG  : Last message repeated 1 times
     12-14 10:16:54.737   303   303 I FFMPEG  : [mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6053200] moov atom not found
     12-14 10:16:54.737   303   303 E FFmpegExtractor: android-source:0xb3266000: avformat_open_input failed, err:Invalid data found when processing input
@@ -240,6 +242,7 @@ https://boringssl-review.googlesource.com/#/c/5120/
     12-14 10:16:54.751   304   304 E MetadataRetrieverClient: failed to capture a video frame
     12-14 10:16:54.751  1604  1693 E MediaMetadataRetrieverJNI: getFrameAtTime: videoFrame is a NULL pointer
     12-14 10:16:54.752  1604  1693 W MediaThumbRequest: Can't create mini thumbnail for /storage/emulated/0/DCIM/OpenCamera/VID_20161214_101102.mp4
+
 
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 
