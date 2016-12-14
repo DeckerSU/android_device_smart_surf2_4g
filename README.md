@@ -210,7 +210,36 @@ https://boringssl-review.googlesource.com/#/c/5120/
 
 [13] ...
 
-[14] Работа продолжается ... 
+[14] Работа продолжается ...
+
+- https://github.com/xen0n/android_device_meizu_arale/issues/17
+- https://github.com/CyanogenMod/android_external_stagefright-plugins 
+
+Три патча framework av (cm13.0) для Mediatek:
+
+- https://github.com/xen0n/android_frameworks_av_mtk/commit/0e8649c
+- https://github.com/xen0n/android_frameworks_av_mtk/commit/15b8851
+- https://github.com/xen0n/android_frameworks_av_mtk/commit/9fd6fc6
+
+И другая информация к размышлению:
+
+- https://review.cyanogenmod.org/#/c/160285/ ( libstagefright: add ffmpeg components )
+
+    12-14 10:16:54.737   303   303 I FFMPEG  : Last message repeated 1 times
+    12-14 10:16:54.737   303   303 I FFMPEG  : [mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6053200] moov atom not found
+    12-14 10:16:54.737   303   303 E FFmpegExtractor: android-source:0xb3266000: avformat_open_input failed, err:Invalid data found when processing input
+    12-14 10:16:54.738   303   303 W FFmpegExtractor: sniff through BetterSniffFFMPEG failed, try LegacySniffFFMPEG
+    12-14 10:16:54.744   534   547 E Sensors : handleToDriver handle(0)
+    12-14 10:16:54.744   534   547 D Accel   : setDelay: (handle=0, ns=20000000)
+    12-14 10:16:54.744   534   547 E Sensors : new setDelay handle(0),ns(20000000)m, error(0), index(2)
+    12-14 10:16:54.744   534  1471 E Sensors : handleToDriver handle(0)
+    12-14 10:16:54.744   534  1471 D Accel   : setDelay: (handle=0, ns=20000000)
+    12-14 10:16:54.745   534  1471 E Sensors : new setDelay handle(0),ns(20000000)m, error(0), index(2)
+    12-14 10:16:54.746   303   303 E FFmpegExtractor: android-source:0xb3266000|file:: avformat_open_input failed, err:Invalid data found when processing input
+    12-14 10:16:54.746   303   303 D FFmpegExtractor: SniffFFMPEG failed to sniff this source
+    12-14 10:16:54.751   304   304 E MetadataRetrieverClient: failed to capture a video frame
+    12-14 10:16:54.751  1604  1693 E MediaMetadataRetrieverJNI: getFrameAtTime: videoFrame is a NULL pointer
+    12-14 10:16:54.752  1604  1693 W MediaThumbRequest: Can't create mini thumbnail for /storage/emulated/0/DCIM/OpenCamera/VID_20161214_101102.mp4
 
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 
