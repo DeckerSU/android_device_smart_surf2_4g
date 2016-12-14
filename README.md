@@ -174,7 +174,36 @@ https://boringssl-review.googlesource.com/#/c/5120/
 	
 [10] Случайно увидел еще один красивый вариант фикса недостающих экспортов при запуске /system/lib/hw/audio.primary.mt6737m.so (см. п. 8), в решении из 8 и моем патче необходимые экспорты добавляются в libmedia ... а здесь - https://github.com/olegsvs/android_device_cyanogen_mt6735-common/commit/24f4cac2876e583b1e01e186733c15407b129c52 все отстутствующее собирается в libmtk_symbols, которая потом в init'е помешается в LD_PRELOAD. Решение красиво тем, что в подключаемой таким способом библиотеке можно собрать заглушки для любых экспортов.
 
-[11] Сохранение лога build'а: make -j2 bacon 2>&1 | tee build.log
+[11] 
+
+- Сохранение лога build'а: make -j2 bacon 2>&1 | tee device/mts/smart_surf2_4g/build.log
+- Выбор версии Java - sudo update-alternatives --config java
+                      sudo update-alternatives --config javac
+
+                      http://ubuntuhandbook.org/index.php/2015/01/install-openjdk-8-ubuntu-14-04-12-04-lts/
+
+Есть 4 варианта для альтернативы java (предоставляет /usr/bin/java).
+
+  Выбор   Путь                                        Приор Состояние
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      автоматический режим
+  1            /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java   1071      ручной режим
+  2            /usr/lib/jvm/java-7-oracle/jre/bin/java          1         ручной режим
+  3            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      ручной режим
+* 4            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      ручной режим
+
+
+[12] Временно убрал из списка файлов:
+
+# подсветка экрана и т.п.
+
+lib/hw/audio.a2dp.default.so
+lib/hw/audio_policy.stub.so
+lib/hw/lights.mt6737m.so
+lib/hw/radio.fm.mt6737m.so
+lib/hw/remoteir.default.so	
+
+Без этого подсветка экрана не гаснет, не работает авторегулировка яркости и т.п. Верну, когда разберусь с камерой.
 
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 

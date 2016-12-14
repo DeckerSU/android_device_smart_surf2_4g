@@ -1,0 +1,45 @@
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.1.1
+CM_VERSION=14.1-20161214-UNOFFICIAL-smart_surf2_4g
+TARGET_PRODUCT=cm_smart_surf2_4g
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm
+TARGET_ARCH_VARIANT=armv7-a-neon
+TARGET_CPU_VARIANT=cortex-a53
+TARGET_2ND_ARCH=
+TARGET_2ND_ARCH_VARIANT=
+TARGET_2ND_CPU_VARIANT=
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-4.4.0-53-generic-x86_64-with-Ubuntu-16.04-xenial
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=NMF26O
+OUT_DIR=/home/decker/cm14.1/out
+============================================
+find: «src/android»: Нет такого файла или каталога
+find: «src»: Нет такого файла или каталога
+find: «../commonutil/src»: Нет такого файла или каталога
+/bin/bash: строка 0: cd: cts/tests/libcore/ojluni/resources: Нет такого файла или каталога
+find: «../../libs/commonutil/src»: Нет такого файла или каталога
+build/core/binary.mk:1253: external/compiler-rt/Android.mk: libcompiler_rt: Unused source files: 
+
+build/core/binary.mk:1253: external/compiler-rt/Android.mk: libcompiler_rt: Unused source files: 
+ 
+ 
+ 
+
+build/core/binary.mk:1253: external/compiler-rt/Android.mk: libcompiler_rt: Unused source files: 
+ 
+ 
+ 
+
+build/core/binary.mk:1253: external/deqp/Android.mk: libdeqp: Unused source files: \
+find: «../../provider/java»: Нет такого файла или каталога
+build/core/binary.mk:1253: external/pdfium/third_party/pdfiumbigint.mk: libpdfiumbigint: Unused source files: bigint/BigInteger.cc bigint/BigIntegerUtils.cc bigint/BigUnsigned.cc bigint/BigUnsignedInABase.cc

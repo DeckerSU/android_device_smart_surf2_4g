@@ -300,7 +300,7 @@ lib/libcam.iopipe_FrmB.so
 bin/bin/ccci_rpcd
 lib/libterservice.so
 
-lib/libmrdump.so
+#lib/libmrdump.so
 
 bin/update_verifier
 bin/mobile_log_d
@@ -317,11 +317,3 @@ bin/ppl_agent
 lib/libimageio_plat_drv_FrmB.so
 lib/libcam.iopipe_FrmB.so
 lib/libfmcust.so
-
-# подсветка экрана и т.п.
-
-lib/hw/audio.a2dp.default.so
-lib/hw/audio_policy.stub.so
-lib/hw/lights.mt6737m.so
-lib/hw/radio.fm.mt6737m.so
-lib/hw/remoteir.default.so	

@@ -165,7 +165,7 @@ persist.debug.xlog.enable=1 \
 # These additionals go to /system/build.prop
 ADDITIONAL_BUILD_PROPERTIES += \
 cm.updater.type=plain \
-cm.updater.uri=https://raw.githubusercontent.com/divis1969/update-site/master/updates-14.1.json \
+cm.updater.uri=https://localhost/decker/update-site/master/updates-14.1.json \
 
 
 # Removed for now
