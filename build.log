@@ -43,3 +43,148 @@ build/core/binary.mk:1253: external/compiler-rt/Android.mk: libcompiler_rt: Unus
 build/core/binary.mk:1253: external/deqp/Android.mk: libdeqp: Unused source files: \
 find: «../../provider/java»: Нет такого файла или каталога
 build/core/binary.mk:1253: external/pdfium/third_party/pdfiumbigint.mk: libpdfiumbigint: Unused source files: bigint/BigInteger.cc bigint/BigIntegerUtils.cc bigint/BigUnsigned.cc bigint/BigUnsignedInABase.cc
+build/core/package_internal.mk:143: Empty argument supplied to find-subdir-assets
+find: «src/android/bluetooth/client/pbap»: Нет такого файла или каталога
+find: «/home/decker/cm14.1/out/target/common/obj/SHARED_LIBRARIES/libwifi-hal-mock_intermediates»: Нет такого файла или каталога
+find: «dummy»: Нет такого файла или каталога
+build/core/package_internal.mk:143: Empty argument supplied to find-subdir-assets
+find: «dummy»: Нет такого файла или каталога
+find: «dummy»: Нет такого файла или каталога
+find: «dummy»: Нет такого файла или каталога
+find: «InCallUI/src-N»: Нет такого файла или каталога
+find: «../ContactsCommon/src-N»: Нет такого файла или каталога
+find: «../PhoneCommon/src-N»: Нет такого файла или каталога
+find: «InCallUI/src-N»: Нет такого файла или каталога
+find: «../ContactsCommon/src-N»: Нет такого файла или каталога
+find: «../PhoneCommon/src-N»: Нет такого файла или каталога
+build/core/java.mk:328: цель «/home/decker/cm14.1/out/target/common/obj/APPS/Dialer_intermediates/src/src/org/codeaurora/presenceserv/IPresenceService.java» указана несколько раз в одном правиле
+build/core/java.mk:328: цель «/home/decker/cm14.1/out/target/common/obj/APPS/Dialer_intermediates/src/src/org/codeaurora/presenceserv/IPresenceServiceCB.java» указана несколько раз в одном правиле
+find: «dummy»: Нет такого файла или каталога
+build/core/base_rules.mk:316: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/res/images/charger/battery_fail.png»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/res/images/charger/battery_fail.png» игнорируются
+find: «dummy»: Нет такого файла или каталога
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/uiautomator»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/uiautomator» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/pppd»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/pppd» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libtinycompress.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libtinycompress.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libion.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libion.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libperfservicenative.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libperfservicenative.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libwebrtc_audio_preprocessing.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libwebrtc_audio_preprocessing.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libtinyxml.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libtinyxml.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libtinyalsa.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libtinyalsa.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libaudio-resampler.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libaudio-resampler.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/gralloc.default.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/gralloc.default.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/keystore.default.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/keystore.default.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/vibrator.default.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/vibrator.default.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/local_time.default.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/local_time.default.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/power.default.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/power.default.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libperfservice.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libperfservice.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libcurl.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libcurl.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/vendor/lib/mediadrm/libmockdrmcryptoplugin.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/vendor/lib/mediadrm/libmockdrmcryptoplugin.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/audio.a2dp.default.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/audio.a2dp.default.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/audio_policy.stub.so»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/hw/audio_policy.stub.so» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/init.rc»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/init.rc» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/audioserver.rc»
+build/core/base_rules.mk:338: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/audioserver.rc» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/mediacodec.rc»
+build/core/base_rules.mk:338: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/mediacodec.rc» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/cameraserver.rc»
+build/core/base_rules.mk:338: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/cameraserver.rc» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/rild.rc»
+build/core/base_rules.mk:338: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/rild.rc» игнорируются
+PRODUCT_COPY_FILES system/core/rootdir/init.usb.rc:root/init.usb.rc ignored.
+PRODUCT_COPY_FILES system/core/rootdir/ueventd.rc:root/ueventd.rc ignored.
+No private recovery resources for TARGET_DEVICE smart_surf2_4g
+vendor/cm/build/tasks/kernel.mk:160: ***************************************************************
+vendor/cm/build/tasks/kernel.mk:161: * Using prebuilt kernel binary instead of source              *
+vendor/cm/build/tasks/kernel.mk:162: * THIS IS DEPRECATED, AND WILL BE DISCONTINUED                *
+vendor/cm/build/tasks/kernel.mk:163: * Please configure your device to download the kernel         *
+vendor/cm/build/tasks/kernel.mk:164: * source repository to kernel/mts/smart_surf2_4g
+vendor/cm/build/tasks/kernel.mk:165: * See http://wiki.cyanogenmod.org/w/Doc:_integrated_kernel_building
+vendor/cm/build/tasks/kernel.mk:166: * for more information                                        *
+vendor/cm/build/tasks/kernel.mk:167: ***************************************************************
+target thumb C++: libmtk_symbols <= device/mts/smart_surf2_4g/libmtk_symbols/mtk_ui.cpp
+device/mts/smart_surf2_4g/libmtk_symbols/mtk_ui.cpp:7:9: warning: 'LOG_TAG' macro redefined [-Wmacro-redefined]
+#define LOG_TAG "DECKER_SHIM"
+        ^
+system/core/include/log/log.h:65:9: note: previous definition is here
+#define LOG_TAG NULL
+        ^
+device/mts/smart_surf2_4g/libmtk_symbols/mtk_ui.cpp:32:124: warning: format specifies type 'unsigned int' but the argument has type 'void *' [-Wformat]
+        ALOGI("_ZN7android13GraphicBufferC1Ejjij(instance = %08X, inWidth = %d, inHeight = %d, inFormat = %d, inUsage = %08X)\n", instance, inWidth, inHeight, inFormat, inUsage);
+                                                            ~~~~                                                                  ^~~~~~~~
+system/core/include/log/log.h:128:51: note: expanded from macro 'ALOGI'
+#define ALOGI(...) ((void)ALOG(LOG_INFO, LOG_TAG, __VA_ARGS__))
+                                                  ^~~~~~~~~~~
+system/core/include/log/log.h:453:38: note: expanded from macro 'ALOG'
+    LOG_PRI(ANDROID_##priority, tag, __VA_ARGS__)
+                                     ^~~~~~~~~~~
+system/core/include/log/log.h:461:37: note: expanded from macro 'LOG_PRI'
+    android_printLog(priority, tag, __VA_ARGS__)
+                                    ^~~~~~~~~~~
+system/core/include/log/log.h:618:36: note: expanded from macro 'android_printLog'
+    __android_log_print(prio, tag, fmt)
+                                   ^~~
+device/mts/smart_surf2_4g/libmtk_symbols/mtk_ui.cpp:36:119: warning: format specifies type 'unsigned int' but the argument has type 'void (*)(void *, uint32_t, uint32_t, android::PixelFormat, uint32_t, std::string)' (aka 'void (*)(void *, unsigned int, unsigned int, int, unsigned int, basic_string<char, char_traits<char>, allocator<char> >)') [-Wformat]
+        ALOGI("_ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE [0x%08X]\n",func);
+                                                                                                                    ~~~~     ^~~~
+system/core/include/log/log.h:128:51: note: expanded from macro 'ALOGI'
+#define ALOGI(...) ((void)ALOG(LOG_INFO, LOG_TAG, __VA_ARGS__))
+                                                  ^~~~~~~~~~~
+system/core/include/log/log.h:453:38: note: expanded from macro 'ALOG'
+    LOG_PRI(ANDROID_##priority, tag, __VA_ARGS__)
+                                     ^~~~~~~~~~~
+system/core/include/log/log.h:461:37: note: expanded from macro 'LOG_PRI'
+    android_printLog(priority, tag, __VA_ARGS__)
+                                    ^~~~~~~~~~~
+system/core/include/log/log.h:618:36: note: expanded from macro 'android_printLog'
+    __android_log_print(prio, tag, fmt)
+                                   ^~~
+device/mts/smart_surf2_4g/libmtk_symbols/mtk_ui.cpp:37:52: warning: format specifies type 'unsigned int' but the argument has type 'void (*)(void *)' [-Wformat]
+        ALOGI("_ZN7android13GraphicBufferC1Ev [0x%08X]\n",func2);
+                                                 ~~~~     ^~~~~
+system/core/include/log/log.h:128:51: note: expanded from macro 'ALOGI'
+#define ALOGI(...) ((void)ALOG(LOG_INFO, LOG_TAG, __VA_ARGS__))
+                                                  ^~~~~~~~~~~
+system/core/include/log/log.h:453:38: note: expanded from macro 'ALOG'
+    LOG_PRI(ANDROID_##priority, tag, __VA_ARGS__)
+                                     ^~~~~~~~~~~
+system/core/include/log/log.h:461:37: note: expanded from macro 'LOG_PRI'
+    android_printLog(priority, tag, __VA_ARGS__)
+                                    ^~~~~~~~~~~
+system/core/include/log/log.h:618:36: note: expanded from macro 'android_printLog'
+    __android_log_print(prio, tag, fmt)
+                                   ^~~
+device/mts/smart_surf2_4g/libmtk_symbols/mtk_ui.cpp:26:145: warning: unused parameter 'requestorName' [-Wunused-parameter]
+    void _ZN7android13GraphicBufferC1Ejjij(void *instance, uint32_t inWidth, uint32_t inHeight, int32_t inFormat, uint32_t inUsage, std::string requestorName = "<Unknown>") {
+                                                                                                                                                ^
+5 warnings generated.
+target SharedLib: libmtk_symbols (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmtk_symbols_intermediates/LINKED/libmtk_symbols.so)
+target Pack Relocations: libmtk_symbols (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmtk_symbols_intermediates/PACKED/libmtk_symbols.so)
+target Symbolic: libmtk_symbols (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libmtk_symbols.so)
+target Strip: libmtk_symbols (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libmtk_symbols.so)
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libmtk_symbols.so
+
+[0;32m#### make completed successfully (01:57 (mm:ss)) ####[00m
+
