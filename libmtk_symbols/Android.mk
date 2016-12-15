@@ -19,6 +19,14 @@ LOCAL_SHARED_LIBRARIES := libbinder libutils liblog libgui libui \
 LOCAL_MODULE := libmtk_symbols
 LOCAL_MODULE_TAGS := optional
 
-# LOCAL_CFLAGS += -Wno-unused -Wno-unused-function Wno-unused-parameter
+
+LOCAL_CLANG := true
+LOCAL_CPPFLAGS := -std=c++1y 
+# LOCAL_SANITIZE := integer
+LOCAL_CPPFLAGS += -Wno-exit-time-destructors
+LOCAL_CPPFLAGS += -Wno-global-constructors
+LOCAL_CPPFLAGS += -Wno-c++98-compat-pedantic
+LOCAL_CPPFLAGS += -Wno-four-char-constants
+LOCAL_CPPFLAGS += -Wno-padded
 
 include $(BUILD_SHARED_LIBRARY)

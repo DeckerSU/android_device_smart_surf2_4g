@@ -23,21 +23,22 @@ extern "C" {
             uint32_t inWidth, uint32_t inHeight, android::PixelFormat inFormat,
             uint32_t inUsage, std::string requestorName); */
 
-    void _ZN7android13GraphicBufferC1Ejjij(void *instance, uint32_t inWidth, uint32_t inHeight, int32_t inFormat, uint32_t inUsage, std::string requestorName = "<Unknown>") {
-
-        static void (*func)(void *instance, uint32_t, uint32_t, android::PixelFormat,uint32_t, std::string) = NULL;
+    void _ZN7android13GraphicBufferC1Ejjij(void *instance, uint32_t inWidth, uint32_t inHeight, android::PixelFormat inFormat, uint32_t inUsage) {
+                                                        // uint32_t inWidth, uint32_t inHeight, PixelFormat inFormat, uint32_t inUsage
+        static void (*func)(void *instance, uint32_t, uint32_t, android::PixelFormat, uint32_t, std::string) = NULL;
 	static void (*func2)(void *instance) = NULL;
+        std::string my_requestorName("<Unknown>");
 
 	ALOGI("_ZN7android13GraphicBufferC1Ejjij: begin ...\n");
-	ALOGI("_ZN7android13GraphicBufferC1Ejjij(instance = %08X, inWidth = %d, inHeight = %d, inFormat = %d, inUsage = %08X)\n", instance, inWidth, inHeight, inFormat, inUsage);
-	func = (void (*)(void *instance, uint32_t, uint32_t, android::PixelFormat, uint32_t, std::string))dlsym(RTLD_NEXT, "_ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE");	
+	ALOGI("_ZN7android13GraphicBufferC1Ejjij(instance = %08X, inWidth = %d, inHeight = %d, inFormat = %d, inUsage = %08X)\n", instance, inWidth, inHeight, (uint32_t)inFormat, inUsage);
+	func  = (void (*)(void *instance, uint32_t, uint32_t, android::PixelFormat, uint32_t, std::string))dlsym(RTLD_NEXT, "_ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE");	
 	func2 = (void (*)(void *instance))dlsym(RTLD_NEXT, "_ZN7android13GraphicBufferC1Ev");	
 	
 	ALOGI("_ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE [0x%08X]\n",func);
 	ALOGI("_ZN7android13GraphicBufferC1Ev [0x%08X]\n",func2);
 
-	// func(instance, inWidth, inHeight, inFormat, inUsage, "<Unknown>");
-	func2(instance);
+	func(instance, inWidth, inHeight, inFormat, inUsage, my_requestorName);
+	// func2(instance);
         /* _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
             inWidth, inHeight, inFormat, inUsage, "<Unknown>"); */
 	ALOGI("_ZN7android13GraphicBufferC1Ejjij: end ...\n");
