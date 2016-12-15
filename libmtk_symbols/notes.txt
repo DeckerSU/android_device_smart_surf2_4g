@@ -1,0 +1,6 @@
+device/mts/smart_surf2_4g/libmtk_symbols/mtk_ui.cpp:74:5: error: temporary of type 'android::GraphicBuffer::GraphicBuffer' has private destructor
+           android::GraphicBuffer::GraphicBuffer();
+           ^
+frameworks/native/include/ui/GraphicBuffer.h:137:5: note: declared private here
+    ~GraphicBuffer();
+    ^

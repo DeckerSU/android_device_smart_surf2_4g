@@ -1,7 +1,7 @@
 ============================================
 PLATFORM_VERSION_CODENAME=REL
 PLATFORM_VERSION=7.1.1
-CM_VERSION=14.1-20161214-UNOFFICIAL-smart_surf2_4g
+CM_VERSION=14.1-20161215-UNOFFICIAL-smart_surf2_4g
 TARGET_PRODUCT=cm_smart_surf2_4g
 TARGET_BUILD_VARIANT=userdebug
 TARGET_BUILD_TYPE=release
@@ -127,12 +127,9 @@ vendor/cm/build/tasks/kernel.mk:167: *******************************************
 Generate Toybox links: acpi arp base64 basename blkid blockdev bzcat cal cat chattr chcon chgrp chmod chown chroot chrt cksum clear cmp comm cp cpio cut date dd df diff dirname dmesg dos2unix du echo egrep env expand expr fallocate false fdisk fgrep file find flock free freeramdisk fsfreeze fstype ftpget ftpput getenforce getfattr getprop grep groups head help host hostname hwclock id ifconfig inotifyd insmod install ionice iorenice iotop kill killall ln load_policy log logname losetup ls lsattr lsmod lsof lspci lsusb makedevs md5sum mkdir mkfifo mknod mkswap mktemp modinfo more mount mountpoint mv nbd-client nc netcat netstat nice nl nohup nproc od partprobe paste patch pgrep pidof pivot_root pkill pmap printenv printf ps pwd pwdx readahead readlink realpath renice reset resize restorecon rev rfkill rm rmdir rmmod route runcon sed sendevent seq setenforce setfattr setprop setsid sha1sum sha224sum sha256sum sha384sum sha512sum sleep sort split start stat stop strings swapoff swapon sync sysctl tac tail tar taskset tee telnet test time timeout top touch tr traceroute traceroute6 true truncate tty tunctl ulimit umount uname uniq unix2dos uptime usleep vconfig vmstat watch wc which whoami xargs xxd xzcat yes
 Ensure Jack server is installed and started
 Jack server already installed in "/home/decker/.jack-server"
-target thumb C++: libstagefright <= frameworks/av/media/libstagefright/CameraSource.cpp
-Server is already running
-target thumb C++: libstagefright <= frameworks/av/media/libstagefright/CameraSourceTimeLapse.cpp
-target thumb C++: libavextensions <= frameworks/av/media/libavextensions/stagefright/AVFactory.cpp
-target thumb C++: libmediaplayerservice <= frameworks/av/media/libmediaplayerservice/StagefrightRecorder.cpp
 Generate Toybox links: acpi arp base64 basename blkid blockdev bzcat cal cat chattr chcon chgrp chmod chown chroot chrt cksum clear cmp comm cp cpio cut date dd df diff dirname dmesg dos2unix du echo egrep env expand expr fallocate false fdisk fgrep file find flock free freeramdisk fsfreeze fstype ftpget ftpput getenforce getfattr getprop grep groups head help host hostname hwclock id ifconfig inotifyd insmod install ionice iorenice iotop kill killall ln load_policy log logname losetup ls lsattr lsmod lsof lspci lsusb makedevs md5sum mkdir mkfifo mknod mkswap mktemp modinfo more mount mountpoint mv nbd-client nc netcat netstat nice nl nohup nproc od partprobe paste patch pgrep pidof pivot_root pkill pmap printenv printf ps pwd pwdx readahead readlink realpath renice reset resize restorecon rev rfkill rm rmdir rmmod route runcon sed sendevent seq setenforce setfattr setprop setsid sha1sum sha224sum sha256sum sha384sum sha512sum sleep sort split start stat stop strings swapoff swapon sync sysctl tac tail tar taskset tee telnet test time timeout top touch tr traceroute traceroute6 true truncate tty tunctl ulimit umount uname uniq unix2dos uptime usleep vconfig vmstat watch wc which whoami xargs xxd xzcat yes
+Server is already running
+target thumb C++: libmtk_symbols <= device/mts/smart_surf2_4g/libmtk_symbols/mtk_ui.cpp
 Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/autoload/spacehi.vim
 Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/colors/default.vim
 Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/colors/desert.vim
@@ -223,233 +220,41 @@ target thumb C++: recovery <= bootable/recovery/default_device.cpp
 target thumb C++: recovery <= bootable/recovery/../../system/core/toolbox/start_stop.cpp
 target thumb C++: recovery <= bootable/recovery/../../system/vold/vdc.cpp
 target thumb C: recovery <= bootable/recovery/../../system/core/toolbox/newfs_msdos.c
-target StaticLib: libavextensions (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/STATIC_LIBRARIES/libavextensions_intermediates/libavextensions.a)
 target thumb C: toybox <= external/toybox/main.c
-target SharedLib: libstagefright (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_intermediates/LINKED/libstagefright.so)
+target SharedLib: libmtk_symbols (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmtk_symbols_intermediates/LINKED/libmtk_symbols.so)
 target Executable: toybox (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/toybox_intermediates/LINKED/toybox)
+target Pack Relocations: libmtk_symbols (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmtk_symbols_intermediates/PACKED/libmtk_symbols.so)
 target StaticExecutable: recovery (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/recovery_intermediates/LINKED/recovery)
+target Symbolic: libmtk_symbols (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libmtk_symbols.so)
 target Unpacked: toybox (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/toybox_intermediates/PACKED/toybox)
-target Pack Relocations: libstagefright (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_intermediates/PACKED/libstagefright.so)
+target Strip: libmtk_symbols (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libmtk_symbols.so)
 target Symbolic: toybox (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/bin/toybox)
-target Symbolic: libstagefright (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright.so)
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libmtk_symbols.so
 target Strip: toybox (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/toybox_intermediates/toybox)
-target Strip: libstagefright (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright.so)
 Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/toybox
 target Unpacked: recovery (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/recovery_intermediates/PACKED/recovery)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright.so
 target Symbolic: recovery (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/recovery/root/sbin/recovery)
-target SharedLib: libstagefright_http_support (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_http_support_intermediates/LINKED/libstagefright_http_support.so)
-target SharedLib: libmediadrm (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmediadrm_intermediates/LINKED/libmediadrm.so)
-target SharedLib: libstagefright_httplive (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_httplive_intermediates/LINKED/libstagefright_httplive.so)
-target SharedLib: libstagefright_wfd (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_wfd_intermediates/LINKED/libstagefright_wfd.so)
-target SharedLib: libmediaextractorservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmediaextractorservice_intermediates/LINKED/libmediaextractorservice.so)
-target SharedLib: libresourcemanagerservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libresourcemanagerservice_intermediates/LINKED/libresourcemanagerservice.so)
-target Executable: screenrecord (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/screenrecord_intermediates/LINKED/screenrecord)
-target SharedLib: libstagefright_soft_avcdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_avcdec_intermediates/LINKED/libstagefright_soft_avcdec.so)
-target SharedLib: libstagefright_soft_avcenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_avcenc_intermediates/LINKED/libstagefright_soft_avcenc.so)
-target SharedLib: libstagefright_soft_flacenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_flacenc_intermediates/LINKED/libstagefright_soft_flacenc.so)
-target SharedLib: libstagefright_soft_g711dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_g711dec_intermediates/LINKED/libstagefright_soft_g711dec.so)
-target SharedLib: libstagefright_soft_gsmdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_gsmdec_intermediates/LINKED/libstagefright_soft_gsmdec.so)
-target SharedLib: libstagefright_soft_hevcdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_hevcdec_intermediates/LINKED/libstagefright_soft_hevcdec.so)
-target SharedLib: libstagefright_soft_mp3dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_mp3dec_intermediates/LINKED/libstagefright_soft_mp3dec.so)
-target SharedLib: libstagefright_soft_mpeg2dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_mpeg2dec_intermediates/LINKED/libstagefright_soft_mpeg2dec.so)
-target SharedLib: libstagefright_soft_mpeg4dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_mpeg4dec_intermediates/LINKED/libstagefright_soft_mpeg4dec.so)
-target SharedLib: libstagefright_soft_mpeg4enc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_mpeg4enc_intermediates/LINKED/libstagefright_soft_mpeg4enc.so)
-target SharedLib: libstagefright_soft_opusdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_opusdec_intermediates/LINKED/libstagefright_soft_opusdec.so)
-target SharedLib: libstagefright_soft_vorbisdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_vorbisdec_intermediates/LINKED/libstagefright_soft_vorbisdec.so)
-target SharedLib: libstagefright_soft_vpxdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_vpxdec_intermediates/LINKED/libstagefright_soft_vpxdec.so)
-target SharedLib: libstagefright_soft_vpxenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_vpxenc_intermediates/LINKED/libstagefright_soft_vpxenc.so)
-target SharedLib: libffmpeg_utils (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libffmpeg_utils_intermediates/LINKED/libffmpeg_utils.so)
 target Strip: recovery (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/recovery_intermediates/recovery)
-target Pack Relocations: libstagefright_http_support (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_http_support_intermediates/PACKED/libstagefright_http_support.so)
-target Pack Relocations: libmediadrm (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmediadrm_intermediates/PACKED/libmediadrm.so)
-target Pack Relocations: libstagefright_httplive (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_httplive_intermediates/PACKED/libstagefright_httplive.so)
-target Pack Relocations: libstagefright_wfd (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_wfd_intermediates/PACKED/libstagefright_wfd.so)
-target Pack Relocations: libmediaextractorservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmediaextractorservice_intermediates/PACKED/libmediaextractorservice.so)
-target Pack Relocations: libresourcemanagerservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libresourcemanagerservice_intermediates/PACKED/libresourcemanagerservice.so)
-target Unpacked: screenrecord (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/screenrecord_intermediates/PACKED/screenrecord)
-target Pack Relocations: libstagefright_soft_avcdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_avcdec_intermediates/PACKED/libstagefright_soft_avcdec.so)
-target Pack Relocations: libstagefright_soft_avcenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_avcenc_intermediates/PACKED/libstagefright_soft_avcenc.so)
-target Pack Relocations: libstagefright_soft_flacenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_flacenc_intermediates/PACKED/libstagefright_soft_flacenc.so)
-target Pack Relocations: libstagefright_soft_g711dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_g711dec_intermediates/PACKED/libstagefright_soft_g711dec.so)
-target Pack Relocations: libstagefright_soft_gsmdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_gsmdec_intermediates/PACKED/libstagefright_soft_gsmdec.so)
-target Pack Relocations: libstagefright_soft_hevcdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_hevcdec_intermediates/PACKED/libstagefright_soft_hevcdec.so)
-target Pack Relocations: libstagefright_soft_mp3dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_mp3dec_intermediates/PACKED/libstagefright_soft_mp3dec.so)
-target Pack Relocations: libstagefright_soft_mpeg2dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_mpeg2dec_intermediates/PACKED/libstagefright_soft_mpeg2dec.so)
-target Pack Relocations: libstagefright_soft_mpeg4dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_mpeg4dec_intermediates/PACKED/libstagefright_soft_mpeg4dec.so)
-target Pack Relocations: libstagefright_soft_mpeg4enc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_mpeg4enc_intermediates/PACKED/libstagefright_soft_mpeg4enc.so)
-target Pack Relocations: libstagefright_soft_opusdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_opusdec_intermediates/PACKED/libstagefright_soft_opusdec.so)
-target Pack Relocations: libstagefright_soft_vorbisdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_vorbisdec_intermediates/PACKED/libstagefright_soft_vorbisdec.so)
-target Pack Relocations: libstagefright_soft_vpxdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_vpxdec_intermediates/PACKED/libstagefright_soft_vpxdec.so)
-target Pack Relocations: libstagefright_soft_vpxenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libstagefright_soft_vpxenc_intermediates/PACKED/libstagefright_soft_vpxenc.so)
-target Pack Relocations: libffmpeg_utils (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libffmpeg_utils_intermediates/PACKED/libffmpeg_utils.so)
 Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/recovery/root/sbin/recovery
-target Symbolic: libstagefright_http_support (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_http_support.so)
-target Symbolic: libmediadrm (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libmediadrm.so)
-target Symbolic: libstagefright_httplive (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_httplive.so)
-target Symbolic: libstagefright_wfd (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_wfd.so)
-target Symbolic: libmediaextractorservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libmediaextractorservice.so)
-target Symbolic: libresourcemanagerservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libresourcemanagerservice.so)
-target Symbolic: screenrecord (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/bin/screenrecord)
-target Symbolic: libstagefright_soft_avcdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_avcdec.so)
-target Symbolic: libstagefright_soft_avcenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_avcenc.so)
-target Symbolic: libstagefright_soft_flacenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_flacenc.so)
-target Symbolic: libstagefright_soft_g711dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_g711dec.so)
-target Symbolic: libstagefright_soft_gsmdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_gsmdec.so)
-target Symbolic: libstagefright_soft_hevcdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_hevcdec.so)
-target Symbolic: libstagefright_soft_mp3dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_mp3dec.so)
-target Symbolic: libstagefright_soft_mpeg2dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_mpeg2dec.so)
-target Symbolic: libstagefright_soft_mpeg4dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_mpeg4dec.so)
-target Symbolic: libstagefright_soft_mpeg4enc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_mpeg4enc.so)
-target Symbolic: libstagefright_soft_opusdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_opusdec.so)
-target Symbolic: libstagefright_soft_vorbisdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_vorbisdec.so)
-target Symbolic: libstagefright_soft_vpxdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_vpxdec.so)
-target Symbolic: libstagefright_soft_vpxenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libstagefright_soft_vpxenc.so)
-target Symbolic: libffmpeg_utils (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/vendor/lib/libffmpeg_utils.so)
 ----- Making recovery ramdisk ------
-target Strip: libstagefright_http_support (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_http_support.so)
 Copying baseline ramdisk...
-target Strip: libmediadrm (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libmediadrm.so)
-target Strip: libstagefright_httplive (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_httplive.so)
-target Strip: libstagefright_wfd (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_wfd.so)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libmediadrm.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_httplive.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_wfd.so
-target Strip: libmediaextractorservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libmediaextractorservice.so)
-target Strip: libresourcemanagerservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libresourcemanagerservice.so)
-target Strip: screenrecord (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/screenrecord_intermediates/screenrecord)
-target Strip: libstagefright_soft_avcdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_avcdec.so)
-target Strip: libstagefright_soft_avcenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_avcenc.so)
-target Strip: libstagefright_soft_flacenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_flacenc.so)
-target Strip: libstagefright_soft_g711dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_g711dec.so)
-target Strip: libstagefright_soft_gsmdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_gsmdec.so)
-target Strip: libstagefright_soft_hevcdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_hevcdec.so)
-target Strip: libstagefright_soft_mp3dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_mp3dec.so)
-target Strip: libstagefright_soft_mpeg2dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_mpeg2dec.so)
-target Strip: libstagefright_soft_mpeg4dec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_mpeg4dec.so)
-target Strip: libstagefright_soft_mpeg4enc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_mpeg4enc.so)
-target Strip: libstagefright_soft_opusdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_opusdec.so)
-target Strip: libstagefright_soft_vorbisdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_vorbisdec.so)
-target Strip: libstagefright_soft_vpxdec (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_vpxdec.so)
-target Strip: libstagefright_soft_vpxenc (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libstagefright_soft_vpxenc.so)
-target Strip: libffmpeg_utils (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libffmpeg_utils.so)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_http_support.so
 Modifying ramdisk contents...
 cp: не удалось выполнить stat для '/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/init.recovery.*.rc': Нет такого файла или каталога
 # Mount the system_root_image to /system_root and symlink /system.
 ----- Making uncompressed recovery ramdisk ------
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libmediaextractorservice.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libresourcemanagerservice.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/screenrecord
-target SharedLib: libmedia_jni (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmedia_jni_intermediates/LINKED/libmedia_jni.so)
-target SharedLib: libmediandk (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmediandk_intermediates/LINKED/libmediandk.so)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_avcdec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_avcenc.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_flacenc.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_g711dec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_gsmdec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_hevcdec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_mp3dec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_mpeg2dec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_mpeg4dec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_mpeg4enc.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_opusdec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_vorbisdec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_vpxdec.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libstagefright_soft_vpxenc.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/vendor/lib/libffmpeg_utils.so
 ----- Making compressed recovery ramdisk ------
-target SharedLib: libwilhelm (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libwilhelm_intermediates/LINKED/libwilhelm.so)
-target SharedLib: libmediaplayerservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmediaplayerservice_intermediates/LINKED/libmediaplayerservice.so)
-target Executable: mediaextractor (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediaextractor_intermediates/LINKED/mediaextractor)
-target Pack Relocations: libmedia_jni (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmedia_jni_intermediates/PACKED/libmedia_jni.so)
-target Pack Relocations: libmediandk (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmediandk_intermediates/PACKED/libmediandk.so)
-target SharedLib: libffmpeg_extractor (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libffmpeg_extractor_intermediates/LINKED/libffmpeg_extractor.so)
-target SharedLib: libffmpeg_omx (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libffmpeg_omx_intermediates/LINKED/libffmpeg_omx.so)
 ----- Making recovery image ------
-target Pack Relocations: libwilhelm (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libwilhelm_intermediates/PACKED/libwilhelm.so)
-target Pack Relocations: libmediaplayerservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libmediaplayerservice_intermediates/PACKED/libmediaplayerservice.so)
 +/home/decker/cm14.1/out/target/product/smart_surf2_4g/recovery.img maxsize=17031168 blocksize=135168 total=11845632 reserve=270336
 Made recovery image: /home/decker/cm14.1/out/target/product/smart_surf2_4g/recovery.img
-target Unpacked: mediaextractor (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediaextractor_intermediates/PACKED/mediaextractor)
-target Symbolic: libmedia_jni (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libmedia_jni.so)
-target Symbolic: libmediandk (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libmediandk.so)
-target Pack Relocations: libffmpeg_extractor (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libffmpeg_extractor_intermediates/PACKED/libffmpeg_extractor.so)
-target Pack Relocations: libffmpeg_omx (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libffmpeg_omx_intermediates/PACKED/libffmpeg_omx.so)
 Target build info: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/build.prop
 Construct recovery from boot
 mkdir -p /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/recovery_patch_intermediates/
 PATH=/home/decker/cm14.1/out/host/linux-x86/bin:$PATH /home/decker/cm14.1/out/host/linux-x86/bin/imgdiff /home/decker/cm14.1/out/target/product/smart_surf2_4g/boot.img /home/decker/cm14.1/out/target/product/smart_surf2_4g/recovery.img /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p
-target Symbolic: libwilhelm (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libwilhelm.so)
-target Symbolic: libmediaplayerservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libmediaplayerservice.so)
-target Symbolic: mediaextractor (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/bin/mediaextractor)
-target Strip: libmedia_jni (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libmedia_jni.so)
-target Strip: libmediandk (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libmediandk.so)
-target Symbolic: libffmpeg_extractor (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/vendor/lib/libffmpeg_extractor.so)
-target Symbolic: libffmpeg_omx (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/vendor/lib/libffmpeg_omx.so)
-target Strip: libwilhelm (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libwilhelm.so)
-target Strip: libmediaplayerservice (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libmediaplayerservice.so)
-target Strip: mediaextractor (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediaextractor_intermediates/mediaextractor)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libmedia_jni.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libmediandk.so
-target Strip: libffmpeg_extractor (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libffmpeg_extractor.so)
-target Strip: libffmpeg_omx (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libffmpeg_omx.so)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libwilhelm.so
-target SharedLib: libOpenSLES (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libOpenSLES_intermediates/LINKED/libOpenSLES.so)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libmediaplayerservice.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/mediaextractor
-target Executable: mediaserver (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediaserver_intermediates/LINKED/mediaserver)
-target SharedLib: libOpenMAXAL (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libOpenMAXAL_intermediates/LINKED/libOpenMAXAL.so)
-target SharedLib: libsoundpool (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libsoundpool_intermediates/LINKED/libsoundpool.so)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/vendor/lib/libffmpeg_extractor.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/vendor/lib/libffmpeg_omx.so
-target Executable: app_process (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/app_process_intermediates/LINKED/app_process32)
-target Pack Relocations: libOpenSLES (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libOpenSLES_intermediates/PACKED/libOpenSLES.so)
-target Executable: mediadrmserver (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediadrmserver_intermediates/LINKED/mediadrmserver)
-target Unpacked: mediaserver (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediaserver_intermediates/PACKED/mediaserver)
-target Pack Relocations: libOpenMAXAL (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libOpenMAXAL_intermediates/PACKED/libOpenMAXAL.so)
-target Pack Relocations: libsoundpool (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/SHARED_LIBRARIES/libsoundpool_intermediates/PACKED/libsoundpool.so)
-target Unpacked: app_process (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/app_process_intermediates/PACKED/app_process32)
-target Symbolic: libOpenSLES (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libOpenSLES.so)
-target Unpacked: mediadrmserver (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediadrmserver_intermediates/PACKED/mediadrmserver)
-target Symbolic: mediaserver (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/bin/mediaserver)
-target Symbolic: libOpenMAXAL (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libOpenMAXAL.so)
-target Symbolic: libsoundpool (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/lib/libsoundpool.so)
-target Symbolic: app_process (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/bin/app_process32)
-target Strip: libOpenSLES (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libOpenSLES.so)
-target Symbolic: mediadrmserver (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/bin/mediadrmserver)
-target Strip: mediaserver (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediaserver_intermediates/mediaserver)
-target Strip: libOpenMAXAL (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libOpenMAXAL.so)
-target Strip: libsoundpool (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/lib/libsoundpool.so)
-target Strip: app_process (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/app_process_intermediates/app_process32)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libOpenSLES.so
-target Strip: mediadrmserver (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/mediadrmserver_intermediates/mediadrmserver)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/mediaserver
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libOpenMAXAL.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/lib/libsoundpool.so
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/app_process32
-target Executable: bootanimation (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/bootanimation_intermediates/LINKED/bootanimation)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/mediadrmserver
-target Unpacked: bootanimation (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/bootanimation_intermediates/PACKED/bootanimation)
-target Symbolic: bootanimation (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/bin/bootanimation)
-target Strip: bootanimation (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/bootanimation_intermediates/bootanimation)
-Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/bootanimation
 build/tools/generate-notice-files.py  /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/NOTICE.txt  /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/NOTICE.html "Notices for files contained in the filesystem images in this directory:" /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/NOTICE_FILES/src
 Combining NOTICE files into HTML
 Combining NOTICE files into text
 Installed file list: /home/decker/cm14.1/out/target/product/smart_surf2_4g/installed-files.txt
 Target system fs image: /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img
-failed to reconstruct target deflate chunk 1 [(null)]; treating as normal
-chunk 0: type 0 start 0 len 6213642
-chunk 1: type 2 start 6213642 len 2725632
-chunk 2: type 0 start 7606059 len 213
-Construct patches for 3 chunks...
-patch   0 is 206 bytes (of 6213642)
-patch   1 is 3431462 bytes (of 1392417)
-patch   2 is 119 bytes (of 94607273797072)
-chunk   0: normal   (         0,    6213642)         206
-chunk   1: deflate  (   6213642,    5631871)     3431462  (null)
-chunk   2: raw      (  11845513,        119)
 BuildImage: in_dir = /home/decker/cm14.1/out/target/product/smart_surf2_4g/system, out_file = /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img
 fs type is not ext4
 Running: mkuserimg.sh -s /home/decker/cm14.1/out/target/product/smart_surf2_4g/system /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img ext4 system 3221225472 -D /home/decker/cm14.1/out/target/product/smart_surf2_4g/system -L system /home/decker/cm14.1/out/target/product/smart_surf2_4g/root/file_contexts.bin
@@ -465,44 +270,55 @@ Creating filesystem with parameters:
     Blocks: 786432
     Block groups: 24
     Reserved block group size: 191
-Created filesystem with 2164/196608 inodes and 195950/786432 blocks
+Created filesystem with 2165/196608 inodes and 195954/786432 blocks
 Running ['mkuserimg.sh', '-s', '/home/decker/cm14.1/out/target/product/smart_surf2_4g/system', '/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img', 'ext4', 'system', '3221225472', '-D', '/home/decker/cm14.1/out/target/product/smart_surf2_4g/system', '-L', 'system', '/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/file_contexts.bin'] command, exit code = 0
+failed to reconstruct target deflate chunk 1 [(null)]; treating as normal
+chunk 0: type 0 start 0 len 6213642
+chunk 1: type 2 start 6213642 len 2725888
+chunk 2: type 0 start 7606086 len 186
+Construct patches for 3 chunks...
+patch   0 is 213 bytes (of 6213642)
+patch   1 is 3431517 bytes (of 1392444)
+patch   2 is 119 bytes (of 94748956181968)
+chunk   0: normal   (         0,    6213642)         213
+chunk   1: deflate  (   6213642,    5631871)     3431517  (null)
+chunk   2: raw      (  11845513,        119)
 Install system fs image: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system.img
-/home/decker/cm14.1/out/target/product/smart_surf2_4g/system.img+/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=3288637440 blocksize=135168 total=753944003 reserve=33251328
-Package target files: /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-a68854b390.zip
+/home/decker/cm14.1/out/target/product/smart_surf2_4g/system.img+/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=3288637440 blocksize=135168 total=753960473 reserve=33251328
+Package target files: /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-dfb8a628af.zip
 building image from target_files RECOVERY...
 building image from target_files BOOT...
 putting script in bin/install-recovery.sh
-  running:  unzip -o -q /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-a68854b390.zip -d /tmp/targetfiles-7lr9h0
+  running:  unzip -o -q /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-dfb8a628af.zip -d /tmp/targetfiles-8XPHwR
 
 
 ++++ boot ++++
 
 
 building image from target_files BOOT...
-  running:  mkbootfs -f /tmp/targetfiles-7lr9h0/META/boot_filesystem_config.txt /tmp/targetfiles-7lr9h0/BOOT/RAMDISK
+  running:  mkbootfs -f /tmp/targetfiles-8XPHwR/META/boot_filesystem_config.txt /tmp/targetfiles-8XPHwR/BOOT/RAMDISK
   running:  minigzip
-  running:  /home/decker/cm14.1/out/host/linux-x86/bin/mkbootimg --kernel /tmp/targetfiles-7lr9h0/BOOT/kernel --cmdline bootopt=64S3,32N2,32N2 androidboot.selinux=permissive buildvariant=userdebug --base 0x40000000 --ramdisk_offset 0x04000000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359 --os_version 7.1.1 --os_patch_level 2016-12-05 --ramdisk /tmp/tmpEzpMLG --output /tmp/tmpfKrvZa
+  running:  /home/decker/cm14.1/out/host/linux-x86/bin/mkbootimg --kernel /tmp/targetfiles-8XPHwR/BOOT/kernel --cmdline bootopt=64S3,32N2,32N2 androidboot.selinux=permissive buildvariant=userdebug --base 0x40000000 --ramdisk_offset 0x04000000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359 --os_version 7.1.1 --os_patch_level 2016-12-05 --ramdisk /tmp/tmp0BryIZ --output /tmp/tmpYWHrTK
 
 
 ++++ recovery ++++
 
 
 building image from target_files RECOVERY...
-  running:  mkbootfs -f /tmp/targetfiles-7lr9h0/META/recovery_filesystem_config.txt /tmp/targetfiles-7lr9h0/RECOVERY/RAMDISK
+  running:  mkbootfs -f /tmp/targetfiles-8XPHwR/META/recovery_filesystem_config.txt /tmp/targetfiles-8XPHwR/RECOVERY/RAMDISK
   running:  minigzip
-  running:  /home/decker/cm14.1/out/host/linux-x86/bin/mkbootimg --kernel /tmp/targetfiles-7lr9h0/RECOVERY/kernel --cmdline bootopt=64S3,32N2,32N2 androidboot.selinux=permissive buildvariant=userdebug --base 0x40000000 --ramdisk_offset 0x04000000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359 --os_version 7.1.1 --os_patch_level 2016-12-05 --ramdisk /tmp/tmpyyByGf --output /tmp/tmp6aCf_f
+  running:  /home/decker/cm14.1/out/host/linux-x86/bin/mkbootimg --kernel /tmp/targetfiles-8XPHwR/RECOVERY/kernel --cmdline bootopt=64S3,32N2,32N2 androidboot.selinux=permissive buildvariant=userdebug --base 0x40000000 --ramdisk_offset 0x04000000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359 --os_version 7.1.1 --os_patch_level 2016-12-05 --ramdisk /tmp/tmpx2JRcv --output /tmp/tmp8cAlHO
 
 
 ++++ system ++++
 
 
 creating system.img...
-BuildImage: in_dir = /tmp/targetfiles-7lr9h0/system, out_file = /tmp/system-1CGhot.img
+BuildImage: in_dir = /tmp/targetfiles-8XPHwR/system, out_file = /tmp/system-exClCL.img
 fs type is not ext4
-Running: mkuserimg.sh -s /tmp/targetfiles-7lr9h0/system /tmp/system-1CGhot.img ext4 system 3221225472 -T 1230757200 -C /tmp/targetfiles-7lr9h0/META/filesystem_config.txt -B /tmp/system-blocklist-wvWEgl.map -L system /tmp/targetfiles-7lr9h0/META/file_contexts.bin
-make_ext4fs -s -T 1230757200 -S /tmp/targetfiles-7lr9h0/META/file_contexts.bin -C /tmp/targetfiles-7lr9h0/META/filesystem_config.txt -B /tmp/system-blocklist-wvWEgl.map -L system -l 3221225472 -a system /tmp/system-1CGhot.img /tmp/targetfiles-7lr9h0/system
-loaded 2156 fs_config entries
+Running: mkuserimg.sh -s /tmp/targetfiles-8XPHwR/system /tmp/system-exClCL.img ext4 system 3221225472 -T 1230757200 -C /tmp/targetfiles-8XPHwR/META/filesystem_config.txt -B /tmp/system-blocklist-gALyQe.map -L system /tmp/targetfiles-8XPHwR/META/file_contexts.bin
+make_ext4fs -s -T 1230757200 -S /tmp/targetfiles-8XPHwR/META/file_contexts.bin -C /tmp/targetfiles-8XPHwR/META/filesystem_config.txt -B /tmp/system-blocklist-gALyQe.map -L system -l 3221225472 -a system /tmp/system-exClCL.img /tmp/targetfiles-8XPHwR/system
+loaded 2157 fs_config entries
 Creating filesystem with parameters:
     Size: 3221225472
     Block size: 4096
@@ -514,18 +330,18 @@ Creating filesystem with parameters:
     Blocks: 786432
     Block groups: 24
     Reserved block group size: 191
-Created filesystem with 2166/196608 inodes and 196305/786432 blocks
-Running ['mkuserimg.sh', '-s', '/tmp/targetfiles-7lr9h0/system', '/tmp/system-1CGhot.img', 'ext4', 'system', '3221225472', '-T', '1230757200', '-C', '/tmp/targetfiles-7lr9h0/META/filesystem_config.txt', '-B', '/tmp/system-blocklist-wvWEgl.map', '-L', 'system', '/tmp/targetfiles-7lr9h0/META/file_contexts.bin'] command, exit code = 0
+Created filesystem with 2167/196608 inodes and 196309/786432 blocks
+Running ['mkuserimg.sh', '-s', '/tmp/targetfiles-8XPHwR/system', '/tmp/system-exClCL.img', 'ext4', 'system', '3221225472', '-T', '1230757200', '-C', '/tmp/targetfiles-8XPHwR/META/filesystem_config.txt', '-B', '/tmp/system-blocklist-gALyQe.map', '-L', 'system', '/tmp/targetfiles-8XPHwR/META/file_contexts.bin'] command, exit code = 0
 
 
 ++++ userdata ++++
 
 
 creating userdata.img...
-BuildImage: in_dir = /tmp/tmpo0XxYy/data, out_file = /tmp/tmpomU61l
+BuildImage: in_dir = /tmp/tmpSdOAZY/data, out_file = /tmp/tmpdHjbnz
 fs type is not ext4
-Running: mkuserimg.sh -s /tmp/tmpo0XxYy/data /tmp/tmpomU61l ext4 data 3975675904 -T 1230757200 -L data /tmp/targetfiles-7lr9h0/META/file_contexts.bin
-make_ext4fs -s -T 1230757200 -S /tmp/targetfiles-7lr9h0/META/file_contexts.bin -L data -l 3975675904 -a data /tmp/tmpomU61l /tmp/tmpo0XxYy/data
+Running: mkuserimg.sh -s /tmp/tmpSdOAZY/data /tmp/tmpdHjbnz ext4 data 3975675904 -T 1230757200 -L data /tmp/targetfiles-8XPHwR/META/file_contexts.bin
+make_ext4fs -s -T 1230757200 -S /tmp/targetfiles-8XPHwR/META/file_contexts.bin -L data -l 3975675904 -a data /tmp/tmpdHjbnz /tmp/tmpSdOAZY/data
 Creating filesystem with parameters:
     Size: 3975675904
     Block size: 4096
@@ -538,7 +354,7 @@ Creating filesystem with parameters:
     Block groups: 30
     Reserved block group size: 239
 Created filesystem with 11/242880 inodes and 32337/970624 blocks
-Running ['mkuserimg.sh', '-s', '/tmp/tmpo0XxYy/data', '/tmp/tmpomU61l', 'ext4', 'data', '3975675904', '-T', '1230757200', '-L', 'data', '/tmp/targetfiles-7lr9h0/META/file_contexts.bin'] command, exit code = 0
+Running ['mkuserimg.sh', '-s', '/tmp/tmpSdOAZY/data', '/tmp/tmpdHjbnz', 'ext4', 'data', '3975675904', '-T', '1230757200', '-L', 'data', '/tmp/targetfiles-8XPHwR/META/file_contexts.bin'] command, exit code = 0
    userdata size (14) is 0.00% of limit (3975675904)
 
 
@@ -551,9 +367,9 @@ Running ['mkuserimg.sh', '-s', '/tmp/tmpo0XxYy/data', '/tmp/tmpomU61l', 'ext4', 
 
 
 done.
-Package OTA: /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm_smart_surf2_4g-ota-a68854b390.zip
+Package OTA: /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm_smart_surf2_4g-ota-dfb8a628af.zip
 unzipping target target-files...
-  running:  unzip -o -q /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-a68854b390.zip -d /tmp/targetfiles-H0DUCh
+  running:  unzip -o -q /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-dfb8a628af.zip -d /tmp/targetfiles-uF4Tgx
 --- target info ---
 blockimgdiff_versions     = (str) 1,2,3,4
 blocksize                 = (int) 131072
@@ -567,7 +383,7 @@ device_type               = (str) MMC
 extfs_sparse_flag         = (str) -s
 extra_recovery_keys       = (str) vendor/cm/build/target/product/security/cm vendor/cm/build/target/product/security/cm-devkey
 fs_type                   = (str) ext4
-fstab                     = (dict) {'/sdcard': <common.Partition object at 0x7f6580676bd0>, '/cache': <common.Partition object at 0x7f6580676e10>, '/boot': <common.Partition object at 0x7f6580676cd0>, '/system': <common.Partition object at 0x7f6580676910>, '/recovery': <common.Partition object at 0x7f6580676ed0>, '/custom': <common.Partition object at 0x7f6580676810>, '/data': <common.Partition object at 0x7f6580676b50>}
+fstab                     = (dict) {'/sdcard': <common.Partition object at 0x7feb20ddcbd0>, '/cache': <common.Partition object at 0x7feb20ddce10>, '/boot': <common.Partition object at 0x7feb20ddccd0>, '/system': <common.Partition object at 0x7feb20ddc910>, '/recovery': <common.Partition object at 0x7feb20ddced0>, '/custom': <common.Partition object at 0x7feb20ddc810>, '/data': <common.Partition object at 0x7feb20ddcb50>}
 fstab_version             = (int) 2
 mkbootimg_args            = (str) --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359
 mkbootimg_version_args    = (str) --os_version 7.1.1 --os_patch_level 2016-12-05
@@ -576,7 +392,7 @@ recovery_api_version      = (int) 3
 recovery_as_boot          = (str) 
 recovery_mount_options    = (str) ext4=max_batch_time=0,commit=1,data=ordered,barrier=1,errors=panic,nodelalloc
 recovery_size             = (int) 16777216
-selinux_fc                = (str) /tmp/targetfiles-H0DUCh/META/file_contexts.bin
+selinux_fc                = (str) /tmp/targetfiles-uF4Tgx/META/file_contexts.bin
 squashfs_sparse_flag      = (str) -s
 system_size               = (int) 3221225472
 tool_extensions           = (str) device/mts/smart_surf2_4g/../common
@@ -586,13 +402,13 @@ userdata_size             = (int) 3975675904
 unable to load device-specific module; assuming none
 using prebuilt recovery.img from IMAGES...
 using prebuilt boot.img from IMAGES...
-  running:  imgdiff -b /tmp/targetfiles-H0DUCh/SYSTEM/etc/recovery-resource.dat /tmp/tmptx9STm /tmp/tmpfim0qG /tmp/tmpyRuYWR
+  running:  imgdiff -b /tmp/targetfiles-uF4Tgx/SYSTEM/etc/recovery-resource.dat /tmp/tmpc_belc /tmp/tmprSTh9M /tmp/tmpYRUVry
 putting script in bin/install-recovery.sh
    boot size (7606272) is 45.34% of limit (16777216)
   running:  openssl pkcs8 -in build/target/product/security/testkey.pk8 -inform DER -nocrypt
-  running:  java -Xmx2048m -Djava.library.path=/home/decker/cm14.1/out/host/linux-x86/lib64 -jar /home/decker/cm14.1/out/host/linux-x86/framework/signapk.jar -w build/target/product/security/testkey.x509.pem build/target/product/security/testkey.pk8 /tmp/tmp9xTGPL /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm_smart_surf2_4g-ota-a68854b390.zip
+  running:  java -Xmx2048m -Djava.library.path=/home/decker/cm14.1/out/host/linux-x86/lib64 -jar /home/decker/cm14.1/out/host/linux-x86/framework/signapk.jar -w build/target/product/security/testkey.x509.pem build/target/product/security/testkey.pk8 /tmp/tmpuzn_dX /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm_smart_surf2_4g-ota-dfb8a628af.zip
 done.
-Package Complete: /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm-14.1-20161214-UNOFFICIAL-smart_surf2_4g.zip
+Package Complete: /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm-14.1-20161215-UNOFFICIAL-smart_surf2_4g.zip
 
-[0;32m#### make completed successfully (09:26 (mm:ss)) ####[00m
+[0;32m#### make completed successfully (06:41 (mm:ss)) ####[00m
 

@@ -243,6 +243,20 @@ https://boringssl-review.googlesource.com/#/c/5120/
     12-14 10:16:54.751  1604  1693 E MediaMetadataRetrieverJNI: getFrameAtTime: videoFrame is a NULL pointer
     12-14 10:16:54.752  1604  1693 W MediaThumbRequest: Can't create mini thumbnail for /storage/emulated/0/DCIM/OpenCamera/VID_20161214_101102.mp4
 
+- http://forum.xda-developers.com/showpost.php?p=70083516&postcount=296 (описание проблемы ... в прошивке из темы проблема Fixed video recording issues (e.g. Snapchat video recording) была пофикшена)
+
+[15] Немного отвлеченная тема ... про дефолтные обои ...
+
+/home/decker/cm14.1/vendor/cm/overlay/common/frameworks/base/core/res/res/drawable-xhdpi/default_wallpaper.png 
+mkdir -p 
+
+[16] Сборка:
+
+cd ~/cm14.1/
+. build/envsetup.sh
+breakfast smart_surf2_4g
+. device/mts/smart_surf2_4g/build_fix.sh
+make -j2 bacon 2>&1 | tee device/mts/smart_surf2_4g/build.log
 
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 

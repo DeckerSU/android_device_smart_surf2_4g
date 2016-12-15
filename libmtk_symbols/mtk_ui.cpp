@@ -15,6 +15,9 @@ extern "C" {
         _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPv(handle, static_cast<uint32_t>(usage), bounds, vaddr);
     }
 
+    /* _ZN7android13GraphicBufferC2EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE */
+
+    /*
     void _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
             uint32_t inWidth, uint32_t inHeight, android::PixelFormat inFormat,
             uint32_t inUsage, std::string requestorName);
@@ -23,6 +26,7 @@ extern "C" {
         _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
             inWidth, inHeight, inFormat, inUsage, "<Unknown>");
     }
+    */  	
 
     void _ZN7android5Fence4waitEi(int);
 

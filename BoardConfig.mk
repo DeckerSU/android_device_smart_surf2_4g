@@ -157,3 +157,6 @@ TARGET_TAP_TO_WAKE_NODE := /sys/devices/mx_tsp/gesture_control
 
 # [+] Decker
 BLOCK_BASED_OTA := false
+# Test (for using modified framework)
+BOARD_USES_LEGACY_MTK_AV_BLOB := true
+BOARD_HAS_MTK_HARDWARE := true

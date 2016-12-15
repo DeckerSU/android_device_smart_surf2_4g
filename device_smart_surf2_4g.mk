@@ -345,8 +345,9 @@ cm.updater.uri=https://localhost/decker/update-site/master/updates-14.1.json \
 #net.bt.name=Android \
 #dalvik.vm.stack-trace-file=/data/anr/traces.txt \
 
-# Widevine DRM
+# Заглушки
 PRODUCT_PACKAGES += \
+    libshims_camera \
     libshims_wvm
 
 # mrdump related
