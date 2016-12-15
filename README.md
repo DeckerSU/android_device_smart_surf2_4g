@@ -258,6 +258,10 @@ breakfast smart_surf2_4g
 . device/mts/smart_surf2_4g/build_fix.sh
 make -j2 bacon 2>&1 | tee device/mts/smart_surf2_4g/build.log
 
+[17] Посмотреть динамические символы и сделать demangle:
+
+nm -D libui.so  | grep GraphicBufferC1 | c++filt
+
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 
 Credits

@@ -2,6 +2,7 @@
 #include <ui/PixelFormat.h>
 #include <ui/Rect.h>
 #include <log/log.h>
+#include <dlfcn.h>
 
 #define LOG_TAG "DECKER_SHIM"
 
@@ -18,27 +19,22 @@ extern "C" {
         _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPv(handle, static_cast<uint32_t>(usage), bounds, vaddr);
     }
 
-      /* _ZN7android13GraphicBufferC2EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE */
-    void _ZN7android13GraphicBufferC2EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
+    /* void _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
             uint32_t inWidth, uint32_t inHeight, android::PixelFormat inFormat,
-            uint32_t inUsage, std::string requestorName) {
-          ALOGD("_ZN7android13GraphicBufferC2EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(%d,%d,%d,%d,%s)\n",inWidth, inHeight, (uint32_t)inFormat, requestorName.c_str());
-    }
-    
-    void _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
-            uint32_t inWidth, uint32_t inHeight, android::PixelFormat inFormat,
-            uint32_t inUsage, std::string requestorName) {
-          ALOGD("_ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(%d,%d,%d,%d,%s)\n",inWidth, inHeight, (uint32_t)inFormat, requestorName.c_str());
-    }
+            uint32_t inUsage, std::string requestorName); */
 
+    void _ZN7android13GraphicBufferC1Ejjij(void *instance, uint32_t inWidth, uint32_t inHeight, int32_t inFormat, uint32_t inUsage, std::string requestorName) {
 
-    void _ZN7android13GraphicBufferC1Ejjij(uint32_t inWidth, uint32_t inHeight, int32_t inFormat, uint32_t inUsage) {
-	ALOGD("_ZN7android13GraphicBufferC1Ejjij: begin ...\n");
-        _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
-            inWidth, inHeight, inFormat, inUsage, "<Unknown>");
-	ALOGD("_ZN7android13GraphicBufferC1Ejjij: end ...\n");
+        static void (*func)(void *instance, uint32_t, uint32_t, android::PixelFormat,uint32_t, std::string) = NULL;
+	ALOGI("_ZN7android13GraphicBufferC1Ejjij: begin ...\n");
+	ALOGI("_ZN7android13GraphicBufferC1Ejjij(instance = %08X, inWidth = %d, inHeight = %d, inFormat = %d, inUsage = %08X, requestorName = %s)\n", instance, inWidth, inHeight, inFormat, inUsage, requestorName.c_str());
+	func = (void (*)(void *instance, uint32_t, uint32_t, android::PixelFormat, uint32_t, std::string))dlsym(RTLD_NEXT, "_ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE");	
+	ALOGI("_ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE [0x%08X]\n",func);
+        /* _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
+            inWidth, inHeight, inFormat, inUsage, "<Unknown>"); */
+	ALOGI("_ZN7android13GraphicBufferC1Ejjij: end ...\n");
+
     }
-      	
 
     void _ZN7android5Fence4waitEi(int);
 

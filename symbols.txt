@@ -1,0 +1,9 @@
+0000dfe9 T android::GraphicBuffer::GraphicBuffer(unsigned int, unsigned int, int, unsigned int, unsigned int, native_handle*, bool)
+0000de3d T android::GraphicBuffer::GraphicBuffer(unsigned int, unsigned int, int, unsigned int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >)
+0000e095 T android::GraphicBuffer::GraphicBuffer(ANativeWindowBuffer*, bool)
+0000dda1 T android::GraphicBuffer::GraphicBuffer()
+
+0000dfe9 T _ZN7android13GraphicBufferC1EjjijjP13native_handleb
+0000de3d T _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
+0000e095 T _ZN7android13GraphicBufferC1EP19ANativeWindowBufferb
+0000dda1 T _ZN7android13GraphicBufferC1Ev
