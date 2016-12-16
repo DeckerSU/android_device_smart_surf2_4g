@@ -5,3 +5,7 @@ allow init devpts:chr_file ioctl;
 allow init nvdata_device:blk_file write;
 allow init protect1_device:blk_file write;
 allow init protect2_device:blk_file write;
+
+# LD_SHIM_LIBS
+allow init gpsd:process { noatsecure };
+allow init mediaserver:process { noatsecure };
