@@ -160,3 +160,5 @@ BLOCK_BASED_OTA := false
 # Test (for using modified framework)
 BOARD_USES_LEGACY_MTK_AV_BLOB := true
 BOARD_HAS_MTK_HARDWARE := true
+# TARGET_USES_MEDIA_EXTENSIONS := false
+# TARGET_HAS_LEGACY_CAMERA_HAL1 := true

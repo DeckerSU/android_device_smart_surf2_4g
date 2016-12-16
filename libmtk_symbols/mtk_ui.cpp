@@ -4,11 +4,13 @@
 #include <log/log.h>
 #include <dlfcn.h>
 
+/*
 #include <cutils/process_name.h>
 #include <cutils/properties.h>
 #include <utils/String8.h>
 #include <utils/KeyedVector.h>
 #include <utils/Singleton.h>
+*/
 
 #define LOG_TAG "DECKER_SHIM"
 
@@ -49,8 +51,9 @@ extern "C" {
             inWidth, inHeight, inFormat, inUsage, "<Unknown>"); */
 	ALOGI("_ZN7android13GraphicBufferC1Ejjij: end ...\n");
 
-	android::String8 mProcessName;
 	/*
+	android::String8 mProcessName;
+	
         int pid = getpid();
         FILE *fp = fopen(String8::format("/proc/%d/cmdline", pid), "r");
         if (NULL != fp) {
@@ -62,8 +65,9 @@ extern "C" {
         } else {
             mProcessName = "unknownProcess";
         }
+       
+        ALOGI("Process name: %s\n",proc_name);
         */
-
     }
 
     void _ZN7android5Fence4waitEi(int);
