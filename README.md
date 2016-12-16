@@ -61,6 +61,11 @@ update-ca-certificates.
 
 Т.е. сделать apply LIBC version to __pthread_gettid.
 
+** Обязательно! ***
+
+    cd ~/cm14.1/bionic/libc/
+    git revert bba395492a0bb6ee72d0ad8e4d468e852392220e
+
 [5] Добавить /proc/ged в FD whitelist в frameworks/base/core/jni/fd_utils-inl.h 
 
     index 84252c0..2888064 100644
@@ -261,6 +266,10 @@ make -j2 bacon 2>&1 | tee device/mts/smart_surf2_4g/build.log
 [17] Посмотреть динамические символы и сделать demangle:
 
 nm -D libui.so  | grep GraphicBufferC1 | c++filt
+
+[18] Если после обновления исходников CM у вас не стартует init - попробуйте заново сделать git checkout . в папке /system/core/init, а тажке не применять вот
+этот патч 0002-Changes-for-more-level-log.patch . Также уделите особенное внимание пункту [4]. Вообщем в моем случае после наложения всех патчей и 
+реинициализации /system/core/init/* все успешно собралось.
 
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 

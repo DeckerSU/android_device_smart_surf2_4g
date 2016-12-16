@@ -1,0 +1,177 @@
+Проверка патча services/audioflinger/Threads.cpp…
+error: при поиске:
+        mTimestamp.mTimeNs[ExtendedTimestamp::LOCATION_SERVER] = systemTime();
+
+        // Update server timestamp with kernel stats
+        if (mInput->stream->get_capture_position != nullptr
+                && mPipeSource.get() == nullptr /* don't obtain for FastCapture, could block */) {
+            int64_t position, time;
+            int ret = mInput->stream->get_capture_position(mInput->stream, &position, &time);
+            if (ret == NO_ERROR) {
+                mTimestamp.mPosition[ExtendedTimestamp::LOCATION_KERNEL] = position;
+                mTimestamp.mTimeNs[ExtendedTimestamp::LOCATION_KERNEL] = time;
+                // Note: In general record buffers should tend to be empty in
+                // a properly running pipeline.
+                //
+                // Also, it is not advantageous to call get_presentation_position during the read
+                // as the read obtains a lock, preventing the timestamp call from executing.
+            }
+        }
+        // Use this to track timestamp information
+        // ALOGD("%s", mTimestamp.toString().c_str());
+
+
+error: ошибка применения изменений: services/audioflinger/Threads.cpp:6293
+error: services/audioflinger/Threads.cpp: не удалось применить патч
+../../device/mts/smart_surf2_4g/patches/system_core/0001-remove-CAP_SYS_NICE-from-surfaceflinger-and-cln-logg.patch:64: space before tab in indent.
+      	 (strstr(tag, "flash") != NULL) ||
+../../device/mts/smart_surf2_4g/patches/system_core/0001-remove-CAP_SYS_NICE-from-surfaceflinger-and-cln-logg.patch:66: space before tab in indent.
+      	 (strstr(tag, "NVRAM") != NULL) ||
+../../device/mts/smart_surf2_4g/patches/system_core/0001-remove-CAP_SYS_NICE-from-surfaceflinger-and-cln-logg.patch:89: trailing whitespace.
+ 
+Проверка патча libcutils/fs_config.c…
+error: при поиске:
+    { 00700, AID_SYSTEM,    AID_SHELL,     CAP_MASK_LONG(CAP_BLOCK_SUSPEND), "system/bin/inputflinger" },
+
+    /* Support FIFO scheduling mode in SurfaceFlinger. */
+    { 00755, AID_SYSTEM,    AID_GRAPHICS,     CAP_MASK_LONG(CAP_SYS_NICE), "system/bin/surfaceflinger" },
+
+    { 00750, AID_ROOT,      AID_ROOT,      0, "system/bin/uncrypt" },
+    { 00750, AID_ROOT,      AID_ROOT,      0, "system/bin/install-recovery.sh" },
+
+error: ошибка применения изменений: libcutils/fs_config.c:143
+error: libcutils/fs_config.c: не удалось применить патч
+Проверка патча liblog/logger_write.c…
+error: при поиске:
+
+    if (!tag)
+        tag = "";
+
+    /* XXX: This needs to go! */
+    if ((bufID != LOG_ID_RADIO) &&
+
+error: ошибка применения изменений: liblog/logger_write.c:393
+error: liblog/logger_write.c: не удалось применить патч
+Проверка патча server/SoftapController.cpp…
+error: при поиске:
+#endif
+
+#ifdef LIBWPA_CLIENT_EXISTS
+static const char HOSTAPD_UNIX_FILE[]    = "/data/misc/wifi/hostapd/wlan0";
+static const char HOSTAPD_DHCP_DIR[]    = "/data/misc/dhcp";
+#endif
+static const char HOSTAPD_CONF_FILE[]    = "/data/misc/wifi/hostapd.conf";
+
+error: ошибка применения изменений: server/SoftapController.cpp:54
+error: server/SoftapController.cpp: не удалось применить патч
+Проверка патча Android.mk…
+error: при поиске:
+# SELinux policy version.
+# Must be <= /sys/fs/selinux/policyvers reported by the Android kernel.
+# Must be within the compatibility range reported by checkpolicy -V.
+POLICYVERS ?= 30
+
+MLS_SENS=1
+MLS_CATS=1024
+
+error: ошибка применения изменений: Android.mk:5
+error: Android.mk: не удалось применить патч
+Проверка патча app.te…
+error: при поиске:
+allow appdomain console_device:chr_file { read write };
+
+# only allow unprivileged socket ioctl commands
+allowxperm { appdomain -bluetooth } self:{ rawip_socket tcp_socket udp_socket }
+  ioctl { unpriv_sock_ioctls unpriv_tty_ioctls };
+
+allow { appdomain -isolated_app } ion_device:chr_file rw_file_perms;
+
+
+error: ошибка применения изменений: app.te:240
+error: app.te: не удалось применить патч
+Проверка патча domain.te…
+error: при поиске:
+allow domain self:{ fifo_file file } rw_file_perms;
+allow domain self:unix_dgram_socket { create_socket_perms sendto };
+allow domain self:unix_stream_socket { create_stream_socket_perms connectto };
+allowxperm domain domain:{ unix_dgram_socket unix_stream_socket } ioctl unpriv_unix_sock_ioctls;
+
+# Inherit or receive open files from others.
+allow domain init:fd use;
+
+error: ошибка применения изменений: domain.te:28
+error: domain.te: не удалось применить патч
+Проверка патча isolated_app.te…
+error: при поиске:
+
+# Restrict socket ioctls. Either 1. disallow privileged ioctls, 2. disallow the
+# ioctl permission, or 3. disallow the socket class.
+neverallowxperm isolated_app domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_sock_ioctls;
+neverallow isolated_app *:{ netlink_route_socket netlink_selinux_socket } ioctl;
+neverallow isolated_app *:{
+  socket netlink_socket packet_socket key_socket appletalk_socket
+  netlink_firewall_socket netlink_tcpdiag_socket netlink_nflog_socket
+
+error: ошибка применения изменений: isolated_app.te:65
+error: isolated_app.te: не удалось применить патч
+Проверка патча mediadrmserver.te…
+error: при поиске:
+allow mediadrmserver surfaceflinger_service:service_manager find;
+
+# only allow unprivileged socket ioctl commands
+allowxperm mediadrmserver self:{ rawip_socket tcp_socket udp_socket }
+  ioctl { unpriv_sock_ioctls unpriv_tty_ioctls };
+
+###
+### neverallow rules
+
+error: ошибка применения изменений: mediadrmserver.te:52
+error: mediadrmserver.te: не удалось применить патч
+Проверка патча mediaserver.te…
+error: при поиске:
+};
+
+# only allow unprivileged socket ioctl commands
+allowxperm mediaserver self:{ rawip_socket tcp_socket udp_socket }
+  ioctl { unpriv_sock_ioctls unpriv_tty_ioctls };
+
+# Access to /data/media.
+# This should be removed if sdcardfs is modified to alter the secontext for its
+
+error: ошибка применения изменений: mediaserver.te:117
+error: mediaserver.te: не удалось применить патч
+Проверка патча priv_app.te…
+error: при поиске:
+allow priv_app sysfs_zram:file r_file_perms;
+
+# access the mac address
+allowxperm priv_app self:udp_socket ioctl SIOCGIFHWADDR;
+
+# Allow GMS core to communicate with update_engine for A/B update.
+binder_call(priv_app, update_engine)
+
+error: ошибка применения изменений: priv_app.te:87
+error: priv_app.te: не удалось применить патч
+Проверка патча shell.te…
+error: при поиске:
+neverallow shell file_type:file link;
+
+# Do not allow privileged socket ioctl commands
+neverallowxperm shell domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_sock_ioctls;
+
+error: ошибка применения изменений: shell.te:150
+error: shell.te: не удалось применить патч
+Проверка патча untrusted_app.te…
+error: при поиске:
+
+# Restrict socket ioctls. Either 1. disallow privileged ioctls, 2. disallow the
+# ioctl permission, or 3. disallow the socket class.
+neverallowxperm untrusted_app domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_sock_ioctls;
+neverallow untrusted_app *:{ netlink_route_socket netlink_selinux_socket } ioctl;
+neverallow untrusted_app *:{
+  socket netlink_socket packet_socket key_socket appletalk_socket
+  netlink_firewall_socket netlink_tcpdiag_socket netlink_nflog_socket
+
+error: ошибка применения изменений: untrusted_app.te:158
+error: untrusted_app.te: не удалось применить патч
+Patches Applied Successfully!
