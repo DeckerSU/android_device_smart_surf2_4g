@@ -271,6 +271,10 @@ nm -D libui.so  | grep GraphicBufferC1 | c++filt
 этот патч 0002-Changes-for-more-level-log.patch . Также уделите особенное внимание пункту [4]. Вообщем в моем случае после наложения всех патчей и 
 реинициализации /system/core/init/* все успешно собралось.
 
+[19] В последнем патче 0005-_ZN7android13GraphicBufferC1Ejjij-symbol-fix-on-fram.patch я добавил экспорт _ZN7android13GraphicBufferC1Ejjij в сам 
+framework native (т.е. в frameworks/native/), чтобы избежать "хаков" в mtk_symbols и т.п. Теперь libui.so будет собираться с этим символов в экспорте, 
+что обеспечит нормальную работу старых BLOB'ов, которые используют этот экспорт.
+
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 
 Credits
