@@ -1,0 +1,113 @@
+From ab5175933ced10e7d45b73212ac030f8a13b6fad Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Sat, 17 Dec 2016 01:20:10 +0200
+Subject: [PATCH] _ZN7android13GraphicBufferC1Ejjij symbol fix on
+ frameworks_native
+
+Change-Id: I1a8d3f8c3153e7faf102fcb101fbc28ee8320a83
+---
+ include/ui/GraphicBuffer.h |  6 ++++++
+ libs/ui/Android.mk         |  2 +-
+ libs/ui/GraphicBuffer.cpp  | 49 ++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 56 insertions(+), 1 deletion(-)
+
+diff --git a/include/ui/GraphicBuffer.h b/include/ui/GraphicBuffer.h
+index 3e127a1..a3189fc 100644
+--- a/include/ui/GraphicBuffer.h
++++ b/include/ui/GraphicBuffer.h
+@@ -72,6 +72,12 @@ public:
+ 
+     GraphicBuffer();
+ 
++    /*
++    // [+] Decker
++    GraphicBuffer(uint32_t inWidth, uint32_t inHeight, PixelFormat inFormat,
++            uint32_t inUsage); 
++    */
++
+     // creates w * h buffer
+     GraphicBuffer(uint32_t inWidth, uint32_t inHeight, PixelFormat inFormat,
+             uint32_t inUsage, std::string requestorName = "<Unknown>");
+diff --git a/libs/ui/Android.mk b/libs/ui/Android.mk
+index 2b16365..6be8790 100644
+--- a/libs/ui/Android.mk
++++ b/libs/ui/Android.mk
+@@ -16,7 +16,7 @@ LOCAL_PATH := $(call my-dir)
+ include $(CLEAR_VARS)
+ 
+ LOCAL_CLANG := true
+-LOCAL_CPPFLAGS := -std=c++1y -Weverything -Werror
++LOCAL_CPPFLAGS := -std=c++1y -Weverything 
+ # LOCAL_SANITIZE := integer
+ 
+ # The static constructors and destructors in this library have not been noted to
+diff --git a/libs/ui/GraphicBuffer.cpp b/libs/ui/GraphicBuffer.cpp
+index df31d5f..c586671 100644
+--- a/libs/ui/GraphicBuffer.cpp
++++ b/libs/ui/GraphicBuffer.cpp
+@@ -30,6 +30,36 @@
+ 
+ namespace android {
+ 
++// [+] Decker, объявляем свой класс
++class GraphicBufferStubDecker {
++ public:
++  ~GraphicBufferStubDecker();
++  GraphicBufferStubDecker(uint32_t inWidth, uint32_t inHeight,
++        PixelFormat inFormat, uint32_t inUsage);
++  sp<android::GraphicBuffer> mBuffer;
++};
++
++GraphicBufferStubDecker::GraphicBufferStubDecker(uint32_t inWidth, uint32_t inHeight,
++        PixelFormat inFormat, uint32_t inUsage)
++  : mBuffer(new android::GraphicBuffer(inWidth, inHeight, inFormat, inUsage)) {
++} // constructors take base initializers
++
++GraphicBufferStubDecker::~GraphicBufferStubDecker() {} // деструктор
++
++// экспорт
++extern "C" {
++
++void _ZN7android13GraphicBufferC1Ejjij(uint32_t inWidth, uint32_t inHeight,
++        PixelFormat inFormat, uint32_t inUsage); // прототип
++
++void _ZN7android13GraphicBufferC1Ejjij(uint32_t inWidth, uint32_t inHeight,
++        PixelFormat inFormat, uint32_t inUsage) {
++	GraphicBufferStubDecker::GraphicBufferStubDecker(inWidth, inHeight, inFormat, inUsage);
++}
++}
++
++
++
+ // ===========================================================================
+ // Buffer and implementation of ANativeWindowBuffer
+ // ===========================================================================
+@@ -53,6 +83,25 @@ GraphicBuffer::GraphicBuffer()
+     handle = NULL;
+ }
+ 
++/*
++// [+] Decker
++GraphicBuffer::GraphicBuffer()
++    : BASE(), mOwner(ownData), mBufferMapper(GraphicBufferMapper::get()),
++      mInitCheck(NO_ERROR), mId(getUniqueId()), mGenerationNumber(0)
++{
++    width  =
++    height =
++    stride =
++    format =
++    usage  = 0;
++    handle = NULL;
++    std::string requestorName("<Unknown>");
++    mInitCheck = initSize(inWidth, inHeight, inFormat, inUsage
++            std::move(requestorName));
++}
++// ---
++*/
++
+ GraphicBuffer::GraphicBuffer(uint32_t inWidth, uint32_t inHeight,
+         PixelFormat inFormat, uint32_t inUsage, std::string requestorName)
+     : BASE(), mOwner(ownData), mBufferMapper(GraphicBufferMapper::get()),
+-- 
+2.7.4
+
