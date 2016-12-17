@@ -3,7 +3,6 @@
 #include <ui/Rect.h>
 #include <log/log.h>
 #include <dlfcn.h>
-#include <openssl/evp.h>
 
 /*
 #include <cutils/process_name.h>
@@ -72,29 +71,6 @@ extern "C" {
         */
     }
 #endif
-
-    // https://rafalcieslak.wordpress.com/2013/04/02/dynamic-linker-tricks-using-ld_preload-to-cheat-inject-features-and-investigate-programs/
-
-    typedef EVP_PKEY *(*orig_EVP_PKEY_new_mac_key_type)(int type, ENGINE *e, const uint8_t *mac_key,
-                               size_t mac_key_len);
-
-    EVP_PKEY *EVP_PKEY_new_mac_key(int type, ENGINE *e, const uint8_t *mac_key,
-                               size_t mac_key_len) {
-
-        void *ext_library;
-	orig_EVP_PKEY_new_mac_key_type orig_EVP_PKEY_new_mac_key;
-	EVP_PKEY *ret = NULL;
-	ALOGI("EVP_PKEY_new_mac_key[0x%08X](orig_EVP_PKEY_new_mac_key,%d ...)\n",type);
-
-	ext_library = dlopen("/system/lib/libcrypto.6.so",RTLD_LAZY);
-	if (!ext_library) { return NULL; }
-	// orig_EVP_PKEY_new_mac_key = (orig_EVP_PKEY_new_mac_key_type) dlsym(RTLD_NEXT,"EVP_PKEY_new_mac_key"); 
-	orig_EVP_PKEY_new_mac_key = (orig_EVP_PKEY_new_mac_key_type) dlsym(ext_library,"EVP_PKEY_new_mac_key");    	
-
-
-	ret = orig_EVP_PKEY_new_mac_key(type,e,mac_key,mac_key_len);
-	return ret;
-    }
 
     void _ZN7android5Fence4waitEi(int);
 

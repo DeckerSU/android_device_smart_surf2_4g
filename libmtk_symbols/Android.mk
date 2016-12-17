@@ -15,7 +15,7 @@ LOCAL_SRC_FILES_32 := mtk_string.cpp
 LOCAL_SRC_FILES_64 := mtk_parcel.cpp
 
 LOCAL_SHARED_LIBRARIES := libbinder libutils liblog libgui libui \
-                          libicuuc libicui18n libcrypto libcrypto6
+                          libicuuc libicui18n libcrypto
 LOCAL_MODULE := libmtk_symbols
 LOCAL_MODULE_TAGS := optional
 
