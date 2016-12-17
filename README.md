@@ -257,11 +257,12 @@ mkdir -p
 
 [16] Сборка:
 
-cd ~/cm14.1/
-. build/envsetup.sh
-breakfast smart_surf2_4g
-. device/mts/smart_surf2_4g/build_fix.sh
-make -j2 bacon 2>&1 | tee device/mts/smart_surf2_4g/build.log
+    cd ~/cm14.1/
+    . build/envsetup.sh
+    breakfast smart_surf2_4g
+    . device/mts/smart_surf2_4g/build_fix.sh
+	(применение и ручная проверка применения всех патчей)
+    make -j2 bacon 2>&1 | tee device/mts/smart_surf2_4g/build.log
 
 [17] Посмотреть динамические символы и сделать demangle:
 
@@ -275,12 +276,45 @@ nm -D libui.so  | grep GraphicBufferC1 | c++filt
 framework native (т.е. в frameworks/native/), чтобы избежать "хаков" в mtk_symbols и т.п. Теперь libui.so будет собираться с этим символов в экспорте, 
 что обеспечит нормальную работу старых BLOB'ов, которые используют этот экспорт.
 
+[20] Хм ... кажется я понял как завести кодеки на камере ... в последних логах я увидел нечто вроде:
+
+
+    I am_proc_died: [0,3011,com.google.android.apps.maps]
+    D ActivityManager: cleanUpApplicationRecord -- 3011  
+    E OMXNodeInstance: setConfig(13f0033:google.aac.encoder, ConfigPriority(0x6f800002)) ERROR: Undefined(0x80001001)
+    I ACodec  : codec does not support config priority (err -2147483648) 
+    I MPEG4Writer: limits: 3023495040/0 bytes/us, bit rate: 14096000 bps and the estimated moov size 405123 bytes
+    I MPEG4Writer: Start time offset: 1000000 us 
+    I MediaCodecSource: MediaCodecSource (video) starting
+    I CameraSource: Using encoder format: 0x22   
+    I CameraSource: Using encoder data space: 0x104  
+    W CameraSource: Failed to set video encoder format/dataspace to 34, 260 due to -38   
+    
+Ну и плюс:
+
+    12-17 02:30:40.381   316   918 E OMXNodeInstance: getParameter(13c002b:MTK.ENCODER.AVC, ParamConsumerUsageBits(0x6f800004)) ERROR: UnsupportedIndex(0x8000101a)
+    12-17 02:30:40.383   319  2573 W ACodec  : do not know color format 0x7f000200 = 2130706944
+    12-17 02:30:40.384   319  2573 W ACodec  : do not know color format 0x7f000789 = 2130708361
+    12-17 02:30:40.386   319  2573 W ACodec  : do not know color format 0x7f000200 = 2130706944
+    12-17 02:30:40.389   319  2573 I ACodec  : setupAVCEncoderParameters with [profile: Baseline] [level: Level21]
+    12-17 02:30:40.392   319  2573 I ACodec  : [OMX.MTK.VIDEO.ENCODER.AVC] cannot encode color aspects. Ignoring.
+    12-17 02:30:40.392   319  2573 I ACodec  : [OMX.MTK.VIDEO.ENCODER.AVC] cannot encode HDR static metadata. Ignoring.
+    12-17 02:30:40.392   319  2573 I ACodec  : setupVideoEncoder succeeded
+    12-17 02:30:40.393   316   918 E OMXNodeInstance: setConfig(13c002b:MTK.ENCODER.AVC, ConfigPriority(0x6f800002)) ERROR: UnsupportedIndex(0x8000101a)
+    
+Почему-то мне кажется что проблема в форматах / цветовых профилях самой камеры, т.е. в том что система некорректно обрабатывает их. Камера в МТС Smart Surf2 4G еще и поддерживает HDR (?), по-крайней мере такая либа в libhdrproc.so есть в ее составе. Возможная идея по решению, смотрим вот это [дерево](https://github.com/Lucky76/android_device_ulefone_metal) и как там патчится **MtkCameraParameters.cpp** в патчах. Так вот, они патчат файл для добавления различных параметров камеры, которого в стоковом framework/av даже нет. Если посмотреть git внимательно, то в нем например есть репа такого фреймворка [android_frameworks_av](https://github.com/msm8660coolstuff/android_frameworks_av). Он конечно для старого CM, но смысл не в этом. Там как раз прикручен этот файл MtkCameraParameters.cpp. Т.е. теперь задача прикрутить MtkCameraParameters.cpp к фреймворку от CM14 и посмотреть что получится. При поиске изменений обращаем внимание на флаги и директивы условной компиляции по ключевикам: **BOARD_HAS_MTK_HARDWARE** в *.mk и **MTK_HARDWARE** в *.c и .cpp ... (ну и .h конечно же). 
+
+
+
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]
 
-Credits
--------
+Credits and thanks
+------------------
 
-oleg.svs
+- CyanogenMod team
+- oleg.svs
+- ruslan_3_
+
 
 
 Полезные ссылки
