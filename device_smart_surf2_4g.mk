@@ -347,7 +347,6 @@ cm.updater.uri=https://localhost/decker/update-site/master/updates-14.1.json \
 
 # 
 PRODUCT_PACKAGES += \
-#   libshims_camera \
     libshims_wvm
 
 # mrdump related
