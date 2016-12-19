@@ -304,6 +304,16 @@ framework native (т.е. в frameworks/native/), чтобы избежать "х
     
 Почему-то мне кажется что проблема в форматах / цветовых профилях самой камеры, т.е. в том что система некорректно обрабатывает их. Камера в МТС Smart Surf2 4G еще и поддерживает HDR (?), по-крайней мере такая либа в libhdrproc.so есть в ее составе. Возможная идея по решению, смотрим вот это [дерево](https://github.com/Lucky76/android_device_ulefone_metal) и как там патчится **MtkCameraParameters.cpp** в патчах. Так вот, они патчат файл для добавления различных параметров камеры, которого в стоковом framework/av даже нет. Если посмотреть git внимательно, то в нем например есть репа такого фреймворка [android_frameworks_av](https://github.com/msm8660coolstuff/android_frameworks_av). Он конечно для старого CM, но смысл не в этом. Там как раз прикручен этот файл MtkCameraParameters.cpp. Т.е. теперь задача прикрутить MtkCameraParameters.cpp к фреймворку от CM14 и посмотреть что получится. При поиске изменений обращаем внимание на флаги и директивы условной компиляции по ключевикам: **BOARD_HAS_MTK_HARDWARE** в *.mk и **MTK_HARDWARE** в *.c и .cpp ... (ну и .h конечно же). 
 
+[21] Немного новой информации о Color Format во фреймворке от Mediatek:
+
+vendor/mediatek/proprietary/frameworks/native/include/media/openmax/OMX_IVCommon.h 
+
+    typedef enum OMX_COLOR_FORMATTYPE {
+    ...
+        OMX_COLOR_FormatAndroidOpaque = 0x7F000789,
+        OMX_MTK_COLOR_FormatYV12 = 0x7F000200,
+    ...
+
 
 
 WBR, Decker [ [http://www.decker.su](http://www.decker.su) ]

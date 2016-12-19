@@ -165,3 +165,10 @@ BOARD_HAS_MTK_HARDWARE := true
 #Don't enable this strings ... Just for test ...
 #TARGET_USES_MEDIA_EXTENSIONS := false
 #TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+
+# Mediatek 
+#MTK_GLOBAL_CFLAGS:=
+#ifeq ($(BOARD_HAS_MTK_HARDWARE),true)
+#  MTK_GLOBAL_CFLAGS += -DMTK_AOSP_ENHANCEMENT
+#endif
+#$(info *** MTK-specific flags info)

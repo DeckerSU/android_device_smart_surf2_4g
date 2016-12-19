@@ -121,8 +121,8 @@ PRODUCT_PACKAGES += \
 #    vendor/mts/smart_surf2_4g/proprietary/vendor/lib/hw/audio.a2dp.blueangel.so:system/vendor/lib/hw/audio.a2dp.mt6735.so
 
 # Audio components from source
-PRODUCT_PACKAGES += \
-    MtkCamera libDocVfbEngineLib_m81 libpanorama
+#PRODUCT_PACKAGES += \
+#    MtkCamera libDocVfbEngineLib_m81 libpanorama
 
 #libmtscamera
 
@@ -347,7 +347,6 @@ cm.updater.uri=https://localhost/decker/update-site/master/updates-14.1.json \
 
 # 
 PRODUCT_PACKAGES += \
-#   libshims_camera \
     libshims_wvm
 
 # mrdump related
