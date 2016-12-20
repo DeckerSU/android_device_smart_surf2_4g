@@ -167,8 +167,17 @@ BOARD_HAS_MTK_HARDWARE := true
 #TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Mediatek 
-#MTK_GLOBAL_CFLAGS:=
-#ifeq ($(BOARD_HAS_MTK_HARDWARE),true)
-#  MTK_GLOBAL_CFLAGS += -DMTK_AOSP_ENHANCEMENT
-#endif
-#$(info *** MTK-specific flags info)
+ifeq ($(BOARD_HAS_MTK_HARDWARE),true)
+MTK_GLOBAL_C_INCLUDES:=
+MTK_GLOBAL_CFLAGS:=
+MTK_GLOBAL_CONLYFLAGS:=
+MTK_GLOBAL_CPPFLAGS:=
+MTK_GLOBAL_LDFLAGS:=
+
+MTK_GLOBAL_CFLAGS += -DMTK_AOSP_ENHANCEMENT
+MTK_PATH_SOURCE := vendor/mediatek/proprietary
+MTK_ROOT := vendor/mediatek/proprietary
+
+$(info *** Mediatek Platform Used ***)
+endif
+
