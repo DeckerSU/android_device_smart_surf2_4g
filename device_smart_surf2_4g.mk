@@ -352,5 +352,6 @@ PRODUCT_PACKAGES += \
 # mrdump related
 PRODUCT_PACKAGES += \
     libmrdump \
-    mrdump_tool
+    mrdump_tool \
+    Camu
 
