@@ -67,6 +67,7 @@ lib/libcamalgo.so
 lib/libMtkOmxAdpcmEnc.so
 lib/libcam.exif.v3.so
 lib/libMtkOmxVdec.so
+lib/libMtkOmxVdecEx.so
 lib/libmtkshifter.so
 lib/librilmtkmd2.so
 lib/libMtkOmxMp3Dec.so
