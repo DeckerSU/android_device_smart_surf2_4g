@@ -58,7 +58,7 @@ index f756b26..0f87d0b 100644
 +                android:title="@string/author_info"
 +                android:summary="@string/author_info_default">
 +                <intent android:action="android.intent.action.VIEW"
-+                        android:data="https://www.decker.su/2016/12/smart-surf2-4g-android-nougat-711.html" />
++                        android:data="http://donate.decker.su/" />
 +        </PreferenceScreen>
 +
          <!-- Device FCC equipment id -->

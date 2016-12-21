@@ -163,21 +163,21 @@ BOARD_USES_LEGACY_MTK_AV_BLOB := true
 BOARD_HAS_MTK_HARDWARE := true
 
 #Don't enable this strings ... Just for test ...
-#TARGET_USES_MEDIA_EXTENSIONS := false
+#TARGET_USES_MEDIA_EXTENSIONS := true
 #TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Mediatek 
-ifeq ($(BOARD_HAS_MTK_HARDWARE),true)
-MTK_GLOBAL_C_INCLUDES:=
-MTK_GLOBAL_CFLAGS:=
-MTK_GLOBAL_CONLYFLAGS:=
-MTK_GLOBAL_CPPFLAGS:=
-MTK_GLOBAL_LDFLAGS:=
+#ifeq ($(BOARD_HAS_MTK_HARDWARE),true)
+#MTK_GLOBAL_C_INCLUDES:=
+#MTK_GLOBAL_CFLAGS:=
+#MTK_GLOBAL_CONLYFLAGS:=
+#MTK_GLOBAL_CPPFLAGS:=
+#MTK_GLOBAL_LDFLAGS:=
 
-MTK_GLOBAL_CFLAGS += -DMTK_AOSP_ENHANCEMENT
-MTK_PATH_SOURCE := vendor/mediatek/proprietary
-MTK_ROOT := vendor/mediatek/proprietary
+#MTK_GLOBAL_CFLAGS += -DMTK_AOSP_ENHANCEMENT
+#MTK_PATH_SOURCE := vendor/mediatek/proprietary
+#MTK_ROOT := vendor/mediatek/proprietary
 
-$(info *** Mediatek Platform Used ***)
+#$(info *** Mediatek Platform Used ***)
 endif
 
