@@ -31,7 +31,7 @@ extern "C" {
             uint32_t inWidth, uint32_t inHeight, android::PixelFormat inFormat,
             uint32_t inUsage, std::string requestorName); */
 
-#ifdef FRAMEWORK_NATIVE_NOT_SUPPORT_OLD_BUFFER_REQ
+//#ifdef FRAMEWORK_NATIVE_NOT_SUPPORT_OLD_BUFFER_REQ
     void _ZN7android13GraphicBufferC1Ejjij(void *instance, uint32_t inWidth, uint32_t inHeight, android::PixelFormat inFormat, uint32_t inUsage) {
                                                         // uint32_t inWidth, uint32_t inHeight, PixelFormat inFormat, uint32_t inUsage
         static void (*func)(void *instance, uint32_t, uint32_t, android::PixelFormat, uint32_t, std::string) = NULL;
@@ -70,7 +70,7 @@ extern "C" {
         ALOGI("Process name: %s\n",proc_name);
         */
     }
-#endif
+//#endif
 
     void _ZN7android5Fence4waitEi(int);
 

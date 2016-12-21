@@ -1,0 +1,368 @@
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.1.1
+CM_VERSION=14.1-20161221-UNOFFICIAL-smart_surf2_4g
+TARGET_PRODUCT=cm_smart_surf2_4g
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm
+TARGET_ARCH_VARIANT=armv7-a-neon
+TARGET_CPU_VARIANT=cortex-a53
+TARGET_2ND_ARCH=
+TARGET_2ND_ARCH_VARIANT=
+TARGET_2ND_CPU_VARIANT=
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-4.4.0-53-generic-x86_64-with-Ubuntu-16.04-xenial
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=NMF26Q
+OUT_DIR=/home/decker/cm14.1/out
+============================================
+find: «src/android»: Нет такого файла или каталога
+find: «src»: Нет такого файла или каталога
+find: «../commonutil/src»: Нет такого файла или каталога
+/bin/bash: строка 0: cd: cts/tests/libcore/ojluni/resources: Нет такого файла или каталога
+find: «../../libs/commonutil/src»: Нет такого файла или каталога
+build/core/binary.mk:1253: external/compiler-rt/Android.mk: libcompiler_rt: Unused source files: 
+
+build/core/binary.mk:1253: external/compiler-rt/Android.mk: libcompiler_rt: Unused source files: 
+ 
+ 
+ 
+
+build/core/binary.mk:1253: external/compiler-rt/Android.mk: libcompiler_rt: Unused source files: 
+ 
+ 
+ 
+
+build/core/binary.mk:1253: external/deqp/Android.mk: libdeqp: Unused source files: \
+find: «../../provider/java»: Нет такого файла или каталога
+build/core/binary.mk:1253: external/pdfium/third_party/pdfiumbigint.mk: libpdfiumbigint: Unused source files: bigint/BigInteger.cc bigint/BigIntegerUtils.cc bigint/BigUnsigned.cc bigint/BigUnsignedInABase.cc
+build/core/package_internal.mk:143: Empty argument supplied to find-subdir-assets
+find: «src/android/bluetooth/client/pbap»: Нет такого файла или каталога
+find: «/home/decker/cm14.1/out/target/common/obj/SHARED_LIBRARIES/libwifi-hal-mock_intermediates»: Нет такого файла или каталога
+find: «dummy»: Нет такого файла или каталога
+build/core/package_internal.mk:143: Empty argument supplied to find-subdir-assets
+find: «dummy»: Нет такого файла или каталога
+find: «dummy»: Нет такого файла или каталога
+find: «dummy»: Нет такого файла или каталога
+find: «InCallUI/src-N»: Нет такого файла или каталога
+find: «../ContactsCommon/src-N»: Нет такого файла или каталога
+find: «../PhoneCommon/src-N»: Нет такого файла или каталога
+find: «InCallUI/src-N»: Нет такого файла или каталога
+find: «../ContactsCommon/src-N»: Нет такого файла или каталога
+find: «../PhoneCommon/src-N»: Нет такого файла или каталога
+build/core/java.mk:328: цель «/home/decker/cm14.1/out/target/common/obj/APPS/Dialer_intermediates/src/src/org/codeaurora/presenceserv/IPresenceService.java» указана несколько раз в одном правиле
+build/core/java.mk:328: цель «/home/decker/cm14.1/out/target/common/obj/APPS/Dialer_intermediates/src/src/org/codeaurora/presenceserv/IPresenceServiceCB.java» указана несколько раз в одном правиле
+find: «dummy»: Нет такого файла или каталога
+build/core/base_rules.mk:316: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/res/images/charger/battery_fail.png»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/res/images/charger/battery_fail.png» игнорируются
+find: «dummy»: Нет такого файла или каталога
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/init.rc»
+build/core/base_rules.mk:316: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/init.rc» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/audioserver.rc»
+build/core/base_rules.mk:338: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/audioserver.rc» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/mediacodec.rc»
+build/core/base_rules.mk:338: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/mediacodec.rc» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/cameraserver.rc»
+build/core/base_rules.mk:338: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/cameraserver.rc» игнорируются
+build/core/Makefile:34: предупреждение: переопределение способа для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/rild.rc»
+build/core/base_rules.mk:338: предупреждение: старый способ для цели «/home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/init/rild.rc» игнорируются
+PRODUCT_COPY_FILES system/core/rootdir/init.usb.rc:root/init.usb.rc ignored.
+PRODUCT_COPY_FILES system/core/rootdir/ueventd.rc:root/ueventd.rc ignored.
+No private recovery resources for TARGET_DEVICE smart_surf2_4g
+vendor/cm/build/tasks/kernel.mk:160: ***************************************************************
+vendor/cm/build/tasks/kernel.mk:161: * Using prebuilt kernel binary instead of source              *
+vendor/cm/build/tasks/kernel.mk:162: * THIS IS DEPRECATED, AND WILL BE DISCONTINUED                *
+vendor/cm/build/tasks/kernel.mk:163: * Please configure your device to download the kernel         *
+vendor/cm/build/tasks/kernel.mk:164: * source repository to kernel/mts/smart_surf2_4g
+vendor/cm/build/tasks/kernel.mk:165: * See http://wiki.cyanogenmod.org/w/Doc:_integrated_kernel_building
+vendor/cm/build/tasks/kernel.mk:166: * for more information                                        *
+vendor/cm/build/tasks/kernel.mk:167: ***************************************************************
+Generate Toybox links: acpi arp base64 basename blkid blockdev bzcat cal cat chattr chcon chgrp chmod chown chroot chrt cksum clear cmp comm cp cpio cut date dd df diff dirname dmesg dos2unix du echo egrep env expand expr fallocate false fdisk fgrep file find flock free freeramdisk fsfreeze fstype ftpget ftpput getenforce getfattr getprop grep groups head help host hostname hwclock id ifconfig inotifyd insmod install ionice iorenice iotop kill killall ln load_policy log logname losetup ls lsattr lsmod lsof lspci lsusb makedevs md5sum mkdir mkfifo mknod mkswap mktemp modinfo more mount mountpoint mv nbd-client nc netcat netstat nice nl nohup nproc od partprobe paste patch pgrep pidof pivot_root pkill pmap printenv printf ps pwd pwdx readahead readlink realpath renice reset resize restorecon rev rfkill rm rmdir rmmod route runcon sed sendevent seq setenforce setfattr setprop setsid sha1sum sha224sum sha256sum sha384sum sha512sum sleep sort split start stat stop strings swapoff swapon sync sysctl tac tail tar taskset tee telnet test time timeout top touch tr traceroute traceroute6 true truncate tty tunctl ulimit umount uname uniq unix2dos uptime usleep vconfig vmstat watch wc which whoami xargs xxd xzcat yes
+Ensure Jack server is installed and started
+Jack server already installed in "/home/decker/.jack-server"
+Generate Toybox links: acpi arp base64 basename blkid blockdev bzcat cal cat chattr chcon chgrp chmod chown chroot chrt cksum clear cmp comm cp cpio cut date dd df diff dirname dmesg dos2unix du echo egrep env expand expr fallocate false fdisk fgrep file find flock free freeramdisk fsfreeze fstype ftpget ftpput getenforce getfattr getprop grep groups head help host hostname hwclock id ifconfig inotifyd insmod install ionice iorenice iotop kill killall ln load_policy log logname losetup ls lsattr lsmod lsof lspci lsusb makedevs md5sum mkdir mkfifo mknod mkswap mktemp modinfo more mount mountpoint mv nbd-client nc netcat netstat nice nl nohup nproc od partprobe paste patch pgrep pidof pivot_root pkill pmap printenv printf ps pwd pwdx readahead readlink realpath renice reset resize restorecon rev rfkill rm rmdir rmmod route runcon sed sendevent seq setenforce setfattr setprop setsid sha1sum sha224sum sha256sum sha384sum sha512sum sleep sort split start stat stop strings swapoff swapon sync sysctl tac tail tar taskset tee telnet test time timeout top touch tr traceroute traceroute6 true truncate tty tunctl ulimit umount uname uniq unix2dos uptime usleep vconfig vmstat watch wc which whoami xargs xxd xzcat yes
+Server is already running
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/autoload/spacehi.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/colors/default.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/colors/desert.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/doc/editing.txt
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/doc/help.txt
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/doc/intro.txt
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/doc/motion.txt
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/doc/options.txt
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/doc/scroll.txt
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/doc/tags
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/doc/term.txt
+Install: external/bash/etc/bash_logout -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/bash/
+Install: external/bash/etc/bashrc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/bash/
+Install: external/nano/etc/asm.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/awk.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/c.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/cmake.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/css.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/fortran.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/groff.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/html.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/java.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/makefile.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/nanorc.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/objc.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/ocaml.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/patch.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/perl.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/php.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/python.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/ruby.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/sh.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/tcl.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/tex.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: external/nano/etc/xml.nanorc -> /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/etc/nano/
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/filetype.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/ftoff.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/indent.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/indoff.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/plugin/matchparen.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/scripts.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/awk.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/c.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/conf.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/config.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/context.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/cpp.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/css.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/diff.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/doxygen.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/dtd.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/gitcommit.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/help.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/html.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/java.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/javascript.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/logcat.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/lua.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/manual.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/markdown.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/pod.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/sh.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/syncolor.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/synload.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/syntax.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/vb.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/vim.vim
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/usr/share/vim/syntax/xml.vim
+target thumb C++: recovery <= bootable/recovery/adb_install.cpp
+target thumb C++: recovery <= bootable/recovery/asn1_decoder.cpp
+target thumb C++: recovery <= bootable/recovery/device.cpp
+target thumb C++: recovery <= bootable/recovery/fuse_sdcard_provider.cpp
+target thumb C++: recovery <= bootable/recovery/install.cpp
+target thumb C++: recovery <= bootable/recovery/recovery.cpp
+target thumb C++: recovery <= bootable/recovery/roots.cpp
+target thumb C++: recovery <= bootable/recovery/screen_ui.cpp
+target thumb C++: recovery <= bootable/recovery/ui.cpp
+bootable/recovery/screen_ui.cpp:88:5: warning: field 'updateMutex' will be initialized after field 'progressCondition' [-Wreorder]
+    updateMutex(PTHREAD_MUTEX_INITIALIZER),
+    ^
+1 warning generated.
+target thumb C++: recovery <= bootable/recovery/verifier.cpp
+target thumb C++: recovery <= bootable/recovery/wear_ui.cpp
+target thumb C++: recovery <= bootable/recovery/wear_touch.cpp
+target thumb C++: recovery <= bootable/recovery/voldclient.cpp
+target thumb C++: recovery <= bootable/recovery/default_device.cpp
+target thumb C++: recovery <= bootable/recovery/../../system/core/toolbox/start_stop.cpp
+target thumb C++: recovery <= bootable/recovery/../../system/vold/vdc.cpp
+target thumb C: recovery <= bootable/recovery/../../system/core/toolbox/newfs_msdos.c
+target thumb C: toybox <= external/toybox/main.c
+target Executable: toybox (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/toybox_intermediates/LINKED/toybox)
+target StaticExecutable: recovery (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/recovery_intermediates/LINKED/recovery)
+target Unpacked: toybox (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/toybox_intermediates/PACKED/toybox)
+target Symbolic: toybox (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/system/bin/toybox)
+target Strip: toybox (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/toybox_intermediates/toybox)
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/bin/toybox
+target Unpacked: recovery (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/recovery_intermediates/PACKED/recovery)
+target Symbolic: recovery (/home/decker/cm14.1/out/target/product/smart_surf2_4g/symbols/recovery/root/sbin/recovery)
+target Strip: recovery (/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/EXECUTABLES/recovery_intermediates/recovery)
+Install: /home/decker/cm14.1/out/target/product/smart_surf2_4g/recovery/root/sbin/recovery
+----- Making recovery ramdisk ------
+Copying baseline ramdisk...
+Modifying ramdisk contents...
+cp: не удалось выполнить stat для '/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/init.recovery.*.rc': Нет такого файла или каталога
+# Mount the system_root_image to /system_root and symlink /system.
+----- Making uncompressed recovery ramdisk ------
+----- Making compressed recovery ramdisk ------
+----- Making recovery image ------
++/home/decker/cm14.1/out/target/product/smart_surf2_4g/recovery.img maxsize=17031168 blocksize=135168 total=11845632 reserve=270336
+Made recovery image: /home/decker/cm14.1/out/target/product/smart_surf2_4g/recovery.img
+Target build info: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system/build.prop
+Construct recovery from boot
+mkdir -p /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/recovery_patch_intermediates/
+PATH=/home/decker/cm14.1/out/host/linux-x86/bin:$PATH /home/decker/cm14.1/out/host/linux-x86/bin/imgdiff /home/decker/cm14.1/out/target/product/smart_surf2_4g/boot.img /home/decker/cm14.1/out/target/product/smart_surf2_4g/recovery.img /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p
+build/tools/generate-notice-files.py  /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/NOTICE.txt  /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/NOTICE.html "Notices for files contained in the filesystem images in this directory:" /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/NOTICE_FILES/src
+Combining NOTICE files into HTML
+Combining NOTICE files into text
+Installed file list: /home/decker/cm14.1/out/target/product/smart_surf2_4g/installed-files.txt
+Target system fs image: /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img
+BuildImage: in_dir = /home/decker/cm14.1/out/target/product/smart_surf2_4g/system, out_file = /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img
+fs type is not ext4
+Running: mkuserimg.sh -s /home/decker/cm14.1/out/target/product/smart_surf2_4g/system /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img ext4 system 3221225472 -D /home/decker/cm14.1/out/target/product/smart_surf2_4g/system -L system /home/decker/cm14.1/out/target/product/smart_surf2_4g/root/file_contexts.bin
+make_ext4fs -s -T -1 -S /home/decker/cm14.1/out/target/product/smart_surf2_4g/root/file_contexts.bin -L system -l 3221225472 -a system /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img /home/decker/cm14.1/out/target/product/smart_surf2_4g/system /home/decker/cm14.1/out/target/product/smart_surf2_4g/system
+Creating filesystem with parameters:
+    Size: 3221225472
+    Block size: 4096
+    Blocks per group: 32768
+    Inodes per group: 8192
+    Inode size: 256
+    Journal blocks: 12288
+    Label: system
+    Blocks: 786432
+    Block groups: 24
+    Reserved block group size: 191
+Created filesystem with 2163/196608 inodes and 199485/786432 blocks
+Running ['mkuserimg.sh', '-s', '/home/decker/cm14.1/out/target/product/smart_surf2_4g/system', '/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/systemimage_intermediates/system.img', 'ext4', 'system', '3221225472', '-D', '/home/decker/cm14.1/out/target/product/smart_surf2_4g/system', '-L', 'system', '/home/decker/cm14.1/out/target/product/smart_surf2_4g/root/file_contexts.bin'] command, exit code = 0
+failed to reconstruct target deflate chunk 1 [(null)]; treating as normal
+chunk 0: type 0 start 0 len 6213642
+chunk 1: type 2 start 6213642 len 2725888
+chunk 2: type 0 start 7606091 len 181
+Construct patches for 3 chunks...
+patch   0 is 210 bytes (of 6213642)
+patch   1 is 3431454 bytes (of 1392449)
+patch   2 is 121 bytes (of 94028398048720)
+chunk   0: normal   (         0,    6213642)         210
+chunk   1: deflate  (   6213642,    5631869)     3431454  (null)
+chunk   2: raw      (  11845511,        121)
+Install system fs image: /home/decker/cm14.1/out/target/product/smart_surf2_4g/system.img
+/home/decker/cm14.1/out/target/product/smart_surf2_4g/system.img+/home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=3288637440 blocksize=135168 total=768423325 reserve=33251328
+Package target files: /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-76a7ce878e.zip
+building image from target_files RECOVERY...
+building image from target_files BOOT...
+putting script in bin/install-recovery.sh
+  running:  unzip -o -q /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-76a7ce878e.zip -d /tmp/targetfiles-IeNMs3
+
+
+++++ boot ++++
+
+
+building image from target_files BOOT...
+  running:  mkbootfs -f /tmp/targetfiles-IeNMs3/META/boot_filesystem_config.txt /tmp/targetfiles-IeNMs3/BOOT/RAMDISK
+  running:  minigzip
+  running:  /home/decker/cm14.1/out/host/linux-x86/bin/mkbootimg --kernel /tmp/targetfiles-IeNMs3/BOOT/kernel --cmdline bootopt=64S3,32N2,32N2 androidboot.selinux=permissive buildvariant=userdebug --base 0x40000000 --ramdisk_offset 0x04000000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359 --os_version 7.1.1 --os_patch_level 2016-12-05 --ramdisk /tmp/tmpOZLyI1 --output /tmp/tmp0IJfRQ
+
+
+++++ recovery ++++
+
+
+building image from target_files RECOVERY...
+  running:  mkbootfs -f /tmp/targetfiles-IeNMs3/META/recovery_filesystem_config.txt /tmp/targetfiles-IeNMs3/RECOVERY/RAMDISK
+  running:  minigzip
+  running:  /home/decker/cm14.1/out/host/linux-x86/bin/mkbootimg --kernel /tmp/targetfiles-IeNMs3/RECOVERY/kernel --cmdline bootopt=64S3,32N2,32N2 androidboot.selinux=permissive buildvariant=userdebug --base 0x40000000 --ramdisk_offset 0x04000000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359 --os_version 7.1.1 --os_patch_level 2016-12-05 --ramdisk /tmp/tmpmVEvMP --output /tmp/tmp7umdnm
+
+
+++++ system ++++
+
+
+creating system.img...
+BuildImage: in_dir = /tmp/targetfiles-IeNMs3/system, out_file = /tmp/system-ShQ6oE.img
+fs type is not ext4
+Running: mkuserimg.sh -s /tmp/targetfiles-IeNMs3/system /tmp/system-ShQ6oE.img ext4 system 3221225472 -T 1230757200 -C /tmp/targetfiles-IeNMs3/META/filesystem_config.txt -B /tmp/system-blocklist-_CiKo4.map -L system /tmp/targetfiles-IeNMs3/META/file_contexts.bin
+make_ext4fs -s -T 1230757200 -S /tmp/targetfiles-IeNMs3/META/file_contexts.bin -C /tmp/targetfiles-IeNMs3/META/filesystem_config.txt -B /tmp/system-blocklist-_CiKo4.map -L system -l 3221225472 -a system /tmp/system-ShQ6oE.img /tmp/targetfiles-IeNMs3/system
+loaded 2155 fs_config entries
+Creating filesystem with parameters:
+    Size: 3221225472
+    Block size: 4096
+    Blocks per group: 32768
+    Inodes per group: 8192
+    Inode size: 256
+    Journal blocks: 12288
+    Label: system
+    Blocks: 786432
+    Block groups: 24
+    Reserved block group size: 191
+Created filesystem with 2165/196608 inodes and 199839/786432 blocks
+Running ['mkuserimg.sh', '-s', '/tmp/targetfiles-IeNMs3/system', '/tmp/system-ShQ6oE.img', 'ext4', 'system', '3221225472', '-T', '1230757200', '-C', '/tmp/targetfiles-IeNMs3/META/filesystem_config.txt', '-B', '/tmp/system-blocklist-_CiKo4.map', '-L', 'system', '/tmp/targetfiles-IeNMs3/META/file_contexts.bin'] command, exit code = 0
+
+
+++++ userdata ++++
+
+
+creating userdata.img...
+BuildImage: in_dir = /tmp/tmpfNKJCo/data, out_file = /tmp/tmp_J3y12
+fs type is not ext4
+Running: mkuserimg.sh -s /tmp/tmpfNKJCo/data /tmp/tmp_J3y12 ext4 data 3975675904 -T 1230757200 -L data /tmp/targetfiles-IeNMs3/META/file_contexts.bin
+make_ext4fs -s -T 1230757200 -S /tmp/targetfiles-IeNMs3/META/file_contexts.bin -L data -l 3975675904 -a data /tmp/tmp_J3y12 /tmp/tmpfNKJCo/data
+Creating filesystem with parameters:
+    Size: 3975675904
+    Block size: 4096
+    Blocks per group: 32768
+    Inodes per group: 8096
+    Inode size: 256
+    Journal blocks: 15166
+    Label: data
+    Blocks: 970624
+    Block groups: 30
+    Reserved block group size: 239
+Created filesystem with 11/242880 inodes and 32337/970624 blocks
+Running ['mkuserimg.sh', '-s', '/tmp/tmpfNKJCo/data', '/tmp/tmp_J3y12', 'ext4', 'data', '3975675904', '-T', '1230757200', '-L', 'data', '/tmp/targetfiles-IeNMs3/META/file_contexts.bin'] command, exit code = 0
+   userdata size (14) is 0.00% of limit (3975675904)
+
+
+++++ extrauserdata ++++
+
+
+
+
+++++ cache ++++
+
+
+done.
+Package OTA: /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm_smart_surf2_4g-ota-76a7ce878e.zip
+unzipping target target-files...
+  running:  unzip -o -q /home/decker/cm14.1/out/target/product/smart_surf2_4g/obj/PACKAGING/target_files_intermediates/cm_smart_surf2_4g-target_files-76a7ce878e.zip -d /tmp/targetfiles-IcCyeD
+--- target info ---
+blockimgdiff_versions     = (str) 1,2,3,4
+blocksize                 = (int) 131072
+boot_size                 = (int) 16777216
+build.prop                = (dict) {'ro.setupwizard.enterprise_mode': '1', 'dalvik.vm.isa.arm.variant': 'cortex-a53', 'ro.product.cpu.abilist': 'armeabi-v7a,armeabi', 'ro.url.legal': 'http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html', 'ro.build.product': 'smart_surf2_4g', 'ro.build.id': 'NMF26Q', 'ro.build.version.sdk': '25', 'ro.product.cpu.abilist32': 'armeabi-v7a,armeabi', 'dalvik.vm.isa.arm.features': 'default', 'dalvik.vm.heapmaxfree': '8m', 'cm.updater.uri': 'https://localhost/decker/update-site/master/updates-14.1.json', 'ro.build.fingerprint': 'MTS/cm_smart_surf2_4g/smart_surf2_4g:7.1.1/NMF26Q/f2bb340e82:userdebug/test-keys', 'ro.product.manufacturer': 'MTS', 'ro.build.description': 'cm_smart_surf2_4g-userdebug 7.1.1 NMF26Q f2bb340e82 test-keys', 'dalvik.vm.heapstartsize': '8m', 'ro.product.brand': 'MTS', 'wifi.interface': 'wlan0', 'ro.cm.version': '14.1-20161220-UNOFFICIAL-smart_surf2_4g', 'wifi.direct.interface': 'p2p0', 'ro.cm.build.version.plat.sdk': '7', 'ro.product.model': 'Smart Surf2 4G', 'ro.cmlegal.url': 'https://cyngn.com/legal/privacy-policy', 'dalvik.vm.heapsize': '256m', 'ro.url.legal.android_privacy': 'http://www.google.com/intl/%s/mobile/android/basic/privacy.html', 'dalvik.vm.heaptargetutilization': '0.75', 'ro.kernel.zio': '38,108,105,16', 'ro.build.host': 'decker-i7-heat', 'ro.com.android.dataroaming': 'false', 'ro.build.version.security_patch': '2016-12-05', 'wifi.tethering.interface': 'ap0', 'media.sf.extractor-plugin': 'libffmpeg_extractor.so', 'ro.product.locale': 'en-US', 'dalvik.vm.heapminfree': '2m', 'ro.board.platform': 'mt6737m', 'ro.product.cpu.abilist64': '', 'ro.expect.recovery_id': '0xb5dae8596bfc6069a66b5048db5775bf6501b589000000000000000000000000', 'ro.camera.sound.forced': '0', 'rild.libpath': 'mtk-ril.so', 'ro.build.flavor': 'cm_smart_surf2_4g-userdebug', 'rild.libargs': '-d /dev/ttyC0', 'persist.sys.timezone ': ' Europe/Moscow', 'ro.build.version.release': '7.1.1', 'ro.build.version.codename': 'REL', 'net.bt.name': 'Android', 'ro.build.type': 'userdebug', 'ro.config.alarm_alert': 'Hassium.ogg', 'ro.opengles.version': '196609', 'ro.mtk_perf_response_time': '1', 'ro.build.display.id': 'cm_smart_surf2_4g-userdebug 7.1.1 NMF26Q f2bb340e82 test-keys', 'ro.config.ringtone': 'Orion.ogg', 'ro.mediatek.wlan.p2p': '1', 'ro.mtk_perfservice_support': '1', 'dalvik.vm.stack-trace-file': '/data/anr/traces.txt', 'ro.carrier': 'unknown', 'ro.product.board': 'mt6737m', 'ro.build.version.preview_sdk': '0', 'ro.com.google.clientidbase': 'android-google', 'ro.cm.build.version.plat.rev': '0', 'ro.build.date': '\xd0\x92\xd1\x82 \xd0\xb4\xd0\xb5\xd0\xba 20 21:44:55 EET 2016', 'ro.audio.silent': '0', 'ro.build.date.utc': '1482263095', 'ro.build.characteristics': 'default', 'keyguard.no_require_sim': 'true', 'ro.build.version.all_codenames': 'REL', 'dalvik.vm.lockprof.threshold': '500', 'ro.build.selinux': '1', 'persist.sys.root_access': '0', 'persist.sys.dalvik.vm.lib.2': 'libart.so', 'ro.product.cpu.abi': 'armeabi-v7a', 'debug.hwui.render_dirty_regions': 'false', 'ro.zygote.preload.enable': '0', 'ro.product.name': 'cm_smart_surf2_4g', 'ro.build.version.base_os': '', 'persist.logd.logpersistd': 'logcatd', 'mediatek.wlan.ctia': '0', 'media.sf.omx-plugin': 'libffmpeg_omx.so', 'ro.mediatek.wlan.wsc': '1', 'ro.wifi.channels': '', 'ro.modversion': '14.1-20161220-UNOFFICIAL-smart_surf2_4g', 'ro.storage_manager.enabled': 'true', 'ro.telephony.default_network': '9', 'cm.updater.type': 'plain', 'ro.build.version.incremental': 'f2bb340e82', 'ro.build.tags': 'test-keys', 'ro.sf.lcd_density': '320', 'ro.com.android.dateformat': 'MM-dd-yyyy', 'ro.cm.releasetype': 'UNOFFICIAL', 'ro.product.cpu.abi2': 'armeabi', 'ro.build.user': 'dec/home/decker/cm14.1/build/tools/releasetools/common.py:1211: UserWarning: Duplicate name: 'system/build.prop'
+  zip_file.writestr(zinfo, data)
+ker', 'ro.product.device': 'smart_surf2_4g', 'ro.mtk_perf_simple_start_win': '1', 'ro.cm.device': 'smart_surf2_4g', 'ro.cm.display.version': '14.1-20161220-UNOFFICIAL-smart_surf2_4g', 'ro.com.android.wifi-watchlist': 'GoogleGuest', 'dalvik.vm.heapgrowthlimit': '96m', 'persist.sys.dun.override': '0', 'ro.config.notification_sound': 'Argon.ogg'}
+cache_size                = (int) 419430400
+default_system_dev_certificate = (str) build/target/product/security/testkey
+device_type               = (str) MMC
+extfs_sparse_flag         = (str) -s
+extra_recovery_keys       = (str) vendor/cm/build/target/product/security/cm vendor/cm/build/target/product/security/cm-devkey
+fs_type                   = (str) ext4
+fstab                     = (dict) {'/sdcard': <common.Partition object at 0x7ff4c63dfc10>, '/cache': <common.Partition object at 0x7ff4c63dfe50>, '/boot': <common.Partition object at 0x7ff4c63dfd10>, '/system': <common.Partition object at 0x7ff4c63df910>, '/recovery': <common.Partition object at 0x7ff4c63dff10>, '/custom': <common.Partition object at 0x7ff4c63df810>, '/data': <common.Partition object at 0x7ff4c63dfb90>}
+fstab_version             = (int) 2
+mkbootimg_args            = (str) --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359
+mkbootimg_version_args    = (str) --os_version 7.1.1 --os_patch_level 2016-12-05
+multistage_support        = (str) 1
+recovery_api_version      = (int) 3
+recovery_as_boot          = (str) 
+recovery_mount_options    = (str) ext4=max_batch_time=0,commit=1,data=ordered,barrier=1,errors=panic,nodelalloc
+recovery_size             = (int) 16777216
+selinux_fc                = (str) /tmp/targetfiles-IcCyeD/META/file_contexts.bin
+squashfs_sparse_flag      = (str) -s
+system_size               = (int) 3221225472
+tool_extensions           = (str) device/mts/smart_surf2_4g/../common
+update_rename_support     = (str) 1
+use_set_metadata          = (str) 1
+userdata_size             = (int) 3975675904
+unable to load device-specific module; assuming none
+using prebuilt recovery.img from IMAGES...
+using prebuilt boot.img from IMAGES...
+  running:  imgdiff -b /tmp/targetfiles-IcCyeD/SYSTEM/etc/recovery-resource.dat /tmp/tmpkqyl5g /tmp/tmppv9wjU /tmp/tmpLWv2hV
+putting script in bin/install-recovery.sh
+   boot size (7606272) is 45.34% of limit (16777216)
+  running:  openssl pkcs8 -in build/target/product/security/testkey.pk8 -inform DER -nocrypt
+  running:  java -Xmx2048m -Djava.library.path=/home/decker/cm14.1/out/host/linux-x86/lib64 -jar /home/decker/cm14.1/out/host/linux-x86/framework/signapk.jar -w build/target/product/security/testkey.x509.pem build/target/product/security/testkey.pk8 /tmp/tmp9Rc6Jb /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm_smart_surf2_4g-ota-76a7ce878e.zip
+done.
+Package Complete: /home/decker/cm14.1/out/target/product/smart_surf2_4g/cm-14.1-20161221-UNOFFICIAL-smart_surf2_4g.zip
+
+[0;32m#### make completed successfully (06:53 (mm:ss)) ####[00m
+
