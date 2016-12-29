@@ -43,16 +43,25 @@ on post-fs-data
     chown system system /dev/wmtWifi
 
 #Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
     chmod 0660 /dev/GAF001AF
     chown system camera /dev/GAF001AF
 
     chmod 0660 /dev/DW9714AF
     chown system camera /dev/DW9714AF
 
-    chmod 0660 /dev/LC898212AF
-    chown system camera /dev/LC898212AF
+    chmod 0660 /dev/AD5820AF
+    chown system camera /dev/AD5820AF
 
-    chmod 0660 /dev/BU64745GWZAF
+	chmod 0660 /dev/BU64745GWZAF
     chown system camera /dev/BU64745GWZAF
 
 #SMB
