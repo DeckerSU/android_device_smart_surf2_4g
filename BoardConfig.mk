@@ -142,7 +142,7 @@ USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := $(DEVICE_PATH)/egl.cfg
 
 # CyanogenMod Hardware Hooks
-BOARD_HARDWARE_CLASS := $(DEVICE_PATH)/cmhw/
+# BOARD_HARDWARE_CLASS := $(DEVICE_PATH)/cmhw/
 
 # RIL
 BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
