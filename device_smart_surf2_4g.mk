@@ -143,6 +143,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
+# mrdump related
+PRODUCT_PACKAGES += \
+    libmrdump \
+    mrdump_tool
+
 #Hack for prebuilt kernel
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)

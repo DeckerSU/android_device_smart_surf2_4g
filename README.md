@@ -55,3 +55,4 @@ https://github.com/ferhung-mtk/android_device_Xiaomi_HM2014011 - 6582
 https://github.com/Nonta72/android_device_d5110_infinix/tree/cm-13.0 - 6580 (3.18.19)
 https://github.com/jsharma44/android_device_GIONEE_WBL7511
 https://github.com/SeriniTY320/android_device_THL4000-cm-13.0
+https://github.com/CyanogenMod/android_device_cyanogen_mt6735-common - android_device_cyanogen_mt6735-common
