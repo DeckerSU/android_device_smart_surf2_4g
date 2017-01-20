@@ -19,16 +19,17 @@ PRODUCT_PACKAGES += \
     libxlog
 
 # Lights
-PRODUCT_PACKAGES += \
-    lights.mt6737m
+#PRODUCT_PACKAGES += \
+#    lights.mt6737m
 
 # Audio
-PRODUCT_PACKAGES += \
-    audio.primary.mt6737m \
-    audio_policy.default \
-    audio.a2dp.default \
-    audio.usb.default \
-    audio.r_submix.default
+#PRODUCT_PACKAGES += \
+#    audio.primary.mt6737m \
+#    audio_policy.default \
+#    audio.a2dp.default \
+#    audio.usb.default \
+#    audio.r_submix.default
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \

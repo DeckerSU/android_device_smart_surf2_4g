@@ -124,3 +124,6 @@ BOARD_SEPOLICY_DIRS := \
 
 # Use old sepolicy version
 POLICYVERS := 29
+
+# [+] Decker
+BLOCK_BASED_OTA := false
