@@ -1,0 +1,27 @@
+# nvram
+allow mediaserver nvdata_file:dir rw_dir_perms;
+allow mediaserver nvdata_file:file create_file_perms;
+allow mediaserver ccci_device:chr_file rw_file_perms;
+
+# camera
+allow mediaserver sensorservice_service:service_manager find;
+allow mediaserver system_server:unix_stream_socket { read write };
+
+# video codec
+allow mediaserver Vcodec_device:chr_file rw_file_perms;
+
+# fm radio
+allow mediaserver fm_device:chr_file rw_file_perms;
+
+# PQ
+allow mediaserver pq_service:service_manager find;
+
+# Audio
+allow mediaserver audiohal_prop:property_service set;
+
+# camera
+allow mediaserver camera_device:chr_file rw_file_perms;
+#allow mediaserver mtk_smi_device:chr_file r_file_perms;
+allow mediaserver proc:file { read ioctl open };
+allow mediaserver devmap_device:chr_file r_file_perms;
+allow mediaserver devmap_device:chr_file { ioctl };

@@ -58,7 +58,6 @@ File logcat2.txt:
 01-04 09:09:07.499   284   284 E MtkOmxCore: dlopen failed, dlopen failed: library "libMtkOmxWmaProDec.so" not found
 01-04 09:09:07.566   284   284 D MtkOmxVdecEx: [0xb0822000] ClearMotion is not enabled. dlopen failed: library "/system/lib/libClearMotionFW.so" not found
 
-
 Несколько интересных на мой взгляд деревьев
 -------------------------------------------
 

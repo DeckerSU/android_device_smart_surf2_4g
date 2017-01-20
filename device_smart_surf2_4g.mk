@@ -1,6 +1,28 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# These additionals go to /default.prop
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0 \
+ro.allow.mock.location=1 \
+ro.debuggable=1 \
+ro.adb.secure=0 \
+persist.service.acm.enable=0 \
+persist.sys.usb.config=mtp \
+ro.mount.fs=EXT4 \
+debug.hwui.render_dirty_regions=false \
+ro.sf.lcd_density=320 \
+persist.radio.multisim.config=dsds \
+ro.mtk_lte_support=1 \
+ro.telephony.ril_class=MediaTekRIL \
+ro.telephony.ril.config=fakeiccid \
+ro.telephony.sim.count=2 \
+persist.gemini.sim_num=2 \
+ril.current.share_modem=2 \
+ro.mtk_gps_support=1 \
+ro.mtk_agps_app=1 \
+persist.debug.xlog.enable=1 \
+persist.sys.display.clearMotion=0 
+
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
@@ -65,7 +87,7 @@ PRODUCT_COPY_FILES += \
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl 
+    $(LOCAL_PATH)/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
 #   $(LOCAL_PATH)/configs/mtk-tpd.kl:system/usr/keylayout/mtk-tpd.kl
 
 # Thermal
@@ -103,7 +125,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/permissions/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     $(LOCAL_PATH)/rootdir/system/etc/permissions/android.hardware.microphone.xml:system/etc/permissions/android.hardware.microphone.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml 
 
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
