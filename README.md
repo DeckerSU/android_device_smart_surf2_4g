@@ -46,6 +46,19 @@ WiFi, RIL, звук, камера и т.п.
 
 Надо смотреть что сделано в дереве от CM14 и пробовать перенести изменения сюда.
 
+2. 
+
+File logcat2.txt:
+01-04 09:08:52.719   301   301 I thermal_manager: thermal_manager dlopen
+01-04 09:08:52.925   294   294 I MtkAgpsNative: [CDMA mgr] cdma_mgr_dlopen_firmware 
+01-04 09:08:52.925   294   294 E MtkAgpsNative: [CDMA mgr] VIAMTKDBG Could not open /system/lib/libviagpsrpc.so, error: dlopen failed: library "/system/lib/libviagpsrpc.so" not found
+01-04 09:08:52.925   294   294 D agps    : [agps] WARNING: [MAIN] cdma_mgr_dlopen_firmware failed
+01-04 09:08:59.948   284   284 E HAL     : dlopen failed: cannot locate symbol "_ZN7android11AudioSystem24getVoiceUnlockDLInstanceEv" referenced by "/system/lib/hw/audio.primary.mt6737m.so"...
+01-04 09:09:07.498   284   284 E MtkOmxCore: dlopen failed, dlopen failed: library "libMtkOmxWmaDec.so" not found
+01-04 09:09:07.499   284   284 E MtkOmxCore: dlopen failed, dlopen failed: library "libMtkOmxWmaProDec.so" not found
+01-04 09:09:07.566   284   284 D MtkOmxVdecEx: [0xb0822000] ClearMotion is not enabled. dlopen failed: library "/system/lib/libClearMotionFW.so" not found
+
+
 Несколько интересных на мой взгляд деревьев
 -------------------------------------------
 

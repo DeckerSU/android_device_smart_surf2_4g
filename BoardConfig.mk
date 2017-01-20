@@ -127,3 +127,4 @@ POLICYVERS := 29
 
 # [+] Decker
 BLOCK_BASED_OTA := false
+TARGET_LDPRELOAD += libxlog.so # for symbols in mtkaudio.cpp
