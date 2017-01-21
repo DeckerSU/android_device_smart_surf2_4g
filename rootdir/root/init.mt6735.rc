@@ -38,6 +38,7 @@ on init
     symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/logo /dev/logo
     symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/misc2 /dev/misc2
 
+# Temp Backward compatibility
     mkdir /protect_f 0771 system system
     mkdir /protect_s 0771 system system
     #create mountpoint for persist partition
@@ -213,11 +214,12 @@ on post-fs-data
     chmod 0771 /persist
 
     # create basic filesystem structure
-    # mkdir /data/nvram 0770 root system
+    # mkdir /data/nvram 2770 root system
     # We chown/chmod /nvdata again so because mount is run as root + defaults
     chown root system /nvdata
-    chmod 0770 /nvdata
+    chmod 0771 /nvdata
     symlink /nvdata /data/nvram
+    mkdir /nvdata/media 0771 media audio
 
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /nvdata
@@ -234,6 +236,7 @@ on post-fs-data
 
 # GPS
     mkdir /data/gps_mnl 0771 gps system
+    mkdir /data/misc/gps 0770 gps system
 
     # NFC
     mkdir /data/nfc_socket 0771 nfc radio
