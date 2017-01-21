@@ -20,3 +20,15 @@
 /devices/mtk-msdc.0/11240000.msdc1*     auto      auto      defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/platform/mt_usb*               auto      vfat      defaults        voldmanaged=usb:auto
 
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvram        /nvram              emmc       defaults                                                      defaults
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/proinfo      /proinfo            emmc       defaults                                                      defaults
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/lk           /bootloader         emmc       defaults                                                      defaults
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/para         /misc               emmc       defaults                                                      defaults
+
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/logo         /logo               emmc       defaults                                                      defaults
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/expdb        /expdb              emmc       defaults                                                      defaults
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/secro        /secro              emmc       defaults                                                      defaults
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg       /seccfg             emmc       defaults                                                      defaults
+
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/tee1         /tee1               emmc       defaults                                                      defaults
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/tee2         /tee2               emmc       defaults                                                      defaults
