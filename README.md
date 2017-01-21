@@ -84,6 +84,41 @@ gsm0710muxdmd2
 mtkrild
 mtkrildmd2
 
+divis1969: Если вы можете собирать и анализировать логи, то последовательность запуска телефонии на mt6735 примерно такая
+1. Стартует ccci_mdinit, его задача - загрузить в модем фирмваре
+2. После него стартует gsm0710muxd, он подготавливает несколько последовательных каналов (tty) для работы с модемом
+3. Потом стартует ril-daemon-mtk, он как раз и пользуется этими каналами, а сам создает сокеты для Java RIL
+4. Стартует Java RIL и подключается к сокетам. В логе можно искать по тегу RILJ
+
+https://habrahabr.ru/post/183984/
+
+[4] FIX RIL:
+
+BIN
+gsm0710muxd
+gsm0710muxdmd2
+mtkrild
+mtkrildmd2
+
+ETC
+firmware (folder)
+mddb (folder)
+apns-conf.xml
+spn-conf.xml
+trustzone.bin
+LIB & LIB64
+libc2kril.so
+libc2kutils.so
+libreference-ril.so
+libril.so
+librilmtk.so
+librilmtkmd2.so
+librilutils.so
+libviatelecom-withuim-ril.so
+mtk-ril.so
+mtk-rilmd2.so
+volte_imsm.so
+
 Несколько интересных на мой взгляд деревьев
 -------------------------------------------
 
@@ -95,3 +130,5 @@ mtkrildmd2
 - https://github.com/SeriniTY320/android_device_THL4000-cm-13.0
 - https://github.com/CyanogenMod/android_device_cyanogen_mt6735-common - android_device_cyanogen_mt6735-common
 - https://github.com/Lucky76/android_device_ulefone_metal (MT6753, 64-bit)
+- https://forum.xda-developers.com/k3-note/orig-development/rom-custom-nougat-roms-k-3-note-t3513466
+
