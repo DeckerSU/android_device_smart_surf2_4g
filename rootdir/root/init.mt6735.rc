@@ -23,7 +23,21 @@ on init
     mkdir /storage/usbotg 0700 root root
     mount tmpfs tmpfs /storage/usbotg mode=0755,uid=1000,gid=1000
     chmod 0666 /dev/kmsg
-# Temp Backward  compatibility
+
+    export USBOTG_STORAGE /storage/usbotg
+# Temp Backward compatibility
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/boot /dev/bootimg
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/recovery /dev/recovery
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/secro  /dev/sec_ro
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/kb /dev/kb
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/dkb /dev/dkb
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg /dev/seccfg
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/proinfo /dev/pro_info
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvram /dev/nvram
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/para /dev/misc
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/logo /dev/logo
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/misc2 /dev/misc2
+
     mkdir /protect_f 0771 system system
     mkdir /protect_s 0771 system system
     #create mountpoint for persist partition
@@ -42,6 +56,9 @@ on init
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
 
+#usbotg
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
 # mount different fs start
 
 on charger

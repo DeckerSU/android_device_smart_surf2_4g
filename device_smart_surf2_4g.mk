@@ -13,7 +13,7 @@ debug.hwui.render_dirty_regions=false \
 ro.sf.lcd_density=320 \
 persist.radio.multisim.config=dsds \
 ro.mtk_lte_support=1 \
-ro.telephony.ril_class=MediaTekRIL \
+ro.telephony.ril_class=MT6735 \
 ro.telephony.ril.config=fakeiccid \
 ro.telephony.sim.count=2 \
 persist.gemini.sim_num=2 \
@@ -106,6 +106,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
     $(LOCAL_PATH)/rootdir/root/twrp.fstab:recovery/root/etc/twrp.fstab \
     $(LOCAL_PATH)/rootdir/root/ueventd.mt6735.rc:root/ueventd.mt6735.rc \
+    $(LOCAL_PATH)/rootdir/root/init.project.rc:root/init.project.rc \
     $(LOCAL_KERNEL):kernel
 
 # Permissions
