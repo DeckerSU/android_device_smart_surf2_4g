@@ -65,6 +65,25 @@ logcat2.txt:
 
 В данный момент идет работа над запуском RIL'а.
 
+[3] RIL:
+
+lib
+---
+libmal.so
+libmdfx.so
+librilmtk.so
+librilmtkmd2.so
+mtk-ril.so
+mtk-rilmd2.so
+
+bin
+---
+
+gsm0710muxd
+gsm0710muxdmd2
+mtkrild
+mtkrildmd2
+
 Несколько интересных на мой взгляд деревьев
 -------------------------------------------
 
@@ -75,3 +94,4 @@ logcat2.txt:
 - https://github.com/jsharma44/android_device_GIONEE_WBL7511
 - https://github.com/SeriniTY320/android_device_THL4000-cm-13.0
 - https://github.com/CyanogenMod/android_device_cyanogen_mt6735-common - android_device_cyanogen_mt6735-common
+- https://github.com/Lucky76/android_device_ulefone_metal (MT6753, 64-bit)
