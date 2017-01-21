@@ -16,12 +16,10 @@
 
 <!--
 <!DOCTYPE MediaCodecs [
-<!ELEMENT Include EMPTY>
-<!ATTLIST Include href CDATA #REQUIRED>
-<!ELEMENT MediaCodecs (Decoders|Encoders|Include)*>
-<!ELEMENT Decoders (MediaCodec|Include)*>
-<!ELEMENT Encoders (MediaCodec|Include)*>
-<!ELEMENT MediaCodec (Type|Quirk|Include)*>
+<!ELEMENT MediaCodecs (Decoders,Encoders)>
+<!ELEMENT Decoders (MediaCodec*)>
+<!ELEMENT Encoders (MediaCodec*)>
+<!ELEMENT MediaCodec (Type*,Quirk*)>
 <!ATTLIST MediaCodec name CDATA #REQUIRED>
 <!ATTLIST MediaCodec type CDATA>
 <!ELEMENT Type EMPTY>
@@ -74,52 +72,16 @@ Only the three quirks included above are recognized at this point:
     corresponding color space converter for thumbnail extraction,
     matching surfaceflinger support that can render the custom format to
     a texture and possibly other code, so just DON'T USE THIS QUIRK.
-
+   
     2012/07/13 config for MTK OMX Media Codecs, created by Morris Yang (mtk03147)
 -->
 
 <MediaCodecs>
-    <Include href="media_codecs_google_audio.xml" />
-    <Include href="media_codecs_google_telephony.xml" />
-	
-<Settings>
+    <Settings>
         <Setting name="max-video-encoder-input-buffers" value="10" />
     </Settings>
-
-    <Decoders>
-        <MediaCodec name="OMX.MTK.VIDEO.DECODER.MPEG4" type="video/mp4v-es">
-            <Limit name="size" min="16x16" max="1920x1088" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-        <Feature name="adaptive-playback" />
-            <Limit name="concurrent-instances" max="8" />
-        </MediaCodec>
-        <MediaCodec name="OMX.MTK.VIDEO.DECODER.H263" type="video/3gpp">
-            <Limit name="size" min="16x16" max="1920x1088" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Feature name="adaptive-playback" />
-        <Limit name="concurrent-instances" max="8" />
-        </MediaCodec>
-    <MediaCodec name="OMX.MTK.VIDEO.DECODER.AVC" type="video/avc" >
-            <Limit name="size" min="64x64" max="1920x1088" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-        <Feature name="adaptive-playback" />
-            <Limit name="concurrent-instances" max="8" />
-            </MediaCodec>
-             </Decoders>
-
-        <Encoders>
-        <MediaCodec name="OMX.MTK.VIDEO.ENCODER.AVC" type="video/avc" >
-            <Limit name="size" min="64x64" max="1920x1080" />
-            <Limit name="alignment" value="16x16" />
-            <Limit name="block-size" value="16x16" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-        <Limit name="concurrent-instances" max="8" />
-        </MediaCodec>
-    </Encoders>
+    <Include href="media_codecs_google_audio.xml" />
+    <Include href="media_codecs_google_telephony.xml" />
     <Include href="media_codecs_google_video_le.xml" />
     <Include href="media_codecs_ffmpeg.xml" />
 </MediaCodecs>
