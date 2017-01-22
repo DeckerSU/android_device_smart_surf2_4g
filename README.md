@@ -157,6 +157,14 @@ logcat -b all (!)
 - https://github.com/SeriniTY320/android_device_THL4000-cm-13.0
 - https://github.com/CyanogenMod/android_device_cyanogen_mt6735-common - android_device_cyanogen_mt6735-common
 - https://github.com/Lucky76/android_device_ulefone_metal (MT6753, 64-bit)
+- https://github.com/Mohancm/device_A7010a48 (MT6763, 64-bit)
+
+В последнем дереве зачем-то сделан "интересный хак":
+
+#service ril-daemon /system/bin/rild
+service ril-daemon /system/bin/mtkrild
+
+См. тут - https://github.com/Mohancm/device_A7010a48/blob/acbb4490d52f068f9950057a76cf936230544ca7/rootdir/etc/init.rc
 
 Статьи:
 
