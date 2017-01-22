@@ -78,10 +78,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libbt-vendor
 
-# GSM
-PRODUCT_PACKAGES += \
-    gsm0710muxd \
-    gsm0710muxdmd2
+# RIL
+#PRODUCT_PACKAGES += \
+#    gsm0710muxd \
+#    gsm0710muxdmd2 \
+#    mtkrild \
+#    mtkrildmd2 \
+#    mtk-ril \
+#    mtk-rilmd2
 
 # Telecomm
 PRODUCT_COPY_FILES += \

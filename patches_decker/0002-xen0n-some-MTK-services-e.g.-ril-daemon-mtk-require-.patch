@@ -1,0 +1,30 @@
+From 1f9de4aedd004b93bfb6af28943ed442853a07ea Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Sun, 22 Jan 2017 06:05:00 +0300
+Subject: [PATCH] xen0n: some MTK services (e.g. ril-daemon-mtk) require very
+ large number +// of sockets, which can't be contained in 32 entries minus
+ other variables. +static const char *ENV[64];
+
+Change-Id: Ia1602cdc6d36bead4ce8a49e323a29eda6c53022
+---
+ init/init.cpp | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/init/init.cpp b/init/init.cpp
+index 8ea42ca..a098738 100644
+--- a/init/init.cpp
++++ b/init/init.cpp
+@@ -85,7 +85,9 @@ static int have_console;
+ static char console_name[PROP_VALUE_MAX] = "/dev/console";
+ static time_t process_needs_restart;
+ 
+-static const char *ENV[32];
++// xen0n: some MTK services (e.g. ril-daemon-mtk) require very large number
++// of sockets, which can't be contained in 32 entries minus other variables.
++static const char *ENV[64];
+ 
+ bool waiting_for_exec = false;
+ 
+-- 
+2.7.4
+

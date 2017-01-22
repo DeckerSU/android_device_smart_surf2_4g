@@ -119,8 +119,35 @@ mtk-ril.so
 mtk-rilmd2.so
 volte_imsm.so
 
-Несколько интересных на мой взгляд деревьев
--------------------------------------------
+# logcat --help
+...
+  -b <buffer>     Request alternate ring buffer, 'main', 'system', 'radio',
+                  'events', 'crash' or 'all'. Multiple -b parameters are
+                  allowed and results are interleaved. The default is
+                  -b main -b system -b crash.
+...
+
+logcat -b radio (!)
+logcat -b all (!)
+
+Файлы относящиеся к RIL пока берутся из вендора, но могут быть и скомпиленными из исходников, для этого
+достаточно раскомментировать:
+
+#PRODUCT_PACKAGES += \
+#    gsm0710muxd \
+#    gsm0710muxdmd2 \
+#    mtkrild \
+#    mtkrildmd2 \
+#    mtk-ril \
+#    mtk-rilmd2
+
+[5] Удалось достичь некоторых успехов. С применным патчем 0002-xen0n-some-MTK-services-e.g.-ril-daemon-mtk-require-.patch
+(правда пока непонятно, с blob'ами со стока или собранными из исходников) ril-daemon запустился, /dev/socket/rild
+создался и Baseband Firmware и IMEI отобразился. Направление верное, т.е. одна из проблем была в нехватке переменных
+окружения под названия сокетов создаваемых ril-daemon-mtk ...
+
+Полезные ссылки
+---------------
 
 Деревья для сборки CM13:
 
@@ -130,5 +157,11 @@ volte_imsm.so
 - https://github.com/SeriniTY320/android_device_THL4000-cm-13.0
 - https://github.com/CyanogenMod/android_device_cyanogen_mt6735-common - android_device_cyanogen_mt6735-common
 - https://github.com/Lucky76/android_device_ulefone_metal (MT6753, 64-bit)
+
+Статьи:
+
 - https://forum.xda-developers.com/k3-note/orig-development/rom-custom-nougat-roms-k-3-note-t3513466
+- https://habrahabr.ru/post/183984/ (Слой радиоинтерфейса в ОС Android)
+
+
 
