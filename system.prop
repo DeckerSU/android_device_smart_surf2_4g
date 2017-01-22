@@ -83,7 +83,7 @@ mediatek.wlan.ctia=0
 wifi.tethering.interface=ap0
 #
 
-ro.opengles.version=131072
+ro.opengles.version=196608
 
 # ro.opengles.version=65535 # OpenGL ES 1.0
 # ro.opengles.version=65536 # OpenGL ES 1.1
