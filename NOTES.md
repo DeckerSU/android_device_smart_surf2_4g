@@ -173,5 +173,20 @@ service ril-daemon /system/bin/mtkrild
 - https://forum.xda-developers.com/k3-note/orig-development/rom-custom-nougat-roms-k-3-note-t3513466
 - https://habrahabr.ru/post/183984/ (Слой радиоинтерфейса в ОС Android)
 
+На тему решения проблемы с записью видео в камере:
+
+- https://github.com/fire855/android_frameworks_av-mtk/commits/cm-13.0-mt6592
+- https://github.com/nofearnohappy/device_hermes_cm13/blob/master/patches/frameworks/av/codec_and_audio.patch
+- https://github.com/xen0n/android_device_meizu_arale/issues/17
+- https://forum.xda-developers.com/k3-note/orig-development/rom-custom-nougat-roms-k-3-note-t3513466
+- http://4pda.ru/forum/index.php?s=&showtopic=715583&view=findpost&p=57481976
+
+Создал также отдельный репозитарий с описанием проблемы и полными логами:
+
+https://github.com/DeckerSU/video_recording_problem_cm13/
 
 
+[7] Уррра ... удалось завести запись видео с google.h264.encoder, однако пока что перепутаны цвета Red и Blue на
+записи, т.е. красные объекты выглядят синими, а синие выглядят красными. Решаем эту проблему.
+
+https://github.com/xen0n/android_device_meizu_arale/issues/17#issuecomment-274554382
