@@ -69,77 +69,87 @@ logcat2.txt:
 
 lib
 ---
-libmal.so
-libmdfx.so
-librilmtk.so
-librilmtkmd2.so
-mtk-ril.so
-mtk-rilmd2.so
+
+	libmal.so
+	libmdfx.so
+	librilmtk.so
+	librilmtkmd2.so
+	mtk-ril.so
+	mtk-rilmd2.so
 
 bin
 ---
 
-gsm0710muxd
-gsm0710muxdmd2
-mtkrild
-mtkrildmd2
+	gsm0710muxd
+	gsm0710muxdmd2
+	mtkrild
+	mtkrildmd2
 
-divis1969: Если вы можете собирать и анализировать логи, то последовательность запуска телефонии на mt6735 примерно такая
-1. Стартует ccci_mdinit, его задача - загрузить в модем фирмваре
-2. После него стартует gsm0710muxd, он подготавливает несколько последовательных каналов (tty) для работы с модемом
-3. Потом стартует ril-daemon-mtk, он как раз и пользуется этими каналами, а сам создает сокеты для Java RIL
-4. Стартует Java RIL и подключается к сокетам. В логе можно искать по тегу RILJ
+**divis1969**: Если вы можете собирать и анализировать логи, то последовательность запуска телефонии на mt6735 примерно такая:
+
+- Стартует ccci_mdinit, его задача - загрузить в модем фирмваре
+- После него стартует gsm0710muxd, он подготавливает несколько последовательных каналов (tty) для работы с модемом
+- Потом стартует ril-daemon-mtk, он как раз и пользуется этими каналами, а сам создает сокеты для Java RIL
+- Стартует Java RIL и подключается к сокетам. В логе можно искать по тегу RILJ
 
 https://habrahabr.ru/post/183984/
 
 [4] FIX RIL:
 
 BIN
-gsm0710muxd
-gsm0710muxdmd2
-mtkrild
-mtkrildmd2
+
+	gsm0710muxd
+	gsm0710muxdmd2
+	mtkrild
+	mtkrildmd2
 
 ETC
-firmware (folder)
-mddb (folder)
-apns-conf.xml
-spn-conf.xml
-trustzone.bin
-LIB & LIB64
-libc2kril.so
-libc2kutils.so
-libreference-ril.so
-libril.so
-librilmtk.so
-librilmtkmd2.so
-librilutils.so
-libviatelecom-withuim-ril.so
-mtk-ril.so
-mtk-rilmd2.so
-volte_imsm.so
 
-# logcat --help
-...
-  -b <buffer>     Request alternate ring buffer, 'main', 'system', 'radio',
-                  'events', 'crash' or 'all'. Multiple -b parameters are
-                  allowed and results are interleaved. The default is
-                  -b main -b system -b crash.
-...
+	firmware (folder)
+	mddb (folder)
+	apns-conf.xml
+	spn-conf.xml
+	trustzone.bin
+	LIB & LIB64
+	libc2kril.so
+	libc2kutils.so
+	libreference-ril.so
+	libril.so
+	librilmtk.so
+	librilmtkmd2.so
+	librilutils.so
+	libviatelecom-withuim-ril.so
+	mtk-ril.so
+	mtk-rilmd2.so
+	volte_imsm.so
 
-logcat -b radio (!)
-logcat -b all (!)
+Да, на всякий случай help по logcat'у. Чтобы снять полные логи RIL, надо указывать buffer либо radio, либо all. Не забывайте про это. Лучше всегда делать all, т.к. если важная строчка лога будет записано в другой буфер, а вы запустите logcat без -b all вы ее просто не увидите.
+
+	# logcat --help
+	...
+	  -b <buffer>     Request alternate ring buffer, 'main', 'system', 'radio',
+	                  'events', 'crash' or 'all'. Multiple -b parameters are
+	                  allowed and results are interleaved. The default is
+	                  -b main -b system -b crash.
+	...
+
+Короче для радио, так, либо просто all: 
+
+	logcat -b radio (!)
+	logcat -b all (!)
 
 Файлы относящиеся к RIL пока берутся из вендора, но могут быть и скомпиленными из исходников, для этого
 достаточно раскомментировать:
 
-#PRODUCT_PACKAGES += \
-#    gsm0710muxd \
-#    gsm0710muxdmd2 \
-#    mtkrild \
-#    mtkrildmd2 \
-#    mtk-ril \
-#    mtk-rilmd2
+	#PRODUCT_PACKAGES += \
+	#    gsm0710muxd \
+	#    gsm0710muxdmd2 \
+	#    mtkrild \
+	#    mtkrildmd2 \
+	#    mtk-ril \
+	#    mtk-rilmd2
+
+Сейчас я выключил их сборку.
 
 [5] Удалось достичь некоторых успехов. С применным патчем 0002-xen0n-some-MTK-services-e.g.-ril-daemon-mtk-require-.patch
 (правда пока непонятно, с blob'ами со стока или собранными из исходников) ril-daemon запустился, /dev/socket/rild
@@ -178,7 +188,7 @@ service ril-daemon /system/bin/mtkrild
 - https://github.com/fire855/android_frameworks_av-mtk/commits/cm-13.0-mt6592
 - https://github.com/nofearnohappy/device_hermes_cm13/blob/master/patches/frameworks/av/codec_and_audio.patch
 - https://github.com/xen0n/android_device_meizu_arale/issues/17
-- https://forum.xda-developers.com/k3-note/orig-development/rom-custom-nougat-roms-k-3-note-t3513466
+- https://forum.xda-developers.com/k3-note/orig-development/rom-custom-nougat-roms-k-3-note-t3513466 (!!!)
 - http://4pda.ru/forum/index.php?s=&showtopic=715583&view=findpost&p=57481976
 
 Создал также отдельный репозитарий с описанием проблемы и полными логами:
@@ -209,13 +219,15 @@ https://github.com/xen0n/android_device_meizu_arale/issues/17#issuecomment-27455
 Это софтовый google.h264.encoder :
 
 SoftOMXPlugin.cpp
+
     { "OMX.google.h264.encoder", "avcenc", "video_encoder.avc" },
+
 libstagefright_soft_avcenc.so
 
 А это хардверный MTK'шный:
-
-01-24 02:33:46.132   845   955 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.AVC), role(video_decoder.avc), path(libMtkOmxVdecEx.so)
-01-24 02:33:46.132   845   955 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.AVC.secure), role(video_decoder.avc), path(libMtkOmxVdecEx.so)
+	
+	01-24 02:33:46.132   845   955 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.AVC), role(video_decoder.avc), path(libMtkOmxVdecEx.so)
+	01-24 02:33:46.132   845   955 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.AVC.secure), role(video_decoder.avc), path(libMtkOmxVdecEx.so)
 
 При записи видео, например, через screenrecord используется:
 
@@ -224,9 +236,9 @@ SoftVideoEncoderOMXComponent::ConvertRGB32ToPlanar
 
 И вот там как раз если включим:
 
-#ifdef SURFACE_IS_BGR32
-    bgr = !bgr;
-#endif
+	#ifdef SURFACE_IS_BGR32
+	    bgr = !bgr;
+	#endif
 
 То цвета в screenrecord'е на записи изменятся с RGB на BGR. Но (!) при использовании OMX.google.h264.encoder
 при записи с камеры ConvertRGB32ToPlanar не вызывается (!), только при screenrecord'е. Запись же с камеры при
@@ -238,11 +250,13 @@ frameworks/av/media/libstagefright/codecs/avcenc/SoftAVCEnc.cpp .
 ColorConverter:
 
 frameworks/av/media/libstagefright/colorconversion/ColorConverter.cpp 
-ColorConverter::ColorConverter(
-        OMX_COLOR_FORMATTYPE from, OMX_COLOR_FORMATTYPE to)
-    : mSrcFormat(from),
-      mDstFormat(to),
-      mClip(NULL) {
+
+
+	ColorConverter::ColorConverter(
+	        OMX_COLOR_FORMATTYPE from, OMX_COLOR_FORMATTYPE to)
+	    : mSrcFormat(from),
+	      mDstFormat(to),
+	      mClip(NULL) {
 
 ALOGE("[Decker] ColorConverter::ColorConverter: %#x --> %#x", from, to);
 
@@ -255,28 +269,28 @@ OMX_COLOR_FormatYUV420Planar -> OMX_COLOR_Format16bitRGB565
 
 frameworks/native/include/media/openmax/OMX_IVCommon.h 
 
-typedef enum OMX_COLOR_FORMATTYPE {
-0    OMX_COLOR_FormatUnused,
-1    OMX_COLOR_FormatMonochrome,
-2    OMX_COLOR_Format8bitRGB332,
-3    OMX_COLOR_Format12bitRGB444,
-4    OMX_COLOR_Format16bitARGB4444,
-5    OMX_COLOR_Format16bitARGB1555,
-6    OMX_COLOR_Format16bitRGB565,
-7    OMX_COLOR_Format16bitBGR565,
-8    OMX_COLOR_Format18bitRGB666,
-9    OMX_COLOR_Format18bitARGB1665,
-0xa    OMX_COLOR_Format19bitARGB1666,
-0xb    OMX_COLOR_Format24bitRGB888,
-0xc    OMX_COLOR_Format24bitBGR888,
-0xd    OMX_COLOR_Format24bitARGB1887,
-0xe    OMX_COLOR_Format25bitARGB1888,
-0xf    OMX_COLOR_Format32bitBGRA8888,
-0x10    OMX_COLOR_Format32bitARGB8888,
-0x11    OMX_COLOR_FormatYUV411Planar,
-0x12    OMX_COLOR_FormatYUV411PackedPlanar,
-0x13    OMX_COLOR_FormatYUV420Planar,
-0x14    OMX_COLOR_FormatYUV420PackedPlanar,
+	typedef enum OMX_COLOR_FORMATTYPE {
+	0    OMX_COLOR_FormatUnused,
+	1    OMX_COLOR_FormatMonochrome,
+	2    OMX_COLOR_Format8bitRGB332,
+	3    OMX_COLOR_Format12bitRGB444,
+	4    OMX_COLOR_Format16bitARGB4444,
+	5    OMX_COLOR_Format16bitARGB1555,
+	6    OMX_COLOR_Format16bitRGB565,
+	7    OMX_COLOR_Format16bitBGR565,
+	8    OMX_COLOR_Format18bitRGB666,
+	9    OMX_COLOR_Format18bitARGB1665,
+	0xa    OMX_COLOR_Format19bitARGB1666,
+	0xb    OMX_COLOR_Format24bitRGB888,
+	0xc    OMX_COLOR_Format24bitBGR888,
+	0xd    OMX_COLOR_Format24bitARGB1887,
+	0xe    OMX_COLOR_Format25bitARGB1888,
+	0xf    OMX_COLOR_Format32bitBGRA8888,
+	0x10    OMX_COLOR_Format32bitARGB8888,
+	0x11    OMX_COLOR_FormatYUV411Planar,
+	0x12    OMX_COLOR_FormatYUV411PackedPlanar,
+	0x13    OMX_COLOR_FormatYUV420Planar,
+	0x14    OMX_COLOR_FormatYUV420PackedPlanar,
 
 ColorConverter: [Decker] ColorConverter::ColorConverter: 0x13 --> 0x6
 OMX_COLOR_FormatYUV420Planar -> OMX_COLOR_Format16bitRGB565
@@ -292,3 +306,23 @@ ColorConverter converter((OMX_COLOR_FORMATTYPE)srcFormat, OMX_COLOR_Format16bitR
 
         case OMX_COLOR_FormatYUV420Planar:
             err = convertYUV420Planar(src, dst);
+
+Поэтому если мы применим вот такой патч в коде convertYUV420Planar:
+
+	    // [+] Decker, RGB <--> BGR converting for camera for OMX.google.h264.encoder (libstagefright_soft_avcenc.so)
+            signed u_b = v * 409;
+            signed u_g = -u * 100;
+            signed v_g = -v * 208;
+            signed v_r = u * 517;
+
+Кстати, кому интересно могут почитать про цветовую модель YUV - https://ru.wikipedia.org/wiki/YUV .
+
+И в этом случае на картинке предпросмотра, после съемки видео цвета будут адекватные. Однако, само кодирование видео по прежнему
+идет с заменой Red <-> Blue, поэтому если посмотреть ролик, то в нем будут искаженные цвета :(
+
+Вообщем я решил не зацикливаться на этом, т.к. как я понял с камеры идет OMX_COLOR_FormatYUV420Planar, Encoder как раз 
+понимает этот формат и честно жмет его. А то что в YUV уже перепутанные R<->B естественно его не волнует. Т.е. по хорошему 
+перед тем как сжимать видео с камеры нужна конвертация внутри YUV420Planar ... т.е. поменять местами RGB и BGR. Как это сделать
+сходу (т.е. за ночь :( я не разобрался. Поэтому я решил перейти к аппаратным MTK'шным кодекам. А на использование
+google.h264.encoder просто "забить".
+
