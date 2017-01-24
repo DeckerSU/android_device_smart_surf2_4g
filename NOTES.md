@@ -190,3 +190,105 @@ https://github.com/DeckerSU/video_recording_problem_cm13/
 записи, т.е. красные объекты выглядят синими, а синие выглядят красными. Решаем эту проблему.
 
 https://github.com/xen0n/android_device_meizu_arale/issues/17#issuecomment-274554382
+
+***
+
+Я пошел по другому пути. Т.е. есть два варианта как записывать видео:
+
+1. Использовать софтовый google.h264.encoder из CM.
+2. Использовать OMX.MTK.VIDEO.ENCODER.AVC.
+
+Разбираться нужно последовательно, почему не работает в том и в другом случае. Я начал с варианта с google.h264.encoder. Медленно, но верно (весь сегодняшний вечер занимаюсь) я все-таки поднял (ура, ура, ура) съемку видео софтовым кодеком. Все снимает, ничего не крашится, но есть другая проблема. Color conversion, на записи перепутаны местами Red и Blue цвета. Т.е. например красный объект на записи будет выглядеть как синий, а синий, как красный )) Но эту проблему я знаю как решить, вернее знаю направление.
+
+Когда решу ее, вторым шагом будет запуск OMX.MTK.VIDEO.ENCODER.AVC для кодирования видео. Я уже потихоньку начал понимать смысл вопроса. 
+
+Вообщем сейчас у меня видео уже снимается, но с перепутанными цветами. Так что первый шаг сделан.
+
+***
+
+Это софтовый google.h264.encoder :
+
+SoftOMXPlugin.cpp
+    { "OMX.google.h264.encoder", "avcenc", "video_encoder.avc" },
+libstagefright_soft_avcenc.so
+
+А это хардверный MTK'шный:
+
+01-24 02:33:46.132   845   955 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.AVC), role(video_decoder.avc), path(libMtkOmxVdecEx.so)
+01-24 02:33:46.132   845   955 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.AVC.secure), role(video_decoder.avc), path(libMtkOmxVdecEx.so)
+
+При записи видео, например, через screenrecord используется:
+
+SoftVideoEncoderOMXComponent.cpp
+SoftVideoEncoderOMXComponent::ConvertRGB32ToPlanar
+
+И вот там как раз если включим:
+
+#ifdef SURFACE_IS_BGR32
+    bgr = !bgr;
+#endif
+
+То цвета в screenrecord'е на записи изменятся с RGB на BGR. Но (!) при использовании OMX.google.h264.encoder
+при записи с камеры ConvertRGB32ToPlanar не вызывается (!), только при screenrecord'е. Запись же с камеры при
+использовании OMX.google.h264.encoder сразу использует libstagefright_soft_avcenc.so. Т.е.
+
+frameworks/av/media/libstagefright/codecs/avcenc/SoftAVCEnc.cpp .
+
+Однако, при записи видео и кодировании google.h264.encoder (libstagefright_soft_avcenc.so) инициализируется
+ColorConverter:
+
+frameworks/av/media/libstagefright/colorconversion/ColorConverter.cpp 
+ColorConverter::ColorConverter(
+        OMX_COLOR_FORMATTYPE from, OMX_COLOR_FORMATTYPE to)
+    : mSrcFormat(from),
+      mDstFormat(to),
+      mClip(NULL) {
+
+ALOGE("[Decker] ColorConverter::ColorConverter: %#x --> %#x", from, to);
+
+}
+
+со следующими параметрами:
+
+ColorConverter: [Decker] ColorConverter::ColorConverter: 0x13 --> 0x6
+OMX_COLOR_FormatYUV420Planar -> OMX_COLOR_Format16bitRGB565
+
+frameworks/native/include/media/openmax/OMX_IVCommon.h 
+
+typedef enum OMX_COLOR_FORMATTYPE {
+0    OMX_COLOR_FormatUnused,
+1    OMX_COLOR_FormatMonochrome,
+2    OMX_COLOR_Format8bitRGB332,
+3    OMX_COLOR_Format12bitRGB444,
+4    OMX_COLOR_Format16bitARGB4444,
+5    OMX_COLOR_Format16bitARGB1555,
+6    OMX_COLOR_Format16bitRGB565,
+7    OMX_COLOR_Format16bitBGR565,
+8    OMX_COLOR_Format18bitRGB666,
+9    OMX_COLOR_Format18bitARGB1665,
+0xa    OMX_COLOR_Format19bitARGB1666,
+0xb    OMX_COLOR_Format24bitRGB888,
+0xc    OMX_COLOR_Format24bitBGR888,
+0xd    OMX_COLOR_Format24bitARGB1887,
+0xe    OMX_COLOR_Format25bitARGB1888,
+0xf    OMX_COLOR_Format32bitBGRA8888,
+0x10    OMX_COLOR_Format32bitARGB8888,
+0x11    OMX_COLOR_FormatYUV411Planar,
+0x12    OMX_COLOR_FormatYUV411PackedPlanar,
+0x13    OMX_COLOR_FormatYUV420Planar,
+0x14    OMX_COLOR_FormatYUV420PackedPlanar,
+
+ColorConverter: [Decker] ColorConverter::ColorConverter: 0x13 --> 0x6
+OMX_COLOR_FormatYUV420Planar -> OMX_COLOR_Format16bitRGB565
+
+Здесь вроде как OMX_COLOR_FormatYUV420Planar берется непосредственно с камеры, а вот target format =
+OMX_COLOR_Format16bitRGB565 задается здесь:
+
+frameworks/av/media/libstagefright/StagefrightMetadataRetriever.cpp 
+
+ColorConverter converter((OMX_COLOR_FORMATTYPE)srcFormat, OMX_COLOR_Format16bitRGB565); (!)
+
+Сама конвертация происходит в frameworks/av/media/libstagefright/colorconversion/ColorConverter.cpp 
+
+        case OMX_COLOR_FormatYUV420Planar:
+            err = convertYUV420Planar(src, dst);
