@@ -1,0 +1,1745 @@
+From 428dc4ac49dc2f81b3ca6833b5c5656706c5f34e Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Tue, 24 Jan 2017 06:46:28 +0300
+Subject: [PATCH] Implement mtk color format support (fire855)
+
+https://github.com/fire855/android_frameworks_av-mtk/commit/f5fb7ac7c183a6e4f2e8f7827152741e7441792d
+
+Change-Id: I14fd51b316f3f08d08473c9cec1fe73e35f28469
+---
+ include/camera/MtkCamera.h                         | 275 +++++++++++++
+ include/camera/MtkCameraParameters.h               | 364 +++++++++++++++++
+ include/media/stagefright/ACodec.h                 |   3 +
+ include/media/stagefright/ColorConverter.h         |   4 +
+ include/media/stagefright/OMXCodec.h               |   4 +
+ .../media/stagefright/dpframework/DpBlitStream.h   | 243 +++++++++++
+ include/media/stagefright/dpframework/DpDataType.h | 450 +++++++++++++++++++++
+ media/libstagefright/ACodec.cpp                    |  46 +++
+ media/libstagefright/Android.mk                    |  11 +
+ media/libstagefright/CameraSource.cpp              |   8 +
+ media/libstagefright/colorconversion/Android.mk    |   7 +
+ .../colorconversion/ColorConverter.cpp             | 117 ++++++
+ 12 files changed, 1532 insertions(+)
+ create mode 100644 include/camera/MtkCamera.h
+ create mode 100644 include/camera/MtkCameraParameters.h
+ create mode 100644 include/media/stagefright/dpframework/DpBlitStream.h
+ create mode 100644 include/media/stagefright/dpframework/DpDataType.h
+
+diff --git a/include/camera/MtkCamera.h b/include/camera/MtkCamera.h
+new file mode 100644
+index 0000000..8982feb
+--- /dev/null
++++ b/include/camera/MtkCamera.h
+@@ -0,0 +1,275 @@
++/* Copyright Statement:
++ *
++ * This software/firmware and related documentation ("MediaTek Software") are
++ * protected under relevant copyright laws. The information contained herein is
++ * confidential and proprietary to MediaTek Inc. and/or its licensors. Without
++ * the prior written permission of MediaTek inc. and/or its licensors, any
++ * reproduction, modification, use or disclosure of MediaTek Software, and
++ * information contained herein, in whole or in part, shall be strictly
++ * prohibited.
++ *
++ * MediaTek Inc. (C) 2010. All rights reserved.
++ *
++ * BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
++ * THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
++ * RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO RECEIVER
++ * ON AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL
++ * WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED
++ * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
++ * NONINFRINGEMENT. NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH
++ * RESPECT TO THE SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY,
++ * INCORPORATED IN, OR SUPPLIED WITH THE MEDIATEK SOFTWARE, AND RECEIVER AGREES
++ * TO LOOK ONLY TO SUCH THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO.
++ * RECEIVER EXPRESSLY ACKNOWLEDGES THAT IT IS RECEIVER'S SOLE RESPONSIBILITY TO
++ * OBTAIN FROM ANY THIRD PARTY ALL PROPER LICENSES CONTAINED IN MEDIATEK
++ * SOFTWARE. MEDIATEK SHALL ALSO NOT BE RESPONSIBLE FOR ANY MEDIATEK SOFTWARE
++ * RELEASES MADE TO RECEIVER'S SPECIFICATION OR TO CONFORM TO A PARTICULAR
++ * STANDARD OR OPEN FORUM. RECEIVER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S
++ * ENTIRE AND CUMULATIVE LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE
++ * RELEASED HEREUNDER WILL BE, AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE
++ * MEDIATEK SOFTWARE AT ISSUE, OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE
++ * CHARGE PAID BY RECEIVER TO MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
++ *
++ * The following software/firmware and/or related documentation ("MediaTek
++ * Software") have been modified by MediaTek Inc. All revisions are subject to
++ * any receiver's applicable license agreements with MediaTek Inc.
++ */
++
++/*
++ * Copyright (C) 2008 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#ifndef ANDROID_HARDWARE_MTK_CAMERA_H
++#define ANDROID_HARDWARE_MTK_CAMERA_H
++
++#include <binder/IMemory.h>
++
++namespace android {
++
++// extended msgType in notifyCallback and dataCallback functions
++enum {
++    MTK_CAMERA_MSG_EXT_NOTIFY       = 0x40000000,
++    MTK_CAMERA_MSG_EXT_DATA         = 0x80000000,
++};
++
++// extended notify message related to MTK_CAMERA_MSG_EXT_NOTIFY used in notifyCallback functions
++enum {
++    //
++    //  Smile Detection
++    MTK_CAMERA_MSG_EXT_NOTIFY_SMILE_DETECT      = 0x00000001,
++    //
++    //  Auto Scene Detection
++    MTK_CAMERA_MSG_EXT_NOTIFY_ASD               = 0x00000002,
++    //
++    //  Multi Angle View
++    MTK_CAMERA_MSG_EXT_NOTIFY_MAV               = 0x00000003,
++    //
++    // Burst Shutter Callback
++    //  ext2: count-down shutter number; 0: the last one shutter.
++    MTK_CAMERA_MSG_EXT_NOTIFY_BURST_SHUTTER     = 0x00000004,
++    //
++    // Continuous Shutter Callback
++    //  ext2: current continuous shutter number.
++    MTK_CAMERA_MSG_EXT_NOTIFY_CONTINUOUS_SHUTTER= 0x00000005,
++    //
++    // Continuous EndCallback
++    MTK_CAMERA_MSG_EXT_NOTIFY_CONTINUOUS_END	= 0x00000006,
++
++    // ZSD preview done
++    MTK_CAMERA_MSG_EXT_NOTIFY_ZSD_PREVIEW_DONE = 0x00000007,
++    //
++    // Capture done (disable CAMERA_MSG_SHUTTER / CAMERA_MSG_COMPRESSED_IMAGE)
++    MTK_CAMERA_MSG_EXT_NOTIFY_CAPTURE_DONE      = 0x00000010,
++    //
++    // Shutter Callback (not disable CAMERA_MSG_SHUTTER)
++    //  ext2: 1: CameraService will play shutter sound.
++    MTK_CAMERA_MSG_EXT_NOTIFY_SHUTTER           = 0x00000011,
++    //
++    // for EM preview raw dump error notify
++    MTK_CAMERA_MSG_EXT_NOTIFY_RAW_DUMP_STOPPED  = 0x00000012,
++    //
++    // Gesture Detection
++    MTK_CAMERA_MSG_EXT_NOTIFY_GESTURE_DETECT  = 0x00000013
++};
++
++// extended data message related to MTK_CAMERA_MSG_EXT_DATA used in dataCallback functions
++// extended data header is located at the top of dataPrt in dataCallback functions
++//  DATA: Header + Params
++enum {
++    //
++    // Auto Panorama
++    //  Params:
++    //      int[0]: 0:mAUTORAMAMVCallback, 1:mAUTORAMACallback
++    //      int[1~]:depends on
++    //
++    MTK_CAMERA_MSG_EXT_DATA_AUTORAMA            = 0x00000001,
++    //
++    // AF Window Results
++    MTK_CAMERA_MSG_EXT_DATA_AF					= 0x00000002,
++    //
++    // Burst Shot (EV Shot)
++    //      int[0]: the total shut count.
++    //      int[1]: count-down shut number; 0: the last one shut.
++    MTK_CAMERA_MSG_EXT_DATA_BURST_SHOT          = 0x00000003,
++    //
++	//	Continuous Shot
++	//		int[0]: current continuous shut number.
++    MTK_CAMERA_MSG_EXT_DATA_CONTINUOUS_SHOT     = 0x00000004,
++
++
++    MTK_CAMERA_MSG_EXT_DATA_OT                  = 0x00000005,
++
++    //  Facebeauty Shot
++    //      int[0]: data type. 0:original image.
++    MTK_CAMERA_MSG_EXT_DATA_FACEBEAUTY          = 0x00000006,
++    //
++    //  MAV Shot
++    //      int[0]: data type. 0:original image.
++    MTK_CAMERA_MSG_EXT_DATA_MAV                 = 0x00000007,
++    //
++    //  HDR Shot
++    //      int[0]: data type. 0:0EV image.
++    MTK_CAMERA_MSG_EXT_DATA_HDR                 = 0x00000008,
++
++    //
++    // Motion Track
++    //  Params:
++    //      int[0]: 0: frame EIS, 1: captured image, 2: blended image, 3: intermediate data
++    //      int[1~]:depends on
++    //
++    MTK_CAMERA_MSG_EXT_DATA_MOTIONTRACK         = 0x00000009,
++
++    //
++    //  Compressed Image (not disable CAMERA_MSG_COMPRESSED_IMAGE)
++    //      int[0]: current shut index; 0: the first one shut.
++    MTK_CAMERA_MSG_EXT_DATA_COMPRESSED_IMAGE    = 0x00000010,
++};
++
++//  MTK-extended camera message data helper.
++//  DATA: Header + Params
++class MtkCamMsgExtDataHelper
++{
++public:
++    //  The header type of MTK-extended camera message data.
++    struct DataHeader {
++        uint32_t        extMsgType;
++    };
++
++public:
++    MtkCamMsgExtDataHelper();
++    ~MtkCamMsgExtDataHelper();
++    bool            init(const sp<IMemory>& dataPtr);
++    bool            uninit();
++    bool            create(size_t const extParamSize, uint32_t const u4ExtMsgType);
++    bool            destroy();
++
++    uint8_t*                        getExtParamBase() const;
++    size_t                          getExtParamSize() const;
++    ssize_t                         getExtParamOffset() const;
++    inline uint32_t                 getExtMsgType() const { return mExtDataHdr.extMsgType; }
++    inline DataHeader const&        getExtDataHeader() const { return mExtDataHdr; }
++    inline sp<IMemory>const&        getData() const { return mspData; }
++    inline sp<IMemoryHeap>const&    getHeap() const { return mspHeap; }
++
++protected:
++    bool            mIsValid;
++    sp<IMemory>     mspData;
++    sp<IMemoryHeap> mspHeap;
++    ssize_t         mDataOffset;
++    size_t          mDataSize;
++    DataHeader      mExtDataHdr;
++};
++
++
++// cmdType in sendCommand functions
++enum {
++    CAMERA_CMD_MTK_DEFINE_START     = 0x10000000,
++    CAMERA_CMD_DO_PANORAMA,
++    CAMERA_CMD_CANCEL_PANORAMA,
++    CAMERA_CMD_START_SD_PREVIEW,            //(Smile Detection)
++    CAMERA_CMD_CANCEL_SD_PREVIEW,           //(Smile Detection)
++    CAMERA_CMD_START_OT, 
++    CAMERA_CMD_STOP_OT,  
++    CAMERA_CMD_START_MAV,
++    CAMERA_CMD_STOP_MAV,
++    CAMERA_CMD_START_AUTORAMA,
++    CAMERA_CMD_STOP_AUTORAMA,
++    CAMERA_CMD_GET_MEM_INFO,                //For Video to get PMEM buffer info
++    CAMERA_CMD_GET_REC_BUF_INFO,
++    CAMERA_CMD_CANCEL_CSHOT,
++    CAMERA_CMD_SET_CSHOT_SPEED,
++#ifdef MTK_S3D_SUPPORT
++    CAMERA_CMD_START_3DSHOT,
++    CAMERA_CMD_STOP_3DSHOT,
++#endif
++    CAMERA_CMD_START_MOTIONTRACK,
++    CAMERA_CMD_STOP_MOTIONTRACK,
++    CAMERA_CMD_START_CLONECAMERA,
++    CAMERA_CMD_SHOT_CLONECAMERA,
++    CAMERA_CMD_STOP_CLONECAMERA,
++    CAMERA_CMD_START_GD_PREVIEW,            //(Gesture Detection)
++    CAMERA_CMD_CANCEL_GD_PREVIEW,           //(Gesture Detection)
++};
++
++/*
++ * For Video to get PMEM buffer info
++ *
++ * Command: CAMERA_CMD_GET_MEM_INFO
++ */
++struct CameraMemInfo {
++    enum { eTYPE_PMEM = 0 };
++    uint32_t    u4Type;
++    uint32_t    u4VABase;
++    uint32_t    u4PABase;
++    uint32_t    u4MemSize;
++    uint32_t    u4MemCount;
++};
++
++
++/*
++ *  set camera fatal errors enum
++ *
++ */
++enum {
++    CAMERA_ERROR_NO_MEMORY = 1000,
++    CAMERA_ERROR_RESET,
++};
++
++/*
++ * For Video to get buffer info
++ *
++ * Command: CAMERA_CMD_GET_REC_BUF_INFO
++ */
++struct CameraRecBufInfo {
++    int32_t     i4MemId;
++    uint32_t    u4VirAddr;
++    uint32_t    u4Size;
++};
++
++
++/*
++ * For Video to set setting
++ *
++ * Command: CAMERA_CMD_GET_REC_BUF_INFO
++ */
++struct CameraRecSetting {
++    int32_t     mi4BufSecu; //security
++    int32_t     mi4BufCohe; //coherent
++};
++
++
++}; // namespace android
++
++#endif  //ANDROID_HARDWARE_MTK_CAMERA_H
+diff --git a/include/camera/MtkCameraParameters.h b/include/camera/MtkCameraParameters.h
+new file mode 100644
+index 0000000..4a34957
+--- /dev/null
++++ b/include/camera/MtkCameraParameters.h
+@@ -0,0 +1,364 @@
++/* Copyright Statement:
++ *
++ * This software/firmware and related documentation ("MediaTek Software") are
++ * protected under relevant copyright laws. The information contained herein is
++ * confidential and proprietary to MediaTek Inc. and/or its licensors. Without
++ * the prior written permission of MediaTek inc. and/or its licensors, any
++ * reproduction, modification, use or disclosure of MediaTek Software, and
++ * information contained herein, in whole or in part, shall be strictly
++ * prohibited.
++ *
++ * MediaTek Inc. (C) 2010. All rights reserved.
++ *
++ * BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
++ * THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
++ * RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO RECEIVER
++ * ON AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL
++ * WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED
++ * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
++ * NONINFRINGEMENT. NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH
++ * RESPECT TO THE SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY,
++ * INCORPORATED IN, OR SUPPLIED WITH THE MEDIATEK SOFTWARE, AND RECEIVER AGREES
++ * TO LOOK ONLY TO SUCH THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO.
++ * RECEIVER EXPRESSLY ACKNOWLEDGES THAT IT IS RECEIVER'S SOLE RESPONSIBILITY TO
++ * OBTAIN FROM ANY THIRD PARTY ALL PROPER LICENSES CONTAINED IN MEDIATEK
++ * SOFTWARE. MEDIATEK SHALL ALSO NOT BE RESPONSIBLE FOR ANY MEDIATEK SOFTWARE
++ * RELEASES MADE TO RECEIVER'S SPECIFICATION OR TO CONFORM TO A PARTICULAR
++ * STANDARD OR OPEN FORUM. RECEIVER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S
++ * ENTIRE AND CUMULATIVE LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE
++ * RELEASED HEREUNDER WILL BE, AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE
++ * MEDIATEK SOFTWARE AT ISSUE, OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE
++ * CHARGE PAID BY RECEIVER TO MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
++ *
++ * The following software/firmware and/or related documentation ("MediaTek
++ * Software") have been modified by MediaTek Inc. All revisions are subject to
++ * any receiver's applicable license agreements with MediaTek Inc.
++ */
++
++/*
++ * Copyright (C) 2008 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#ifndef ANDROID_HARDWARE_MTK_CAMERA_PARAMETERS_H
++#define ANDROID_HARDWARE_MTK_CAMERA_PARAMETERS_H
++
++#include <camera/CameraParameters.h>
++
++namespace android {
++
++
++/**
++ * @class      MtkCameraParameters
++ * @brief      MTK-proprietary camera parameters.
++ * @details    This class is derived from CameraParameters and defines MTK-proprietary camera parameters.
++ */
++class MtkCameraParameters : public CameraParameters
++{
++public:
++    MtkCameraParameters() : CameraParameters() {}
++    MtkCameraParameters(const String8 &params) { unflatten(params); }
++    ~MtkCameraParameters()  {}
++
++    MtkCameraParameters& operator=(CameraParameters const& params)
++    {
++        unflatten(params.flatten());
++        return  (*this);
++    }
++    //
++//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++//  App Mode.
++//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++    static const char PROPERTY_KEY_CLIENT_APPMODE[];
++    //
++    static const char APP_MODE_NAME_DEFAULT[];
++    static const char APP_MODE_NAME_MTK_ENG[];
++    static const char APP_MODE_NAME_MTK_ATV[];
++    static const char APP_MODE_NAME_MTK_S3D[];
++    static const char APP_MODE_NAME_MTK_VT[];
++    static const char APP_MODE_NAME_MTK_PHOTO[];
++    static const char APP_MODE_NAME_MTK_VIDEO[];
++    static const char APP_MODE_NAME_MTK_ZSD[];
++    //
++//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++//  Scene Mode
++//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++    static const char SCENE_MODE_NORMAL[];
++    //
++//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++//  Face Beauty
++//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++    static const char KEY_FB_SMOOTH_LEVEL[];
++    static const char KEY_FB_SMOOTH_LEVEL_MIN[];
++    static const char KEY_FB_SMOOTH_LEVEL_MAX[];
++    //
++    static const char KEY_FB_SKIN_COLOR[];
++    static const char KEY_FB_SKIN_COLOR_MIN[];
++    static const char KEY_FB_SKIN_COLOR_MAX[];
++    //
++    static const char KEY_FB_SHARP[];
++    static const char KEY_FB_SHARP_MIN[];
++    static const char KEY_FB_SHARP_MAX[];
++    //
++//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++//
++//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++    static const char KEY_EXPOSURE[];
++    static const char KEY_EXPOSURE_METER[];
++    static const char KEY_ISO_SPEED[];
++    static const char KEY_AE_MODE[];
++    static const char KEY_FOCUS_METER[];
++    static const char KEY_EDGE[];
++    static const char KEY_HUE[];
++    static const char KEY_SATURATION[];
++    static const char KEY_BRIGHTNESS[];
++    static const char KEY_CONTRAST[];
++    static const char KEY_ZSD_MODE[];
++    static const char KEY_SUPPORTED_ZSD_MODE[];
++    static const char KEY_AWB2PASS[];
++    static const char KEY_AF_LAMP_MODE [];
++
++    static const char KEY_STEREO_3D_PREVIEW_SIZE[];
++    static const char KEY_STEREO_3D_PICTURE_SIZE[];
++    static const char KEY_STEREO_3D_TYPE [];
++    static const char KEY_STEREO_3D_MODE [];
++    static const char KEY_STEREO_3D_IMAGE_FORMAT [];
++    //
++    static const char KEY_FPS_MODE[];       // normal,fix
++    //
++    static const char KEY_FOCUS_DRAW[];     // 0,1
++    //
++    static const char KEY_CAPTURE_MODE[];   // normal,bestshot,evbracketshot,burstshot,smileshot,panoramashot
++    static const char KEY_SUPPORTED_CAPTURE_MODES[];
++    static const char KEY_CAPTURE_PATH[];
++    static const char KEY_BURST_SHOT_NUM[];
++    //
++    static const char KEY_MATV_PREVIEW_DELAY[];
++    //
++    static const char KEY_PANORAMA_IDX[];
++    static const char KEY_PANORAMA_DIR[];   // right,left,top,bottom
++    //
++    static const char KEY_SENSOR_DEV[];    // main,sub,atv
++    static const char KEY_SUPPORTED_SENSOR_DEVS[];
++
++    // Values for KEY_EXPOSURE
++    static const char EXPOSURE_METER_SPOT[];
++    static const char EXPOSURE_METER_CENTER[];
++    static const char EXPOSURE_METER_AVERAGE[];
++
++    // Valeus for KEY_ISO_SPEED
++    static const char ISO_SPEED_AUTO[];
++    static const char ISO_SPEED_100[];
++    static const char ISO_SPEED_200[];
++    static const char ISO_SPEED_400[];
++    static const char ISO_SPEED_800[];
++    static const char ISO_SPEED_1600[];
++
++    // Values for KEY_FOCUS_METER
++    static const char FOCUS_METER_SPOT[];
++    static const char FOCUS_METER_MULTI[];
++
++    static const char KEY_CAMERA_MODE[];
++    // Values for KEY_CAMERA_MODE
++    static const int CAMERA_MODE_NORMAL;
++    static const int CAMERA_MODE_MTK_PRV;
++    static const int CAMERA_MODE_MTK_VDO;
++    static const int CAMERA_MODE_MTK_VT;
++
++    // Values for KEY_FPS_MODE
++    static const int FPS_MODE_NORMAL;
++    static const int FPS_MODE_FIX;
++
++    // Values for KEY_CAPTURE_MODE
++    static const char CAPTURE_MODE_PANORAMA_SHOT[];
++    static const char CAPTURE_MODE_BURST_SHOT[];
++    static const char CAPTURE_MODE_NORMAL[];
++    static const char CAPTURE_MODE_BEST_SHOT[];
++    static const char CAPTURE_MODE_EV_BRACKET_SHOT[];
++    static const char CAPTURE_MODE_SMILE_SHOT[];
++    static const char CAPTURE_MODE_AUTO_PANORAMA_SHOT[];
++    static const char CAPTURE_MODE_MOTION_TRACK_SHOT[];
++    static const char CAPTURE_MODE_MAV_SHOT[];
++    static const char CAPTURE_MODE_HDR_SHOT[];
++    static const char CAPTURE_MODE_ASD_SHOT[];
++    static const char CAPTURE_MODE_ZSD_SHOT[];
++    static const char CAPTURE_MODE_PANO_3D[];
++    static const char CAPTURE_MODE_SINGLE_3D[];
++    static const char CAPTURE_MODE_FACE_BEAUTY[];
++    static const char CAPTURE_MODE_CONTINUOUS_SHOT[];
++    static const char CAPTURE_MODE_MULTI_MOTION[];
++    static const char CAPTURE_MODE_GESTURE_SHOT[];
++
++    // Values for KEY_PANORAMA_DIR
++    static const char PANORAMA_DIR_RIGHT[];
++    static const char PANORAMA_DIR_LEFT[];
++    static const char PANORAMA_DIR_TOP[];
++    static const char PANORAMA_DIR_DOWN[];
++    //
++    static const int ENABLE;
++    static const int DISABLE;
++
++    // Values for KEY_EDGE, KEY_HUE, KEY_SATURATION, KEY_BRIGHTNESS, KEY_CONTRAST
++    static const char HIGH[];
++    static const char MIDDLE[];
++    static const char LOW[];
++
++    // Preview Internal Format.
++    static const char KEY_PREVIEW_INT_FORMAT[];
++
++    // Pixel color formats for KEY_PREVIEW_FORMAT, KEY_PICTURE_FORMAT,
++    // and KEY_VIDEO_FRAME_FORMAT
++    static const char PIXEL_FORMAT_YUV420I[]; // I420
++
++    /**
++     * @var PIXEL_FORMAT_YV12_GPU
++     *
++     * GPU YUV format:
++     *
++     * YV12 is a 4:2:0 YCrCb planar format comprised of a WxH Y plane followed
++     * by (W/2) x (H/2) Cr and Cb planes.
++     *
++     * This format assumes
++     * - an even width
++     * - an even height
++     * - a vertical stride equal to the height
++     * - a horizontal stride multiple of 32/16/16 pixels for y/cr/cb respectively
++     *   i.e.
++     *   y_stride = ALIGN(width, 32)
++     *   c_stride = y_stride / 2
++     *
++     *   y_size = y_stride * height
++     *   c_size = c_stride * height / 2
++     *   size = y_size + c_size * 2
++     *   cr_offset = y_size
++     *   cb_offset = y_size + c_size
++     *
++     *   for example:
++     *      width/height = 176x144
++     *      y stride     = 192x144
++     *      cr stride    = 96x72
++     *      cb stride    = 96x72
++     *
++     */
++    static const char PIXEL_FORMAT_YV12_GPU[];
++
++    /*
++     *  YUV422 format, 1 plane (UYVY)
++     *
++     *  Effective bits per pixel : 16
++     *
++     *  Y sample at every pixel, U and V sampled at every second pixel horizontally on each line.
++     *  A macropixel contains 2 pixels in 1 uint32_t.
++     *
++     */
++    static const char PIXEL_FORMAT_YUV422I_UYVY[];
++    //
++    static const char PIXEL_FORMAT_YUV422I_VYUY[];
++    static const char PIXEL_FORMAT_YUV422I_YVYU[];
++    static const char PIXEL_FORMAT_BAYER8[];
++    static const char PIXEL_FORMAT_BAYER10[];
++
++    /**
++     * @var KEY_BRIGHTNESS_VALUE
++     *
++     * This is a key string of brightness value, scaled by 10.
++     *
++     */
++    static const char KEY_BRIGHTNESS_VALUE[];
++
++    // ISP Operation mode for meta mode use
++    static const char KEY_ISP_MODE[];
++    // AF
++    static const char KEY_AF_X[];
++    static const char KEY_AF_Y[];
++    static const char KEY_FOCUS_ENG_MAX_STEP[];
++    static const char KEY_FOCUS_ENG_MIN_STEP[];
++    static const char KEY_FOCUS_ENG_BEST_STEP[];
++    static const char KEY_RAW_DUMP_FLAG[];
++    static const char KEY_PREVIEW_DUMP_RESOLUTION[];
++    static const int  PREVIEW_DUMP_RESOLUTION_NORMAL;
++    static const int  PREVIEW_DUMP_RESOLUTION_CROP;
++
++    // Values for effect
++    static const char EFFECT_SEPIA_BLUE[];
++    static const char EFFECT_SEPIA_GREEN[];
++    // Values for AWB
++    static const char WHITE_BALANCE_TUNGSTEN[];
++    // Eng
++    static const char ISO_SPEED_ENG[];
++    static const char KEY_FOCUS_ENG_MODE[]; // 0,1,2,3 (0: normal)
++    static const char KEY_FOCUS_ENG_STEP[];
++    static const char KEY_RAW_SAVE_MODE[];  // on, off
++    static const char KEY_RAW_PATH[];
++
++	// KEY for Continuous shot speed
++    static const char KEY_FAST_CONTINUOUS_SHOT[];
++
++    static const char KEY_VIDEO_HDR[];
++
++    static const char KEY_MAX_NUM_DETECTED_OBJECT[];
++
++    // KEY for c_shot indicator
++    static const char KEY_CSHOT_INDICATOR[];
++
++    // KEY for [Engineer Mode] Add new camera paramters for new requirements
++    static const char KEY_ENG_AE_ENABLE[];
++    static const char KEY_ENG_PREVIEW_SHUTTER_SPEED[];
++    static const char KEY_ENG_PREVIEW_SENSOR_GAIN[];
++    static const char KEY_ENG_PREVIEW_ISP_GAIN[];
++    static const char KEY_ENG_PREVIEW_AE_INDEX[];
++    static const char KEY_ENG_CAPTURE_SENSOR_GAIN[];
++    static const char KEY_ENG_CAPTURE_ISP_GAIN[];
++    static const char KEY_ENG_CAPTURE_SHUTTER_SPEED[];
++    static const char KEY_ENG_CAPTURE_ISO[];
++    static const char KEY_ENG_FLASH_DUTY_VALUE[];
++    static const char KEY_ENG_FLASH_DUTY_MIN[];
++    static const char KEY_ENG_FLASH_DUTY_MAX[];
++    static const char KEY_ENG_ZSD_ENABLE[];
++    static const char KEY_SENSOR_TYPE[];
++    static const char KEY_ENG_PREVIEW_FPS[];
++    static const char KEY_ENG_MSG[];
++    static const int  KEY_ENG_FLASH_DUTY_DEFAULT_VALUE;
++    static const int  KEY_ENG_FLASH_STEP_DEFAULT_VALUE;
++    static const char KEY_ENG_FLASH_STEP_MIN[];
++    static const char KEY_ENG_FLASH_STEP_MAX[];
++    static const char KEY_ENG_FOCUS_FULLSCAN_FRAME_INTERVAL[];
++    static const char KEY_ENG_FOCUS_FULLSCAN_FRAME_INTERVAL_MAX[];
++    static const char KEY_ENG_FOCUS_FULLSCAN_FRAME_INTERVAL_MIN[];
++    static const int  KEY_ENG_FOCUS_FULLSCAN_FRAME_INTERVAL_MAX_DEFAULT;
++    static const int  KEY_ENG_FOCUS_FULLSCAN_FRAME_INTERVAL_MIN_DEFAULT;
++    static const char KEY_ENG_PREVIEW_FRAME_INTERVAL_IN_US[];
++    static const char KEY_ENG_PARAMETER1[];
++    static const char KEY_ENG_PARAMETER2[];
++    static const char KEY_ENG_PARAMETER3[];
++
++    static const char KEY_ENG_SAVE_SHADING_TABLE[];
++    static const char KEY_ENG_SHADING_TABLE[];
++    static const int KEY_ENG_SHADING_TABLE_AUTO;
++    static const int KEY_ENG_SHADING_TABLE_LOW;
++    static const int KEY_ENG_SHADING_TABLE_MIDDLE;
++    static const int KEY_ENG_SHADING_TABLE_HIGH;
++    static const int KEY_ENG_SHADING_TABLE_TSF;
++
++    // KEY for [Engineer Mode] Add new camera paramters for ev calibration
++    static const char KEY_ENG_EV_CALBRATION_OFFSET_VALUE[];
++
++public:     //// on/off => FIXME: should be replaced with TRUE[]
++    static const char ON[];
++    static const char OFF[];
++};
++
++}; // namespace android
++
++#endif
+diff --git a/include/media/stagefright/ACodec.h b/include/media/stagefright/ACodec.h
+index 0ac13b9..2134cf5 100644
+--- a/include/media/stagefright/ACodec.h
++++ b/include/media/stagefright/ACodec.h
+@@ -297,6 +297,9 @@ protected:
+ #ifdef USE_SAMSUNG_COLORFORMAT
+     void setNativeWindowColorFormat(OMX_COLOR_FORMATTYPE &eNativeColorFormat);
+ #endif
++#ifdef MTK_HARDWARE
++    void setHalWindowColorFormat(OMX_COLOR_FORMATTYPE &eHalColorFormat);
++#endif
+     status_t cancelBufferToNativeWindow(BufferInfo *info);
+     status_t freeOutputBuffersNotOwnedByComponent();
+     BufferInfo *dequeueBufferFromNativeWindow();
+diff --git a/include/media/stagefright/ColorConverter.h b/include/media/stagefright/ColorConverter.h
+index 85ba920..a914dcd 100644
+--- a/include/media/stagefright/ColorConverter.h
++++ b/include/media/stagefright/ColorConverter.h
+@@ -79,6 +79,10 @@ private:
+     status_t convertTIYUV420PackedSemiPlanar(
+             const BitmapParams &src, const BitmapParams &dst);
+ 
++#ifdef MTK_HARDWARE
++    status_t convertYUVToRGBHW(const BitmapParams &src, const BitmapParams &dst);
++#endif
++
+     ColorConverter(const ColorConverter &);
+     ColorConverter &operator=(const ColorConverter &);
+ };
+diff --git a/include/media/stagefright/OMXCodec.h b/include/media/stagefright/OMXCodec.h
+index 2f73de8..32c4d6a 100644
+--- a/include/media/stagefright/OMXCodec.h
++++ b/include/media/stagefright/OMXCodec.h
+@@ -294,6 +294,10 @@ private:
+     status_t allocateBuffersOnPort(OMX_U32 portIndex);
+     status_t allocateOutputBuffersFromNativeWindow();
+ 
++#ifdef MTK_HARDWARE
++    void setHalWindowColorFormat(OMX_COLOR_FORMATTYPE &eHalColorFormat);
++#endif
++
+     status_t queueBufferToNativeWindow(BufferInfo *info);
+     status_t cancelBufferToNativeWindow(BufferInfo *info);
+     BufferInfo* dequeueBufferFromNativeWindow();
+diff --git a/include/media/stagefright/dpframework/DpBlitStream.h b/include/media/stagefright/dpframework/DpBlitStream.h
+new file mode 100644
+index 0000000..57fd482
+--- /dev/null
++++ b/include/media/stagefright/dpframework/DpBlitStream.h
+@@ -0,0 +1,243 @@
++#ifndef __DP_BLIT_STREAM_H__
++#define __DP_BLIT_STREAM_H__
++
++#include "DpDataType.h"
++
++enum
++{
++    DP_BLIT_GENERAL_USER = 0,
++    DP_BLIT_HWC0 = 0,
++    DP_BLIT_GPU = 1,
++    DP_BLIT_HWC1 = 1,
++    DP_BLIT_HWC2 = 2,
++    DP_BLIT_HWC3 = 3
++};
++
++
++class DpBlitStream
++{
++public:
++    static bool queryHWSupport(uint32_t srcWidth,
++                               uint32_t srcHeight,
++                               uint32_t dstWidth,
++                               uint32_t dstHeight,
++                               int32_t  Orientation = 0);
++
++    DpBlitStream();
++
++    ~DpBlitStream();
++
++    enum DpOrientation
++    {
++        ROT_0   = 0x00000000,
++        FLIP_H  = 0x00000001,
++        FLIP_V  = 0x00000002,
++        ROT_90  = 0x00000004,
++        ROT_180 = FLIP_H|FLIP_V,
++        ROT_270 = ROT_180|ROT_90,
++        ROT_INVALID = 0x80
++    };
++
++    DP_STATUS_ENUM setSrcBuffer(void     *pVABase,
++                                uint32_t size);
++
++    DP_STATUS_ENUM setSrcBuffer(void     **pVAList,
++                                uint32_t *pSizeList,
++                                uint32_t planeNumber);
++
++    // VA + MVA address interface
++    DP_STATUS_ENUM setSrcBuffer(void**   pVAddrList,
++                                void**   pMVAddrList,
++                                uint32_t *pSizeList,
++                                uint32_t planeNumber);
++
++    // for ION file descriptor
++    DP_STATUS_ENUM setSrcBuffer(int32_t  fileDesc,
++                                uint32_t *sizeList,
++                                uint32_t planeNumber);
++
++    DP_STATUS_ENUM setSrcConfig(int32_t           width,
++                                int32_t           height,
++                                DpColorFormat     format,
++                                DpInterlaceFormat field = eInterlace_None,
++                                DpRect            *pROI = 0);
++
++    DP_STATUS_ENUM setSrcConfig(int32_t           width,
++                                int32_t           height,
++                                int32_t           yPitch,
++                                int32_t           uvPitch,
++                                DpColorFormat     format,
++                                DP_PROFILE_ENUM   profile = DP_PROFILE_BT601,
++                                DpInterlaceFormat field   = eInterlace_None,
++                                DpRect            *pROI   = 0,
++                                DpSecure          secure  = DP_SECURE_NONE,
++                                bool              doFlush = true);
++
++    DP_STATUS_ENUM setDstBuffer(void     *pVABase,
++                                uint32_t size);
++
++    DP_STATUS_ENUM setDstBuffer(void     **pVABaseList,
++                                uint32_t *pSizeList,
++                                uint32_t planeNumber);
++
++    // VA + MVA address interface
++    DP_STATUS_ENUM setDstBuffer(void**   pVABaseList,
++                                void**   pMVABaseList,
++                                uint32_t *pSizeList,
++                                uint32_t planeNumber);
++
++    // for ION file descriptor
++    DP_STATUS_ENUM setDstBuffer(int32_t  fileDesc,
++                                uint32_t *pSizeList,
++                                uint32_t planeNumber);
++
++    DP_STATUS_ENUM setDstConfig(int32_t           width,
++                                int32_t           height,
++                                DpColorFormat     format,
++                                DpInterlaceFormat field = eInterlace_None,
++                                DpRect            *pROI = 0);
++
++    DP_STATUS_ENUM setDstConfig(int32_t           width,
++                                int32_t           height,
++                                int32_t           yPitch,
++                                int32_t           uvPitch,
++                                DpColorFormat     format,
++                                DP_PROFILE_ENUM   profile = DP_PROFILE_BT601,
++                                DpInterlaceFormat field   = eInterlace_None,
++                                DpRect            *pROI   = 0,
++                                DpSecure          secure  = DP_SECURE_NONE,
++                                bool              doFlush = true);
++
++    DP_STATUS_ENUM setRotate(int32_t rotation)
++    {
++        if ((m_rotation != rotation) ||
++            (mRotate    != rotation))
++        {
++            m_rotation = rotation;
++            mRotate = rotation;
++            m_frameChange = true;
++        }
++
++        return DP_STATUS_RETURN_SUCCESS;
++    }
++
++    //Compatible to 89
++    DP_STATUS_ENUM setFlip(int flip)
++    {
++        if (mFlip != flip)
++        {
++            mFlip = flip;
++            m_flipStatus = ((flip!= 0)? true: false);
++            m_frameChange = true;
++        }
++
++        return DP_STATUS_RETURN_SUCCESS;
++    }
++
++    DP_STATUS_ENUM setOrientation(uint32_t transform);
++
++    DP_STATUS_ENUM setTdshp(int gain)
++    {
++        if (mTdshp != gain)
++        {
++            mTdshp        = gain;
++            m_frameChange = true;
++        }
++
++        return DP_STATUS_RETURN_SUCCESS;
++    }
++
++    uint32_t getPqID();
++
++    DP_STATUS_ENUM setPQParameter(const DpPqParam &pParam);
++
++    DP_STATUS_ENUM setDither(bool enDither)
++    {
++        if (m_ditherStatus != enDither)
++        {
++            m_ditherStatus = enDither;
++            m_frameChange  = true;
++        }
++
++        return DP_STATUS_RETURN_SUCCESS;
++    }
++
++    DP_STATUS_ENUM setAdaptiveLuma(bool enADL)
++    {
++        m_adaptiveLuma = enADL;
++
++        return DP_STATUS_RETURN_SUCCESS;
++    }
++
++    DP_STATUS_ENUM setUser(uint32_t eID = 0);
++
++
++    DP_STATUS_ENUM invalidate();
++
++    DP_STATUS_ENUM pq_process();
++
++    // for dump register
++    void enableDumpReg(unsigned int flags){mDumpRegFlags = flags;}
++
++private:
++    DpStream          *m_pStream;
++    DpChannel         *m_pChannel;
++    int32_t           m_channelID;
++    DpBasicBufferPool *m_pSrcPool;
++    DpBasicBufferPool *m_pDstPool;
++    int32_t           m_srcBuffer;
++    int32_t           m_srcWidth;
++    int32_t           m_srcHeight;
++    int32_t           m_srcYPitch;
++    int32_t           m_srcUVPitch;
++    DpColorFormat     m_srcFormat;
++    DP_PROFILE_ENUM   m_srcProfile;
++    DpSecure          m_srcSecure;
++    bool              m_srcFlush;
++    int32_t           m_dstBuffer;
++    int32_t           m_dstWidth;
++    int32_t           m_dstHeight;
++    int32_t           m_dstYPitch;
++    int32_t           m_dstUVPitch;
++    DpColorFormat     m_dstFormat;
++    DP_PROFILE_ENUM   m_dstProfile;
++    DpSecure          m_dstSecure;
++    bool              m_dstFlush;
++    DpStream          *m_pPqStream;
++    DpChannel         *m_pPqChannel;
++    DpAutoBufferPool  *m_pPqPool;    
++    int32_t           m_pqBuffer;
++    int32_t           m_cropXStart;
++    int32_t           m_cropYStart;
++    int32_t           m_cropWidth;
++    int32_t           m_cropHeight;
++    int32_t           m_cropSubPixelX;
++    int32_t           m_cropSubPixelY;
++    int32_t           m_targetXStart;
++    int32_t           m_targetYStart;
++    int32_t           m_rotation;
++    bool              m_frameChange;
++    bool              m_flipStatus;
++    bool              m_ditherStatus;
++    bool              m_adaptiveLuma;
++    uint32_t          m_userID;
++    DpPqConfig        m_PqConfig;
++    uint32_t          m_PqID;    
++    uint32_t          m_engFlag;
++    //Compatible to 89
++    int               mRotate;
++    int               mFlip;
++    int               mTdshp;
++
++    DpStream          *mStream;
++    DpChannel         *mChannel;
++    DpBufferPool      *mSrcPool;
++    DpBufferPool      *mDstPool;
++    DpPortOption      *mSrcPort;
++    DpPortOption      *mDstPort;
++    int               mSrcBufferId;
++    int               mDstBufferId;
++    unsigned int      mDumpRegFlags;
++};
++
++#endif  // __DP_BLIT_STREAM_H__
+diff --git a/include/media/stagefright/dpframework/DpDataType.h b/include/media/stagefright/dpframework/DpDataType.h
+new file mode 100644
+index 0000000..d858e97
+--- /dev/null
++++ b/include/media/stagefright/dpframework/DpDataType.h
+@@ -0,0 +1,450 @@
++#ifndef __DP_DATA_TYPE_H__
++#define __DP_DATA_TYPE_H__
++
++#ifndef __KERNEL__
++#include <stdio.h>
++#include <stdlib.h>
++#include <assert.h>
++#include <string.h>
++#include <math.h>
++#endif
++
++#ifndef MAX
++    #define MAX(x, y)   ((x) >= (y))? (x): (y)
++#endif // MAX
++
++#ifndef MIN
++    #define MIN(x, y)   ((x) <= (y))? (x): (y)
++#endif  // MIN
++
++#ifndef __KERNEL__
++class DpStream;
++class DpChannel;
++
++class DpBasicBufferPool;
++class DpAutoBufferPool;
++class DpCommand;
++class DpBufferPool;
++#endif
++
++typedef unsigned long long DpJobID;
++typedef int DpEngineType;
++
++typedef enum DP_STATUS_ENUM
++{
++    DP_STATUS_ABORTED_BY_USER   =  4,
++    DP_STATUS_ALL_TEST_DONE     =  3,
++    DP_STATUS_ALL_TPIPE_DONE    =  2,
++    DP_STATUS_BUFFER_DONE       =  1,
++    DP_STATUS_RETURN_SUCCESS    =  0,
++    DP_STATUS_INVALID_PARAX     = -1,
++    DP_STATUS_INVALID_PORT      = -2,
++    DP_STATUS_INVALID_PATH      = -3,
++    DP_STATUS_INVALID_FILE      = -4,
++    DP_STATUS_INVALID_CHANNEL   = -5,
++    DP_STATUS_INVALID_BUFFER    = -6,
++    DP_STATUS_INVALID_STATE     = -7,
++    DP_STATUS_INVALID_ENGINE    = -8,
++    DP_STATUS_INVALID_FORMAT    = -9,
++    DP_STATUS_INVALID_X_INPUT   = -10,
++    DP_STATUS_INVALID_Y_INPUT   = -11,
++    DP_STATUS_INVALID_X_OUTPUT  = -12,
++    DP_STATUS_INVALID_Y_OUTPUT  = -13,
++    DP_STATUS_INVALID_X_ALIGN   = -14,
++    DP_STATUS_INVALID_Y_ALIGN   = -15,
++    DP_STATUS_INVALID_WIDTH     = -16,
++    DP_STATUS_INVALID_HEIGHT    = -17,
++    DP_STATUS_INVALID_CROP      = -18,
++    DP_STATUS_INVALID_ANGLE     = -19,
++    DP_STATUS_INVALID_EVENT     = -20,
++    DP_STATUS_INVALID_OPCODE    = -21,
++    DP_STATUS_CAN_NOT_MERGE     = -22,
++    DP_STATUS_OUT_OF_MEMORY     = -23,
++    DP_STATUS_BUFFER_FULL       = -24,
++    DP_STATUS_BUFFER_EMPTY      = -25,
++    DP_STATUS_OPERATION_FAILED  = -26,
++    DP_STATUS_OVER_MAX_BRANCH   = -27,
++    DP_STATUS_OVER_MAX_ENGINE   = -28,
++    DP_STATUS_OVER_MAX_BACKUP   = -29,
++    DP_STATUS_SCHEDULE_ERROR    = -30,
++    DP_STATUS_OVER_MAX_WIDTH    = -31,
++    DP_STATUS_OVER_MAX_HEIGHT   = -32,
++    DP_STATUS_LEFT_EDGE_ERROR   = -33,
++    DP_STATUS_RIGHT_EDGE_ERROR  = -34,
++    DP_STATUS_TOP_EDGE_ERROR    = -35,
++    DP_STATUS_BOTTOM_EDGE_ERROR = -36,
++    DP_STATUS_X_LESS_THAN_LAST  = -37,
++    DP_STATUS_Y_LESS_THAN_LAST  = -38,
++    DP_STATUS_UNWANTED_X_CAL    = -39,
++    DP_STATUS_LOSS_OVER_WIDTH   = -40,
++    DP_STATUS_LOSS_OVER_HEIGHT  = -41,
++    DP_STATUS_X_ALIGN_ERROR     = -42,
++    DP_STATUS_Y_ALIGN_ERROR     = -43,
++    DP_STATUS_X_OUT_OVERLAP     = -44,
++    DP_STATUS_Y_OUT_OVERLAP     = -45,
++    DP_STATUS_BACK_LE_FORWARD   = -46,
++    DP_STATUS_UNKNOWN_ERROR     = -47,
++} DP_STATUS_ENUM;
++
++
++typedef enum DP_MEMORY_ENUM
++{
++    DP_MEMORY_VA,
++    DP_MEMORY_ION,
++    DP_MEMORY_PHY,
++    DP_MEMORY_MVA
++} DP_MEMORY_ENUM;
++
++typedef struct DpJPEGEnc_Config_st // for JPEG port only
++{
++    int32_t     fileDesc;
++    uint32_t    size;
++    uint32_t    fQuality;
++    uint32_t    soi_en;
++    void        *memSWAddr[3];
++} DpJPEGEnc_Config;
++
++typedef struct DpVEnc_Config // for VENC port only
++{
++    /* Venc Modify + */
++    unsigned long rVencDrvHandle;
++    /* Venc Modify - */
++    uint32_t    memYUVMVAAddr[3];
++    uint32_t    memYUVMVASize[3];
++    void        *memYUVSWAddr[3];
++    void        *memOutputSWAddr[3];
++
++    uint32_t*   pNumPABuffer;
++    uint32_t*   pPABuffer;
++    uint64_t*   pConfigFrameCount;
++    uint64_t*   pDequeueFrameCount;
++    DpCommand*  pVEncCommander;
++} DpVEnc_Config;
++
++
++#ifndef __KERNEL__
++class DpRect
++{
++public:
++
++    enum
++    {
++        eINVALID_VALUE = -1,
++        eINITIAL_VALUE = 0   //TBD, why to set as "0"?
++    };
++
++    inline DpRect(void)
++        : x(eINITIAL_VALUE), sub_x(eINITIAL_VALUE),
++          y(eINITIAL_VALUE), sub_y(eINITIAL_VALUE),
++          w(eINITIAL_VALUE), h(eINITIAL_VALUE)
++    {}
++
++    inline DpRect(int32_t in_x, int32_t in_y, int32_t in_w, int32_t in_h,
++                  int32_t in_sub_x = 0, int32_t in_sub_y = 0)
++        : x(in_x),
++          sub_x(in_sub_x),
++          y(in_y),
++          sub_y(in_sub_y),
++          w(in_w),
++          h(in_h)
++    {}
++
++    inline DpRect(const DpRect& rt)
++        : x(rt.x),
++          sub_x(rt.sub_x),
++          y(rt.y),
++          sub_y(rt.sub_y),
++          w(rt.w),
++          h(rt.h)
++    {}
++
++    ~DpRect(void) {}
++
++    inline DpRect& operator=  (const DpRect rval)
++    {
++        x = rval.x;
++        sub_x = rval.sub_x;
++        y = rval.y;
++        sub_y = rval.sub_y;
++        w = rval.w;
++        h = rval.h;
++        return *this;
++    }
++
++    int32_t x;
++    int32_t sub_x;
++    int32_t y;
++    int32_t sub_y;
++    int32_t w;
++    int32_t h;
++};
++#endif
++
++typedef enum DP_PROFILE_ENUM
++{
++    DP_PROFILE_BT601, //Limited range
++    DP_PROFILE_BT709,
++    DP_PROFILE_JPEG,
++    DP_PROFILE_FULL_BT601 = DP_PROFILE_JPEG
++} DP_PROFILE_ENUM;
++
++
++typedef enum DP_STREAM_ID_ENUM
++{
++    DP_BLITSTREAM       = 0x10000000,
++    DP_FRAGSTREAM       = 0x20000000,
++    DP_ISPSTREAM        = 0x30000000,
++    DP_ASYNCBLITSTREAM  = 0x40000000,
++    DP_UNKNOWN_STREAM   = 0xF0000000,
++} DP_STREAM_ID_ENUM;
++
++typedef enum DP_MEDIA_TYPE_ENUM
++{
++    MEDIA_UNKNOWN,
++    MEDIA_VIDEO,
++    MEDIA_PICTURE,
++    MEDIA_ISP_PREVIEW
++} DP_MEDIA_TYPE_ENUM;
++
++typedef struct
++{
++    uint32_t id;
++    uint32_t timeStamp;
++    uint32_t reserved[28];   // padding and reserved
++} DpVideoParam;
++
++typedef struct
++{
++    bool withHist;
++    uint32_t info[20];
++    uint32_t reserved[9];  // padding and reserved
++} DpImageParam;
++
++struct DpPqParam {
++    bool enable;
++    DP_MEDIA_TYPE_ENUM scenario;
++
++    union {
++        DpVideoParam video;
++        DpImageParam image;
++    } u;
++};
++
++struct DpPqConfig {
++    uint32_t enSharp;
++    uint32_t enDC;
++    uint32_t enColor;
++};
++
++
++//FMT GROUP , 0-RGB , 1-YUV , 2-Bayer raw , 3-compressed format
++#define DP_COLORFMT_PACK(VIDEO, PLANE, COPLANE, HFACTOR, VFACTOR, BITS, GROUP ,SWAP_ENABLE, UNIQUEID)  \
++    ((VIDEO         << 27) |                                                             \
++     (PLANE         << 24) |                                                             \
++     (COPLANE       << 22) |                                                             \
++     (HFACTOR       << 20) |                                                             \
++     (VFACTOR       << 18) |                                                             \
++     (BITS          << 8)  |                                                             \
++     (GROUP         << 6)  |                                                             \
++     (SWAP_ENABLE   << 5)  |                                                             \
++     (UNIQUEID      << 0))
++
++#define DP_COLOR_GET_UFP_ENABLE(color)          ((0x20000000 & color) >> 29)
++#define DP_COLOR_GET_INTERLACED_MODE(color)     ((0x10000000 & color) >> 28)
++#define DP_COLOR_GET_BLOCK_MODE(color)          ((0x08000000 & color) >> 27)
++#define DP_COLOR_GET_PLANE_COUNT(color)         ((0x07000000 & color) >> 24)
++#define DP_COLOR_IS_UV_COPLANE(color)           ((0x00C00000 & color) >> 22)
++#define DP_COLOR_GET_H_SUBSAMPLE(color)         ((0x00300000 & color) >> 20)
++#define DP_COLOR_GET_V_SUBSAMPLE(color)         ((0x000C0000 & color) >> 18)
++#define DP_COLOR_BITS_PER_PIXEL(color)          ((0x0003FF00 & color) >>  8)
++#define DP_COLOR_GET_COLOR_GROUP(color)         ((0x000000C0 & color) >>  6)
++#define DP_COLOR_GET_SWAP_ENABLE(color)         ((0x00000020 & color) >>  5)
++#define DP_COLOR_GET_UNIQUE_ID(color)           ((0x0000001F & color) >>  0)
++#define DP_COLOR_GET_HW_FORMAT(color)           ((0x0000001F & color) >>  0)
++
++typedef enum DP_COLOR_ENUM
++{
++    DP_COLOR_UNKNOWN        = 0,
++    DP_COLOR_FULLG8         = DP_COLORFMT_PACK(0,   1,  0, 0, 0,  8, 3,  0, 20),
++    DP_COLOR_FULLG10        = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 10, 3,  0, 21),
++    DP_COLOR_FULLG12        = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 12, 3,  0, 22),
++    DP_COLOR_FULLG14        = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 14, 3,  0, 26),
++    DP_COLOR_UFO10          = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 10, 3,  0, 27),
++
++    DP_COLOR_BAYER8         = DP_COLORFMT_PACK(0,   1,  0, 0, 0,  8, 2,  0, 20),
++    DP_COLOR_BAYER10        = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 10, 2,  0, 21),
++    DP_COLOR_BAYER12        = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 12, 2,  0, 22),
++
++    // Unified format
++    DP_COLOR_GREY           = DP_COLORFMT_PACK(0,   1,  0, 0, 0,  8, 1,  0, 7),
++
++    DP_COLOR_RGB565         = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 16, 0,  0, 0),
++    DP_COLOR_BGR565         = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 16, 0,  1, 0),
++    DP_COLOR_RGB888         = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 24, 0,  1, 1),
++    DP_COLOR_BGR888         = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 24, 0,  0, 1),
++    DP_COLOR_RGBA8888       = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 32, 0,  1, 2),
++    DP_COLOR_BGRA8888       = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 32, 0,  0, 2),
++    DP_COLOR_ARGB8888       = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 32, 0,  1, 3),
++    DP_COLOR_ABGR8888       = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 32, 0,  0, 3),
++
++    DP_COLOR_UYVY           = DP_COLORFMT_PACK(0,   1,  0, 1, 0, 16, 1,  0, 4),
++    DP_COLOR_VYUY           = DP_COLORFMT_PACK(0,   1,  0, 1, 0, 16, 1,  1, 4),
++    DP_COLOR_YUYV           = DP_COLORFMT_PACK(0,   1,  0, 1, 0, 16, 1,  0, 5),
++    DP_COLOR_YVYU           = DP_COLORFMT_PACK(0,   1,  0, 1, 0, 16, 1,  1, 5),
++
++    DP_COLOR_I420           = DP_COLORFMT_PACK(0,   3,  0, 1, 1,  8, 1,  0, 8),
++    DP_COLOR_YV12           = DP_COLORFMT_PACK(0,   3,  0, 1, 1,  8, 1,  1, 8),
++    DP_COLOR_I422           = DP_COLORFMT_PACK(0,   3,  0, 1, 0,  8, 1,  0, 9),
++    DP_COLOR_YV16           = DP_COLORFMT_PACK(0,   3,  0, 1, 0,  8, 1,  1, 9),
++    DP_COLOR_I444           = DP_COLORFMT_PACK(0,   3,  0, 0, 0,  8, 1,  0, 10),
++    DP_COLOR_YV24           = DP_COLORFMT_PACK(0,   3,  0, 0, 0,  8, 1,  1, 10),
++
++    DP_COLOR_NV12           = DP_COLORFMT_PACK(0,   2,  1, 1, 1,  8, 1,  0, 12),
++    DP_COLOR_NV21           = DP_COLORFMT_PACK(0,   2,  1, 1, 1,  8, 1,  1, 12),
++    DP_COLOR_NV16           = DP_COLORFMT_PACK(0,   2,  1, 1, 0,  8, 1,  0, 13),
++    DP_COLOR_NV61           = DP_COLORFMT_PACK(0,   2,  1, 1, 0,  8, 1,  1, 13),
++    DP_COLOR_NV24           = DP_COLORFMT_PACK(0,   2,  1, 0, 0,  8, 1,  0, 14),
++    DP_COLOR_NV42           = DP_COLORFMT_PACK(0,   2,  1, 0, 0,  8, 1,  1, 14),
++
++    // Mediatek proprietary format
++    DP_COLOR_420_BLKP_UFO   = DP_COLORFMT_PACK(5,   2,  1, 1, 1, 256, 1, 0, 12),//Frame mode + Block mode
++    DP_COLOR_420_BLKP       = DP_COLORFMT_PACK(1,   2,  1, 1, 1, 256, 1, 0, 12),//Frame mode + Block mode
++    DP_COLOR_420_BLKI       = DP_COLORFMT_PACK(3,   2,  1, 1, 1, 256, 1, 0, 12),//Field mode + Block mode
++    DP_COLOR_422_BLKP       = DP_COLORFMT_PACK(1,   1,  0, 1, 0, 512, 1, 0, 4), //Frame mode
++
++    DP_COLOR_PARGB8888      = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 32,  0, 0, 26),
++    DP_COLOR_XARGB8888      = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 32,  0, 0, 27),
++    DP_COLOR_PABGR8888      = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 32,  0, 0, 28),
++    DP_COLOR_XABGR8888      = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 32,  0, 0, 29),
++
++    DP_COLOR_IYU2           = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 24,  1, 0, 25),
++    DP_COLOR_YUV444         = DP_COLORFMT_PACK(0,   1,  0, 0, 0, 24,  1, 0, 30),
++//    DP_COLOR_YUV422I        = DP_COLORFMT_PACK(1,  0, 1, 0, 16, 1, 41),//Dup to DP_COLOR_YUYV
++//    DP_COLOR_Y800           = DP_COLORFMT_PACK(1,  0, 1, 0, 8, 1, 42),//Dup to DP_COLOR_GREY
++//    DP_COLOR_COMPACT_RAW1   = DP_COLORFMT_PACK(1,  0, 1, 0, 10, 2, 43),//Dup to Bayer10
++//    DP_COLOR_420_3P_YVU     = DP_COLORFMT_PACK(3,  0, 1, 1,  8, 1, 44),//Dup to DP_COLOR_YV12
++} DP_COLOR_ENUM;
++
++// Legacy for 6589 compatible
++typedef DP_COLOR_ENUM DpColorFormat;
++
++#define eYUV_420_3P             DP_COLOR_I420
++#define eYUV_420_2P_YUYV        DP_COLOR_YUYV
++#define eYUV_420_2P_UYVY        DP_COLOR_UYVY
++#define eYUV_420_2P_YVYU        DP_COLOR_YVYU
++#define eYUV_420_2P_VYUY        DP_COLOR_VYUY
++#define eYUV_420_2P_ISP_BLK     DP_COLOR_420_BLKP
++#define eYUV_420_2P_VDO_BLK     DP_COLOR_420_BLKI
++#define eYUV_422_3P             DP_COLOR_I422
++#define eYUV_422_2P             DP_COLOR_NV16
++#define eYUV_422_I              DP_COLOR_YUYV
++#define eYUV_422_I_BLK          DP_COLOR_422_BLKP
++#define eYUV_444_3P             DP_COLOR_I444
++#define eYUV_444_2P             DP_COLOR_NV24
++#define eYUV_444_1P             DP_COLOR_YUV444
++#define eBAYER8                 DP_COLOR_BAYER8
++#define eBAYER10                DP_COLOR_BAYER10
++#define eBAYER12                DP_COLOR_BAYER12
++#define eRGB565                 DP_COLOR_RGB565
++#define eBGR565                 DP_COLOR_BGR565
++#define eRGB888                 DP_COLOR_RGB888
++#define eBGR888                 DP_COLOR_BGR888
++#define eARGB8888               DP_COLOR_ARGB8888
++#define eABGR8888               DP_COLOR_ABGR8888
++#define DP_COLOR_XRGB8888       DP_COLOR_ARGB8888
++#define DP_COLOR_XBGR8888       DP_COLOR_ABGR8888
++#define eRGBA8888               DP_COLOR_RGBA8888
++#define eBGRA8888               DP_COLOR_BGRA8888
++#define eXRGB8888               DP_COLOR_XRGB8888
++#define eXBGR8888               DP_COLOR_XBGR8888
++#define DP_COLOR_RGBX8888       DP_COLOR_RGBA8888
++#define DP_COLOR_BGRX8888       DP_COLOR_BGRA8888
++#define eRGBX8888               DP_COLOR_RGBX8888
++#define eBGRX8888               DP_COLOR_BGRX8888
++#define ePARGB8888              DP_COLOR_PARGB8888
++#define eXARGB8888              DP_COLOR_XARGB8888
++#define ePABGR8888              DP_COLOR_PABGR8888
++#define eXABGR8888              DP_COLOR_XABGR8888
++#define eGREY                   DP_COLOR_GREY
++#define eI420                   DP_COLOR_I420
++#define eYV12                   DP_COLOR_YV12
++#define eIYU2                   DP_COLOR_IYU2
++
++
++#define eYV21                   DP_COLOR_I420
++#define eNV12_BLK               DP_COLOR_420_BLKP
++#define eNV12_BLK_FCM           DP_COLOR_420_BLKI
++#define eYUV_420_3P_YVU         DP_COLOR_YV12
++
++#define eNV12_BP                DP_COLOR_420_BLKP
++#define eNV12_BI                DP_COLOR_420_BLKI
++#define eNV12                   DP_COLOR_NV12
++#define eNV21                   DP_COLOR_NV21
++#define eI422                   DP_COLOR_I422
++#define eYV16                   DP_COLOR_YV16
++#define eNV16                   DP_COLOR_NV16
++#define eNV61                   DP_COLOR_NV61
++#define eUYVY                   DP_COLOR_UYVY
++#define eVYUY                   DP_COLOR_VYUY
++#define eYUYV                   DP_COLOR_YUYV
++#define eYVYU                   DP_COLOR_YVYU
++#define eUYVY_BP                DP_COLOR_422_BLKP
++#define eI444                   DP_COLOR_I444
++#define eNV24                   DP_COLOR_NV24
++#define eNV42                   DP_COLOR_NV42
++#define DP_COLOR_YUY2           DP_COLOR_YUYV
++#define eYUY2                   DP_COLOR_YUY2
++#define eY800                   DP_COLOR_GREY
++//#define eIYU2
++#define eMTKYUV                 DP_COLOR_422_BLKP
++
++#define eCompactRaw1            DP_COLOR_BAYER10
++
++
++enum DpInterlaceFormat
++{
++    eInterlace_None,
++    eTop_Field,
++    eBottom_Field
++};
++
++enum DpSecure
++{
++    DP_SECURE_NONE  = 0,
++    DP_SECURE       = 1,
++    DP_SECURE_SHIFT = 8
++};
++
++#define MAX_NUM_READBACK_REGS (20)
++
++#define VENC_ENABLE_FLAG    (0x08967)
++
++#ifndef __KERNEL__
++struct DpPortOption
++{
++    int width;
++    int height;
++    DpRect ROI;
++    DpColorFormat format;
++    DpInterlaceFormat interlace;
++
++    enum DpPort
++    {
++        eLCD0_PORT,
++        eLCD1_PORT,
++        eHDMI_PORT,
++        eTVOUT_PORT,
++        eOVERLAY_PORT,
++        eVIRTUAL_PORT,
++        eMEMORY_PORT
++    };
++
++    DpPort port;
++
++    int overlayID;              // setting if choose port = eOVERLAY
++    int virtualID;              // setting if choose port = eVIRTUAL_PORT
++    DpBufferPool *buffer;       // setting if choose port = eMEMORY
++};
++#endif  // __KERNEL__
++
++#endif  // __DP_DATA_TYPE_H__
+diff --git a/media/libstagefright/ACodec.cpp b/media/libstagefright/ACodec.cpp
+index 581bfba..3c3d7e0 100644
+--- a/media/libstagefright/ACodec.cpp
++++ b/media/libstagefright/ACodec.cpp
+@@ -63,6 +63,16 @@
+ 
+ #include <stagefright/AVExtensions.h>
+ 
++#ifdef MTK_HARDWARE
++#include <media/stagefright/dpframework/DpBlitStream.h>
++
++#define HAL_PIXEL_FORMAT_NV12_BLK 0x7F000001
++#define HAL_PIXEL_FORMAT_I420 (0x32315659 + 0x10)
++
++const OMX_COLOR_FORMATTYPE OMX_MTK_COLOR_FormatYV12 = (OMX_COLOR_FORMATTYPE)0x7F000200;
++const OMX_COLOR_FORMATTYPE OMX_COLOR_FormatVendorMTKYUV = (OMX_COLOR_FORMATTYPE)0x7F000001;
++#endif
++
+ namespace android {
+ 
+ // OMX errors are directly mapped into status_t range if
+@@ -824,7 +834,13 @@ status_t ACodec::allocateBuffersOnPort(OMX_U32 portIndex) {
+                     def.nBufferCountActual, bufSize, allottedSize, def.nBufferSize, asString(type),
+                     portIndex == kPortIndexInput ? "input" : "output");
+ 
++#ifdef MTK_HARDWARE
++            OMX_U32 memoryAlign = 32;
++            size_t totalSize = def.nBufferCountActual *
++                ((bufSize + (memoryAlign - 1))&(~(memoryAlign - 1)));
++#else
+             size_t totalSize = def.nBufferCountActual * bufSize;
++#endif
+             mDealer[portIndex] = new MemoryDealer(totalSize, "ACodec");
+ 
+             for (OMX_U32 i = 0; i < def.nBufferCountActual && err == OK; ++i) {
+@@ -925,6 +941,11 @@ status_t ACodec::setupNativeWindowSizeFormatAndUsage(
+     setNativeWindowColorFormat(eNativeColorFormat);
+ #endif
+ 
++#ifdef MTK_HARDWARE
++    OMX_COLOR_FORMATTYPE eHalColorFormat = def.format.video.eColorFormat;
++    setHalWindowColorFormat(eHalColorFormat);
++#endif
++
+     ALOGV("gralloc usage: %#x(OMX) => %#x(ACodec)", omxUsage, usage);
+     int32_t width = 0, height = 0;
+     int32_t isAdaptivePlayback = 0;
+@@ -946,6 +967,8 @@ status_t ACodec::setupNativeWindowSizeFormatAndUsage(
+             height,
+ #ifdef USE_SAMSUNG_COLORFORMAT
+             eNativeColorFormat,
++#elif MTK_HARDWARE
++            eHalColorFormat,
+ #else
+             def.format.video.eColorFormat,
+ #endif
+@@ -1329,6 +1352,29 @@ void ACodec::setNativeWindowColorFormat(OMX_COLOR_FORMATTYPE &eNativeColorFormat
+ }
+ #endif
+ 
++#ifdef MTK_HARDWARE
++void ACodec::setHalWindowColorFormat(OMX_COLOR_FORMATTYPE &eHalColorFormat) {
++    ALOGE("[Decker] setHalWindowColorFormat(%#x) - %s",eHalColorFormat,mComponentName.c_str());
++
++    if (!strncmp("OMX.MTK.", mComponentName.c_str(), 8)) {
++        switch (eHalColorFormat) {
++            case OMX_COLOR_FormatYUV420Planar:
++                eHalColorFormat = (OMX_COLOR_FORMATTYPE)HAL_PIXEL_FORMAT_I420;
++                break;
++            case OMX_MTK_COLOR_FormatYV12:
++                eHalColorFormat = (OMX_COLOR_FORMATTYPE)HAL_PIXEL_FORMAT_YV12;
++                break;
++            case OMX_COLOR_FormatVendorMTKYUV:
++                eHalColorFormat = (OMX_COLOR_FORMATTYPE)HAL_PIXEL_FORMAT_NV12_BLK;
++                break;
++            default:
++                eHalColorFormat = (OMX_COLOR_FORMATTYPE)HAL_PIXEL_FORMAT_I420;
++                break;
++        }
++    }
++}
++#endif
++
+ status_t ACodec::cancelBufferToNativeWindow(BufferInfo *info) {
+     CHECK_EQ((int)info->mStatus, (int)BufferInfo::OWNED_BY_US);
+ 
+diff --git a/media/libstagefright/Android.mk b/media/libstagefright/Android.mk
+index 792c139..b8e5f2c 100644
+--- a/media/libstagefright/Android.mk
++++ b/media/libstagefright/Android.mk
+@@ -212,6 +212,17 @@ LOCAL_C_INCLUDES += \
+ 	$(TOP)/hardware/samsung/exynos4/include
+ endif
+ 
++# Mediatek
++ifeq ($(strip $(BOARD_HAS_MTK_HARDWARE)),true)
++LOCAL_CFLAGS += -DMTK_HARDWARE
++
++LOCAL_C_INCLUDES += \
++	$(TOP)/hardware/mediatek/dpframework/inc
++
++LOCAL_SHARED_LIBRARIES += \
++	libdpframework
++endif
++
+ LOCAL_MODULE:= libstagefright
+ 
+ LOCAL_MODULE_TAGS := optional
+diff --git a/media/libstagefright/CameraSource.cpp b/media/libstagefright/CameraSource.cpp
+index e9ec2b6..4117f26 100644
+--- a/media/libstagefright/CameraSource.cpp
++++ b/media/libstagefright/CameraSource.cpp
+@@ -43,6 +43,10 @@
+ #define UNUSED_UNLESS_VERBOSE(x)
+ #endif
+ 
++#ifdef MTK_HARDWARE
++#define OMX_MTK_COLOR_FormatYV12 0x7F000200
++#endif
++
+ namespace android {
+ 
+ static const int64_t CAMERA_SOURCE_TIMEOUT_NS = 3000000000LL;
+@@ -108,7 +112,11 @@ static int32_t getColorFormat(const char* colorFormat) {
+     }
+ 
+     if (!strcmp(colorFormat, CameraParameters::PIXEL_FORMAT_YUV420P)) {
++#ifdef	MTK_HARDWARE
++       return OMX_MTK_COLOR_FormatYV12;
++#else
+        return OMX_COLOR_FormatYUV420Planar;
++#endif
+     }
+ 
+     if (!strcmp(colorFormat, CameraParameters::PIXEL_FORMAT_YUV422SP)) {
+diff --git a/media/libstagefright/colorconversion/Android.mk b/media/libstagefright/colorconversion/Android.mk
+index 4f7c48f..3f65c42 100644
+--- a/media/libstagefright/colorconversion/Android.mk
++++ b/media/libstagefright/colorconversion/Android.mk
+@@ -9,6 +9,13 @@ LOCAL_C_INCLUDES := \
+         $(TOP)/frameworks/native/include/media/openmax \
+         $(TOP)/hardware/msm7k
+ 
++ifeq ($(BOARD_HAS_MTK_HARDWARE),true)
++LOCAL_CFLAGS += -DMTK_HARDWARE
++
++LOCAL_C_INCLUDES += \
++        $(TOP)/frameworks/av/include/media/stagefright/dpframework
++endif
++
+ LOCAL_CFLAGS += -Werror
+ LOCAL_CLANG := true
+ 
+diff --git a/media/libstagefright/colorconversion/ColorConverter.cpp b/media/libstagefright/colorconversion/ColorConverter.cpp
+index 597167f..cc797c6 100644
+--- a/media/libstagefright/colorconversion/ColorConverter.cpp
++++ b/media/libstagefright/colorconversion/ColorConverter.cpp
+@@ -22,6 +22,14 @@
+ #include <media/stagefright/ColorConverter.h>
+ #include <media/stagefright/MediaErrors.h>
+ 
++#ifdef MTK_HARDWARE
++#include <DpBlitStream.h>
++
++const OMX_COLOR_FORMATTYPE OMX_MTK_COLOR_FormatYV12 = (OMX_COLOR_FORMATTYPE)0x7F000200;
++const OMX_COLOR_FORMATTYPE OMX_COLOR_FormatVendorMTKYUV = (OMX_COLOR_FORMATTYPE)0x7F000001;
++const OMX_COLOR_FORMATTYPE OMX_COLOR_FormatVendorMTKYUV_FCM = (OMX_COLOR_FORMATTYPE)0x7F000002;
++#endif
++
+ namespace android {
+ 
+ ColorConverter::ColorConverter(
+@@ -29,6 +37,9 @@ ColorConverter::ColorConverter(
+     : mSrcFormat(from),
+       mDstFormat(to),
+       mClip(NULL) {
++
++ALOGE("[Decker] ColorConverter::ColorConverter: %#x --> %#x", from, to);
++
+ }
+ 
+ ColorConverter::~ColorConverter() {
+@@ -47,6 +58,11 @@ bool ColorConverter::isValid() const {
+         case OMX_QCOM_COLOR_FormatYVU420SemiPlanar:
+         case OMX_COLOR_FormatYUV420SemiPlanar:
+         case OMX_TI_COLOR_FormatYUV420PackedSemiPlanar:
++#ifdef MTK_HARDWARE
++        case OMX_MTK_COLOR_FormatYV12:
++        case OMX_COLOR_FormatVendorMTKYUV:
++        case OMX_COLOR_FormatVendorMTKYUV_FCM:
++#endif
+             return true;
+ 
+         default:
+@@ -103,7 +119,11 @@ status_t ColorConverter::convert(
+ 
+     switch (mSrcFormat) {
+         case OMX_COLOR_FormatYUV420Planar:
++#ifdef MTK_HARDWARE
++            err = convertYUVToRGBHW(src, dst);
++#else
+             err = convertYUV420Planar(src, dst);
++#endif
+             break;
+ 
+         case OMX_COLOR_FormatCbYCrY:
+@@ -122,6 +142,14 @@ status_t ColorConverter::convert(
+             err = convertTIYUV420PackedSemiPlanar(src, dst);
+             break;
+ 
++#ifdef MTK_HARDWARE
++        case OMX_MTK_COLOR_FormatYV12:
++        case OMX_COLOR_FormatVendorMTKYUV:
++        case OMX_COLOR_FormatVendorMTKYUV_FCM:
++            err = convertYUVToRGBHW(src, dst);
++            break;
++#endif
++
+         default:
+         {
+             CHECK(!"Should not be here. Unknown color conversion.");
+@@ -521,4 +549,93 @@ uint8_t *ColorConverter::initClip() {
+     return &mClip[-kClipMin];
+ }
+ 
++#ifdef MTK_HARDWARE
++status_t ColorConverter::convertYUVToRGBHW(const BitmapParams &src, const BitmapParams &dst) {
++    DpBlitStream blitStream;
++    unsigned int srcWStride = src.mWidth;
++    unsigned int srcHStride = src.mHeight;
++
++    DpRect srcRoi;
++    srcRoi.x = src.mCropLeft;
++    srcRoi.y = src.mCropTop;
++    srcRoi.w = src.mCropRight - src.mCropLeft;
++    srcRoi.h = src.mCropBottom - src.mCropTop;
++
++    unsigned int dstWStride = dst.mWidth ;
++    unsigned int dstHStride = dst.mHeight ;
++    char name_yuv[100];
++    char retriever_yuv_propty[100];
++    char name_rgb[100];
++    char retriever_propty_rgb[100];
++
++    if (mSrcFormat == OMX_COLOR_FormatYUV420Planar) {
++        char* planar[3];
++        unsigned int length[3];
++        planar[0] = (char*)src.mBits;
++        length[0] = srcWStride*srcHStride;
++        planar[1] = planar[0] + length[0];
++	      length[1] = srcWStride*srcHStride/4;
++        planar[2] = planar[1] + length[1];
++        length[2] = length[1];
++
++        blitStream.setSrcBuffer((void**)planar, (unsigned int*)length, 3);
++        blitStream.setSrcConfig(srcWStride, srcHStride, eYUV_420_3P, eInterlace_None, &srcRoi);
++    }
++    else if (mSrcFormat == OMX_MTK_COLOR_FormatYV12) {
++        char* planar[3];
++        unsigned int length[3];
++        planar[0] = (char*)src.mBits;
++        length[0] = srcWStride*srcHStride;
++        planar[1] = planar[0] + length[0];
++        length[1] = srcWStride*srcHStride/4;
++        planar[2] = planar[1] + length[1];
++        length[2] = length[1];
++
++        blitStream.setSrcBuffer((void**)planar, (unsigned int*)length, 3);
++        blitStream.setSrcConfig(srcWStride, srcHStride, eYV12, eInterlace_None, &srcRoi);
++    }
++    else if (mSrcFormat == OMX_COLOR_FormatVendorMTKYUV) {
++        char* planar[2];
++        unsigned int length[2];
++        planar[0] = (char*)src.mBits;
++        length[0] = srcWStride*srcHStride;
++        planar[1] = planar[0] + length[0];
++        length[1] = srcWStride*srcHStride/2;
++
++        blitStream.setSrcBuffer((void**)planar, (unsigned int*)length, 2);
++        blitStream.setSrcConfig(srcWStride, srcHStride, srcWStride * 32, srcWStride * 16, eNV12_BLK, DP_PROFILE_BT601, eInterlace_None, &srcRoi);
++    }
++    else if (mSrcFormat == OMX_COLOR_FormatVendorMTKYUV_FCM) {
++        char* planar[2];
++        unsigned int length[2];
++        planar[0] = (char*)src.mBits;
++        length[0] = srcWStride*srcHStride;
++        planar[1] = planar[0] + length[0];
++        length[1] = srcWStride*srcHStride/2;
++
++        blitStream.setSrcBuffer((void**)planar, (unsigned int*)length, 2);
++        blitStream.setSrcConfig(srcWStride, srcHStride, srcWStride * 32, srcWStride * 16, eNV12_BLK_FCM, DP_PROFILE_BT601, eInterlace_None, &srcRoi);
++    }
++
++    if (mDstFormat == OMX_COLOR_Format16bitRGB565) {
++        blitStream.setDstBuffer(dst.mBits, dst.mWidth * dst.mHeight * 2);
++        blitStream.setDstConfig(dst.mWidth, dst.mHeight, eRGB565);
++    }
++    else if (mDstFormat == OMX_COLOR_Format32bitARGB8888) {
++        blitStream.setDstBuffer(dst.mBits, dst.mWidth * dst.mHeight * 4);
++        blitStream.setDstConfig(dst.mWidth, dst.mHeight, eRGBA8888);
++    }
++
++    // Add Sharpness in Video Thumbnail
++    blitStream.setTdshp(1);
++    bool bRet = blitStream.invalidate();
++
++    if (!bRet)
++        return OK;
++    else
++        return UNKNOWN_ERROR;
++}
++#endif
++
++
+ }  // namespace android
+-- 
+2.7.4
+

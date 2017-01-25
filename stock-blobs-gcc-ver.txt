@@ -1,0 +1,905 @@
+Versions of compiler in Rel015 stock BLOBs:
+
+
+lib3a.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+lib3a.so: clang version 3.6 
+liba3m.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+liba3m.so: clang version 3.6 
+libaal.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaal.so: clang version 3.6 
+libacdk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libacdk.so: clang version 3.6 
+libaed.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libaed.so: GCC: (GNU) 4.9 20140827 (prerelease)
+libalsautils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libalsautils.so: clang version 3.6 
+libamr_wrap.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libamr_wrap.so: clang version 3.6 
+libamr_wrap.so: GCC: (GNU) 4.4.0
+libandroid.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libandroid.so: clang version 3.6 
+libandroidfw.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libandroidfw.so: clang version 3.6 
+libandroid_runtime.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libandroid_runtime.so: clang version 3.6 
+libandroid_servers.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libandroid_servers.so: clang version 3.6 
+libart-compiler.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libart-compiler.so: clang version 3.6 
+libart-disassembler.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libart-disassembler.so: clang version 3.6 
+libart.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libart.so: clang version 3.6 
+libatciserv_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libatciserv_jni.so: clang version 3.6 
+libatvctrlservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libatvctrlservice.so: clang version 3.6 
+libaudio-resampler.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudio-resampler.so: clang version 3.6 
+libaudiocompensationfilter.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiocompensationfilter.so: clang version 3.6 
+libaudiocomponentengine.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiocomponentengine.so: clang version 3.6 
+libaudiocustparam.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiocustparam.so: clang version 3.6 
+libaudiodcrflt.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiodcrflt.so: GCC: (GNU) 4.8
+libaudiodcrflt.so: clang version 3.6 
+libaudioeffect_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudioeffect_jni.so: clang version 3.6 
+libaudioflinger.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudioflinger.so: clang version 3.6 
+libaudiomtkdcremoval.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiomtkdcremoval.so: clang version 3.6 
+libaudiopolicyenginedefault.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiopolicyenginedefault.so: clang version 3.6 
+libaudiopolicymanager.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiopolicymanager.so: clang version 3.6 
+libaudiopolicymanagerdefault.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiopolicymanagerdefault.so: clang version 3.6 
+libaudiopolicyservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiopolicyservice.so: clang version 3.6 
+libaudioresampler.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudioresampler.so: clang version 3.6 
+libaudiosetting.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiospdif.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudiospdif.so: clang version 3.6 
+libaudioutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libaudioutils.so: clang version 3.6 
+libawb_wrap.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libawb_wrap.so: clang version 3.6 
+libawb_wrap.so: GCC: (GNU) 4.4.0
+libbacktrace.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbacktrace.so: clang version 3.6 
+libbase.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbase.so: clang version 3.6 
+libbcc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbcc.so: clang version 3.6 
+libbcinfo.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbcinfo.so: clang version 3.6 
+libbessound_hd_mtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbessound_hd_mtk.so: GCC: (GNU) 4.8
+libbessound_hd_mtk.so: clang version 3.6 
+libbessurround_mtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbessurround_mtk.so: GCC: (GNU) 4.8
+libbessurround_mtk.so: clang version 3.6 
+libbinder.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbinder.so: clang version 3.6 
+libblas.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libblas.so: clang version 3.6 
+libblasV8.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libblasV8.so: clang version 3.6 
+libblasV8.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libblisrc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libblisrc.so: GCC: (GNU) 4.8
+libblisrc.so: clang version 3.6 
+libblisrc32.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libblisrc32.so: clang version 3.6 
+libbluetoothem_mtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbluetoothem_mtk.so: clang version 3.6 
+libbluetooth_hw_test.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbluetooth_hw_test.so: clang version 3.6 
+libbluetooth_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbluetooth_jni.so: clang version 3.6 
+libbluetooth_mtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbluetooth_mtk.so: clang version 3.6 
+libbluetooth_mtk_pure.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbluetooth_mtk_pure.so: clang version 3.6 
+libbluetooth_relayer.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbluetooth_relayer.so: clang version 3.6 
+libBnMtkCodec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libBnMtkCodec.so: clang version 3.6 
+libbt-vendor.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbt-vendor.so: clang version 3.6 
+libbwc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libbwc.so: clang version 3.6 
+libc++.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libc++.so: clang version 3.6 
+libc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libc.so: clang version 3.6 
+libcam.camadapter.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.camadapter.so: clang version 3.6 
+libcam.campipe.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.campipe.so: clang version 3.6 
+libcam.camshot.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.camshot.so: clang version 3.6 
+libcam.client.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.client.so: clang version 3.6 
+libcam.device1.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.device1.so: clang version 3.6 
+libcam.device3.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.device3.so: clang version 3.6 
+libcam.exif.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.exif.so: clang version 3.6 
+libcam.exif.v3.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.exif.v3.so: clang version 3.6 
+libcam.hal3a.v3.dng.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.hal3a.v3.dng.so: clang version 3.6 
+libcam.hal3a.v3.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.hal3a.v3.so: clang version 3.6 
+libcam.halsensor.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.halsensor.so: clang version 3.6 
+libcam.iopipe.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.iopipe.so: clang version 3.6 
+libcam.iopipe_FrmB.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.iopipe_FrmB.so: clang version 3.6 
+libcam.metadata.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.metadata.so: clang version 3.6 
+libcam.metadataprovider.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.metadataprovider.so: clang version 3.6 
+libcam.paramsmgr.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.paramsmgr.so: clang version 3.6 
+libcam.sdkclient.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.sdkclient.so: clang version 3.6 
+libcam.utils.sensorlistener.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.utils.sensorlistener.so: clang version 3.6 
+libcam.utils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam.utils.so: clang version 3.6 
+libcam1_utils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam1_utils.so: clang version 3.6 
+libcam3_app.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam3_app.so: clang version 3.6 
+libcam3_hwnode.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam3_hwnode.so: clang version 3.6 
+libcam3_hwpipeline.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam3_hwpipeline.so: clang version 3.6 
+libcam3_pipeline.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam3_pipeline.so: clang version 3.6 
+libcam3_utils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam3_utils.so: clang version 3.6 
+libcamalgo.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcamalgo.so: clang version 3.6 
+libcamdrv.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcamdrv.so: clang version 3.6 
+libcamdrv_FrmB.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcamdrv_FrmB.so: clang version 3.6 
+libcameracustom.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcameracustom.so: clang version 3.6 
+libcameraservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcameraservice.so: clang version 3.6 
+libcamera_client.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcamera_client.so: clang version 3.6 
+libcamera_metadata.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcamera_metadata.so: clang version 3.6 
+libcam_hwutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam_hwutils.so: clang version 3.6 
+libcam_mmp.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam_mmp.so: clang version 3.6 
+libcam_platform.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam_platform.so: clang version 3.6 
+libcam_utils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcam_utils.so: clang version 3.6 
+libccci_util.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libccci_util.so: clang version 3.6 
+libcommon_time_client.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcommon_time_client.so: clang version 3.6 
+libcompiler_rt.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcompiler_rt.so: clang version 3.6 
+libcomutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcomutils.so: clang version 3.6 
+libcrypto.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcrypto.so: GCC: (Linaro GCC 2014.11) 4.9.3 20141031 (prerelease)
+libcrypto.so: clang version 3.6 
+libcurl.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcurl.so: clang version 3.6 
+libcustom_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcustom_jni.so: clang version 3.6 
+libcustom_nvram.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcustom_nvram.so: clang version 3.6 
+libcustom_prop.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcustom_prop.so: clang version 3.6 
+libcutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcutils.so: clang version 3.6 
+libcvsd_mtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libcvsd_mtk.so: GCC: (GNU) 4.8
+libcvsd_mtk.so: clang version 3.6 
+libdcfdecoderjni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdcfdecoderjni.so: clang version 3.6 
+libdefcontainer_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdefcontainer_jni.so: clang version 3.6 
+libdirect-coredump.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdirect-coredump.so: clang version 3.6 
+libdiskconfig.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdiskconfig.so: clang version 3.6 
+libdl.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdpframework.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdpframework.so: clang version 3.6 
+libdrmframework.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdrmframework.so: clang version 3.6 
+libdrmframework_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdrmframework_jni.so: clang version 3.6 
+libdrmmtkutil.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdrmmtkutil.so: clang version 3.6 
+libdrmmtkwhitelist.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libdrmmtkwhitelist.so: clang version 3.6 
+libeffects.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libeffects.so: clang version 3.6 
+libEGL.so: GL_GCCSO_SHADER_BINARY_FJ
+libEGL.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libEGL.so: clang version 3.6 
+libem_bt_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libem_bt_jni.so: clang version 3.6 
+libem_gpio_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libem_gpio_jni.so: clang version 3.6 
+libem_lte_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libem_lte_jni.so: clang version 3.6 
+libem_modem_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libem_modem_jni.so: clang version 3.6 
+libem_sensor_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libem_sensor_jni.so: clang version 3.6 
+libem_support_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libem_support_jni.so: clang version 3.6 
+libem_usb_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libem_usb_jni.so: clang version 3.6 
+libem_wifi_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libem_wifi_jni.so: clang version 3.6 
+libETC1.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libETC1.so: clang version 3.6 
+libexif.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libexif.so: clang version 3.6 
+libexpat.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libexpat.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext2fs.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext2fs.so: clang version 3.6 
+libext2_blkid.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext2_blkid.so: clang version 3.6 
+libext2_com_err.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext2_com_err.so: clang version 3.6 
+libext2_e2p.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext2_e2p.so: clang version 3.6 
+libext2_profile.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext2_profile.so: clang version 3.6 
+libext2_quota.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext2_quota.so: clang version 3.6 
+libext2_uuid.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext2_uuid.so: clang version 3.6 
+libext4_utils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libext4_utils.so: clang version 3.6 
+libf2fs_sparseblock.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libf2fs_sparseblock.so: clang version 3.6 
+libfeatureio.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfeatureio.so: clang version 3.6 
+libfeatureiodrv.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfeatureiodrv.so: clang version 3.6 
+libFFTEm.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libFFTEm.so: clang version 3.6 
+libfgauge.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfgauge.so: clang version 3.6 
+libfile_op.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfile_op.so: clang version 3.6 
+libfilterfw.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfilterfw.so: clang version 3.6 
+libfilterpack_facedetect.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfilterpack_facedetect.so: clang version 3.6 
+libfilterpack_imageproc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfilterpack_imageproc.so: clang version 3.6 
+libfmcust.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfmcust.so: clang version 3.6 
+libfmjni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfmjni.so: clang version 3.6 
+libfs_mgr.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libfs_mgr.so: clang version 3.6 
+libft2.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libft2.so: clang version 3.6 
+libgabi++.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libgas.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libgas.so: clang version 3.6 
+libgatekeeper.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libgatekeeper.so: clang version 3.6 
+libged.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libged.so: clang version 3.6 
+libGLESv1_CM.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libGLESv1_CM.so: clang version 3.6 
+libGLESv2.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libGLESv2.so: clang version 3.6 
+libGLES_trace.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libGLES_trace.so: clang version 3.6 
+libgnustl_shared.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libgnustl_shared.so: GCC: (GNU) 4.8
+libgpu_aux.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libgpu_aux.so: clang version 3.6 
+libgralloc_extra.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libgralloc_extra.so: clang version 3.6 
+libgui.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libgui.so: clang version 3.6 
+libgui_ext.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libgui_ext.so: clang version 3.6 
+libh264enc_sa.ca7.so: GCC: (GNU) 4.7
+libh264enc_sa.ca7.so: GCC: (GNU) 4.8
+libh264enc_sb.ca7.so: GCC: (GNU) 4.7
+libhardware.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libhardware.so: clang version 3.6 
+libhardware_legacy.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libhardware_legacy.so: clang version 3.6 
+libharfbuzz_ng.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libharfbuzz_ng.so: clang version 3.6 
+libhdrproc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libhdrproc.so: clang version 3.6 
+libHEVCdec_sa.ca7.android.so: GCC: (GNU) 4.7
+libhevce_sb.ca7.android.so: GCC: (GNU) 4.7
+libhidcommand_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libhidcommand_jni.so: clang version 3.6 
+libhwm.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libhwm.so: clang version 3.6 
+libhwui.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libhwui.so: clang version 3.6 
+libicui18n.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libicui18n.so: clang version 3.6 
+libicuuc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libicuuc.so: clang version 3.6 
+libimageio.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libimageio.so: clang version 3.6 
+libimageio_FrmB.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libimageio_FrmB.so: clang version 3.6 
+libimageio_plat_drv.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libimageio_plat_drv.so: clang version 3.6 
+libimageio_plat_drv_FrmB.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libimageio_plat_drv_FrmB.so: clang version 3.6 
+libimg_utils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libimg_utils.so: clang version 3.6 
+libimsma.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libimsma.so: clang version 3.6 
+libimsma_rtp.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libimsma_rtp.so: clang version 3.6 
+libimsma_socketwrapper.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libimsma_socketwrapper.so: clang version 3.6 
+libinput.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libinput.so: clang version 3.6 
+libinputflinger.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libinputflinger.so: clang version 3.6 
+libinputservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libinputservice.so: clang version 3.6 
+libion.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libion.so: clang version 3.6 
+libion_mtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libion_mtk.so: clang version 3.6 
+libiprouteutil.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libiprouteutil.so: clang version 3.6 
+libja3m.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libja3m.so: clang version 3.6 
+libjavacore.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjavacore.so: clang version 3.6 
+libjavacrypto.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjavacrypto.so: clang version 3.6 
+libjhead.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjhead.so: clang version 3.6 
+libJniAtvService.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libJniAtvService.so: clang version 3.6 
+libjnigraphics.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjnigraphics.so: clang version 3.6 
+libjni_eglfence.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libjni_eglfence.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjni_filtershow_filters.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libjni_filtershow_filters.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjni_jpegstream.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libjni_jpegstream.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjni_pacprocessor.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjni_pacprocessor.so: clang version 3.6 
+libjni_pq.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjni_pq.so: clang version 3.6 
+libjpeg.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjpeg.so: clang version 3.6 
+libJpgDecPipe.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libJpgDecPipe.so: clang version 3.6 
+libJpgEncPipe.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libJpgEncPipe.so: clang version 3.6 
+libjtranscode.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libjtranscode.so: clang version 3.6 
+libkeymaster1.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libkeymaster1.so: clang version 3.6 
+libkeymaster_messages.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libkeymaster_messages.so: clang version 3.6 
+libkeystore-engine.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libkeystore-engine.so: clang version 3.6 
+libkeystore_binder.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libkeystore_binder.so: clang version 3.6 
+liblic_divx.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+liblic_divx.so: clang version 3.6 
+liblic_s263.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+liblic_s263.so: clang version 3.6 
+libLLVM.so: _ZN4llvm9Intrinsic25getIntrinsicForGCCBuiltinEPKcS2_
+libLLVM.so: GCC_except_table
+libLLVM.so: clang.arc.use
+libLLVM.so: clang.arc.retainAutoreleasedReturnValueMarker
+libLLVM.so: clang.imprecise_release
+libLLVM.so: clang.arc.no_objc_arc_exceptions
+libLLVM.so: runtime pointer checks needed. Enable vectorization of this loop with '#pragma clang loop vectorize(enable)' when compiling with -Os
+libLLVM.so: cannot optimize for size and vectorize at the same time. Enable vectorization of this loop with '#pragma clang loop vectorize(enable)' when compiling with -Os
+libLLVM.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libLLVM.so: clang version 3.6 
+liblog.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+liblog.so: clang version 3.6 
+liblogwrap.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+liblogwrap.so: clang version 3.6 
+libm.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libm4u.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libm4u.so: clang version 3.6 
+libmal.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal.so: clang version 3.6 
+libmal_datamngr.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal_datamngr.so: clang version 3.6 
+libmal_epdga.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal_epdga.so: clang version 3.6 
+libmal_imsmngr.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal_imsmngr.so: clang version 3.6 
+libmal_mdmngr.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal_mdmngr.so: clang version 3.6 
+libmal_nwmngr.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal_nwmngr.so: clang version 3.6 
+libmal_rds.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal_rds.so: clang version 3.6 
+libmal_rilproxy.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal_rilproxy.so: clang version 3.6 
+libmal_simmngr.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmal_simmngr.so: clang version 3.6 
+libmatv_cust.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmatv_cust.so: clang version 3.6 
+libmdfx.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmdfx.so: clang version 3.6 
+libmdloggerrecycle.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmdloggerrecycle.so: clang version 3.6 
+libmdnssd.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmdnssd.so: clang version 3.6 
+libmedia.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmedia.so: clang version 3.6 
+libmedialogservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmedialogservice.so: clang version 3.6 
+libmediandk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmediandk.so: clang version 3.6 
+libMediaPlayerAndroid.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libMediaPlayerAndroid.so: GCC: (GNU) 4.8
+libMediaPlayerNative.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libMediaPlayerNative.so: GCC: (GNU) 4.8
+libMediaPlayerOMX.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libMediaPlayerOMX.so: GCC: (GNU) 4.8
+libmediaplayerservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmediaplayerservice.so: clang version 3.6 
+libMediaPlayerSource.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libMediaPlayerSource.so: GCC: (GNU) 4.8
+libMediaPlayerVLC.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libMediaPlayerVLC.so: GCC: (GNU) 4.8
+libmediatek_exceptionlog.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmediatek_exceptionlog.so: clang version 3.6 
+libmediautils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmediautils.so: clang version 3.6 
+libmedia_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmedia_jni.so: clang version 3.6 
+libmemoryDumpEncoder.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmemoryDumpEncoder.so: clang version 3.6 
+libmemorydumper.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmemorydumper.so: clang version 3.6 
+libmemtrack.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmemtrack.so: clang version 3.6 
+libmhalImageCodec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmhalImageCodec.so: clang version 3.6 
+libminikin.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libminikin.so: clang version 3.6 
+libminiui.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libminiui.so: clang version 3.6 
+libMiraVision_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMiraVision_jni.so: clang version 3.6 
+libmmprofile.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmmprofile.so: clang version 3.6 
+libmmprofile_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmmprofile_jni.so: clang version 3.6 
+libmmsdkservice.feature.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmmsdkservice.feature.so: clang version 3.6 
+libmmsdkservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmmsdkservice.so: clang version 3.6 
+libmnl.so: GCC: (GNU) 4.6.x-google 20120106 (prerelease)
+libmnl.so: GCC: (GNU) 4.4.3
+libmp4enc_sa.ca7.so: GCC: (GNU) 4.7
+libmp4enc_xa.ca7.so: GCC: (GNU) 4.7
+libmrdump.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmrdump.so: clang version 3.6 
+libmsbc_mtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmsbc_mtk.so: GCC: (GNU) 4.8
+libmsbc_mtk.so: clang version 3.6 
+libmtcloader.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtcloader.so: clang version 3.6 
+libMTKAudioTimeStretch.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMTKAudioTimeStretch.so: clang version 3.6 
+libmtkcamera_client.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtkcamera_client.so: clang version 3.6 
+libmtkjpeg.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtkjpeg.so: clang version 3.6 
+libmtklimiter.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtklimiter.so: GCC: (GNU) 4.8
+libmtklimiter.so: clang version 3.6 
+libMtkOmxAdpcmDec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxAdpcmDec.so: clang version 3.6 
+libMtkOmxAdpcmDec.so: GCC: (GNU) 4.4.0
+libMtkOmxAdpcmEnc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxAdpcmEnc.so: clang version 3.6 
+libMtkOmxAdpcmEnc.so: GCC: (GNU) 4.4.0
+libMtkOmxAlacDec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxAlacDec.so: clang version 3.6 
+libMtkOmxAlacDec.so: GCC: (GNU) 4.4.0
+libMtkOmxApeDec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxApeDec.so: clang version 3.6 
+libMtkOmxCore.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxCore.so: clang version 3.6 
+libMtkOmxFlacDec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxFlacDec.so: clang version 3.6 
+libMtkOmxFlacDec.so: GCC: (GNU) 4.4.0
+libMtkOmxG711Dec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxG711Dec.so: clang version 3.6 
+libMtkOmxGsmDec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxGsmDec.so: clang version 3.6 
+libMtkOmxMp3Dec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxMp3Dec.so: clang version 3.6 
+libMtkOmxMp3Dec.so: GCC: (GNU) 4.4.0
+libMtkOmxRawDec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxRawDec.so: clang version 3.6 
+libMtkOmxVdecEx.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxVdecEx.so: clang version 3.6 
+libMtkOmxVenc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxVenc.so: clang version 3.6 
+libMtkOmxVorbisEnc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkOmxVorbisEnc.so: clang version 3.6 
+libMtkOmxVorbisEnc.so: GCC: (GNU) 4.4.0
+libmtkplayer.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtkplayer.so: clang version 3.6 
+libmtkshifter.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtkshifter.so: GCC: (GNU) 4.8
+libmtkshifter.so: clang version 3.6 
+libmtksqlite3_android.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtksqlite3_android.so: clang version 3.6 
+libmtksqlite3_custom.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtksqlite3_custom.so: clang version 3.6 
+libMtkVideoTranscoder.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libMtkVideoTranscoder.so: clang version 3.6 
+libmtk_drvb.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtk_drvb.so: clang version 3.6 
+libmtk_mmutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtk_mmutils.so: clang version 3.6 
+libmtk_vt_service.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtk_vt_service.so: clang version 3.6 
+libmtk_vt_swip.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtk_vt_swip.so: clang version 3.6 
+libmtk_vt_utils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtk_vt_utils.so: clang version 3.6 
+libmtk_vt_wrapper.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtk_vt_wrapper.so: clang version 3.6 
+libmtp.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libmtp.so: clang version 3.6 
+libnativebridge.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnativebridge.so: clang version 3.6 
+libnativecheck-jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnativecheck-jni.so: clang version 3.6 
+libnativehelper.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnativehelper.so: clang version 3.6 
+libnbaio.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnbaio.so: clang version 3.6 
+libnetd_client.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnetd_client.so: clang version 3.6 
+libnetlink.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnetlink.so: clang version 3.6 
+libnetutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnetutils.so: clang version 3.6 
+libnfc_ndef.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnfc_ndef.so: clang version 3.6 
+libnl.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnl.so: clang version 3.6 
+libnvram.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnvram.so: clang version 3.6 
+libnvramagentclient.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnvramagentclient.so: clang version 3.6 
+libnvram_daemon_callback.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnvram_daemon_callback.so: clang version 3.6 
+libnvram_platform.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnvram_platform.so: clang version 3.6 
+libnvram_sec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libnvram_sec.so: clang version 3.6 
+libOpenCLIcd.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libOpenCLIcd.so: clang version 3.6 
+libOpenMAXAL.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libOpenMAXAL.so: clang version 3.6 
+libOpenSLES.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libOpenSLES.so: clang version 3.6 
+libopus.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libopus.so: clang version 3.6 
+libpac.so: V8.GCCompactor
+libpac.so: V8.GCContext
+libpac.so: c:V8.GCCompactorCausedByRequest
+libpac.so: c:V8.GCCompactorCausedByPromotedData
+libpac.so: c:V8.GCCompactorCausedByOldspaceExhaustion
+libpac.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpac.so: clang version 3.6 
+libpcre.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpcre.so: clang version 3.6 
+libpdfium.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpdfium.so: clang version 3.6 
+libperfservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libperfservice.so: clang version 3.6 
+libperfservicenative.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libperfservicenative.so: clang version 3.6 
+libpixelflinger.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpixelflinger.so: clang version 3.6 
+libpng.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpng.so: clang version 3.6 
+libpower.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpower.so: clang version 3.6 
+libpowermanager.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpowermanager.so: clang version 3.6 
+libPQDCjni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libPQDCjni.so: clang version 3.6 
+libPQjni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libPQjni.so: clang version 3.6 
+libpqservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpqservice.so: clang version 3.6 
+libpq_cust.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpq_cust.so: clang version 3.6 
+libpq_prot.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libpq_prot.so: clang version 3.6 
+libprintspooler_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libprintspooler_jni.so: clang version 3.6 
+libprocessgroup.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libprocessgroup.so: clang version 3.6 
+libprotobuf-cpp-lite.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libprotobuf-cpp-lite.so: clang version 3.6 
+libradio.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libradio.so: clang version 3.6 
+libradioservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libradioservice.so: clang version 3.6 
+libradio_metadata.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libradio_metadata.so: clang version 3.6 
+libreference-ril.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libreference-ril.so: clang version 3.6 
+libresourcemanagerservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libresourcemanagerservice.so: clang version 3.6 
+libril.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libril.so: clang version 3.6 
+librilmtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+librilmtk.so: clang version 3.6 
+librilmtkmd2.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+librilmtkmd2.so: clang version 3.6 
+librilutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+librilutils.so: clang version 3.6 
+libRS.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libRS.so: clang version 3.6 
+libRScpp.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libRScpp.so: clang version 3.6 
+libRSCpuRef.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libRSCpuRef.so: clang version 3.6 
+libRSDriver.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libRSDriver.so: clang version 3.6 
+libRSDriver_mtk.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libRSDriver_mtk.so: clang version 3.6 
+librsjni.so: GCC: (GNU) 4.6 20120106 (prerelease)
+librsjni.so: clang version 3.6 
+librsjni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libRSSupport.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libRSSupport.so: clang version 3.6 
+libRSSupport.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+librs_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+librs_jni.so: clang version 3.6 
+librtp_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+librtp_jni.so: clang version 3.6 
+libselinux.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libselinux.so: clang version 3.6 
+libsensorservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsensorservice.so: clang version 3.6 
+libserviceutility.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libserviceutility.so: clang version 3.6 
+libshowlogo.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libshowlogo.so: clang version 3.6 
+libsigchain.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsigchain.so: clang version 3.6 
+libsink.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsink.so: clang version 3.6 
+libskia.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libskia.so: clang version 3.6 
+libsoftkeymaster.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsoftkeymaster.so: clang version 3.6 
+libsoftkeymasterdevice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsoftkeymasterdevice.so: clang version 3.6 
+libsonic.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsonic.so: clang version 3.6 
+libsonivox.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsonivox.so: clang version 3.6 
+libsoundpool.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsoundpool.so: clang version 3.6 
+libsoundtrigger.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsoundtrigger.so: clang version 3.6 
+libsoundtriggerservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsoundtriggerservice.so: clang version 3.6 
+libsource.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsource.so: clang version 3.6 
+libsparse.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsparse.so: clang version 3.6 
+libspeech_enh_lib.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libspeech_enh_lib.so: clang version 3.6 
+libspeexresampler.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libspeexresampler.so: clang version 3.6 
+libsqlite.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsqlite.so: clang version 3.6 
+libsqlite_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsqlite_jni.so: clang version 3.6 
+libssl.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libssl.so: clang version 3.6 
+libstagefright.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright.so: clang version 3.6 
+libstagefrighthw.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefrighthw.so: clang version 3.6 
+libstagefright_amrnb_common.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_amrnb_common.so: clang version 3.6 
+libstagefright_avc_common.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_avc_common.so: clang version 3.6 
+libstagefright_enc_common.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_enc_common.so: clang version 3.6 
+libstagefright_foundation.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_foundation.so: clang version 3.6 
+libstagefright_httplive.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_httplive.so: clang version 3.6 
+libstagefright_http_support.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_http_support.so: clang version 3.6 
+libstagefright_omx.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_omx.so: clang version 3.6 
+libstagefright_soft_aacdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_aacdec.so: clang version 3.6 
+libstagefright_soft_aacenc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_aacenc.so: clang version 3.6 
+libstagefright_soft_amrdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_amrdec.so: clang version 3.6 
+libstagefright_soft_amrnbenc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_amrnbenc.so: clang version 3.6 
+libstagefright_soft_amrwbenc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_amrwbenc.so: clang version 3.6 
+libstagefright_soft_avcdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_avcdec.so: clang version 3.6 
+libstagefright_soft_avcenc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_avcenc.so: clang version 3.6 
+libstagefright_soft_flacenc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_flacenc.so: clang version 3.6 
+libstagefright_soft_g711dec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_g711dec.so: clang version 3.6 
+libstagefright_soft_gsmdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_gsmdec.so: clang version 3.6 
+libstagefright_soft_hevcdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_hevcdec.so: clang version 3.6 
+libstagefright_soft_mp3dec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_mp3dec.so: clang version 3.6 
+libstagefright_soft_mpeg2dec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_mpeg2dec.so: clang version 3.6 
+libstagefright_soft_mpeg4dec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_mpeg4dec.so: clang version 3.6 
+libstagefright_soft_mpeg4enc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_mpeg4enc.so: clang version 3.6 
+libstagefright_soft_opusdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_opusdec.so: clang version 3.6 
+libstagefright_soft_rawdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_rawdec.so: clang version 3.6 
+libstagefright_soft_vorbisdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_vorbisdec.so: clang version 3.6 
+libstagefright_soft_vpxdec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_vpxdec.so: clang version 3.6 
+libstagefright_soft_vpxenc.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_soft_vpxenc.so: clang version 3.6 
+libstagefright_wfd.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_wfd.so: clang version 3.6 
+libstagefright_yuv.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libstagefright_yuv.so: clang version 3.6 
+libstdc++.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsurfaceflinger.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsurfaceflinger.so: clang version 3.6 
+libsurfaceflinger_ddmconnection.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsurfaceflinger_ddmconnection.so: clang version 3.6 
+libsuspend.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsuspend.so: clang version 3.6 
+libSwJpgCodec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libSwJpgCodec.so: clang version 3.6 
+libsync.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsync.so: clang version 3.6 
+libsysutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libsysutils.so: clang version 3.6 
+libterservice.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libterservice.so: clang version 3.6 
+libtimestretch.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libtimestretch.so: GCC: (GNU) 4.8
+libtimestretch.so: clang version 3.6 
+libtinyalsa.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libtinyalsa.so: clang version 3.6 
+libtinycompress.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libtinycompress.so: clang version 3.6 
+libtinyxml.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libtinyxml.so: clang version 3.6 
+libtouchfilter.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libtouchfilter.so: clang version 3.6 
+libudf.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libudf.so: clang version 3.6 
+libui.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libui.so: clang version 3.6 
+libui_ext.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libui_ext.so: clang version 3.6 
+libunwind.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libunwind.so: clang version 3.6 
+libusbhost.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libusbhost.so: clang version 3.6 
+libutils.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libutils.so: clang version 3.6 
+libvc1dec_sa.ca7.so: GCC: (GNU) 4.7
+libvcodecdrv.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvcodecdrv.so: clang version 3.6 
+libvcodec_cap.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvcodec_cap.so: clang version 3.6 
+libvcodec_oal.so: GCC: (GNU) 4.7
+libvcodec_utility.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvcodec_utility.so: clang version 3.6 
+libvie.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvie.so: clang version 3.6 
+libViewRightWebClient.so: clang version 3.5.0 (branches/release_35)
+libViewRightWebClient.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libViewRightWebClient.so: GCC: (GNU) 4.8
+libvie_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvie_jni.so: clang version 3.6 
+libvixl.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvixl.so: clang version 3.6 
+libVLCCore.so: gcc version 4.8 (GCC)
+libVLCCore.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libVLCCore.so: GCC: (GNU) 4.8
+libvoicerecognition.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvoicerecognition.so: clang version 3.6 
+libvoicerecognition_jni.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvoicerecognition_jni.so: clang version 3.6 
+libvorbisidec.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvorbisidec.so: clang version 3.6 
+libvp8dec_sa.ca7.so: GCC: (GNU) 4.7
+libvp8enc_sa.ca7.so: GCC: (GNU) 4.8
+libvp9dec_sa.ca7.so: GCC: (GNU) 4.7
+libvp9dec_sa.ca7.so: GCC: (GNU) 4.8
+libvtmal.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvtmal.so: GCC: (GNU) 4.8
+libvtmal.so: clang version 3.6 
+libvt_avsync.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvt_avsync.so: clang version 3.6 
+libvt_custom.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvt_custom.so: clang version 3.6 
+libvt_socketbind.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libvt_socketbind.so: clang version 3.6 
+libwapi.so: GCC: (GNU) 4.6.x-google 20120106 (prerelease)
+libwebrtc_audio_preprocessing.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libwebrtc_audio_preprocessing.so: clang version 3.6 
+libwebviewchromium_loader.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libwebviewchromium_loader.so: clang version 3.6 
+libwebviewchromium_plat_support.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libwebviewchromium_plat_support.so: clang version 3.6 
+libwifi-service.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libwifi-service.so: clang version 3.6 
+libwifitest.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libwifitest.so: clang version 3.6 
+libwilhelm.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libwilhelm.so: clang version 3.6 
+libwpa_client.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libwpa_client.so: clang version 3.6 
+libYandexMapkit4Maps_315.so: GCC: (GNU) 4.6.x-google 20120106 (prerelease)
+libYandexSpeechKitJni.2.2.1.so: GCC: (GNU) 4.6 20120106 (prerelease)
+libYandexSpeechKitJni.2.2.1.so: GCC: (GNU) 4.9 20140827 (prerelease)
+libz.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+libz.so: clang version 3.6 
+mtk-ril.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+mtk-ril.so: clang version 3.6 
+mtk-rilmd2.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+mtk-rilmd2.so: clang version 3.6 
+volte_imsm.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease)
+volte_imsm.so: clang version 3.6 

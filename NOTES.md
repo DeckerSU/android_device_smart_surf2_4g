@@ -173,8 +173,8 @@ ETC
 
 В последнем дереве зачем-то сделан "интересный хак":
 
-#service ril-daemon /system/bin/rild
-service ril-daemon /system/bin/mtkrild
+	#service ril-daemon /system/bin/rild
+	service ril-daemon /system/bin/mtkrild
 
 См. тут - https://github.com/Mohancm/device_A7010a48/blob/acbb4490d52f068f9950057a76cf936230544ca7/rootdir/etc/init.rc
 
@@ -325,4 +325,146 @@ ColorConverter converter((OMX_COLOR_FORMATTYPE)srcFormat, OMX_COLOR_Format16bitR
 перед тем как сжимать видео с камеры нужна конвертация внутри YUV420Planar ... т.е. поменять местами RGB и BGR. Как это сделать
 сходу (т.е. за ночь :( я не разобрался. Поэтому я решил перейти к аппаратным MTK'шным кодекам. А на использование
 google.h264.encoder просто "забить".
+
+[8] Ну продолжаем ... 
+
+Итак, в проект дерева были добавлены:
+
+- yuv_formats.txt - описание форматов YUV (в том числе и YUV420 Planar)
+- yuv_formats.jpg - картинка, иллюстрирующая битовые плоскости различных форматов YUV
+- stock-blobs-gcc-ver.txt - текстовый файл, в котором указаны версии GCC для всех lib/*.so из стоковой прошивки Rel015 (это нам пригодится в дальнейшем)
+- 0006-Implement-mtk-color-format-support-fire855.patch - патч framework/av от уважаемого fire855 с добавлением color format'а OMX_MTK_COLOR_FormatYV12 (0x7F000200)
+- init.mt6735.rc - были внесены изменения, касающихся прав на /dev/Vcodec (без этих изменений MTK'шный видеокодек скорее всего бы не запустился)
+
+Итак, мы приняли решение отказаться от использования софтверного OMX.google.h264.encoder (libstagefright_soft_avcenc.so),
+тем более что color conversion для него мы так и не написали. Поэтому вносим изменения в etc media codecs (в коммите
+они будут отражены, поэтому здесь я их описывать не буду), т.е. добавляем поддержку аппаратных кодеков от MTK.
+
+После этого при попытке записи видео мы получаем следующий лог:
+
+	01-25 01:05:19.829  1001  1102 D MtkOmxCore: Mtk_OMX_Init gCoreComponents 0xa0aca000
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: +++++ dump_core_comp_table +++++
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.HEVC), role(video_decoder.hevc), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.MPEG2), role(video_decoder.mpeg2), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.H263), role(video_decoder.h263), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.MPEG4), role(video_decoder.mpeg4), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.AVC), role(video_decoder.avc), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.AVC.secure), role(video_decoder.avc), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.RV), role(video_decoder.rv), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.VC1), role(video_decoder.vc1), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.VPX), role(video_decoder.vpx), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.VP9), role(video_decoder.vp9), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.DIVX), role(video_decoder.divx), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.DIVX3), role(video_decoder.divx3), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.XVID), role(video_decoder.xvid), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.DECODER.S263), role(video_decoder.s263), path(libMtkOmxVdecEx.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.RA), role(audio_decoder.ra), path(libMtkOmxCookDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.MP3), role(audio_decoder.mp3), path(libMtkOmxMp3Dec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.G711.ALAW), role(audio_decoder.g711), path(libMtkOmxG711Dec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.G711.MLAW), role(audio_decoder.g711), path(libMtkOmxG711Dec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.WMAPRO), role(audio_decoder.wma), path(libMtkOmxWmaProDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.WMA), role(audio_decoder.wma), path(libMtkOmxWmaDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.ENCODER.AVC), role(video_encoder.avc), path(libMtkOmxVenc.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.ENCODER.H263), role(video_encoder.h263), path(libMtkOmxVenc.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.VIDEO.ENCODER.MPEG4), role(video_encoder.mpeg4), path(libMtkOmxVenc.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.ENCODER.VORBIS), role(audio_encoder.vorbis), path(libMtkOmxVorbisEnc.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.APE), role(audio_decoder.ape), path(libMtkOmxApeDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.FLAC), role(audio_decoder.flac), path(libMtkOmxFlacDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.ADPCM.MS), role(audio_decoder.adpcm), path(libMtkOmxAdpcmDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.ADPCM.DVI), role(audio_decoder.adpcm), path(libMtkOmxAdpcmDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.ENCODER.ADPCM.MS), role(audio_encoder.adpcm), path(libMtkOmxAdpcmEnc.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.ENCODER.ADPCM.DVI), role(audio_encoder.adpcm), path(libMtkOmxAdpcmEnc.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.RAW), role(audio_decoder.raw), path(libMtkOmxRawDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.GSM), role(audio_decoder.gsm), path(libMtkOmxGsmDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: name(OMX.MTK.AUDIO.DECODER.ALAC), role(audio_decoder.alac), path(libMtkOmxAlacDec.so)
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: ----- dump_core_comp_table -----
+	01-25 01:05:19.830  1001  1102 D MtkOmxCore: -MTK_OMX_Init tick=1485295519830
+
+Т.е. мы видим, что наши аппаратные кодеки были "подцеплены", однако, съемка видео все равно крашится через несколько секунд из-за этого:
+
+	01-25 01:45:42.469   267  3226 E MtkOmxVenc: [0xa8f7b600] [ERROR] cannot support H.264 (1920x1080) encoder
+	01-25 01:45:42.469   267  3226 E MtkOmxVenc: [0xa8f7b600] [ERROR] for low-cost chip, we still support H.264 (1920x1080) encoder
+	01-25 01:45:42.469   267  3226 E MtkOmxVenc: [0xa8f7b600] VAL_CHIP_NAME_DENALI_2
+	01-25 01:45:42.469   267  3226 I VDO_LOG : [getChipName] outChipName: VAL_CHIP_NAME_DENALI_2
+	01-25 01:45:42.469   267  3226 I VDO_LOG : [ION][eVideoMemAlloc] mt_ion_open, val_public i4IonDevFd = 167 
+	01-25 01:45:42.470   267  3226 I VDO_LOG : [ION][eVideoMemAlloc] pvMemVa = 0xa8cb9000, pvAlignMemVa = 0xa8cb9000, pvMemPa = 0x6b00000, pvAlignMemPa = 0x6b00000, MemSize = 872, ByteAlignment = 32
+	01-25 01:45:42.470   267  3226 I VDO_LOG : [ION][eVideoMemAlloc] pvMemVa = 0xa8cb8000, pvAlignMemVa = 0xa8cb8000, pvMemPa = 0x7400000, pvAlignMemPa = 0x7400000, MemSize = 256, ByteAlignment = 32
+	01-25 01:45:42.470   267  3226 I VDO_LOG : [WRAPPER] Wrapper's handle : 0xa8cb92c8
+	01-25 01:45:42.470   267  3226 E VDO_LOG : @@ first use h.264 enc, so dlopen libh264enc_sa.ca7.so
+	01-25 01:45:42.480   267  3226 E MtkOmxVenc: [0xa8f7b600] @@ [MtkOmxVenc::EncodeAVC] FrameWidth=1920, FrameHeight=1080, BufWidth=1920, BufHeight=1080
+	01-25 01:45:42.480   267  3226 E VDO_LOG : [eHalEMICtrlForRecordSize] VideoRecordSize_Set(BWC_SIZE(1920, 1080))
+	01-25 01:45:42.480   267  3226 I VDO_LOG : [getChipName] outChipName: VAL_CHIP_NAME_DENALI_2
+	01-25 01:45:42.480   267  3226 I VDO_LOG : [eValInit] pid = 0x10b, driver type = 0x5
+	01-25 01:45:42.480   267  3226 I VDO_LOG : VCodec_ValFd=170
+	01-25 01:45:42.480   267  3226 I VDO_LOG : [eHalEMICtrl] VideoEncodeCodec_Set(BWCVT_H264)
+	01-25 01:45:42.481   267  3226 I VDO_LOG : [eHalEMICtrl] Profile_Change(BWCPT_VIDEO_RECORD, true)
+	01-25 01:45:42.481   267  3226 I VDO_LOG : H264 init val 0x0, hal 0xa8cb90e0
+	01-25 01:45:42.481   267  3226 I VDO_LOG : [getChipName] outChipName: VAL_CHIP_NAME_DENALI_2
+	01-25 01:45:42.482   267  3226 D MtkOmxVenc: [0xa8f7b600] [EncSettingCodec] Input Format = 0x7f000200, ColorFormat = 0x5
+	01-25 01:45:42.482   267  3226 D MtkOmxVenc: [0xa8f7b600] 0x2
+	01-25 01:45:42.482   267  3226 D MtkOmxVenc: [0xa8f7b600] Encoding: Format = 5, Profile = 1, Level = 8, Width = 1920, Height = 1080, BufWidth = 1920, BufHeight = 1080, NumPFrm = 29, NumBFrm = 0, Framerate = 30, Interlace = 0FrameRateQ16=1966080, IntraFrameRate=30, fgMBAFF=0
+	01-25 01:45:42.482   267  3226 I VDO_LOG : ======== pfnOpen ========pmhalVdoDrv a8cb90e0, prCodecAPI a8cb92c8, pfnOpen b5fd0c45
+	01-25 01:45:42.482   267  3226 I VDO_LOG : ======== pfnOpen ========handle 0 addr = a8cb90e0 prCodecAPI a8cb92c8
+	01-25 01:45:42.482   267  3226 I VDO_LOG : [WRAPPER] EncodeOpen
+	01-25 01:45:42.482   267  3226 I VDO_LOG : [ION][eVideoMemAlloc] pvMemVa = 0xa8cb5000, pvAlignMemVa = 0xa8cb5000, pvMemPa = 0xb100000, pvAlignMemPa = 0xb100000, MemSize = 9816, ByteAlignment = 64
+	01-25 01:45:42.483   267  3226 E VDO_LOG : ======== pfnSetParameter VCODEC_ENC_PARAM_BITRATE = 14000 ========
+	01-25 01:45:42.483   267  3226 I VDO_LOG : ======== pfnSetParameter VCODEC_ENC_PARAM_SET_AVAILABLE_CPU_NUM = 1 ========
+	01-25 01:45:42.536   267  3225 D MtkOmxVenc: [0xa8f7b600] a8f7b600 ETB (0xB5D97F80) (0xA5680000) (8), mNumPendingInput(2)
+	01-25 01:45:42.538   267  3226 I VDO_LOG : [ION][eVideoMemAlloc] pvMemVa = 0x9adf5000, pvAlignMemVa = 0x9adf5000, pvMemPa = 0xb200000, pvAlignMemPa = 0xb200000, MemSize = 19913280, ByteAlignment = 32
+	01-25 01:45:42.560   267  3226 I VDO_LOG : [WRAPPER] EncodeGenerateHeader
+	01-25 01:45:42.561   267  3226 I VDO_LOG : [WRAPPER] UpdateBitstreamWP
+	01-25 01:45:42.561   267  3226 D MtkOmxVenc: [0xa8f7b600] Sequence header size = 26
+	01-25 01:45:42.561   267  3226 D MtkOmxVenc: [0xa8f7b600] mIsMultiSlice = 0
+	01-25 01:45:42.561   267  3226 D MtkOmxVenc: [0xa8f7b600] a8f7b600 FBD (0xB5D98460) (0xA4B80000) 28615 (26), mNumPendingOutput(7)
+	01-25 01:45:42.561   267  3223 D MtkOmxVenc: [0xa8f7b600] MtkOmxVenc::GetParameter (0x02000001)
+	01-25 01:45:42.562   267  3226 D MtkOmxVenc: [0xa8f7b600] FrameBuf : handle = 0xb5d58c00, VA = 0x9aaf7000, PA = 0xae00000, format=HAL_PIXEL_FORMAT_YV12(0x32315659), ion=161
+	01-25 01:45:42.564   267  3225 D MtkOmxVenc: [0xa8f7b600] a8f7b600 FTB (0xB5D98460) (0xA4B80000) (2097152), mNumPendingOutput(8)
+	01-25 01:45:42.567   267  3225 D MtkOmxVenc: [0xa8f7b600] a8f7b600 ETB (0xB5D980A0) (0xA5380000) (8), mNumPendingInput(3)
+	01-25 01:45:42.613   267  3225 D MtkOmxVenc: [0xa8f7b600] a8f7b600 ETB (0xB5D98100) (0xA5080000) (8), mNumPendingInput(4)
+	01-25 01:45:42.673   267  3225 D MtkOmxVenc: [0xa8f7b600] a8f7b600 ETB (0xB5D98160) (0xA4D80000) (8), mNumPendingInput(5)
+	01-25 01:45:42.698   267  3226 F libc    : Fatal signal 11 (SIGSEGV), code 1, fault addr 0x0 in tid 3226 (MtkOmxVencEncod)
+
+	01-25 01:45:42.757   264   264 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+	01-25 01:45:42.758   264   264 F DEBUG   : CM Version: '13.0-20170124-UNOFFICIAL-smart_surf2_4g'
+	01-25 01:45:42.758   264   264 F DEBUG   : Build fingerprint: 'MTS/cm_smart_surf2_4g/smart_surf2_4g:6.0.1/MOB31K/ec5185323d:userdebug/test-keys'
+	01-25 01:45:42.758   264   264 F DEBUG   : Revision: '0'
+	01-25 01:45:42.758   264   264 F DEBUG   : ABI: 'arm'
+	01-25 01:45:42.758   759   897 W NativeCrashListener: Couldn't find ProcessRecord for pid 267
+	01-25 01:45:42.758   264   264 F DEBUG   : pid: 267, tid: 3226, name: MtkOmxVencEncod  >>> /system/bin/mediaserver <<<
+	01-25 01:45:42.758   264   264 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0
+	01-25 01:45:42.758   264   264 E DEBUG   : AM write failed: Broken pipe
+	01-25 01:45:42.762  1873  3260 I system_update: [262656,0,0,NULL]
+	01-25 01:45:42.782  1688  1933 I GCoreUlr: Unbound from all location providers
+	01-25 01:45:42.782  1688  1933 I GCoreUlr: Place inference reporting - stop
+	01-25 01:45:42.784   264   264 F DEBUG   :     r0 00000000  r1 00000000  r2 00000000  r3 00000000
+	01-25 01:45:42.784   264   264 F DEBUG   :     r4 9adf5010  r5 9adf5010  r6 9adf7010  r7 00000000
+	01-25 01:45:42.784   264   264 F DEBUG   :     r8 9adf5010  r9 00000001  sl 00000000  fp 9adf5498
+	01-25 01:45:42.784   264   264 F DEBUG   :     ip b5f9deec  sp a8170408  lr b5f8a4e1  pc b69e20f2  cpsr 40000030
+	01-25 01:45:42.799   264   264 F DEBUG   : 
+	01-25 01:45:42.799   264   264 F DEBUG   : backtrace:
+	01-25 01:45:42.799   264   264 F DEBUG   :     #00 pc 000400f2  /system/lib/libc.so (pthread_cond_wait+3)
+	01-25 01:45:42.799   264   264 F DEBUG   :     #01 pc 000014df  /system/lib/libvcodec_oal.so (VCodecPthread_cond_wait+14)
+	01-25 01:45:42.799   264   264 F DEBUG   :     #02 pc 00026cec  /system/lib/libh264enc_sa.ca7.so (H264SwEncStrmEncode+4260)
+
+Почему? Давайте посмотрим на версии компилятора библиотек libc.so, libvcodec_oal.so и libvcodec_oal.so. Первая собрана у нас из исходников CM, здесь у нас GCC: (GNU) 4.9.x-google 20140827 (prerelease) clang version 3.6. Две другие взяты из стоковой Rel15, кодеки от MTK:
+
+- libvc1dec_sa.ca7.so: GCC: (GNU) 4.7
+- libvcodecdrv.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease) clang version 3.6
+- libvcodec_cap.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease) clang version 3.6
+- libvcodec_oal.so: GCC: (GNU) 4.7 
+- libvcodec_utility.so: GCC: (GNU) 4.9.x-google 20140827 (prerelease) clang version 3.6
+ 
+Не знаю как объяснить правильно, но с совместимостью библиотек собранными разными версиями GCC до 4.8 включительно и выше есть некая проблема, связанная с pthread / address alignment / address sanites (???), которую я описал здесь - [GCC: (GNU) 4.9.x-google 20140827 (prerelease). Проблема с alignment (address sanitize)?](https://toster.ru/q/390882) (может быть профессионалы там дадут ответ на вопрос), также ее описал daniel_hk [здесь](https://forum.xda-developers.com/k3-note/orig-development/rom-custom-nougat-roms-k-3-note-t3513466) (читать с раздела III. The Camera, там правда у него крашится при вызове ioctl и он связывает это именно со специфическими memory align, но думаю здесь проблема со схожими корнями). Итак, наша задача найти библиотеки, которые взяты из стоковой прошивки и собраны современным gcc 4.9.x, собранными с более низкой версией GCC. Я это сделал в дереве [android_vendor_d5110_infinix](https://github.com/Nonta72/android_vendor_d5110_infinix) от Nonta72.
+
+Там libvcodecdrv.so и ibvcodec_utility.so собраны с помощью GCC: (GNU) 4.8 (!), заменим их в нашей прошивке.
+
+А также заменим libMtkOmxVenc.so, libvcodec_oal.so по тем же причинам (вообще в случае проблем libMtk*.so, т.е. все что касается OMX наверное можно целиком взять оттуда, т.к. там все это собрано 4.8 GCC) и ниже.
+
+В итоге получаем **рабочую запись видео** ... На этом моменте можно кричать - ура, ура, ура ... ;)
+
+[9] Осталось пофиксить Bluetooth, SEPolicy ... еще раз проверить работу RIL, добавить пункт LTE в меню сетей, а то
+сейчас по-умолчанию стоит ro.telephony.default_network=9 , а в меню только пунты 2G/3G ;) Плюс свякие мелочи, 
+вроде добавления реальной емкости батареи в overlay и т.д. и т.п.
+
+
 

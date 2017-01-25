@@ -7,4 +7,8 @@ cd ../..
 cd packages/apps/Settings
 git apply -v ../../../device/mts/smart_surf2_4g/patches_decker/0003-add-author-info-in-device-info.patch
 cd ../../..
+cd frameworks/av
+git apply -v ../../device/mts/smart_surf2_4g/patches_decker/0006-Implement-mtk-color-format-support-fire855.patch
+cd ../..
+
 
