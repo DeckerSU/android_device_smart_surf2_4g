@@ -29,6 +29,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 $(call inherit-product-if-exists, vendor/mts/smart_surf2_4g/smart_surf2_4g-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/mts/smart_surf2_4g/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/mts/smart_surf2_4g/overlay # enable this to be able overlay a default wallpaper
 
 LOCAL_PATH := device/mts/smart_surf2_4g
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -183,6 +184,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmrdump \
     mrdump_tool
+
+# 3rd-party apps
+PRODUCT_PACKAGES += \
+	Telegram+3.16.1
+
 
 #Hack for prebuilt kernel
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
