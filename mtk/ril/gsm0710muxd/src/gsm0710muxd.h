@@ -149,12 +149,12 @@
 #ifdef MTK_RIL_MD1
 #define LOGMUX(lvl,f,...) do{if(lvl<=syslog_level){\
 								LOG_PRI(android_log_lvl_convert[lvl], LOG_TAG, \
-								"[gsm0710muxd] %d:%s(): " f, __LINE__, __FUNCTION__, ##__VA_ARGS__);}\
+								"[gsm0710muxd-decker] %d:%s(): " f, __LINE__, __FUNCTION__, ##__VA_ARGS__);}\
 						  }while(0)
 #else
 #define LOGMUX(lvl,f,...) do{if(lvl<=syslog_level){\
 								LOG_PRI(android_log_lvl_convert[lvl], LOG_TAG, \
-								"[gsm0710muxdmd2] %d:%s(): " f, __LINE__, __FUNCTION__, ##__VA_ARGS__);}\
+								"[gsm0710muxdmd2-decker] %d:%s(): " f, __LINE__, __FUNCTION__, ##__VA_ARGS__);}\
 						  }while(0)
 #endif
 

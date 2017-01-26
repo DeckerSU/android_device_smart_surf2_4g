@@ -13,6 +13,7 @@
 #
 
 ifneq ($(BOARD_HAVE_BLUETOOTH_MTK),)
+ifeq ($(TARGET_BOARD_PLATFORM), mt6580)
 
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
@@ -37,4 +38,5 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
 
 include $(BUILD_SHARED_LIBRARY)
 
+endif
 endif

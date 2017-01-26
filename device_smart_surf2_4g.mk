@@ -78,8 +78,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
 
 # Bluetooth
-PRODUCT_PACKAGES += \
-    libbt-vendor
+# Disable it, because it uses libbluetoothdrv.so, scheme to access from MT6580,
+# that not exists in MT6737M.
+
+#PRODUCT_PACKAGES += \
+#    libbt-vendor
 
 # RIL
 #PRODUCT_PACKAGES += \
