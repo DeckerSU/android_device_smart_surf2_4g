@@ -10,4 +10,6 @@ cd ../../..
 cd frameworks/av
 git apply -v --check ../../device/mts/smart_surf2_4g/patches_decker/0006-Implement-mtk-color-format-support-fire855.patch
 cd ../..
-
+cd packages/apps/FMRadio/jni/fmr/ 
+git apply -v --check ../../../../../device/mts/smart_surf2_4g/patches_decker/0007-fix-fm-radio-power-up-mt6737m-mt6627-chip.patch
+cd ../../../../..

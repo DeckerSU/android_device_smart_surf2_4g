@@ -490,3 +490,66 @@ MT6580 по другому общается с Bluetooth'ом, через libblu
 	endif
 
 Продолжение следует ... ;)
+
+[12] FM Radio ...
+
+Проблема показана наглядно в fm_radio_problem.png, слева лог стоковой прошивки, справа - собранной CM13.
+
+Возможно проблема аналогична описанной здесь:
+
+- https://github.com/divis1969/android_device_meizu_meilan2/issues/18
+- https://github.com/visi0nary/android_device_elephone_p8000/commit/0999f7dfa0b00202f72d769ebea3c2636932eefc (один из вариантов фикса)
+- https://github.com/divis1969/android_frameworks_av/commit/216feed6c93c4a20319bdb0939371be75364d45f (другой вариант)
+- https://github.com/Deepflex/android_device_elephone_p7000/
+
+Однако так и не понятно, почему в случае с CM mVMFileName=, VMFileName= пустые, а на стоке - нет.
+
+Как пишет divis1969: it shows empty names whereas stock build have non-empty value.
+Unfortunately, I did not find yet where it is initialized (in audio.primary.mt6735.so).
+Most likely I just did not yet include some stock binary or did not use a stock property.
+
+
+А проблема была на поверхности, не нужно было лезть в дебри с AudioFlinger ... audio_policy.conf и т.п., смотрите:
+
+Stock:
+
+	FMLIB_JNI: jboolean powerUp(JNIEnv*, jobject, jfloat), [freq=100]
+	FMLIB_CORE: int FMR_pwr_up(int, int),[freq=10000]
+	FMLIB_COM: int COM_pwr_up(int, int, int), [freq=10000]
+
+CM13:
+
+	FMLIB_JNI: jboolean (JNIEnv*, jobject, jfloat), [freq=100]
+	FMLIB_CORE: int FMR_pwr_up(int, int),[freq=1000]
+	FMLIB_CORE: int FMR_pwr_up(int, int) error freq: 1000
+	FMLIB_JNI: jboolean powerUp(JNIEnv*, jobject, jfloat), [ret=-1002]
+
+Видите разницу? ) Android приложение и там и там пытается инициализировать частоту как 100 MHz (это DEFAULT_STATION),
+только вот дальше в Stock'е на вход FMR_pwr_up попадает 10000, а в CM13 - 1000.
+
+Теперь посмотрим код packages/apps/FMRadio/jni/fmr/fmr_core.cpp :
+
+	int FMR_pwr_up(int idx, int freq)
+	{
+	
+	...
+	
+	    if (freq < fmr_data.cfg_data.low_band || freq > fmr_data.cfg_data.high_band) {
+	        LOGE("%s error freq: %d\n", __func__, freq);
+	        ret = -ERR_INVALID_PARA;
+	        return ret;
+	    }
+	}
+
+При этом:
+
+[fmr_data.cfg_data.low_band=8750][fmr_data.cfg_data.high_band=10800]
+
+Т.е. частоту в jboolean powerUp перед вызовом FMR_pwr_up надо умножать не на 10, а на 100 (!)
+
+То же самое видимо и в jboolean tune -> FMR_tune , хотя я проверял - в tune работает и без 
+умножения на 100.
+
+Да, при этом никакой libmtkplayer.so в дереве не нужен, т.к. эта либа нигде не используется.
+Т.е. поместить то его можно, но зачем? Чтобы валялся мертвым грузом? ;)
+
