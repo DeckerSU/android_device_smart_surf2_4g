@@ -1,0 +1,69 @@
+From e0d8c1b6d6c5439561bd6f5ff0fa3b393674ba29 Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Wed, 1 Feb 2017 08:43:40 +0300
+Subject: [PATCH] WiFi AP fix
+
+Thx to: olegsvs
+URL: https://github.com/olegsvs/android_device_ark_benefit_m7/blob/cm-13.0_work/patches/system_netd/0001-AP-fix.patch
+
+Change-Id: Ib3688dab57af9cc568da3c9fab00c19b51a5364e
+---
+ server/SoftapController.cpp | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
+
+diff --git a/server/SoftapController.cpp b/server/SoftapController.cpp
+index b05118e..8578d7a 100755
+--- a/server/SoftapController.cpp
++++ b/server/SoftapController.cpp
+@@ -38,6 +38,9 @@
+ #include <base/stringprintf.h>
+ #include <cutils/log.h>
+ #include <netutils/ifc.h>
++#ifdef MTK_HARDWARE
++#include <cutils/properties.h>
++#endif
+ #include <private/android_filesystem_config.h>
+ #include "wifi.h"
+ #include "wifi_fst.h"
+@@ -54,7 +57,11 @@ using android::base::WriteStringToFile;
+ #endif
+ 
+ #ifdef LIBWPA_CLIENT_EXISTS
++#ifdef MTK_HARDWARE
++static const char HOSTAPD_UNIX_FILE[]    = "/data/misc/wifi/hostapd/ap0";
++#else
+ static const char HOSTAPD_UNIX_FILE[]    = "/data/misc/wifi/hostapd/wlan0";
++#endif
+ static const char HOSTAPD_SOCKETS_DIR[]    = "/data/misc/wifi/sockets";
+ static const char HOSTAPD_DHCP_DIR[]    = "/data/misc/dhcp";
+ #endif
+@@ -253,6 +260,11 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
+     int hidden = 0;
+     int channel = AP_CHANNEL_DEFAULT;
+ 
++    #ifdef MTK_HARDWARE
++    char ifname[PROP_VALUE_MAX] = {'\0', };
++    property_get("wifi.tethering.interface", ifname, "ap0");
++    #endif
++
+     if (argc < 5) {
+         ALOGE("Softap set is missing arguments. Please use:");
+         ALOGE("softap <wlan iface> <SSID> <hidden/broadcast> <channel> <wpa2?-psk|open> <passphrase>");
+@@ -277,7 +289,13 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
+             "hw_mode=%c\n"
+             "ignore_broadcast_ssid=%d\n"
+             "wowlan_triggers=any\n",
+-            argv[2], argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
++            // argv[2], argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
++#ifndef MTK_HARDWARE
++            argv[2]
++#else
++            ifname
++#endif
++		      , argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
+ 
+     std::string fbuf;
+     if (argc > 7) {
+-- 
+2.7.4
+
