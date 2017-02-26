@@ -1,10 +1,10 @@
 # system.prop
 
-#rild.libpath=mtk-ril.so
-#rild.libargs=-d /dev/ttyC0
-
-rild.libpath=/system/lib64/mtk-ril.so
+rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
+
+#rild.libpath=/system/lib64/mtk-ril.so
+#rild.libargs=-d /dev/ttyC0
 
 
 # MTK, Infinity, 20090720 {
