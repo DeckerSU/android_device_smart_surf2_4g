@@ -238,3 +238,7 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #     ebtables \
 #     ethertypes
+
+## CM Apps
+PRODUCT_PACKAGES += \
+	CMFileManager
