@@ -97,8 +97,8 @@ PRODUCT_PACKAGES += mtspshelper
 PRODUCT_PACKAGES += power.mt6735
 
 # Gello
-PRODUCT_PACKAGES += \
-    Gello
+# PRODUCT_PACKAGES += \
+#    Gello
 
 # Wifi
 PRODUCT_PACKAGES += \
